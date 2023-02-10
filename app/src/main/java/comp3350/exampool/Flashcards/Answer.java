@@ -8,6 +8,8 @@ public class Answer {
     //Constructor
     public Answer(char tag, String option) {
         this.tag = tag;
+
+        assert(option != null);
         this.option = option;
     }
 

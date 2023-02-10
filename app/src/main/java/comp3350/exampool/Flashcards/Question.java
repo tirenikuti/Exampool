@@ -7,12 +7,15 @@ public class Question {   //Super class for all the remaining question types
 
     //Constructor
     public Question(String questTag, String answer) {
+        assert (questTag!= null);
+        assert (answer != null);
         this.questTag = questTag;
         this.Answer = answer;
     }
 
     //default Constructor
     public Question (String questTag){
+        assert (questTag!= null);
         this.questTag = questTag;
     }
 

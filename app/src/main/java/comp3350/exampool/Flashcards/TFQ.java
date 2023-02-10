@@ -4,22 +4,23 @@ import java.util.ArrayList;
 public class TFQ extends Question{
 
     //array list of the two option (True/False)
-    private final ArrayList<String> options = new ArrayList<>();
+    private final String[] options = new String [2];
 
-    //COnstructor
+    //Constructor
     public TFQ(String quesTag, String corrAns){
         super(quesTag);
 
         //Adding the options to the arraylist
-        options.add("TRUE");
-        options.add("FALSE");
+        options[0] = "TRUE";
+        options[1] = "FALSE";
 
+        assert(corrAns != null);
         //find a set correct answer
         if(corrAns.equalsIgnoreCase("true")){
-            super.setAnswer(options.get(0));
+            super.setAnswer(options[0]);
         }
         else if(corrAns.equalsIgnoreCase("false")) {
-            super.setAnswer(options.get(1));
+            super.setAnswer(options[1]);
         }
     }
 
@@ -27,7 +28,7 @@ public class TFQ extends Question{
     //toString() method
     @Override
     public String toString() {
-        String retString = options.get(0) + "\t" +options.get(1) ;
+        String retString = options[0] + "\t" +options[1] ;
         return super.toString() + "\n\t" + retString;
     }
 }

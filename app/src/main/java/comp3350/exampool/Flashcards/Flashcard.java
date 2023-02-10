@@ -15,6 +15,7 @@ public class Flashcard {
     public Flashcard() {
         //default variable set to blank
         front = new Question("blank", "blank");
+        assert(front.getAnswer()!= null);
         //the back is the answer from the front Question
         back = front.getAnswer();
     }
@@ -28,15 +29,21 @@ public class Flashcard {
 
     //Displays Flashcards, acts also as a toString method although does not return String type
     public void displayFlashcard(){
-        String frontString = front.toString();
 
+        assert(front.getQuestTag() != null);
+        assert(front.getAnswer() != null);
+        String frontString = front.toString();
         System.out.println(frontString);
         System.out.println("Press any key to flip flash card, press N to quit");
         Scanner question = new Scanner(System.in);
         String resp = question.nextLine();
+
+        assert(resp != null);
+
         while(!resp.equals("N")) {
             System.out.println(back);
             resp = question.nextLine();
+            assert(resp != null);
             if(!resp.equals("N")) {
                 System.out.println(frontString);
             }
@@ -44,6 +51,7 @@ public class Flashcard {
                 break;
             }
             resp = question.nextLine();
+            assert(resp != null);
         }
     }
 

@@ -31,6 +31,7 @@ public class MCQ extends Question{
             tags.add('C');
             tags.add('D');
 
+            assert(!tags.isEmpty());
             //sets the correct answer and assigns it a random tag (so that users don't know what option it will be)
             correct = new Answer(setRandTag(tags), corrAns);
 
@@ -67,10 +68,15 @@ public class MCQ extends Question{
 
     //adds answers to the answers array list
         public void addAnswers(String ans1) {
+        assert(!tags.isEmpty());
             Answer newAns = new Answer(setRandTag(tags), ans1);
+
+            assert (i <= tempArr.length);
             tempArr[i] = newAns;
             i++;
+
             if(i == tempArr.length) {
+                assert (i == tempArr.length);
                 sortAnswers(tempArr);
             }
         }
@@ -101,11 +107,13 @@ public class MCQ extends Question{
                     break;
                 }
             }
+            assert (answers.size() == 4);
             setCorrAns(correct);
         }
 
         //sets the correct answer to the assigned tag
         private void setCorrAns(Answer corr){
+        assert(corr != null);
             for (Answer answer : answers) {
                 if ((answer.getOption()).equals(corr.getOption())) {
                     corr.setTag(answer.getTag());
@@ -116,8 +124,13 @@ public class MCQ extends Question{
 
 //sets random tags to answers as they enter the array
         private char setRandTag(ArrayList<Character>possTags){
+        assert(possTags.size() > 0);
             int n = possTags.size();
+            assert(n >0);
+            assert (n <= possTags.size());
             int rnd = new Random().nextInt(n);
+            assert (rnd > 0);
+            assert (rnd <= possTags.size());
             char retString = possTags.get(rnd);
             possTags.remove(rnd);
             return retString;
