@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/a02-g16-exampool.iml" filepath="$PROJECT_DIR$/.idea/a02-g16-exampool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ExamPool.iml" filepath="$PROJECT_DIR$/.idea/modules/ExamPool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ExamPool.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ExamPool.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ExamPool.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ExamPool.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ExamPool.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ExamPool.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ExamPool.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ExamPool.app.unitTest.iml" />
     </modules>
   </component>
 </project>
