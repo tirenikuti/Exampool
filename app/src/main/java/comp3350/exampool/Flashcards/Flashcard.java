@@ -58,14 +58,14 @@ public class Flashcard {
     //Getters and Setters
 
     //Getters Never Used, kept in case needed later
- /*    public Question getFront() {
+     public Question getFront() {
         return front;
     }
 
     public String getBack() {
         return back;
     }
-    */
+
     public void setFront(Question front) {
         this.front = front;
     }

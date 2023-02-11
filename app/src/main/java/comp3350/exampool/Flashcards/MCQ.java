@@ -7,6 +7,7 @@ public class MCQ extends Question{
 
         //an arrayList of possible options
         private final ArrayList<Answer> answers = new ArrayList<>();
+        private final ArrayList<String> optionsWOTags = new ArrayList<>();
 
         //counter
         private int i =1;
@@ -31,50 +32,59 @@ public class MCQ extends Question{
             tags.add('C');
             tags.add('D');
 
-            assert(!tags.isEmpty());
+            assert(tags.size()>0);
             //sets the correct answer and assigns it a random tag (so that users don't know what option it will be)
+            optionsWOTags.add(corrAns);
             correct = new Answer(setRandTag(tags), corrAns);
+
 
             //makes the first element in our temporary array the correct answer
             tempArr[0] = correct;
         }
 
         //Getters and Setter (Never used)
-    /*
+  /*
         public ArrayList<Answer> getAnswers() {
             return answers;
         }
 
+   */
+
         public char getCorrectTag() {
-            return correct.getTag();
+            return correct.getTag() ;
         }
 
-        public void setCorrect(String correctA) {
-            correct = new Answer(' ', correctA);
-            for (int j = 0; j < answers.size(); j++) {
-                if((answers.get(j).getOption()).equals(correct.getOption())){
-                    correct.setTag(answers.get(j).getTag());
+        @Override
+        public void setAnswer(String correctA) {
+            correct.setOption(correctA);
+            for (Answer answer : answers) {
+                if ((answer.getOption()).equals(correct.getOption())) {
+                    correct.setTag(answer.getTag());
                     break;
                 }
             }
         }
 
-     */
+
 
     //returns the correct answer and its randomly assigned tag
-    public String getCorrect() {
+    @Override
+    public String getAnswer() {
         return correct.getTag() + "." + correct.getOption();
     }
 
     //adds answers to the answers array list
         public void addAnswers(String ans1) {
-        assert(!tags.isEmpty());
+            assert(ans1 != null);
+            assert(tags.size() >0);
+
+            assert(!optionsWOTags.contains(ans1));
+            optionsWOTags.add(ans1);
             Answer newAns = new Answer(setRandTag(tags), ans1);
 
             assert (i <= tempArr.length);
             tempArr[i] = newAns;
             i++;
-
             if(i == tempArr.length) {
                 assert (i == tempArr.length);
                 sortAnswers(tempArr);
@@ -126,10 +136,11 @@ public class MCQ extends Question{
         private char setRandTag(ArrayList<Character>possTags){
         assert(possTags.size() > 0);
             int n = possTags.size();
-            assert(n >0);
-            assert (n <= possTags.size());
+            assert n >0;
+
             int rnd = new Random().nextInt(n);
-            assert (rnd > 0);
+
+            assert (rnd >= 0);
             assert (rnd <= possTags.size());
             char retString = possTags.get(rnd);
             possTags.remove(rnd);
