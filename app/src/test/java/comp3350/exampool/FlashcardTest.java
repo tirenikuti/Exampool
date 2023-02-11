@@ -1,7 +1,9 @@
+package comp3350.exampool;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-
+import comp3350.exampool.Flashcards.*;
 public class FlashcardTest {
     Flashcard newCard = new Flashcard();
     Flashcard newCard2 = new Flashcard();

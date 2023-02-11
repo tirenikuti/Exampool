@@ -1,3 +1,4 @@
+package comp3350.exampool.Flashcards;
 //import java.util.Scanner;
 
 public class Main {

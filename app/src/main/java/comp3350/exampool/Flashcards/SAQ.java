@@ -1,3 +1,5 @@
+package comp3350.exampool.Flashcards;
+
 //import java.util.Arrays;
 //import java.util.Scanner;
 public class SAQ extends Question{

@@ -1,3 +1,5 @@
+package comp3350.exampool.Flashcards;
+
 //Answer Helper class for the Multiple Choice questions
 public class Answer {
     //the option tag (A/B/C/D)
