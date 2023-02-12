@@ -1,44 +1,17 @@
 package comp3350.exampool.Tags;
 
-import java.util.ArrayList; // import the ArrayList class
-
-
 //Placeholder class to fix errors until next iteration
 public class Tags {
-    public Tags(){
-    }
-    
-    public String getTagName(){
-        return null;
+    private String tagName;//The name of the tag
+    private static noOfTags =0;//The number of tags that exists
+
+    public Tags(String tN) {
+        tagName = tN;
+        noOfTags++;
     }
 
-public ArrayList searchTag(String searchName){
-  ArrayList<Integer> result = new ArrayList<Integer>();
-  if (head != null) {  
-    Node temp = head;
-    int foundAtIndex = 0;
-    while (temp != null) {
-      //Store index of that particular element, if found.
-      if ((temp.getTagName()).equals(searchName)) {
-        result.add(index);//If tag was found, add it's particular index to the arraylist
-      }
-      //Gradually increases index while
-      //traversing through the Linked List
-      index++;
-      temp = temp.next;
+    public String getTagName() {
+        return tagName;
     }
-  }
-  return result;
 }
 
-public Tags tagAtIndex(int index){//Function to return a tag found at index 
-  Node temp = head;
-  if(index <= size()){  
-    for (int i = 0; i < index; i++) {
-      temp.next();
-    }
-  }
-  return temp;
-}
-
-}
