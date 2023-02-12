@@ -1,6 +1,5 @@
 package comp3350.exampool.Tags;
 
-import java.util.ArrayList;
 import java.util.ArrayList; // import the ArrayList class
 
 
