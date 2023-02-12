@@ -3,8 +3,8 @@ import comp3350.exampool.Tags.Tags;
 import comp3350.exampool.Tags.Node; 
 import java.util.ArrayList; // import the ArrayList class
 
-public class TagsLinkedList { 
-  private Node head;
+public class TagsLinkedList  {
+  private static Node head;
   private static int noOfTags = 0;
   public void insert(Tags data) {
     Node newElement = new Node(data);
@@ -42,7 +42,7 @@ public class TagsLinkedList {
   public Node getHead(){
     return head; 
   }
-  public ArrayList<Integer> searchTag(String searchName){
+  public static ArrayList<Integer> searchTag(String searchName){
     ArrayList<Integer> result = new ArrayList<Integer>();
     if (head != null) {  
       Node temp = head;
@@ -60,7 +60,7 @@ public class TagsLinkedList {
     }
     return result;
   }
-  public Tags tagAtIndex(int index){//Function to return a tag found at index 
+  public static Tags tagAtIndex(int index){//Function to return a tag found at index
     Node temp = head;
     if(index <= noOfTags){  
       for (int i = 0; i < index; i++) {

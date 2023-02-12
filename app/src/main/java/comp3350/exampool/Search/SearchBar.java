@@ -5,6 +5,7 @@
 package comp3350.exampool.Search;
 
 import comp3350.exampool.Tags.TagsLinkedList;
+import comp3350.exampool.Tags.Tags;
 import java.util.ArrayList; // import the ArrayList class
 
 public class SearchBar {
@@ -19,7 +20,7 @@ public class SearchBar {
       return null; //System.out.println("Tag not found");
     }else{
       for(int i = 0; i < tagIndex.size(); i++){
-        result.add(TagsLinkedList.tagAtIndex(tagIndex));
+        result.add(TagsLinkedList.tagAtIndex(tagIndex.get(i)));
       }
     }
     return result;
