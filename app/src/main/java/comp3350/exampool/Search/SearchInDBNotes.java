@@ -1,5 +1,5 @@
 // This class searches the contents of the Notes table in JDBC
-package comp3350.exampool.Search
+package comp3350.exampool.Search;
 
 import java.sql.*;
  

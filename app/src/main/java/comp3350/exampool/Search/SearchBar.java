@@ -2,7 +2,7 @@
  *Main Search bar - Tags
  * Needed in Tag getTagName()
  */
-package comp3350.exampool.Search
+package comp3350.exampool.Search;
 
 import Tags.Tags;
 import java.util.ArrayList; // import the ArrayList class
