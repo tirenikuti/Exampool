@@ -15,6 +15,10 @@ public class TagsList {
        tagList.add(noOfTags, new Tag(tagName));
        noOfTags++;
   }
+  public void deleteTags(Tags tagName){//Creating a tag
+       tagList.remove(tagName);
+       noOfTags;
+  }
   
   
   public ArrayList searchTag(String searchName){
