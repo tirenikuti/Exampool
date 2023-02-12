@@ -5,6 +5,7 @@ import java.util.ArrayList; // import the ArrayList class
 
 public class TagsLinkedList { 
   private Node head;
+  private static int noOfTags = 0;
   public void insert(Tags data) {
     Node newElement = new Node(data);
     
@@ -15,10 +16,31 @@ public class TagsLinkedList {
     
     newElement.setNext(head); 
     head = newElement;       
+    noOfTags++;
+  }
+  
+  public Node remove(Tags target, Node curr) {
+    /* If current reaches the end (null), target was not found. */
+    if (curr == null) {
+      return null;
+    }
     
+    /* Conditional to check if target is found. */
+    if (curr.getTags().equals(target)) {
+      /* remove target node by returning next. */
+      noOfTags--;
+      return curr.getNext();
+      
+    }
+    /* Target is not found, so set next to recursive call. */
+    else {
+      curr.setNext(remove(target, curr.getNext()));
+    }
+    
+    return curr;
   }
   public Node getHead(){
-   return head; 
+    return head; 
   }
   public ArrayList<Integer> searchTag(String searchName){
     ArrayList<Integer> result = new ArrayList<Integer>();
@@ -37,6 +59,15 @@ public class TagsLinkedList {
       }
     }
     return result;
+  }
+  public Tags tagAtIndex(int index){//Function to return a tag found at index 
+    Node temp = head;
+    if(index <= noOfTags){  
+      for (int i = 0; i < index; i++) {
+        temp.getNext();
+      }
+    }
+    return temp.getTags();
   }
   
 }
