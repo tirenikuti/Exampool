@@ -12,7 +12,7 @@ public class TagsList {
   }
   
   public void createTags(String tagName){//Creating a tag
-       tagList.add(noOfTags, new Tag(tagName));
+       tagList.add(noOfTags, new Tags(tagName));
        noOfTags++;
   }
   public void deleteTags(Tags tagName){//Creating a tag
