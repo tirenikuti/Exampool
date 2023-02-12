@@ -24,6 +24,14 @@ The features need to work together and coherently and to achieve this, in this i
 3. `ConnectionDatabaseFlashcards.java`: This class creates a connection for the app to the Flashcards database
 4. `ConnectionDatabaseNotes.java`: This class creates a connection for the app to the Notes database
 
+> These 4 classes are the logical implementation of Search. The database is yet to be created in Iteration 2.
+
+###Tags
+1. `Tags.java` is the object tags which will be given to notes and flashcards to allow for searching. 
+2. `TagsList.java` is a list of all tags that have been created in the form of an arraylist
+
+
+
 
 
 DIAGRAM OF ARCHITECTURE
