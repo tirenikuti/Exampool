@@ -2,17 +2,66 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/flashcardbttn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#E91E63"
+    android:backgroundTint="#E91E63"
+    android:backgroundTintMode="src_in"
+    android:foregroundTint="#E91E63"
+    android:visibility="visible"
+    tools:context=".MainActivity"
+    tools:visibility="visible">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="413dp"
+        android:layout_height="732dp"
+        android:background="#B6CFE3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background"
+        tools:srcCompat="@drawable/_133" />
+
+    <TextView
+        android:id="@+id/Appname"
+        android:layout_width="230dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="605dp"
+        android:contentDescription="Appname"
+        android:text="ExamPool"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/flashcards"
+        android:layout_width="196dp"
+        android:layout_height="49dp"
+        android:background="#E91E63"
+        android:backgroundTint="#E91E63"
+        android:backgroundTintMode="add"
+        android:checkable="true"
+        android:clickable="true"
+        android:drawableTint="#E91E63"
+        android:fontFamily="sans-serif-black"
+        android:text="Flashcards"
+        android:textColor="#F9F5FA"
+        android:textSize="16sp"
+        app:iconTint="#E91E63"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.87"
+        app:strokeColor="#E91E63" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
