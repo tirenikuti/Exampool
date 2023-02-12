@@ -10,7 +10,7 @@ import java.util.ArrayList; // import the ArrayList class
 public class SearchBar {
   private String searchWord;
   public SearchBar(String sW){//Constructor
-    this.searchWord = sW.trim()//Remove Leading and Trailing Whitespaces     
+    this.searchWord = sW.trim();//Remove Leading and Trailing Whitespaces     
   }
   public ArrayList<Tags> searchTags(){
     ArrayList<Integer> tagIndex = Tags.searchTag(searchWord);//Found indexes
@@ -25,7 +25,7 @@ public class SearchBar {
     return result;
   }
   public String displaySearchResults(Tags tagNames){
-    return tagName.getTagName(); 
+    return tagNames.getTagName(); 
   }
 }
 
