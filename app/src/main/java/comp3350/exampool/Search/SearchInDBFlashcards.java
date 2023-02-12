@@ -2,6 +2,9 @@
 package comp3350.exampool.Search;
 
 import java.sql.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
  
 public class SearchInDBFlashcards {
  
