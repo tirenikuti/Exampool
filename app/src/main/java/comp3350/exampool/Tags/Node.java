@@ -1,5 +1,5 @@
-//package comp3350.exampool.Tags;
-//import comp3350.exampool.Tags.Tags; 
+package comp3350.exampool.Tags;
+import comp3350.exampool.Tags.Tags; 
 
 public class Node {
     private Tags data;
