@@ -4,7 +4,7 @@
  */
 package comp3350.exampool.Search;
 
-import Tags.Tags;
+import comp3350.exampool.Tags.Tags;
 import java.util.ArrayList; // import the ArrayList class
 
 public class SearchBar {
