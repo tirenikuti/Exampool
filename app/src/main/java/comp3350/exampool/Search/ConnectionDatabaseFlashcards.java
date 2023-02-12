@@ -1,5 +1,6 @@
 // The connectionDatabase browses through the Flashcards
 //database
+package comp3350.exampool.Search
  
 import java.sql.SQLException;
 import java.sql.Connection;

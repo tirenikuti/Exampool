@@ -1,4 +1,5 @@
 // This class searches the contents of the Flashcards table in JDBC
+package comp3350.exampool.Search
 
 import java.sql.*;
  
