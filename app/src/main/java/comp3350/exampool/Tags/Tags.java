@@ -14,4 +14,8 @@ public class Tags {
     public String getTagName() {
         return tagName;
     }
+    
+    public boolean equals(Tags tag){
+     return this.tagName == tag.getTagName();
+    }
 }
