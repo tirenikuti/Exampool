@@ -2,8 +2,6 @@
 package comp3350.exampool.Search;
 
 import java.sql.*;
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
  
 public class SearchInDBFlashcards {
@@ -24,7 +22,8 @@ public class SearchInDBFlashcards {
         try {
  
             //Write  and process the statement
-            String sql="select * from cuslogin where id="+Integer.parseInt(textfield.getText());
+            JTextField textField = new JTextField("Text", 20);
+            String sql="select * from cuslogin where id="+Integer.parseInt(textField.getText());
             ps = connect.prepareStatement(sql);
             rs = ps.executeQuery();
  
