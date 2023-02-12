@@ -1,3 +1,4 @@
+//Node to store tags in a linked list
 package comp3350.exampool.Tags;
 import comp3350.exampool.Tags.Tags; 
 
