@@ -3,7 +3,7 @@ package comp3350.exampool.Flashcards;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class MCQ extends Question{
+public class MultipleChoiceQuestion extends Question{
     //the correct answer
         private final Answer correct;
 
@@ -23,7 +23,7 @@ public class MCQ extends Question{
         //Constructor
     //This constructor takes the question tag and the correct answer
     //the user will supply their own possible (wrong options)
-        public MCQ(String quesTag, String corrAns) {
+        public MultipleChoiceQuestion(String quesTag, String corrAns) {
 
             //calls super's default constructor
             super(quesTag);
@@ -44,14 +44,6 @@ public class MCQ extends Question{
             tempArr[0] = correct;
         }
 
-        //Getters and Setter (Never used)
-  /*
-        public ArrayList<Answer> getAnswers() {
-            return answers;
-        }
-
-   */
-
         public char getCorrectTag() {
             return correct.getTag() ;
         }
@@ -66,9 +58,6 @@ public class MCQ extends Question{
                 }
             }
         }
-
-
-
     //returns the correct answer and its randomly assigned tag
     @Override
     public String getAnswer() {

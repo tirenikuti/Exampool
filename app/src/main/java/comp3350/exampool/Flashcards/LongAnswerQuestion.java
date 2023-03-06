@@ -1,9 +1,9 @@
 package comp3350.exampool.Flashcards;
 
-public class LAQ extends Question{
+public class LongAnswerQuestion extends Question{
 
     //Unchanged from Super class
-    public LAQ(String questTag, String answer){
+    public LongAnswerQuestion(String questTag, String answer){
         super(questTag, answer);
     }
 }

@@ -9,8 +9,6 @@ public class Flashcard {
     //The answer displayed at the back of the flashcard
     private String back;
 
-    //the list of Tags attached to the flashcard (Krupali)
-    //private ArrayList <Tag> Tags;
 
     //Constructor
     public Flashcard() {
@@ -20,13 +18,6 @@ public class Flashcard {
         //the back is the answer from the front Question
         back = front.getAnswer();
     }
-
-    //Function created to add tags (Krupali)
-    /*
-    public void addTag(Tag tag){
-        Tags.add(tag);
-    }
-*/
 
     //Displays Flashcards, acts also as a toString method although does not return String type
     public void displayFlashcard(){

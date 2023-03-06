@@ -9,25 +9,25 @@ public class FlashcardTest {
     Flashcard newCard2 = new Flashcard();
 
     @Test
-    public void setFrontLAQ() {
-        LAQ newQuest = new LAQ("What year was Tireni Kuti was born?", "2000");
+    public void setFrontLongAnswerQuestion() {
+        LongAnswerQuestion newQuest = new LongAnswerQuestion("What year was Tireni Kuti was born?", "2000");
         newCard.setFront(newQuest);
         assertEquals(newQuest, newCard.getFront());
     }
 
     @Test
-    public void setFrontSAQ() {
-        LAQ newQuest = new LAQ("What year was Tireni Kuti was born?", "2000");
-        SAQ newQuest2 = new SAQ("Tireni Kuti was born in 2000", 5);
+    public void setFrontShortAnswerQuestion() {
+        LongAnswerQuestion newQuest = new LongAnswerQuestion("What year was Tireni Kuti was born?", "2000");
+        ShortAnswerQuestion newQuest2 = new ShortAnswerQuestion("Tireni Kuti was born in 2000", 5);
         newCard.setFront(newQuest2);
         assertNotEquals(newQuest, newCard.getFront());
         assertEquals(newQuest2, newCard.getFront());
     }
     @Test
-    public void setFrontMCQ() {
-        LAQ newQuest = new LAQ("What year was Tireni Kuti was born?", "2000");
-        SAQ newQuest2 = new SAQ("Tireni Kuti was born in 2000", 5);
-        MCQ newQuest3 = new MCQ("What year was Tireni Kuti born?", "2000");
+    public void setFrontMultipleChoiceQuestion() {
+        LongAnswerQuestion newQuest = new LongAnswerQuestion("What year was Tireni Kuti was born?", "2000");
+        ShortAnswerQuestion newQuest2 = new ShortAnswerQuestion("Tireni Kuti was born in 2000", 5);
+        MultipleChoiceQuestion newQuest3 = new MultipleChoiceQuestion("What year was Tireni Kuti born?", "2000");
 
         newQuest3.addAnswers("2001");
         newQuest3.addAnswers("2002");
@@ -39,12 +39,12 @@ public class FlashcardTest {
 
     }
     @Test
-    public void setFrontTFQ() {
-        LAQ newQuest = new LAQ("What year was Tireni Kuti was born?", "2000");
-        SAQ newQuest2 = new SAQ("Tireni Kuti was born in 2000", 5);
-        MCQ newQuest3 = new MCQ("What year was Tireni Kuti born?", "2000");
+    public void setFrontTrueFalseQuestion() {
+        LongAnswerQuestion newQuest = new LongAnswerQuestion("What year was Tireni Kuti was born?", "2000");
+        ShortAnswerQuestion newQuest2 = new ShortAnswerQuestion("Tireni Kuti was born in 2000", 5);
+        MultipleChoiceQuestion newQuest3 = new MultipleChoiceQuestion("What year was Tireni Kuti born?", "2000");
 
-        TFQ newQuest4 = new TFQ("Tireni Kuti was born in 2002", "false");
+        TrueFalseQuestion newQuest4 = new TrueFalseQuestion("Tireni Kuti was born in 2002", "false");
         newCard.setFront(newQuest4);
         assertNotEquals(newQuest, newCard.getFront());
         assertNotEquals(newQuest2, newCard.getFront());
@@ -54,8 +54,8 @@ public class FlashcardTest {
 
 
     @Test
-    public void setBackLAQ() {
-        LAQ newQuest = new LAQ("What year was Tireni Kuti was born?", "2000");
+    public void setBackLongAnswerQuestion() {
+        LongAnswerQuestion newQuest = new LongAnswerQuestion("What year was Tireni Kuti was born?", "2000");
         newCard2.setFront(newQuest);
         newCard2.setBack("No it wont");
         assertNotEquals(newQuest.getAnswer(), newCard2.getBack());
@@ -65,9 +65,9 @@ public class FlashcardTest {
     }
 
     @Test
-    public void setBackSAQ() {
-        LAQ newQuest = new LAQ("What year was Tireni Kuti was born?", "2000");
-        SAQ newQuest2 = new SAQ("Tireni Kuti was born in 2000", 5);
+    public void setBackShortAnswerQuestion() {
+        LongAnswerQuestion newQuest = new LongAnswerQuestion("What year was Tireni Kuti was born?", "2000");
+        ShortAnswerQuestion newQuest2 = new ShortAnswerQuestion("Tireni Kuti was born in 2000", 5);
         newCard2.setFront(newQuest2);
         newCard2.setBack("No it wont");
         assertNotEquals(newQuest.getAnswer(), newCard2.getBack());
@@ -77,10 +77,10 @@ public class FlashcardTest {
     }
 
     @Test
-    public void setBackMCQ() {
-        LAQ newQuest = new LAQ("What year was Tireni Kuti was born?", "2000");
-        SAQ newQuest2 = new SAQ("Tireni Kuti was born in 2000", 5);
-        MCQ newQuest3 = new MCQ("What year was Tireni Kuti born?", "2000");
+    public void setBackMultipleChoiceQuestion() {
+        LongAnswerQuestion newQuest = new LongAnswerQuestion("What year was Tireni Kuti was born?", "2000");
+        ShortAnswerQuestion newQuest2 = new ShortAnswerQuestion("Tireni Kuti was born in 2000", 5);
+        MultipleChoiceQuestion newQuest3 = new MultipleChoiceQuestion("What year was Tireni Kuti born?", "2000");
         newQuest3.addAnswers("2001");
         newQuest3.addAnswers("2002");
         newQuest3.addAnswers("1999");
@@ -94,11 +94,11 @@ public class FlashcardTest {
     }
 
     @Test
-    public void setBackTFQ() {
-        LAQ newQuest = new LAQ("What year was Tireni Kuti was born?", "2000");
-        SAQ newQuest2 = new SAQ("Tireni Kuti was born in 2000", 5);
-        MCQ newQuest3 = new MCQ("What year was Tireni Kuti born?", "2000");
-        TFQ newQuest4 = new TFQ("Tireni Kuti was born in 2002", "false");
+    public void setBackTrueFalseQuestion() {
+        LongAnswerQuestion newQuest = new LongAnswerQuestion("What year was Tireni Kuti was born?", "2000");
+        ShortAnswerQuestion newQuest2 = new ShortAnswerQuestion("Tireni Kuti was born in 2000", 5);
+        MultipleChoiceQuestion newQuest3 = new MultipleChoiceQuestion("What year was Tireni Kuti born?", "2000");
+        TrueFalseQuestion newQuest4 = new TrueFalseQuestion("Tireni Kuti was born in 2002", "false");
         newCard2.setFront(newQuest4);
         newCard2.setBack("No it wont");
         assertNotEquals(newQuest.getAnswer(), newCard2.getBack());
@@ -117,15 +117,15 @@ public class FlashcardTest {
 
     @Test
     public void QuestiongetQuestTag() {
-        LAQ newQuest = new LAQ("What year was Tireni Kuti was born?", "2000");
-        SAQ newQuest2 = new SAQ("Tireni Kuti was born in 2000", 5);
+        LongAnswerQuestion newQuest = new LongAnswerQuestion("What year was Tireni Kuti was born?", "2000");
+        ShortAnswerQuestion newQuest2 = new ShortAnswerQuestion("Tireni Kuti was born in 2000", 5);
 
-        MCQ newQuest3 = new MCQ("What year was Tireni Kuti born?", "2000");
+        MultipleChoiceQuestion newQuest3 = new MultipleChoiceQuestion("What year was Tireni Kuti born?", "2000");
         newQuest3.addAnswers("2001");
         newQuest3.addAnswers("2002");
         newQuest3.addAnswers("1999");
 
-        TFQ newQuest4 = new TFQ("Tireni Kuti was born in 2002", "false");
+        TrueFalseQuestion newQuest4 = new TrueFalseQuestion("Tireni Kuti was born in 2002", "false");
 
         assertNotNull(newQuest.getQuestTag());
         assertEquals("What year was Tireni Kuti was born?", newQuest.getQuestTag());
@@ -142,15 +142,15 @@ public class FlashcardTest {
 
     @Test
     public void QuestiongetAnswer() {
-        LAQ newQuest = new LAQ("What year was Tireni Kuti was born?", "2000");
-        SAQ newQuest2 = new SAQ("Tireni Kuti was born in 2000", 5);
+        LongAnswerQuestion newQuest = new LongAnswerQuestion("What year was Tireni Kuti was born?", "2000");
+        ShortAnswerQuestion newQuest2 = new ShortAnswerQuestion("Tireni Kuti was born in 2000", 5);
 
-        MCQ newQuest3 = new MCQ("What year was Tireni Kuti born?", "2000");
+        MultipleChoiceQuestion newQuest3 = new MultipleChoiceQuestion("What year was Tireni Kuti born?", "2000");
         newQuest3.addAnswers("2001");
         newQuest3.addAnswers("2002");
         newQuest3.addAnswers("1999");
 
-        TFQ newQuest4 = new TFQ("Tireni Kuti was born in 2002", "false");
+        TrueFalseQuestion newQuest4 = new TrueFalseQuestion("Tireni Kuti was born in 2002", "false");
 
         assertNotNull(newQuest.getAnswer());
         assertEquals("2000", newQuest.getAnswer());
@@ -180,16 +180,16 @@ public class FlashcardTest {
 
     @Test
     public void QuestionsetQuestTag() {
-        LAQ newQuest = new LAQ("What year was Tireni Kuti was born?", "2000");
+        LongAnswerQuestion newQuest = new LongAnswerQuestion("What year was Tireni Kuti was born?", "2000");
 
-        SAQ newQuest2 = new SAQ("Tireni Kuti was born in 2000", 5);
+        ShortAnswerQuestion newQuest2 = new ShortAnswerQuestion("Tireni Kuti was born in 2000", 5);
 
-        MCQ newQuest3 = new MCQ("What year was Tireni Kuti born?", "2000");
+        MultipleChoiceQuestion newQuest3 = new MultipleChoiceQuestion("What year was Tireni Kuti born?", "2000");
         newQuest3.addAnswers("2001");
         newQuest3.addAnswers("2002");
         newQuest3.addAnswers("1999");
 
-        TFQ newQuest4 = new TFQ("Tireni Kuti was born in 2002", "false");
+        TrueFalseQuestion newQuest4 = new TrueFalseQuestion("Tireni Kuti was born in 2002", "false");
 
         newQuest.setQuestTag("Banana");
         assertNotEquals("What year was Tireni Kuti was born?", newQuest.getQuestTag());
@@ -215,16 +215,16 @@ public class FlashcardTest {
 
     @Test
     public void QuestionsetAnswer() {
-        LAQ newQuest = new LAQ("What year was Tireni Kuti was born?", "2000");
+        LongAnswerQuestion newQuest = new LongAnswerQuestion("What year was Tireni Kuti was born?", "2000");
 
-        SAQ newQuest2 = new SAQ("Tireni Kuti was born in 2000", 5);
+        ShortAnswerQuestion newQuest2 = new ShortAnswerQuestion("Tireni Kuti was born in 2000", 5);
 
-        MCQ newQuest3 = new MCQ("What year was Tireni Kuti born?", "2000");
+        MultipleChoiceQuestion newQuest3 = new MultipleChoiceQuestion("What year was Tireni Kuti born?", "2000");
         newQuest3.addAnswers("2001");
         newQuest3.addAnswers("2002");
         newQuest3.addAnswers("1999");
 
-        TFQ newQuest4 = new TFQ("Tireni Kuti was born in 2002", "false");
+        TrueFalseQuestion newQuest4 = new TrueFalseQuestion("Tireni Kuti was born in 2002", "false");
 
         newQuest.setAnswer("Ronald Reagan");
         assertEquals("What year was Tireni Kuti was born?", newQuest.getQuestTag());
@@ -250,13 +250,13 @@ public class FlashcardTest {
 
     @Test
     public void addAnswers() {
-        MCQ newQuest3 = new MCQ("What year was Tireni Kuti born?", "2000");
+        MultipleChoiceQuestion newQuest3 = new MultipleChoiceQuestion("What year was Tireni Kuti born?", "2000");
         newQuest3.addAnswers("2001");
         newQuest3.addAnswers("2002");
         newQuest3.addAnswers("1999");
         assertThrows(AssertionError.class, ()-> newQuest3.addAnswers("1999"));
 
-        MCQ newQuest5 = new MCQ("Whats 10 + 9 ", "19");
+        MultipleChoiceQuestion newQuest5 = new MultipleChoiceQuestion("Whats 10 + 9 ", "19");
         newQuest5.addAnswers("18");
         assertThrows(AssertionError.class, ()-> newQuest5.addAnswers("19"));
     }

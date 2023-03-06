@@ -4,7 +4,7 @@ package comp3350.exampool.Flashcards;
 public class Main {
     public static void main(String[] args) {
 //        SAQ newQuest = new SAQ("Tireni Kuti was born in 2000", 5);
-        MCQ newQuest2 = new MCQ("What year was Tireni Kuti born?", "2000");
+        MultipleChoiceQuestion newQuest2 = new MultipleChoiceQuestion("What year was Tireni Kuti born?", "2000");
     //    TFQ newQuest3 = new TFQ("Tireni Kuti was born in 2002", "false");;
         newQuest2.addAnswers("2001");
         newQuest2.addAnswers("2002");

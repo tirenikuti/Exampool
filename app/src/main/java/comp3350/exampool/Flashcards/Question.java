@@ -38,7 +38,7 @@ public class Question {   //Super class for all the remaining question types
         Answer = answer;
     }
 
-    //toString method. Same used in Long Answer Questions class (LAQ) and Short Answer Question class (SAQ)
+    //toString method. Same used in LongAnswerQuestions class and ShortAnswerQuestion class
     @Override
     public String toString() {
         return "Question: " + questTag;

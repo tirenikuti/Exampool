@@ -2,15 +2,14 @@ package comp3350.exampool.Flashcards;
 
 //import java.util.Arrays;
 //import java.util.Scanner;
-public class SAQ extends Question{
+public class ShortAnswerQuestion extends Question{
 
     //The transformed question is stored in an array with its answer
     final String [] shortAnswerQuestion;
-
     //Constructor
     //This constructor takes the original question tag and a position supplied by the user and eliminates the word
     // at that position from the question tag
-    public SAQ(String questTag, int pos){
+    public ShortAnswerQuestion(String questTag, int pos){
         //calls super's default constructor
         super(questTag);
 
@@ -24,18 +23,6 @@ public class SAQ extends Question{
         //the second element in the array is the new answer
         super.setAnswer( shortAnswerQuestion[1]);
     }
-
-    //Getters and Setters (Never used)
-/*    public String[] getShortAnswerQuestion() {
-        return shortAnswerQuestion;
-    }
-
-    public void setShortAnswerQuestion(String[] shortAnswerQuestion) {
-        this.shortAnswerQuestion = shortAnswerQuestion;
-    }
-
- */
-
     //The Function creates a new Question tag and its answer
     private static String[] createAns(String questionTag, int pos){
 

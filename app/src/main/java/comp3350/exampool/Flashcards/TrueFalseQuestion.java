@@ -1,15 +1,13 @@
 package comp3350.exampool.Flashcards;
 
-import java.util.ArrayList;
-
 //True or False questions
-public class TFQ extends Question{
+public class TrueFalseQuestion extends Question{
 
     //array list of the two option (True/False)
     private final String[] options = new String [2];
 
     //Constructor
-    public TFQ(String quesTag, String corrAns){
+    public TrueFalseQuestion(String quesTag, String corrAns){
         super(quesTag);
 
         //Adding the options to the arraylist
