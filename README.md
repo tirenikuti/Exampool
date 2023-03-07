@@ -14,6 +14,3 @@ ExamPOOL is envisioned primarily as a mobile application with the opportunity of
 ExamPOOL is an improvement over the current architecture, which forces students to use multiple apps and other platforms to keep track of their schoolwork. Additionally, the current framework requires the students to refer to a different set of channels for different subjects whereas ExamPOOL would allow students to contain all their needs in one platform. As a result, the clutter of study materials required will be simplified – allowing students to concentrate solely on the materials they need. Furthermore, the new system would allow students to study the same amount of content in a shorter time period, giving them a stronger chance to balance their time.  
 
 The project will be considered successful if at least 40% of users prefer our system compared to using multiple applications, as determined by a user survey, and if the performance of students will improve by at least 15% from their current level, as determines by grades and overall performance on their quizzes in ExamPOOL.
- 
-
-BUY O BUY

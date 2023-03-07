@@ -18,7 +18,7 @@ public class Main {
 //        newCard.displayFlashcard();
 
         newCard2.setFront(newQuest2);
-        newCard2.setBack(newQuest2.getCorrect());
+        newCard2.setBack(newQuest2.getAnswer());
         newCard2.displayFlashcard();
 
 //        newCard3.setFront(newQuest3);
