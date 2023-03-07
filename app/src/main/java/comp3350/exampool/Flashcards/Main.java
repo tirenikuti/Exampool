@@ -9,14 +9,12 @@ public class Main {
         newQuest2.addAnswers("2002");
         newQuest2.addAnswers("1999");
 
-        Flashcard newCard = new Flashcard();
+      //  Flashcard newCard = new Flashcard();
         Flashcard newCard2 = new Flashcard();
-        Flashcard newCard3 = new Flashcard();
+       // Flashcard newCard3 = new Flashcard();
 
         newCard2.setFront(newQuest2);
         newCard2.setBack(newQuest2.getAnswer());
         newCard2.displayFlashcard();
-        }
-   // }
-
+    }
 }

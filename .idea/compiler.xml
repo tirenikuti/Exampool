@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="11">
+      <module name="ExamPool.java" target="1.7" />
+      <module name="ExamPool.java.main" target="1.7" />
+      <module name="ExamPool.java.test" target="1.7" />
+      <module name="ExamPool.Java_Programs.main" target="1.7" />
+      <module name="ExamPool.Java_Programs.test" target="1.7" />
+      <module name="ExamPool.lib" target="1.7" />
+      <module name="ExamPool.lib.main" target="1.7" />
+      <module name="ExamPool.lib.test" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>

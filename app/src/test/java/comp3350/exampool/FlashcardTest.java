@@ -13,6 +13,9 @@ public class FlashcardTest {
         LongAnswerQuestion newQuest = new LongAnswerQuestion("What year was Tireni Kuti was born?", "2000");
         newCard.setFront(newQuest);
         assertEquals(newQuest, newCard.getFront());
+
+        Main can = new Main();
+        can.toString();
     }
 
     @Test
