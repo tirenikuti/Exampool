@@ -1,4 +1,3 @@
-
 //Data Level Notes.java Class
 package comp3350.exampool.Notes;
 
