@@ -1,4 +1,3 @@
-
 //Placeholder class to fix errors until next iteration
 package comp3350.exampool.Tags;
 
