@@ -5,20 +5,31 @@ package comp3350.exampool.application;
 import comp3350.exampool.objects.Flashcard;
 import comp3350.exampool.objects.MultipleChoiceQuestion;
 
-public class Main {
-    public static void main(String[] args) {
+public class Main 
+{
+  private static String dbName = "DB";
 
-        MultipleChoiceQuestion newQuest2 = new MultipleChoiceQuestion("What year was Tireni Kuti born?", "2000");
-        newQuest2.addAnswers("2001");
-        newQuest2.addAnswers("2002");
-        newQuest2.addAnswers("1999");
+  public static void main(String[] args) 
+  {
 
-      //  Flashcard newCard = new Flashcard();
-        Flashcard newCard2 = new Flashcard();
-       // Flashcard newCard3 = new Flashcard();
 
-        newCard2.setFront(newQuest2);
-        newCard2.setBack(newQuest2.getAnswer());
-        newCard2.displayFlashcard();
+  }
+
+  public static void setDBPathName(final String name)
+  {
+    try {
+      Class.forName("org.hsqldb.jdbcDriver").newInstance();
+    } catch (InstantiationException e) {
+      e.printStackTrace();
+    } catch (IllegalAccessException e) {
+      e/printStackTrace();
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace
     }
+    dbName = name;
+  }
+
+  public static String getDBPathName() {
+    return dbName; 
+  }
 }
