@@ -2,11 +2,12 @@
  *Main Search bar - Tags
  * Needed in Tag getTagName()
  */
-package comp3350.exampool.Search;
+package comp3350.exampool.business.search;
+
+import java.util.ArrayList;
 
 import comp3350.exampool.Tags.TagsLinkedList;
-import comp3350.exampool.Tags.Tags;
-import java.util.ArrayList; // import the ArrayList class
+
 
 public class SearchBar {
   private String searchWord;

@@ -1,5 +1,4 @@
-package comp3350.exampool.Flashcards;
-
+package comp3350.exampool.objects;
 public class Question {   //Super class for all the remaining question types
     //the Question's tag, like the actual question
     private String questTag;

@@ -1,5 +1,4 @@
-package comp3350.exampool.Flashcards;
-
+package comp3350.exampool.objects;
 public class LongAnswerQuestion extends Question{
 
     //Unchanged from Super class

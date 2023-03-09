@@ -1,4 +1,4 @@
-package comp3350.exampool.Flashcards;
+package comp3350.exampool.objects;
 
 //True or False questions
 public class TrueFalseQuestion extends Question{

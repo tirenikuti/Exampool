@@ -1,5 +1,9 @@
-package comp3350.exampool.Flashcards;
+package comp3350.exampool.application;
 //import java.util.Scanner;
+
+//Obj Imports
+import comp3350.exampool.objects.Flashcard;
+import comp3350.exampool.objects.MultipleChoiceQuestion;
 
 public class Main {
     public static void main(String[] args) {

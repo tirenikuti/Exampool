@@ -1,4 +1,4 @@
-package comp3350.exampool;
+package comp3350.exampool.presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import comp3350.exampool.R;
 
 public class MainActivity extends AppCompatActivity {
     Button buttonFlashcards;

@@ -4,6 +4,13 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 import comp3350.exampool.Flashcards.*;
+import comp3350.exampool.application.Main;
+import comp3350.exampool.objects.Flashcard;
+import comp3350.exampool.objects.LongAnswerQuestion;
+import comp3350.exampool.objects.MultipleChoiceQuestion;
+import comp3350.exampool.objects.ShortAnswerQuestion;
+import comp3350.exampool.objects.TrueFalseQuestion;
+
 public class FlashcardTest {
     Flashcard newCard = new Flashcard();
     Flashcard newCard2 = new Flashcard();

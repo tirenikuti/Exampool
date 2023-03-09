@@ -1,6 +1,6 @@
 // The connectionDatabase browses through the Notes
 //database
-package comp3350.exampool.Search;
+package comp3350.exampool.business.search;
  
 import java.sql.SQLException;
 import java.sql.Connection;

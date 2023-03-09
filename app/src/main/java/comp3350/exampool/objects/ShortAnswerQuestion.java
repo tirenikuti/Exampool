@@ -1,5 +1,4 @@
-package comp3350.exampool.Flashcards;
-
+package comp3350.exampool.objects;
 //import java.util.Arrays;
 //import java.util.Scanner;
 public class ShortAnswerQuestion extends Question{

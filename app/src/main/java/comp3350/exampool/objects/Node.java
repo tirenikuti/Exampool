@@ -1,6 +1,5 @@
 //Node to store tags in a linked list
-package comp3350.exampool.Tags;
-import comp3350.exampool.Tags.Tags; 
+package comp3350.exampool.objects;
 
 public class Node {
     private Tags data;

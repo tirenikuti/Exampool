@@ -9,6 +9,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 
 import comp3350.exampool.Notes.*;
+import comp3350.exampool.objects.Notes;
 
 public class NotesTest {
 

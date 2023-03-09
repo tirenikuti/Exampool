@@ -1,6 +1,5 @@
 //Data Level Notes.java Class
-package comp3350.exampool.Notes;
-
+package comp3350.exampool.objects;
 import java.util.ArrayList;
 
 public class Notes{
