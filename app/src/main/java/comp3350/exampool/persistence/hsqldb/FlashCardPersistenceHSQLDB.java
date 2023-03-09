@@ -26,6 +26,7 @@ public class FlashcardPersitenceHSQLDB implements FlashcardPersistence {
     private Flashcard fromResultSet(final ResultSet rs) throws SQLException {
         final String flashcardID = rs.getString("flashcardID");
         final String userID = rs.getString("userID");
+        
     }
 
 }
