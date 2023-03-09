@@ -3,15 +3,22 @@ package comp3350.exampool.objects;
 import java.util.Scanner;
 
 public class Flashcard {
+    //add
+    private final int flashcardID;
+    private final int userID;
     //The question displayed on the front of the flashcard
     private Question front;
 
     //The answer displayed at the back of the flashcard
     private String back;
 
+    //the list of Tags attached to the flashcard (Krupali)
+    //private ArrayList <Tag> Tags;
 
     //Constructor
-    public Flashcard() {
+    public Flashcard(int flashCardID, int userID) {
+        this.flashcardID = flashCardID;
+        this.userID = userID;
         //default variable set to blank
         front = new Question("blank", "blank");
         assert(front.getAnswer()!= null);
@@ -50,7 +57,7 @@ public class Flashcard {
     //Getters and Setters
 
     //Getters Never Used, kept in case needed later
-     public Question getFront() {
+    public Question getFront() {
         return front;
     }
 

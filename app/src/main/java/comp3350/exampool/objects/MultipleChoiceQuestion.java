@@ -1,151 +1,153 @@
 package comp3350.exampool.objects;
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 public class MultipleChoiceQuestion extends Question{
     //the correct answer
-        private final Answer correct;
+    private final Answer correct;
 
-        //an arrayList of possible options
-        private final ArrayList<Answer> answers = new ArrayList<>();
-        private final ArrayList<String> optionsWOTags = new ArrayList<>();
+    //an arrayList of possible options
+    private final ArrayList<Answer> answers = new ArrayList<>();
+    //an arraylist of option tags (A, B, C, D)
+    private final ArrayList<Character> tags = new ArrayList<>(Arrays.asList('A', 'B', 'C', 'D'));
 
-        //counter
-        private int i =1;
+    //counter
+    private int i =1;
+    //an array used to store ***************
+    private final Answer [] tempArr = new Answer [4];
 
-        //an arraylist of option tags (A, B, C, D)
-        private final ArrayList<Character> tags = new ArrayList<>();
+    //Constructor
+    // This constructor takes the question tag and the correct answer
+    // the user will supply their own possible (wrong options)
+    public MultipleChoiceQuestion(String quesTag, String corrAns) {
+        //calls super's default constructor
+        super(quesTag);
 
-        //an array used to store ***************
-        private final Answer [] tempArr = new Answer [4];
+        assert(tags.size()>0);
+        //sets the correct answer and assigns it a random tag (so that users don't know what option it will be)
+        correct = (setRandTag(corrAns));
 
-        //Constructor
-    //This constructor takes the question tag and the correct answer
-    //the user will supply their own possible (wrong options)
-        public MultipleChoiceQuestion(String quesTag, String corrAns) {
-
-            //calls super's default constructor
-            super(quesTag);
-
-            //the tags for the options are created and added to the arraylist for tags
-            tags.add('A');
-            tags.add('B');
-            tags.add('C');
-            tags.add('D');
-
-            assert(tags.size()>0);
-            //sets the correct answer and assigns it a random tag (so that users don't know what option it will be)
-            optionsWOTags.add(corrAns);
-            correct = new Answer(setRandTag(tags), corrAns);
-
-
-            //makes the first element in our temporary array the correct answer
-            tempArr[0] = correct;
-        }
-
-        public char getCorrectTag() {
-            return correct.getTag() ;
-        }
-
-        @Override
-        public void setAnswer(String correctA) {
-            correct.setOption(correctA);
-            for (Answer answer : answers) {
-                if ((answer.getOption()).equals(correct.getOption())) {
-                    correct.setTag(answer.getTag());
-                    break;
-                }
+        answers.add(correct);
+    }
+    public char getCorrectTag() {
+        return correct.getTag() ;
+    }
+    @Override
+    public void setAnswer(String correctA) {
+        correct.setOption(correctA);
+        for (Answer answer : answers) {
+            if ((answer.getOption()).equals(correct.getOption())) {
+                correct.setTag(answer.getTag());
+                break;
             }
         }
+    }
+
     //returns the correct answer and its randomly assigned tag
     @Override
     public String getAnswer() {
         return correct.getTag() + "." + correct.getOption();
     }
-
     //adds answers to the answers array list
-        public void addAnswers(String ans1) {
-            assert(ans1 != null);
-            assert(tags.size() >0);
-
-            assert(!optionsWOTags.contains(ans1));
-            optionsWOTags.add(ans1);
-            Answer newAns = new Answer(setRandTag(tags), ans1);
-
-            assert (i <= tempArr.length);
-            tempArr[i] = newAns;
+    public void addAnswers(String ans1) {
+        assert(ans1 != null);
+        assert(tags.size() >0);
+        assert(!optionInAnswers(ans1));
+        if(!optionInAnswers(ans1)) {
+            Answer newAns = (setRandTag(ans1));
+            assert (i <= answers.size());
+            answers.add(newAns);
             i++;
-            if(i == tempArr.length) {
-                assert (i == tempArr.length);
-                sortAnswers(tempArr);
+        }
+        else{
+            System.out.println("This option has already been put in (NO DUPLICATES)");
+        }
+        if(i == tempArr.length) {
+            assert (i == tempArr.length);
+            Collections.sort(answers, new TagComparator());
+        }
+    }
+
+    //sets the correct answer to the assigned tag
+    private boolean optionInAnswers(String option) {
+        boolean alreadyIn = false;
+        for (int i = 0; i < answers.size(); i++) {
+            if(answers.get(i).getOption().equals(option)){
+                alreadyIn = true;
+                break;
             }
         }
 
-        //Sorts the randomly assigned answer tags from A to D
-        private void sortAnswers(Answer[] tempVal){
-            for (Answer answer : tempVal) {
-                if (answer.getTag().equals('A')) {
-                    answers.add(answer);
-                    break;
-                }
-            }
-            for (Answer answer : tempVal) {
-                if (answer.getTag().equals('B')) {
-                    answers.add(answer);
-                    break;
-                }
-            }
-            for (Answer answer : tempVal) {
-                if (answer.getTag().equals('C')) {
-                    answers.add(answer);
-                    break;
-                }
-            }
-            for (Answer answer : tempVal) {
-                if (answer.getTag().equals('D')) {
-                    answers.add(answer);
-                    break;
-                }
-            }
-            assert (answers.size() == 4);
-            setCorrAns(correct);
+        return alreadyIn;
+    }
+    //sets random tags to answers as they enter the array
+    private Answer setRandTag(String option){
+        assert(tags.size() > 0);
+        int n = tags.size();
+        assert n >0;
+
+        //get the random char
+        int rnd = new Random().nextInt(n);
+
+        assert (rnd >= 0);
+        assert (rnd <= tags.size());
+
+        Answer retAnswer  = new Answer(tags.get(rnd), option);
+        tags.remove(rnd);
+        return retAnswer;
+    }
+
+    //toString() method
+    @Override
+    public String toString() {
+        String retString = "";
+        for (Answer answer : answers) {
+            retString += ("\n" + answer);
         }
-
-        //sets the correct answer to the assigned tag
-        private void setCorrAns(Answer corr){
-        assert(corr != null);
-            for (Answer answer : answers) {
-                if ((answer.getOption()).equals(corr.getOption())) {
-                    corr.setTag(answer.getTag());
-                    break;
-                }
-            }
-        }
-
-//sets random tags to answers as they enter the array
-        private char setRandTag(ArrayList<Character>possTags){
-        assert(possTags.size() > 0);
-            int n = possTags.size();
-            assert n >0;
-
-            int rnd = new Random().nextInt(n);
-
-            assert (rnd >= 0);
-            assert (rnd <= possTags.size());
-            char retString = possTags.get(rnd);
-            possTags.remove(rnd);
-            return retString;
-        }
-
-        //toString() method
-
-            @Override
-      public String toString() {
-             String retString = "";
-                for (Answer answer : answers) {
-                    retString += ("\n" + answer);
-                }
-             return super.getQuestTag() + retString;
-         }
-
+        return super.getQuestTag() + retString;
+    }
 }
+
+class TagComparator implements Comparator<Answer> {
+    public int compare(Answer tag1, Answer tag2) {
+        return tag1.getTag() - tag2.getTag();
+    }
+}
+//Answer Helper class for the Multiple Choice questions
+class Answer {
+    //the option tag (A/B/C/D)
+    private char tag;
+    //the option list
+    private String option;
+
+    //Constructor
+    public Answer(char tag, String option) {
+        this.tag = tag;
+
+        assert(option != null);
+        this.option = option;
+    }
+
+    //Getters/Setters
+    public String getOption() {
+        return option;
+    }
+
+    public Character getTag() {
+        return tag;
+    }
+
+    public void setOption(String option) {
+        this.option = option;
+    }
+
+    public void setTag(char tag) {
+        this.tag = tag;
+    }
+
+    //toString method
+    @Override
+    public String toString() {
+        return tag + ". " + option;
+    }
+}
+

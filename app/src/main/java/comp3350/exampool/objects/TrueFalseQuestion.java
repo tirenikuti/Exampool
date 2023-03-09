@@ -1,15 +1,12 @@
 package comp3350.exampool.objects;
-
 //True or False questions
 public class TrueFalseQuestion extends Question{
-
     //array list of the two option (True/False)
     private final String[] options = new String [2];
 
     //Constructor
     public TrueFalseQuestion(String quesTag, String corrAns){
         super(quesTag);
-
         //Adding the options to the arraylist
         options[0] = "TRUE";
         options[1] = "FALSE";
@@ -23,8 +20,6 @@ public class TrueFalseQuestion extends Question{
             super.setAnswer(options[1]);
         }
     }
-
-
     //toString() method
     @Override
     public String toString() {

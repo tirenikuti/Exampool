@@ -1,10 +1,9 @@
 package comp3350.exampool.objects;
-//import java.util.Arrays;
-//import java.util.Scanner;
 public class ShortAnswerQuestion extends Question{
 
     //The transformed question is stored in an array with its answer
-    final String [] shortAnswerQuestion;
+    private final String [] shortAnswerQuestion;
+
     //Constructor
     //This constructor takes the original question tag and a position supplied by the user and eliminates the word
     // at that position from the question tag
@@ -22,9 +21,9 @@ public class ShortAnswerQuestion extends Question{
         //the second element in the array is the new answer
         super.setAnswer( shortAnswerQuestion[1]);
     }
+
     //The Function creates a new Question tag and its answer
     private static String[] createAns(String questionTag, int pos){
-
         assert(pos >=0);
         assert(questionTag != null);
         //the return array of strings containing the new question tag and its answer
