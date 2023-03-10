@@ -12,9 +12,6 @@ public class Flashcard {
     //The answer displayed at the back of the flashcard
     private String back;
 
-    //the list of Tags attached to the flashcard (Krupali)
-    //private ArrayList <Tag> Tags;
-
     //Constructor
     public Flashcard(int flashCardID, int userID) {
         this.flashcardID = flashCardID;
@@ -53,9 +50,6 @@ public class Flashcard {
             assert(resp != null);
         }
     }
-
-    //Getters and Setters
-
     //Getters Never Used, kept in case needed later
     public Question getFront() {
         return front;

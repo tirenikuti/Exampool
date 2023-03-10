@@ -29,14 +29,14 @@ public class MultipleChoiceQuestion extends Question{
         answers.add(correct);
     }
     public char getCorrectTag() {
-        return correct.getTag() ;
+        return correct.getIdentifier() ;
     }
     @Override
     public void setAnswer(String correctA) {
         correct.setOption(correctA);
         for (Answer answer : answers) {
             if ((answer.getOption()).equals(correct.getOption())) {
-                correct.setTag(answer.getTag());
+                correct.setIdentifier(answer.getIdentifier());
                 break;
             }
         }
@@ -45,7 +45,7 @@ public class MultipleChoiceQuestion extends Question{
     //returns the correct answer and its randomly assigned tag
     @Override
     public String getAnswer() {
-        return correct.getTag() + "." + correct.getOption();
+        return correct.getIdentifier() + "." + correct.getOption();
     }
     //adds answers to the answers array list
     public void addAnswers(String ans1) {
@@ -108,20 +108,20 @@ public class MultipleChoiceQuestion extends Question{
 }
 
 class TagComparator implements Comparator<Answer> {
-    public int compare(Answer tag1, Answer tag2) {
-        return tag1.getTag() - tag2.getTag();
+    public int compare(Answer identifier1, Answer identifier2) {
+        return identifier1.getIdentifier() - identifier2.getIdentifier();
     }
 }
 //Answer Helper class for the Multiple Choice questions
 class Answer {
     //the option tag (A/B/C/D)
-    private char tag;
+    private char identifier;
     //the option list
     private String option;
 
     //Constructor
-    public Answer(char tag, String option) {
-        this.tag = tag;
+    public Answer(char identifier, String option) {
+        this.identifier = identifier;
 
         assert(option != null);
         this.option = option;
@@ -132,22 +132,22 @@ class Answer {
         return option;
     }
 
-    public Character getTag() {
-        return tag;
+    public Character getIdentifier() {
+        return identifier;
     }
 
     public void setOption(String option) {
         this.option = option;
     }
 
-    public void setTag(char tag) {
-        this.tag = tag;
+    public void setIdentifier(char identifier) {
+        this.identifier = identifier;
     }
 
     //toString method
     @Override
     public String toString() {
-        return tag + ". " + option;
+        return identifier + ". " + option;
     }
 }
 

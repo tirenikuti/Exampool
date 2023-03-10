@@ -1,6 +1,4 @@
-package comp3350.exampool.Tags;
-import comp3350.exampool.Tags.Tags;
-import comp3350.exampool.Tags.Node; 
+package comp3350.exampool.objects;
 import java.util.ArrayList; // import the ArrayList class
 
 public class TagsLinkedList  {
