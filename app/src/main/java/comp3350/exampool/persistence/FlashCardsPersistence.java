@@ -5,9 +5,9 @@ import java.util.List;
 import comp3350.exampool.objects.Flashcard;
 
 public interface FlashCardsPersistence {
-    List<Flashcard> getFlashCardsSequential();
+    List<Flashcard> getFlashcardsSequential();
 
-    List<Flashcard> getFlashCard(Flashcard currentFlashcard); 
+    List<Flashcard> getFlashcard(Flashcard currentFlashcard); 
 
     Flashcard insertFlashcard(Flashcard currentFlashcard);
 
