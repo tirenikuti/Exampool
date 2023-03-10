@@ -9,7 +9,7 @@ package comp3350.exampool.objects;
 
 import java.util.*;
 
-enum QuestionTupe {
+enum QuestionType {
     MCQ, //Multiple Choice Question
     TFQ, //True or False Question
     SAQ, //Short Answer Question
