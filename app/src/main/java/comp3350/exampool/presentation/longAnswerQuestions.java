@@ -12,7 +12,7 @@ import java.util.Iterator;
 
 import comp3350.exampool.R;
 import comp3350.exampool.objects.Flashcard;
-import comp3350.exampool.objects.QuestionType;
+
 
 public class longAnswerQuestions extends AppCompatActivity {
 
