@@ -1,4 +1,10 @@
 package comp3350.exampool.objects;
+/**
+ * Summary:
+ * Parameters:
+ * Returns:
+ * Description:
+ */
 public class LongAnswerQuestion extends Question{
 
     //Unchanged from Super class

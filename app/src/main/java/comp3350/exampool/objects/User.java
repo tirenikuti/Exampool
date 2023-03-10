@@ -15,9 +15,9 @@ public class User {
 
     /**
      * Constructor for User Object
-     * @param userID Primary key
-     * @param accountType String
-     * @param userName String
+     * @param userID Type: Int Primary key
+     * @param accountType Type: String
+     * @param userName Type: String
      */
     public User(int userID, String accountType, String userName) {
         this.userID = userID;
@@ -27,7 +27,7 @@ public class User {
 
     /**
      * Getter for User ID
-     * @return userID Int
+     * @return userID Type: Int
      */
     public int getUserID() {
         return userID;
@@ -35,7 +35,7 @@ public class User {
 
     /**
      * Getter for account type
-     * @return accountType String
+     * @return accountType Type: String
      */
     public String getAccountType() {
         return accountType;
@@ -43,7 +43,7 @@ public class User {
 
     /**
      * Setter for account Type
-     * @param accountType String
+     * @param accountType Type: String
      */
     public void setAccountType(String accountType) {
         this.accountType = accountType;
@@ -51,7 +51,7 @@ public class User {
 
     /**
      * Getter for userName
-     * @return userName String
+     * @return userName Type: String
      */
     public String getUserName() {
         return userName;
@@ -59,7 +59,7 @@ public class User {
 
     /**
      * Setter for UserName
-     * @param userName String
+     * @param userName Type: String
      */
     public void setUserName(String userName) {
         this.userName = userName;
