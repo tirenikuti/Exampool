@@ -9,17 +9,17 @@ package comp3350.exampool.objects;
 public class User {
 
     //User Object Variables
-    final int userID;
+    final String userID;
     private String accountType;
     private String userName;
 
     /**
      * Constructor for User Object
-     * @param userID Type: Int Primary key
+     * @param userID Type: String Primary key
      * @param accountType Type: String
      * @param userName Type: String
      */
-    public User(int userID, String accountType, String userName) {
+    public User(String userID, String accountType, String userName) {
         this.userID = userID;
         this.accountType = accountType;
         this.userName = userName;
@@ -29,7 +29,7 @@ public class User {
      * Getter for User ID
      * @return userID Type: Int
      */
-    public int getUserID() {
+    public String getUserID() {
         return userID;
     }
 
