@@ -5,7 +5,13 @@ import java.util.List;
 import comp3350.exampool.objects.Flashcard;
 
 public interface FlashCardsPersistence {
+    List<Flashcard> getFlashCardsSequential(final int userID);
 
-    List<Flashcard> getFlashCards(final int userID);
+    List<Flashcard> getFlashCard(Flashcard currentFlashcard); 
 
+    Flashcard insertFlashcard(Flashcard currentFlashcard);
+
+    Flashcard updateFlashcard(Flashcard currentFlashcard);
+
+    void deleteFlashcard(Flashcard currentFlashcard);
 }
