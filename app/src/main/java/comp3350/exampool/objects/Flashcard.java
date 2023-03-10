@@ -168,6 +168,10 @@ public class Flashcard {
         return question;
     }
 
+    public String getOptions() {
+        return option1+option2+option3;
+    }
+
     /**
      * Setter for question
      * @param userName Type: String
