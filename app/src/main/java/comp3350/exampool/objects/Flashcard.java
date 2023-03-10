@@ -10,10 +10,10 @@ package comp3350.exampool.objects;
 import java.util.*;
 
 enum QuestionTupe {
-    MCQ, 
-    TFQ, 
-    SAQ, 
-    LAQ
+    MCQ, //Multiple Choice Question
+    TFQ, //True or False Question
+    SAQ, //Short Answer Question
+    LAQ  //Long Answer Question
 }
 
 public class Flashcard {
@@ -26,9 +26,9 @@ public class Flashcard {
     private String answer; 
     private int optionsNum; //the number of choices there are outside of the answer(3 = MCQ, 1 = TFQ else 0)
 
-    private String option1;
-    private String option2;
-    private String option3; 
+    private String option1; //null for SAQ and LAQ
+    private String option2; //null for TFQ, SAQ and LAQ
+    private String option3; //null for FTQ, SAQ and LAQ
 
     private String front; //The question (an options if present) displayed on the front of the flashcard
     private String back; //The answer displayed at the back of the flashcard
@@ -55,7 +55,7 @@ public class Flashcard {
     }
 
     /**
-    * Function to set the front and the back of the card
+    * Function to set the options so that front and the back of the card is catered accordingly
     */
     private void setCard() {
         if (questionType = QuestionType.MCQ){
@@ -71,8 +71,6 @@ public class Flashcard {
             for (int i = 0; i < theOptions.size(); i++) {
                 front = frontString + theOptions.get(i) + "/n";
             }
-
-            back = answer;
         }
         else if (questionType = QuestionType.TFQ){
             ArrayList<String> theOptions = new ArrayList<String>();
@@ -85,13 +83,12 @@ public class Flashcard {
             for (int i = 0; i < theOptions.size(); i++) {
                 front = frontString + theOptions.get(i) + "/n";
             }
-            
-            back = answer;
         }
         else {
             front = question;
-            back = answer;
         }
+        
+        back = answer;
     }
 
     /**
