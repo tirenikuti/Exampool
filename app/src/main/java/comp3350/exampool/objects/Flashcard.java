@@ -54,6 +54,38 @@ public class Flashcard {
         setCard();
     }
 
+     public Flashcard(String flashCardID, String userID, QuestionType questionType, String question, String answer, int optionsNum, String option1) {
+        this.flashcardID = flashCardID;
+        this.UserID = userID; 
+        this.QuestionType = questionType;
+
+        this.question = question;
+        this.answer = answer;
+        this.optionsNum = optionsNum;
+
+        this.option1 = option1;
+        this.option2 = option2;
+        this.option3 = option3;
+
+        setCard();
+    }
+
+     public Flashcard(String flashCardID, String userID, QuestionType questionType, String question, String answer, int optionsNum) {
+        this.flashcardID = flashCardID;
+        this.UserID = userID; 
+        this.QuestionType = questionType;
+
+        this.question = question;
+        this.answer = answer;
+        this.optionsNum = optionsNum;
+
+        this.option1 = option1;
+        this.option2 = option2;
+        this.option3 = option3;
+
+        setCard();
+    }
+
     /**
     * Function to set the options so that front and the back of the card is catered accordingly
     */
