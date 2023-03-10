@@ -1,5 +1,7 @@
 package comp3350.exampool.objects;
 import java.util.ArrayList;
+import java.util.Collection;
+
 /**
  * Summary: Notes holds a string of content
  * Parameters: 2 Constructors one with tags one without
@@ -10,35 +12,34 @@ import java.util.ArrayList;
 
 public class Notes{
     //Class Variables
+    private String notesID;
+    private String userID;
     private String content;
     private final ArrayList<String> tags;
-    private int creatorID; //currently unused, to identify who created the note
-    private int noteID; //notes ID number
 
     /**
      * Constructor: Create a new note without tags
-     * @param cID CreatorID Type: int
-     * @param nID NoteID Type: int
+     * @param uID UserID Type: String
+     * @param nID NoteaID Type: String
      * @param text Content Type: String
      */
-    public Notes(int cID, int nID, String text){
-        noteID = nID;
-        creatorID = cID;
-        tags = new ArrayList<String>();
+    public Notes(String nID, String cID, String text){
+        notesID = nID;
+        userID = cID;
         content = text;
     }
 
     /**
      * Constructor: Create a new note with tags
-     * @param cID CreatorID Type: int
+     * @param uID CreatorID Type: int
      * @param nID NoteID Type: int
      * @param text Content Type: String
      * @param tagList List of categories for the notes Type: ArrayList <String>
      */
-    public Notes(int cID, int nID, String text, ArrayList<String> tagList){
-        noteID = nID;
-        creatorID = cID;
-        tags = new ArrayList<String>(tagList); //tags already exist
+    public Notes(String nID, String uID, String text, ArrayList<String> tagList){
+        notesID = nID;
+        userID = uID;
+        tags = new ArrayList<>(tagList); //tags already exist
         content = text;
     }
 
@@ -71,11 +72,11 @@ public class Notes{
     }
 
     /**
-     * Getter for the Creator of the the Note's User ID
-     * @return CreatorID Type: Int
+     * Getter for the UserID
+     * @return UserID Type: String
      */
-    public int getCreatorID(){
-        return creatorID;
+    public int getUserID(){
+        return userID;
     }
 
     /**
@@ -109,18 +110,7 @@ public class Notes{
      * Getter returns the tags for this note as an ArrayList
      * @return tags Type: ArrayList <String>
      */
-    public ArrayList<String> getTags() {
+    public Collection getTags() {
         return tags;
-    }
-
-
-    /**
-     * Marks the note as Deleted, should be removed from the database later
-     */
-    public void deleteNote(){
-        tags.clear();
-        noteID = -1;
-        creatorID = -1;
-        content = "";
     }
 }
