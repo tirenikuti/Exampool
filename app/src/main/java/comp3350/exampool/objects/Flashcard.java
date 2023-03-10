@@ -104,7 +104,7 @@ public class Flashcard {
 
             Collections.shuffle(theOptions);
 
-            front = question "/n";
+            front = question+"/n";
             for (int i = 0; i < theOptions.size(); i++) {
                 front = frontString + theOptions.get(i) + "/n";
             }
@@ -116,7 +116,7 @@ public class Flashcard {
 
             Collections.shuffle(theOptions);
 
-            front = question "/n";
+            front = question+"/n";
             for (int i = 0; i < theOptions.size(); i++) {
                 front = frontString + theOptions.get(i) + "/n";
             }

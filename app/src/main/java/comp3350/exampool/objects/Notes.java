@@ -3,10 +3,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 /**
- * Summary: Notes holds a string of content
+ * Summary: NoteActivity holds a string of content
  * Parameters: 2 Constructors one with tags one without
  * Returns: Getters for all class variables
- * Description: Notes has some string of content, ID number for the user who made it and the note itself
+ * Description: NoteActivity has some string of content, ID number for the user who made it and the note itself
  * as well as tags that describe the category of the notes.
  */
 

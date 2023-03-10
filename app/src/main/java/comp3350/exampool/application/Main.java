@@ -22,9 +22,9 @@ public class Main
     } catch (InstantiationException e) {
       e.printStackTrace();
     } catch (IllegalAccessException e) {
-      e/printStackTrace();
+      e.printStackTrace();
     } catch (ClassNotFoundException e) {
-      e.printStackTrace
+      e.printStackTrace();
     }
     dbName = name;
   }
