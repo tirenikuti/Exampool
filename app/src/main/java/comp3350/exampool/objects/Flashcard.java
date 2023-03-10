@@ -217,7 +217,7 @@ public class Flashcard {
      * Setter for front of card
      * @param front Type: Question
      */
-    public void setFront(Question front) {
+    public void setFront(String front) {
         this.front = front;
     }
 
