@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#6DD8E6">
+    android:background="#98B8D0">
 
     <Button
         android:id="@+id/ShortAnswerQuestions"
@@ -53,7 +53,7 @@
         android:layout_width="303dp"
         android:layout_height="40dp"
         android:fontFamily="sans-serif-black"
-        android:text="Select Your Flashcard Type!"
+        android:text="@string/selectFlashCard"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/ShortAnswerQuestions"

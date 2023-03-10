@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">ExamPool</string>
+    <string name="longAnswer">Long Answer Questions</string>
+    <string name="shortAnswer">Short Answer Questions</string>
+    <string name="MultiChoice">Multiple Choice Questions</string>
+    <string name="Flashcards">Flash Cards</string>
+    <string name="Notes">Notes</string>
+    <string name="selectFlashCard">Select Your Flashcard Type!</string>
+    <string name="answerLabel">Answer:</string>
+    <string name="questionLabel">Answer:</string>
+    <string name="revealAnswer">Reveal Answer:</string>
+    <string name="answer"></string>
+    <string name="question"></string>
+    <string name="Options"></string>
+    <string name="next">Next</string>
+    <string name="optionsMCQ">Options: </string>
+
 </resources>
