@@ -14,6 +14,8 @@ import comp3350.exampool.objects.Notes;
 import comp3350.exampool.persistence.NotesPersitence;
 
 public class NotesPersistenceHSQLDB implements NotesPersistence {
+
+    private final String dbPath;
     
     public NotesPersistenceHSQLDB(final String dbPath) {
         this.dbPath = dbPath;
