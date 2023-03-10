@@ -11,7 +11,5 @@ public interface FlashCardsPersistence {
 
     List<Flashcard> getFlashcardUsers(User currentUser); 
 
-    Flashcard insertFlashcard(Flashcard currentFlashcard);
-
     void deleteFlashcard(Flashcard currentFlashcard);
 }
