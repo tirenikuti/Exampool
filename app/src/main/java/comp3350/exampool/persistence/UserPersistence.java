@@ -11,5 +11,7 @@ public interface UserPersistence {
 
     User insertUser(final User currentUser);
 
+    User updateUser(final User currentUser);
+
     void deleteUser(final User currentUser);
 }
