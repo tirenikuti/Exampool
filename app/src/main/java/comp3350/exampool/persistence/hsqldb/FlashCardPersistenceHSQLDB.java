@@ -14,6 +14,8 @@ import comp3350.exampool.objects.Flashcard;
 import comp3350.exampool.persistence.FlashcardPersitence;
 
 public class FlashcardPersitenceHSQLDB implements FlashcardPersistence {
+
+    private final String dbPath;
     
     public FlashcardPersitenceHSQLDB(final String dbPath) {
         this.dbPath = dbPath;
