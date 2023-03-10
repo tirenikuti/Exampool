@@ -6,26 +6,158 @@ package comp3350.exampool.objects;
  * Returns: Two getters which return the front and back of the flashcard
  * Description: Flashcard uses and holds Question objects
  */
+
+import java.util.*;
+
+enum QuestionTupe {
+    MCQ, 
+    TFQ, 
+    SAQ, 
+    LAQ
+}
+
 public class Flashcard {
     //Class Variables
-    //The question displayed on the front of the flashcard
-    private Question front;
-    //The answer displayed at the back of the flashcard
-    private String back;
+    private String flashcardID; 
+    private String userId; 
+    private QuestionType questionType;
+    
+    private String question; 
+    private String answer; 
+    private int optionsNum; //the number of choices there are outside of the answer(3 = MCQ, 1 = TFQ else 0)
+
+    private String option1;
+    private String option2;
+    private String option3; 
+
+    private String front; //The question (an options if present) displayed on the front of the flashcard
+    private String back; //The answer displayed at the back of the flashcard
 
     /**
      * Constructor for flashcard
-     * @param flashCardID Int to identify the Flashcard
-     * @param userID Int to identify the User
+     * @param flashCardID String to identify the Flashcard
+     * @param userID String to identify the User
      */
-    public Flashcard(int flashCardID, int userID) {
-        //add
-        //default variable set to blank
-        front = new Question("blank", "blank");
-        assert(front.getAnswer()!= null);
-        //the back is the answer from the front Question
-        back = front.getAnswer();
+    public Flashcard(String flashCardID, String userID, QuestionType questionType, String question, String answer, int optionsNum, String option1, String option2, String option3) {
+        this.flashcardID = flashCardID;
+        this.UserID = userID; 
+        this.QuestionType = questionType;
+
+        this.question = question;
+        this.answer = answer;
+        this.optionsNum = optionsNum;
+
+        this.option1 = option1;
+        this.option2 = option2;
+        this.option3 = option3;
+
+        setCard();
     }
+
+    /**
+    * Function to set the front and the back of the card
+    */
+    private void setCard() {
+        if (questionType = QuestionType.MCQ){
+            ArrayList<String> theOptions = new ArrayList<String>();
+            theOptions.add(answer);
+            theOptions.add(option1);
+            theOptions.add(option2);
+            theOptions.add(option3);
+
+            Collections.shuffle(theOptions);
+
+            front = question "/n";
+            for (int i = 0; i < theOptions.size(); i++) {
+                front = frontString + theOptions.get(i) + "/n";
+            }
+
+            back = answer;
+        }
+        else if (questionType = QuestionType.TFQ){
+            ArrayList<String> theOptions = new ArrayList<String>();
+            theOptions.add(answer);
+            theOptions.add(option1);
+
+            Collections.shuffle(theOptions);
+
+            front = question "/n";
+            for (int i = 0; i < theOptions.size(); i++) {
+                front = frontString + theOptions.get(i) + "/n";
+            }
+            
+            back = answer;
+        }
+        else {
+            front = question;
+            back = answer;
+        }
+    }
+
+    /**
+     * Getter for User ID
+     * @return userID Type: Int
+     */
+    public String getUserID() {
+        return userID;
+    }
+
+    /**
+     * Getter for Flashcard ID
+     * @return userID Type: Int
+     */
+    public String getFlashcardID() {
+        return flashcardID;
+    }
+
+    /**
+     * Getter for question type
+     * @return questionType Type: QuestionType
+     */
+    public QuestionType getQuestionType() {
+        return questionType;
+    }
+
+    /**
+     * Setter for question Type
+     * @param question Type: String
+     */
+    public void setQuestionType(QuestionType questionType) {
+        this.questionType = questionType;
+    }
+
+    /**
+     * Getter for question
+     * @return question Type: String
+     */
+    public String getQuestion() {
+        return question;
+    }
+
+    /**
+     * Setter for question
+     * @param userName Type: String
+     */
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    /**
+     * Getter for answer
+     * @return answer Type: String
+     */
+    public String getAnswer() {
+        return answer;
+    }
+
+    /**
+     * Setter for Answer
+     * @param answer Type: String
+     */
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
 
     /**
      * Getter for front of card
