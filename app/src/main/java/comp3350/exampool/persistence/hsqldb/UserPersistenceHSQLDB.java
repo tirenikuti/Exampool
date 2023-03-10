@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import comp3350.exampool.objects.User;
 import comp3350.exampool.persistence.UserPersistence;
 
 public class UserPersistenceHSQLDB implements UserPersistence {
@@ -46,7 +47,7 @@ public class UserPersistenceHSQLDB implements UserPersistence {
 
             return users;
         } catch (final SQLException e){
-            throw new PersistenceException(e);
+            throw new android.database.SQLException();
         }
     }
 
@@ -55,7 +56,7 @@ public class UserPersistenceHSQLDB implements UserPersistence {
         final List<User> users = new ArrayList<>();
         try (final Connection c = connection()) {
             final PreparedStatement st = c.prepareStatement("Select * FROM users WHERE userID = ?");
-            st.setString(1, currentUser.getUserID);
+            st.setString(1, currentUser.getUserID());
 
             final ResultSet rs = st.executeQuery();
             while(rs.next()) {
@@ -67,7 +68,7 @@ public class UserPersistenceHSQLDB implements UserPersistence {
 
             return users;
         } catch (final SQLException e){
-            throw new PersistenceException(e);
+            throw new android.database.SQLException();
         }
     }
 
@@ -82,7 +83,7 @@ public class UserPersistenceHSQLDB implements UserPersistence {
 
             return currentUser;
         } catch (final SQLException e) {
-            throw new PersistenceException(e);
+            throw new android.database.SQLException();
         }
     }
 
@@ -97,7 +98,7 @@ public class UserPersistenceHSQLDB implements UserPersistence {
 
             return currentUser;
         } catch (final SQLException e) {
-            throw new PersistenceException(e);
+            throw new android.database.SQLException();
         }
     }
 
@@ -112,12 +113,12 @@ public class UserPersistenceHSQLDB implements UserPersistence {
             st.setString(1, currentUser.getUserID());
             st.executeUpdate();
 
-            final PreparedStatement st = c.prepareStatement("DELETE FROM users WHERE userID = ?");
+            final PreparedStatement sp = c.prepareStatement("DELETE FROM users WHERE userID = ?");
             st.setString(1, currentUser.getUserID());
             st.executeUpdate();
             
         } catch (final SQLException e) {
-            throw new PersistenceException(e);
+            throw new android.database.SQLException();
         }
 
     }

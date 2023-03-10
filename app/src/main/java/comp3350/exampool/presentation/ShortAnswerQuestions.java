@@ -12,6 +12,7 @@ import java.util.Iterator;
 
 import comp3350.exampool.R;
 import comp3350.exampool.objects.Flashcard;
+import comp3350.exampool.objects.QuestionType;
 
 
 public class ShortAnswerQuestions extends AppCompatActivity {
@@ -23,12 +24,14 @@ public class ShortAnswerQuestions extends AppCompatActivity {
         setContentView(R.layout.activity_short_answer_questions);
 
         ArrayList<Flashcard> data = new ArrayList<Flashcard>();
+        data.add(new Flashcard("1","1", QuestionType.SAQ,"Does this suck?","Yes",0));
+        data.add(new Flashcard("2","1", QuestionType.SAQ,"Does this still suck?","Yes",0));
 
         TextView cardText = (TextView) findViewById(R.id.questionSAQ);
         TextView answerText = (TextView) findViewById(R.id.answerSAQ);
         Iterator it = data.iterator();
-        Flashcard currCard = (Flashcard) it.next();
-        while (it.hasNext()) {
+        Flashcard currCard = data.get(0);
+        while (it.hasNext()&&(currCard.getQuestionType() != QuestionType.SAQ)) {
             currCard = (Flashcard) it.next();
         }
         cardText.setText(currCard.getQuestion());
@@ -41,7 +44,7 @@ public class ShortAnswerQuestions extends AppCompatActivity {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Flashcard outCard = (Flashcard) it.next();
-                while (it.hasNext()) {
+                while (it.hasNext()&&(outCard.getQuestionType() != QuestionType.SAQ)) {
                     outCard = (Flashcard) it.next();
                 }
                 cardText.setText(outCard.getQuestion());
@@ -51,7 +54,7 @@ public class ShortAnswerQuestions extends AppCompatActivity {
             }
 
         });
-        buttonNext.setOnClickListener(new View.OnClickListener() {
+        buttonReveal.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 answerText.setVisibility(View.VISIBLE);
             }

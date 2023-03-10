@@ -12,7 +12,7 @@ import java.util.Iterator;
 
 import comp3350.exampool.R;
 import comp3350.exampool.objects.Notes;
-
+import comp3350.exampool.objects.QuestionType;
 
 
 public class multipleChoiceQuestions extends AppCompatActivity {
@@ -23,13 +23,15 @@ public class multipleChoiceQuestions extends AppCompatActivity {
         setContentView(R.layout.activity_multiple_choice_questions);
         //Get data from somewhere
         ArrayList<Flashcard> data = new ArrayList<Flashcard>();
+        data.add(new Flashcard("1","1", QuestionType.MCQ,"Does this suck?","Yes",3,"Maybe","Yes","No"));
+        data.add(new Flashcard("2","1", QuestionType.MCQ,"Does this still suck?","Yes",3,"Maybe","Yes","No"));
 
         TextView cardText = (TextView) findViewById(R.id.questionMCQ);
         TextView McqOptionText = (TextView) findViewById(R.id.optionsMCQ);
         TextView answerText = (TextView) findViewById(R.id.answerMCQ);
         Iterator it = data.iterator();
-        Flashcard currCard = (Flashcard) it.next();
-        while (it.hasNext()) {
+        Flashcard currCard = data.get(0);
+        while (it.hasNext()&&(currCard.getQuestionType() != QuestionType.MCQ)) {
             currCard = (Flashcard) it.next();
         }
         cardText.setText(currCard.getQuestion());
@@ -43,7 +45,7 @@ public class multipleChoiceQuestions extends AppCompatActivity {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Flashcard outCard = (Flashcard) it.next();
-                while (it.hasNext()) {
+                while (it.hasNext()&&(outCard.getQuestionType() != QuestionType.MCQ)) {
                     outCard = (Flashcard) it.next();
                 }
                 cardText.setText(outCard.getQuestion());
@@ -53,7 +55,7 @@ public class multipleChoiceQuestions extends AppCompatActivity {
             }
 
         });
-        buttonNext.setOnClickListener(new View.OnClickListener() {
+        buttonReveal.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 answerText.setVisibility(View.VISIBLE);
             }

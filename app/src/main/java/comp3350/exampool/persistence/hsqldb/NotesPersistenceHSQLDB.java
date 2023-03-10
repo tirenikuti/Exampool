@@ -11,7 +11,8 @@ import java.util.List;
 
 
 import comp3350.exampool.objects.Notes;
-import comp3350.exampool.persistence.NotesPersitence;
+import comp3350.exampool.objects.User;
+import comp3350.exampool.persistence.NotesPersistence;
 
 public class NotesPersistenceHSQLDB implements NotesPersistence {
 
@@ -33,7 +34,7 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
         return new Notes(notesID, userID, content);
     }
 
-    @Override
+
     public List<Notes> getNotesSequiential(){
         final List<Notes> notes = new ArrayList<>();
 
@@ -42,8 +43,8 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
             final ResultSet rs = st.executeQuery("SELECT * FROM notes");
             while(rs.next())
             {
-                final Notes notes = fromResultSet(rs);
-                notes.add(notes);
+                final Notes note = fromResultSet(rs);
+                notes.add(note);
             }
             rs.close();
             st.close();
@@ -51,8 +52,13 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
             return notes;
         }
         catch (final SQLException e){
-            throw new PersistenceExeption(e);
+            throw new android.database.SQLException();
         }
+    }
+
+    @Override
+    public List<Notes> getNotesSequential() {
+        return null;
     }
 
     @Override
@@ -61,13 +67,13 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
 
         try(final Connection c = connection()) {
             final PreparedStatement st = c.prepareStatement("SELECT * FROM notes WHERE flashCardID = ?");
-            st.setString (1, currentNotes.getNotesID());
+            st.setString (1, currentNotes.getNoteID());
 
             final ResultSet rs = st.executeQuery();
             while(rs.next())
             {
-                final Notes notes = fromResultSet(rs);
-                notes.add(notes);
+                final Notes note = fromResultSet(rs);
+                notes.add(note);
             }
             rs.close();
             st.close();
@@ -75,7 +81,7 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
             return notes;
         }
         catch (final SQLException e){
-            throw new PersistenceExeption(e);
+            throw new android.database.SQLException();
         }
     }
 
@@ -90,8 +96,8 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
             final ResultSet rs = st.executeQuery();
             while(rs.next())
             {
-                final Notes notes = fromResultSet(rs);
-                notes.add(notes);
+                final Notes note = fromResultSet(rs);
+                notes.add(note);
             }
             rs.close();
             st.close();
@@ -99,7 +105,7 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
             return notes;
         }
         catch (final SQLException e){
-            throw new PersistenceExeption(e);
+            throw new android.database.SQLException();
         }
     }
 
@@ -107,11 +113,11 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
     public void deleteNotes(Notes currentNotes){
         try(final Connection c = connection()) {
             final PreparedStatement st = c.prepareStatement("DELETE FROM notes WHERE notesID = ?");
-            st.setString (1, currentUser.getNotesID());
+            st.setString (1, currentNotes.getNoteID());
             st.executeUpdate();
         }
         catch (final SQLException e){
-            throw new PersistenceExeption(e);
+            throw new android.database.SQLException();
         }
     }
    

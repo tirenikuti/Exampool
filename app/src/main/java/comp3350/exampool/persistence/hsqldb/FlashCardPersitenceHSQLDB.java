@@ -11,13 +11,15 @@ import java.util.List;
 
 
 import comp3350.exampool.objects.Flashcard;
-import comp3350.exampool.persistence.FlashcardPersitence;
+import comp3350.exampool.objects.QuestionType;
+import comp3350.exampool.objects.User;
+import comp3350.exampool.persistence.FlashcardsPersistence;
 
-public class FlashcardPersitenceHSQLDB implements FlashcardPersistence {
+public class FlashCardPersitenceHSQLDB implements FlashcardsPersistence {
 
     private final String dbPath;
     
-    public FlashcardPersitenceHSQLDB(final String dbPath) {
+    public FlashCardPersitenceHSQLDB(final String dbPath) {
         this.dbPath = dbPath;
     }
 
@@ -29,12 +31,12 @@ public class FlashcardPersitenceHSQLDB implements FlashcardPersistence {
         final String flashcardID = rs.getString("flashcardID");
         final String userID = rs.getString("userID");
         final String type = rs.getString("questionType");
-        final QuestionType questionType = QuestionType.LAQ;
+        QuestionType questionType = QuestionType.LAQ;
 
 
         final String question = rs.getString("question");
         final String answer = rs.getString("answer");
-        final int optionsNum = rs.getString("optionsNum");
+        final int optionsNum = Integer.parseInt(rs.getString("optionsNum"));
 
         final String option1; 
         final String option2;
@@ -45,8 +47,8 @@ public class FlashcardPersitenceHSQLDB implements FlashcardPersistence {
         if (type.equals("MCQ")){
             questionType = QuestionType.MCQ;
             option1 = rs.getString("option1");
-            option1 = rs.getString("option1");
-            option1 = rs.getString("option1");
+            option2 = rs.getString("option1");
+            option3 = rs.getString("option1");
             flashcard = new Flashcard(flashcardID, userID, questionType, question, answer, optionsNum, option1, option2, option3);
         }
         else if(type.equals("TFQ")){
@@ -84,7 +86,7 @@ public class FlashcardPersitenceHSQLDB implements FlashcardPersistence {
             return flashcards;
         }
         catch (final SQLException e){
-            throw new PersistenceExeption(e);
+            throw new android.database.SQLException();
         }
     }
 
@@ -108,7 +110,7 @@ public class FlashcardPersitenceHSQLDB implements FlashcardPersistence {
             return flashcards;
         }
         catch (final SQLException e){
-            throw new PersistenceExeption(e);
+            throw new android.database.SQLException();
         }
     }
 
@@ -132,7 +134,7 @@ public class FlashcardPersitenceHSQLDB implements FlashcardPersistence {
             return flashcards;
         }
         catch (final SQLException e){
-            throw new PersistenceExeption(e);
+            throw new android.database.SQLException();
         }
     }
 
@@ -140,11 +142,11 @@ public class FlashcardPersitenceHSQLDB implements FlashcardPersistence {
     public void deleteFlashcard(Flashcard currentFlashcard){
         try(final Connection c = connection()) {
             final PreparedStatement st = c.prepareStatement("DELETE FROM flashcards WHERE flashCardID = ?");
-            st.setString (1, currentUser.getFlashcardID());
+            st.setString (1, currentFlashcard.getFlashcardID());
             st.executeUpdate();
         }
         catch (final SQLException e){
-            throw new PersistenceExeption(e);
+            throw new android.database.SQLException();
         }
     }
    

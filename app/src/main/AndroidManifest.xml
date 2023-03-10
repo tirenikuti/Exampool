@@ -15,7 +15,13 @@
             android:name=".presentation.NoteActivity"
             android:exported="false" />
         <activity
+            android:name=".presentation.flashCardHome"
+            android:exported="false" />
+        <activity
             android:name=".presentation.longAnswerQuestions"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ShortAnswerQuestions"
             android:exported="false" />
         <activity
             android:name=".presentation.multipleChoiceQuestions"

@@ -1,15 +1,15 @@
-package comp3350.srsys.application;
+package comp3350.exampool.application;
 
-import comp3350.srsys.persistence.NotesPersistence;
-import comp3350.srsys.persistence.UserPersistence;
-import comp3350.srsys.persistence.FlashcardPersistence;
-import comp3350.srsys.persistence.hsqldb.NotesPersistenceHSQLDB;
-import comp3350.srsys.persistence.hsqldb.UserPersistenceHSQLDB;
-import comp3350.srsys.persistence.hsqldb.FlashcardPersistenceHSQLDB;
+import comp3350.exampool.persistence.NotesPersistence;
+import comp3350.exampool.persistence.UserPersistence;
+import comp3350.exampool.persistence.FlashcardsPersistence;
+import comp3350.exampool.persistence.hsqldb.NotesPersistenceHSQLDB;
+import comp3350.exampool.persistence.hsqldb.UserPersistenceHSQLDB;
+import comp3350.exampool.persistence.hsqldb.FlashCardPersitenceHSQLDB;
 
 public class Services
 {
-	private static FlashcardPersistence flashcardPersistence = null;
+	private static FlashcardsPersistence flashcardPersistence = null;
 	private static UserPersistence userPersistence = null;
 	private static NotesPersistence notesPersistence = null;
 
@@ -23,11 +23,11 @@ public class Services
         return userPersistence;
 	}
 
-    public static synchronized FlashcardPersistence getFlashcardPersistence()
+    public static synchronized FlashcardsPersistence getFlashcardPersistence()
     {
         if (flashcardPersistence == null)
         {
-            flashcardPersistence = new FlashcardPersistenceHSQLDB(Main.getDBPathName());
+            flashcardPersistence = new FlashCardPersitenceHSQLDB(Main.getDBPathName());
         }
 
         return flashcardPersistence;

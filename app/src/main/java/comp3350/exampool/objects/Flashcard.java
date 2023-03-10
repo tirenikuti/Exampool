@@ -9,13 +9,6 @@ package comp3350.exampool.objects;
 
 import java.util.*;
 
-enum QuestionType {
-    MCQ, //Multiple Choice Question
-    TFQ, //True or False Question
-    SAQ, //Short Answer Question
-    LAQ  //Long Answer Question
-}
-
 public class Flashcard {
     //Class Variables
     private String flashcardID; 
@@ -35,18 +28,16 @@ public class Flashcard {
 
     /**
      * Constructor for flashcard
-     * @param flashCardID String to identify the Flashcard
-     * @param userID String to identify the User
      */
 
      public Flashcard(){
          //empty constructor;
      }
 
-    public Flashcard(String flashCardID, String userID, QuestionType questionType, String question, String answer, int optionsNum, String option1, String option2, String option3) {
+    public Flashcard(String flashCardID, String userID, QuestionType initQuestionType, String question, String answer, int optionsNum, String option1, String option2, String option3) {
         this.flashcardID = flashCardID;
-        this.UserID = userID; 
-        this.QuestionType = questionType;
+        this.userId = userID;
+        this.questionType = initQuestionType;
 
         this.question = question;
         this.answer = answer;
@@ -61,8 +52,8 @@ public class Flashcard {
 
      public Flashcard(String flashCardID, String userID, QuestionType questionType, String question, String answer, int optionsNum, String option1) {
         this.flashcardID = flashCardID;
-        this.UserID = userID; 
-        this.QuestionType = questionType;
+        this.userId = userID;
+        this.questionType = questionType;
 
         this.question = question;
         this.answer = answer;
@@ -77,8 +68,8 @@ public class Flashcard {
 
      public Flashcard(String flashCardID, String userID, QuestionType questionType, String question, String answer, int optionsNum) {
         this.flashcardID = flashCardID;
-        this.UserID = userID; 
-        this.QuestionType = questionType;
+        this.userId = userID;
+        this.questionType = questionType;
 
         this.question = question;
         this.answer = answer;
@@ -95,7 +86,7 @@ public class Flashcard {
     * Function to set the options so that front and the back of the card is catered accordingly
     */
     private void setCard() {
-        if (questionType = QuestionType.MCQ){
+        if (questionType == QuestionType.MCQ){
             ArrayList<String> theOptions = new ArrayList<String>();
             theOptions.add(answer);
             theOptions.add(option1);
@@ -106,10 +97,10 @@ public class Flashcard {
 
             front = question+"/n";
             for (int i = 0; i < theOptions.size(); i++) {
-                front = frontString + theOptions.get(i) + "/n";
+                front = front + theOptions.get(i) + "/n";
             }
         }
-        else if (questionType = QuestionType.TFQ){
+        else if (questionType == QuestionType.TFQ){
             ArrayList<String> theOptions = new ArrayList<String>();
             theOptions.add(answer);
             theOptions.add(option1);
@@ -118,7 +109,7 @@ public class Flashcard {
 
             front = question+"/n";
             for (int i = 0; i < theOptions.size(); i++) {
-                front = frontString + theOptions.get(i) + "/n";
+                front = front + theOptions.get(i) + "/n";
             }
         }
         else {
@@ -133,7 +124,7 @@ public class Flashcard {
      * @return userID Type: Int
      */
     public String getUserID() {
-        return userID;
+        return userId;
     }
 
     /**
@@ -154,7 +145,7 @@ public class Flashcard {
 
     /**
      * Setter for question Type
-     * @param question Type: String
+
      */
     public void setQuestionType(QuestionType questionType) {
         this.questionType = questionType;
@@ -169,12 +160,12 @@ public class Flashcard {
     }
 
     public String getOptions() {
-        return option1+option2+option3;
+        return ("A: "+this.option1+" B: "+this.option2+" C:"+this.option3);
     }
 
     /**
      * Setter for question
-     * @param userName Type: String
+
      */
     public void setQuestion(String question) {
         this.question = question;
