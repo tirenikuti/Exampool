@@ -11,6 +11,8 @@ import java.util.List;
 
 
 import comp3350.exampool.objects.Notes;
+import comp3350.exampool.objects.User;
+
 import comp3350.exampool.persistence.NotesPersitence;
 
 public class NotesPersistenceHSQLDB implements NotesPersistence {
