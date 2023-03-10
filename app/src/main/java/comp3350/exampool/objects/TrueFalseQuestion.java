@@ -1,4 +1,7 @@
 package comp3350.exampool.objects;
+
+import androidx.annotation.NonNull;
+
 //True or False questions
 public class TrueFalseQuestion extends Question{
     //array list of the two option (True/False)
@@ -21,6 +24,7 @@ public class TrueFalseQuestion extends Question{
         }
     }
     //toString() method
+    @NonNull
     @Override
     public String toString() {
         String retString = options[0] + "\t" +options[1] ;

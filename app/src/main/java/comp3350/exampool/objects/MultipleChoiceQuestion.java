@@ -1,4 +1,6 @@
 package comp3350.exampool.objects;
+import androidx.annotation.NonNull;
+
 import java.util.*;
 
 public class MultipleChoiceQuestion extends Question{
@@ -12,8 +14,6 @@ public class MultipleChoiceQuestion extends Question{
 
     //counter
     private int i =1;
-    //an array used to store ***************
-    private final Answer [] tempArr = new Answer [4];
 
     //Constructor
     // This constructor takes the question tag and the correct answer
@@ -51,8 +51,8 @@ public class MultipleChoiceQuestion extends Question{
     public void addAnswers(String ans1) {
         assert(ans1 != null);
         assert(tags.size() >0);
-        assert(!optionInAnswers(ans1));
-        if(!optionInAnswers(ans1)) {
+        assert(optionInAnswers(ans1));
+        if(optionInAnswers(ans1)) {
             Answer newAns = (setRandTag(ans1));
             assert (i <= answers.size());
             answers.add(newAns);
@@ -61,8 +61,7 @@ public class MultipleChoiceQuestion extends Question{
         else{
             System.out.println("This option has already been put in (NO DUPLICATES)");
         }
-        if(i == tempArr.length) {
-            assert (i == tempArr.length);
+        if(i == answers.size()) {
             Collections.sort(answers, new TagComparator());
         }
     }
@@ -76,19 +75,16 @@ public class MultipleChoiceQuestion extends Question{
                 break;
             }
         }
-
-        return alreadyIn;
+        return !alreadyIn;
     }
     //sets random tags to answers as they enter the array
     private Answer setRandTag(String option){
         assert(tags.size() > 0);
         int n = tags.size();
-        assert n >0;
 
         //get the random char
         int rnd = new Random().nextInt(n);
 
-        assert (rnd >= 0);
         assert (rnd <= tags.size());
 
         Answer retAnswer  = new Answer(tags.get(rnd), option);
@@ -97,11 +93,12 @@ public class MultipleChoiceQuestion extends Question{
     }
 
     //toString() method
+    @NonNull
     @Override
     public String toString() {
-        String retString = "";
+        StringBuilder retString = new StringBuilder();
         for (Answer answer : answers) {
-            retString += ("\n" + answer);
+            retString.append("\n").append(answer);
         }
         return super.getQuestTag() + retString;
     }
@@ -145,6 +142,7 @@ class Answer {
     }
 
     //toString method
+    @NonNull
     @Override
     public String toString() {
         return identifier + ". " + option;

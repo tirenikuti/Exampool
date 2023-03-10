@@ -1,4 +1,7 @@
 package comp3350.exampool.objects;
+
+import androidx.annotation.NonNull;
+
 public class Question {   //Super class for all the remaining question types
     //the Question's tag, like the actual question
     private String questTag;
@@ -32,6 +35,7 @@ public class Question {   //Super class for all the remaining question types
         Answer = answer;
     }
     //toString method. Same used in Long Answer Questions class (LAQ) and Short Answer Question class (SAQ)
+    @NonNull
     @Override
     public String toString() {
         return "Question: " + questTag;

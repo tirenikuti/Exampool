@@ -30,7 +30,6 @@ public class ShortAnswerQuestion extends Question{
         //split the current question tag by space with each array element being a word from the original question
         String [] wordsInLine = questionTag.split(" ");
         assert(pos < wordsInLine.length);
-        assert (wordsInLine.length > 0);
 
         //removes the word at the user-supplied position and stores it in a string
         String removed = wordsInLine[pos];
@@ -38,24 +37,24 @@ public class ShortAnswerQuestion extends Question{
         assert(!removed.equals(" "));
 
         //creates a new string (the new Question)
-        String newWord = "";
+        StringBuilder newWord = new StringBuilder();
 
         //loop to create a new question
         for (int i = 0; i < wordsInLine.length; i++) {
             //loop until you get to the position of the removed word
             if (i == pos) {
                 //replace word in the question with spaces and continue from there
-                newWord += "________";
+                newWord.append("________");
                 continue;
             }
             //continues adding words from the previous question to the new question
-            newWord += wordsInLine[i];
+            newWord.append(wordsInLine[i]);
 
             //separates them with a space
-            newWord += " ";
+            newWord.append(" ");
         }
         //stores new question in position [0]
-        retString.add(0,newWord);
+        retString.add(0, newWord.toString());
         //stores removed word (answer) in position [1]
         retString.add(1,removed);
 
