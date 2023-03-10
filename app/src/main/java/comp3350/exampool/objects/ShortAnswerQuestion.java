@@ -1,8 +1,7 @@
 package comp3350.exampool.objects;
-public class ShortAnswerQuestion extends Question{
+import java.util.ArrayList;
 
-    //The transformed question is stored in an array with its answer
-    private final String [] shortAnswerQuestion;
+public class ShortAnswerQuestion extends Question{
 
     //Constructor
     //This constructor takes the original question tag and a position supplied by the user and eliminates the word
@@ -13,21 +12,20 @@ public class ShortAnswerQuestion extends Question{
 
         assert (pos >=0);
         //call static createAns() function to create the new Short Answer Question
-        shortAnswerQuestion = createAns(questTag, pos);
 
         //The first element in the new array is the new question tag
-        super.setQuestTag(shortAnswerQuestion[0]);
+        super.setQuestTag(createAns(questTag,pos).get(0));
 
         //the second element in the array is the new answer
-        super.setAnswer( shortAnswerQuestion[1]);
+        super.setAnswer(createAns(questTag,pos).get(1));
     }
 
     //The Function creates a new Question tag and its answer
-    private static String[] createAns(String questionTag, int pos){
+    private static ArrayList<String> createAns(String questionTag, int pos){
         assert(pos >=0);
         assert(questionTag != null);
         //the return array of strings containing the new question tag and its answer
-        String [] retString = new String[2];
+        ArrayList <String> retString = new ArrayList<>();
 
         //split the current question tag by space with each array element being a word from the original question
         String [] wordsInLine = questionTag.split(" ");
@@ -57,11 +55,12 @@ public class ShortAnswerQuestion extends Question{
             newWord += " ";
         }
         //stores new question in position [0]
-        retString[0] = newWord;
+        retString.add(0,newWord);
         //stores removed word (answer) in position [1]
-        retString[1] = removed;
+        retString.add(1,removed);
 
         return retString;
     }
 
 }
+
