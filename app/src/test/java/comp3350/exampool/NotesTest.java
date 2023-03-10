@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import comp3350.exampool.objects.Notes;
 
@@ -38,11 +39,11 @@ public class NotesTest {
 
     @Test
     public void getTagsTest(){
-        ArrayList<String> tags, noTags;
+        Collection tags, noTags;
         noTags = noteNoTags.getTags();
         tags = noteWithTags.getTags();
-        assertEquals("should be the same ArrayList", noteTags, tags);
-        assertTrue("ArrayList should be empty", noTags.isEmpty());
+        assertEquals("should be the same Collection of Tags", noteTags, tags);
+        assertTrue("The Collection of Tags should be empty", noTags.isEmpty());
     }
 
     @Test

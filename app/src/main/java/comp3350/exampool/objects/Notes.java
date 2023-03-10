@@ -1,5 +1,7 @@
 package comp3350.exampool.objects;
 import java.util.ArrayList;
+import java.util.Collection;
+
 /**
  * Summary: Notes holds a string of content
  * Parameters: 2 Constructors one with tags one without
@@ -24,7 +26,7 @@ public class Notes{
     public Notes(int cID, int nID, String text){
         noteID = nID;
         creatorID = cID;
-        tags = new ArrayList<String>();
+        tags = new ArrayList<>();
         content = text;
     }
 
@@ -38,7 +40,7 @@ public class Notes{
     public Notes(int cID, int nID, String text, ArrayList<String> tagList){
         noteID = nID;
         creatorID = cID;
-        tags = new ArrayList<String>(tagList); //tags already exist
+        tags = new ArrayList<>(tagList); //tags already exist
         content = text;
     }
 
@@ -109,7 +111,7 @@ public class Notes{
      * Getter returns the tags for this note as an ArrayList
      * @return tags Type: ArrayList <String>
      */
-    public ArrayList<String> getTags() {
+    public Collection getTags() {
         return tags;
     }
 
