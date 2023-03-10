@@ -12,7 +12,7 @@ import java.util.Collection;
 
 public class Notes{
     //Class Variables
-    private String notesID;
+    private String noteID;
     private String userID;
     private String content;
     private final ArrayList<String> tags;
@@ -20,13 +20,14 @@ public class Notes{
     /**
      * Constructor: Create a new note without tags
      * @param uID UserID Type: String
-     * @param nID NoteaID Type: String
+     * @param nID NoteID Type: String
      * @param text Content Type: String
      */
-    public Notes(String nID, String cID, String text){
-        notesID = nID;
-        userID = cID;
+    public Notes(String nID, String uID, String text){
+        noteID = nID;
+        userID = uID;
         content = text;
+        tags = new ArrayList<>();
     }
 
     /**
@@ -37,7 +38,7 @@ public class Notes{
      * @param tagList List of categories for the notes Type: ArrayList <String>
      */
     public Notes(String nID, String uID, String text, ArrayList<String> tagList){
-        notesID = nID;
+        noteID = nID;
         userID = uID;
         tags = new ArrayList<>(tagList); //tags already exist
         content = text;
@@ -67,7 +68,7 @@ public class Notes{
      * Getter for the note's ID number
      * @return noteID Type: Int
      */
-    public int getNoteID(){
+    public String getNoteID(){
         return noteID;
     }
 
@@ -75,7 +76,7 @@ public class Notes{
      * Getter for the UserID
      * @return UserID Type: String
      */
-    public int getUserID(){
+    public String getUserID(){
         return userID;
     }
 
@@ -110,7 +111,7 @@ public class Notes{
      * Getter returns the tags for this note as an ArrayList
      * @return tags Type: ArrayList <String>
      */
-    public Collection getTags() {
+    public Collection<String> getTags() {
         return tags;
     }
 }
