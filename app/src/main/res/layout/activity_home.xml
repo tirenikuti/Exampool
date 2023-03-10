@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/flashcardbttn"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E91E63"
@@ -10,7 +10,7 @@
     android:backgroundTintMode="screen"
     android:foregroundTint="#4CAF50"
     android:visibility="visible"
-    tools:context=".MainActivity"
+    tools:context=".presentation.HomeActivity"
     tools:visibility="visible">
 
     <ImageView
@@ -18,12 +18,33 @@
         android:layout_width="413dp"
         android:layout_height="732dp"
         android:background="#98B8D0"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_background"
         tools:ignore="VisualLintBounds"
-        tools:srcCompat="@drawable/_133" />
+        tools:srcCompat="@drawable/mainbackgroundimage" />
+
+    <Button
+        android:id="@+id/Notes"
+        android:layout_width="196dp"
+        android:layout_height="49dp"
+        android:background="#FF9800"
+        android:checkable="false"
+        android:clickable="true"
+        android:fontFamily="sans-serif-black"
+        android:text="Notes"
+        android:textColor="#030404"
+        android:textSize="16sp"
+        android:visibility="visible"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.931" />
 
     <TextView
         android:id="@+id/Appname"
@@ -62,6 +83,6 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.87" />
+        app:layout_constraintVertical_bias="0.825" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

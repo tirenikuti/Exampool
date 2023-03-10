@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Notes{
     //Class Variables
     private String content;
-    private ArrayList<String> tags;
+    private final ArrayList<String> tags;
     private int creatorID; //currently unused, to identify who created the note
     private int noteID; //notes ID number
 

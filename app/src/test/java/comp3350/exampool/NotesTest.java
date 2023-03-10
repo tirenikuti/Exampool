@@ -16,7 +16,7 @@ public class NotesTest {
 
     private Notes noteWithTags;
     private Notes noteNoTags;
-    private ArrayList<String> noteTags = new ArrayList<>();
+    private final ArrayList<String> noteTags = new ArrayList<>();
 
     private final static String CONTENT_W_TAGS = "Hello World";
     private final static String CONTENT_NO_TAGS = "Buy Bread";

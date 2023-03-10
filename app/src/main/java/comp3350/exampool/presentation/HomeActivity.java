@@ -9,17 +9,17 @@ import android.widget.Button;
 
 import comp3350.exampool.R;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
     Button buttonFlashcards;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
         buttonFlashcards = findViewById(R.id.flashcards);
         buttonFlashcards.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, flashcardcyle.class);
+                Intent intent = new Intent(HomeActivity.this,flashCardHome.class);
                 startActivity(intent);
             }
 

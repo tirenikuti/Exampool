@@ -12,7 +12,16 @@
         android:theme="@style/Theme.ExamPool"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.Notes"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.longAnswerQuestions"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.multipleChoiceQuestions"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
