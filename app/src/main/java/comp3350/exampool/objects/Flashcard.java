@@ -38,6 +38,11 @@ public class Flashcard {
      * @param flashCardID String to identify the Flashcard
      * @param userID String to identify the User
      */
+
+     public Flashcard(){
+         //empty constructor;
+     }
+
     public Flashcard(String flashCardID, String userID, QuestionType questionType, String question, String answer, int optionsNum, String option1, String option2, String option3) {
         this.flashcardID = flashCardID;
         this.UserID = userID; 
