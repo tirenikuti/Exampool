@@ -201,7 +201,7 @@ public class Flashcard {
      * Getter for front of card
      * @return front Type: Question
      */
-    public Question getFront() {
+    public String getFront() {
         return front;
     }
 
