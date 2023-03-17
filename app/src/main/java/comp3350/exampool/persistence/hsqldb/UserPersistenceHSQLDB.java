@@ -52,7 +52,7 @@ public class UserPersistenceHSQLDB implements UserPersistence {
     }
 
     @Override
-    public List<User> getUser(User currentUser) {
+    public List<User> getUserRandom(User currentUser) {
         final List<User> users = new ArrayList<>();
         try (final Connection c = connection()) {
             final PreparedStatement st = c.prepareStatement("Select * FROM users WHERE userID = ?");

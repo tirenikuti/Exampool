@@ -12,13 +12,11 @@ import java.util.*;
 public class Flashcard {
     //Class Variables
     private String flashcardID; 
-    private String userId; 
+    private String userID;
     private QuestionType questionType;
-    
     private String question; 
     private String answer; 
     private int optionsNum; //the number of choices there are outside of the answer(3 = MCQ, 1 = TFQ else 0)
-
     private String option1; //null for SAQ and LAQ
     private String option2; //null for TFQ, SAQ and LAQ
     private String option3; //null for FTQ, SAQ and LAQ
@@ -27,21 +25,47 @@ public class Flashcard {
     private String back; //The answer displayed at the back of the flashcard
 
     /**
+     *
+     */
+    public Flashcard(){
+
+    }
+    /**
      * Constructor for flashcard
      */
+     public Flashcard(String newID){
+         flashcardID = newID;
+         userID = null;
+         questionType = null;
 
-     public Flashcard(){
+         question = null;
+         answer = null;
+
+         option1 = null;
+         option2 = null;
+         option3 = null;
          //empty constructor;
      }
 
+    /**
+     * Constructor for flashcard with Question Type MCQ
+     * @param flashCardID
+     * @param userID
+     * @param initQuestionType
+     * @param question
+     * @param answer
+     * @param optionsNum
+     * @param option1
+     * @param option2
+     * @param option3
+     */
     public Flashcard(String flashCardID, String userID, QuestionType initQuestionType, String question, String answer, int optionsNum, String option1, String option2, String option3) {
         this.flashcardID = flashCardID;
-        this.userId = userID;
+        this.userID = userID;
         this.questionType = initQuestionType;
 
         this.question = question;
         this.answer = answer;
-        this.optionsNum = optionsNum;
 
         this.option1 = option1;
         this.option2 = option2;
@@ -50,34 +74,44 @@ public class Flashcard {
         setCard();
     }
 
+    /**
+     * constructor for flashcard with Question Type TFQ
+     * @param flashCardID
+     * @param userID
+     * @param questionType
+     * @param question
+     * @param answer
+     * @param optionsNum
+     * @param option1
+     */
      public Flashcard(String flashCardID, String userID, QuestionType questionType, String question, String answer, int optionsNum, String option1) {
         this.flashcardID = flashCardID;
-        this.userId = userID;
+        this.userID = userID;
         this.questionType = questionType;
 
         this.question = question;
         this.answer = answer;
-        this.optionsNum = optionsNum;
-
         this.option1 = option1;
-        this.option2 = option2;
-        this.option3 = option3;
 
         setCard();
     }
 
+    /**
+     * Constructor for flashcard with Question Type SAQ and LAQ
+     * @param flashCardID
+     * @param userID
+     * @param questionType
+     * @param question
+     * @param answer
+     * @param optionsNum
+     */
      public Flashcard(String flashCardID, String userID, QuestionType questionType, String question, String answer, int optionsNum) {
         this.flashcardID = flashCardID;
-        this.userId = userID;
+        this.userID = userID;
         this.questionType = questionType;
 
         this.question = question;
         this.answer = answer;
-        this.optionsNum = optionsNum;
-
-        this.option1 = option1;
-        this.option2 = option2;
-        this.option3 = option3;
 
         setCard();
     }
@@ -124,7 +158,7 @@ public class Flashcard {
      * @return userID Type: Int
      */
     public String getUserID() {
-        return userId;
+        return userID;
     }
 
     /**
@@ -163,9 +197,21 @@ public class Flashcard {
         return ("A: "+this.option1+" B: "+this.option2+" C:"+this.option3);
     }
 
+    public String getOption1() {
+        return option1;
+    }
+
+    public String getOption2() {
+        return option2;
+    }
+
+    public String getOption3() {
+        return option3;
+    }
+
     /**
      * Setter for question
-
+     * @param question
      */
     public void setQuestion(String question) {
         this.question = question;

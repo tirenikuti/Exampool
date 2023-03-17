@@ -1,4 +1,5 @@
 package comp3350.exampool.objects;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -18,6 +19,16 @@ public class Notes{
     private final ArrayList<String> tags;
 
     /**
+     * Constructor with just notesID - for AccessNotes
+     * @param notesID
+     */
+    public Notes(String notesID){
+        noteID = notesID;
+        userID = null;
+        content = null;
+        tags = null;
+    }
+    /**
      * Constructor: Create a new note without tags
      * @param uID UserID Type: String
      * @param nID NoteID Type: String
@@ -27,7 +38,7 @@ public class Notes{
         noteID = nID;
         userID = uID;
         content = text;
-        tags = new ArrayList<>();
+        tags = null;
     }
 
     /**

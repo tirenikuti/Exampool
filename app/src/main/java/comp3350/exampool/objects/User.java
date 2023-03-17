@@ -14,7 +14,18 @@ public class User {
     private String userName;
 
     /**
-     * Constructor for User Object
+     * Consructor for just userID
+     * @param newID
+     */
+    public User(String newID)
+    {
+        userID = newID;
+        accountType = null;
+        userName = null;
+    }
+
+    /**
+     * Constructors for User Object
      * @param userID Type: String Primary key
      * @param accountType Type: String
      * @param userName Type: String

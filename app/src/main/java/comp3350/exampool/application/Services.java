@@ -2,14 +2,14 @@ package comp3350.exampool.application;
 
 import comp3350.exampool.persistence.NotesPersistence;
 import comp3350.exampool.persistence.UserPersistence;
-import comp3350.exampool.persistence.FlashcardsPersistence;
+import comp3350.exampool.persistence.FlashcardPersistence;
 import comp3350.exampool.persistence.hsqldb.NotesPersistenceHSQLDB;
 import comp3350.exampool.persistence.hsqldb.UserPersistenceHSQLDB;
-import comp3350.exampool.persistence.hsqldb.FlashCardPersitenceHSQLDB;
+import comp3350.exampool.persistence.hsqldb.FlashcardPersistenceHSQLDB;
 
 public class Services
 {
-	private static FlashcardsPersistence flashcardPersistence = null;
+	private static FlashcardPersistence flashcardPersistence = null;
 	private static UserPersistence userPersistence = null;
 	private static NotesPersistence notesPersistence = null;
 
@@ -23,11 +23,11 @@ public class Services
         return userPersistence;
 	}
 
-    public static synchronized FlashcardsPersistence getFlashcardPersistence()
+    public static synchronized FlashcardPersistence getFlashcardPersistence()
     {
         if (flashcardPersistence == null)
         {
-            flashcardPersistence = new FlashCardPersitenceHSQLDB(Main.getDBPathName());
+            flashcardPersistence = new FlashcardPersistenceHSQLDB(Main.getDBPathName());
         }
 
         return flashcardPersistence;

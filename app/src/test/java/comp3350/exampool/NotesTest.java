@@ -28,7 +28,6 @@ public class NotesTest {
     public void CreateNotes(){
         noteTags.add("Math");
         noteTags.add("Comp");
-        noteWithTags = new Notes(U_ID, N_ID_WITH, CONTENT_W_TAGS, noteTags);
         noteNoTags = new Notes(U_ID, N_ID_NO, CONTENT_NO_TAGS);
     }
 

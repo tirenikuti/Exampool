@@ -34,8 +34,8 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
         return new Notes(notesID, userID, content);
     }
 
-
-    public List<Notes> getNotesSequiential(){
+    @Override
+    public List<Notes> getNotesSequential(){
         final List<Notes> notes = new ArrayList<>();
 
         try(final Connection c = connection()) {
@@ -57,8 +57,28 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
     }
 
     @Override
-    public List<Notes> getNotesSequential() {
-        return null;
+    public List<Notes> getNotesRandom(Notes currentNotes){
+        final List<Notes> notes = new ArrayList<>();
+
+        try(final Connection c = connection()) {
+            final PreparedStatement st = c.prepareStatement("SELECT * FROM notes WHERE notesID=?");
+            st.setString(1, currentNotes.getNoteID());
+
+            final ResultSet rs = st.executeQuery();
+            while (rs.next())
+            {
+                final Notes note = fromResultSet(rs);
+                notes.add(note);
+            }
+            rs.close();
+            st.close();
+
+            return notes;
+        }
+        catch (final SQLException e)
+        {
+            throw new android.database.SQLException();
+        }
     }
 
     @Override
@@ -103,6 +123,41 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
             st.close();
 
             return notes;
+        }
+        catch (final SQLException e){
+            throw new android.database.SQLException();
+        }
+    }
+
+    @Override
+    public Notes insertNotes(Notes currentNotes)
+    {
+        try(final Connection c = connection()) {
+            final PreparedStatement st = c.prepareStatement("INSERT INTO courses VALUES(?, ?, ?)");
+            st.setString(1, currentNotes.getNoteID());
+            st.setString(2, currentNotes.getUserID());
+            st.setString(3,currentNotes.getNote());
+
+            st.executeUpdate();
+
+            return currentNotes;
+        }
+        catch (final SQLException e){
+            throw new android.database.SQLException();
+        }
+    }
+
+    @Override
+    public Notes updateNotes(Notes currentNotes)
+    {
+        try(final Connection c = connection()) {
+            final PreparedStatement st = c.prepareStatement("UPDATE courses SET text = ? WHERE noteID = ?");
+            st.setString(1, currentNotes.getNote());
+            st.setString(2, currentNotes.getNoteID());
+
+            st.executeUpdate();
+
+            return currentNotes;
         }
         catch (final SQLException e){
             throw new android.database.SQLException();
