@@ -20,31 +20,43 @@ public class ShortAnswerQuestions extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_short_answer_questions);
 
+        //Place Holder Data
         ArrayList<Flashcard> data = new ArrayList<Flashcard>();
-        data.add(new Flashcard("1","1", QuestionType.SAQ,"Does this suck?","Yes",0));
-        data.add(new Flashcard("2","1", QuestionType.SAQ,"Does this still suck?","Yes",0));
+        data.add(new Flashcard("1", "1", QuestionType.SAQ, "Does this suck?", "Yes", 0));
+        data.add(new Flashcard("2", "1", QuestionType.SAQ, "Does this still suck?", "Yes", 0));
 
+
+        //Output text objects
         TextView cardText = (TextView) findViewById(R.id.questionSAQ);
         TextView answerText = (TextView) findViewById(R.id.answerSAQ);
+        //Current spot in data
         Iterator it = data.iterator();
+        //Current flashcard
         Flashcard currCard = data.get(0);
-        while (it.hasNext()&&(currCard.getQuestionType() != QuestionType.SAQ)) {
+
+        //Get the next flashcard that is a short answer question
+        while (it.hasNext() && (currCard.getQuestionType() != QuestionType.SAQ)) {
             currCard = (Flashcard) it.next();
         }
+        //Display text from current flashcard
         cardText.setText(currCard.getQuestion());
         answerText.setText(currCard.getAnswer());
 
+        //Buttons
         Button buttonNext;
         buttonNext = findViewById(R.id.nextSAQ);
         Button buttonReveal;
         buttonReveal = findViewById(R.id.RevealSAQ);
+
+        /**
+         * On click get the next flashcard type SAQ and display it's text
+         */
         buttonNext.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Flashcard outCard = (Flashcard) it.next();
-                while (it.hasNext()&&(outCard.getQuestionType() != QuestionType.SAQ)) {
+                while (it.hasNext() && (outCard.getQuestionType() != QuestionType.SAQ)) {
                     outCard = (Flashcard) it.next();
                 }
                 cardText.setText(outCard.getQuestion());
@@ -52,8 +64,12 @@ public class ShortAnswerQuestions extends AppCompatActivity {
                 answerText.setVisibility(View.INVISIBLE);
                 answerText.setText(outCard.getAnswer());
             }
-
         });
+
+
+        /**
+         * On click display answer
+         */
         buttonReveal.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 answerText.setVisibility(View.VISIBLE);

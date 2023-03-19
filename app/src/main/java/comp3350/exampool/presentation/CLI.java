@@ -99,7 +99,7 @@ public class CLI
         }
         else
         {
-            System.out.println("Invalid data tyoe");
+            System.out.println("Invalid data type");
         }
     }
 
