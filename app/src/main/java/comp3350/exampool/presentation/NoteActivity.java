@@ -35,7 +35,7 @@ public class NoteActivity extends AppCompatActivity {
         //Keep current place in data
         Iterator it = data.iterator();
         //Current Note
-        Notes currNote = (Notes) it.next();
+        final Notes currNote = (Notes) it.next();
         //Display note text
         noteText.setText(currNote.getNote());
 
@@ -50,6 +50,7 @@ public class NoteActivity extends AppCompatActivity {
                     Notes out = (Notes) it.next();
                     //Display Note text
                     noteText.setText(out.getNote());
+
 
 
                 } else {
@@ -67,17 +68,19 @@ public class NoteActivity extends AppCompatActivity {
         buttonEdit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 if(!edit) {
+
                     noteText.setEnabled(true);
                     noteText.setClickable(true);
                     buttonEdit.setText("Save");
                     edit = true;
                 }
                 else{
+                    Notes editThisNote = (Notes) it;
                     noteText.setEnabled(false);
                     noteText.setClickable(false);
                     buttonEdit.setText("Edit");
                     edit = false;
-                    currNote.editNote(noteText.getEditableText().toString());
+                    editThisNote.editNote(noteText.getEditableText().toString());
                 }
             }
 
