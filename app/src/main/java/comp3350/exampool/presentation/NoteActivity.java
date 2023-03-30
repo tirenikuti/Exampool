@@ -16,8 +16,8 @@ import comp3350.exampool.objects.Notes;
 
 public class NoteActivity extends AppCompatActivity {
     //Buttons
-    Button buttonNext;
-
+    Button buttonNext, buttonEdit;
+    boolean edit = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,14 +50,38 @@ public class NoteActivity extends AppCompatActivity {
                     Notes out = (Notes) it.next();
                     //Display Note text
                     noteText.setText(out.getNote());
+
+
                 } else {
                     //No more notes
                     noteText.setText("No more Notes!");
                 }
+                noteText.setEnabled(false);
+                noteText.setClickable(false);
+                buttonEdit.setText("Edit");
+                edit = false;
             }
 
         });
+        buttonEdit = findViewById(R.id.editNote);
+        buttonEdit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                if(!edit) {
+                    noteText.setEnabled(true);
+                    noteText.setClickable(true);
+                    buttonEdit.setText("Save");
+                    edit = true;
+                }
+                else{
+                    noteText.setEnabled(false);
+                    noteText.setClickable(false);
+                    buttonEdit.setText("Edit");
+                    edit = false;
+                    currNote.editNote(noteText.getEditableText().toString());
+                }
+            }
 
+        });
 
     }
 }

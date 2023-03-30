@@ -8,6 +8,23 @@
     tools:context=".presentation.NoteActivity">
 
     <Button
+        android:id="@+id/editNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="579dp"
+        android:layout_marginEnd="307dp"
+        android:layout_marginBottom="16dp"
+        android:background="#FF5722"
+        android:text="Edit"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notesText" />
+
+    <Button
         android:id="@+id/nextNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,13 +57,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/notesText"
         android:layout_width="380dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="15dp"
+        android:clickable="false"
+        android:enabled="false"
         android:text="@string/question"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
