@@ -35,9 +35,10 @@ public class NoteActivity extends AppCompatActivity {
         //Keep current place in data
         Iterator it = data.iterator();
         //Current Note
-        final Notes currNote = (Notes) it.next();
+        final Notes[] currNote = new Notes[1];
         //Display note text
-        noteText.setText(currNote.getNote());
+        currNote[0] = (Notes) it.next();
+        noteText.setText(currNote[0].getNote());
 
 
         /**
@@ -47,9 +48,9 @@ public class NoteActivity extends AppCompatActivity {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 if (it.hasNext()) {
-                    Notes out = (Notes) it.next();
+                    currNote[0] = (Notes) it.next();
                     //Display Note text
-                    noteText.setText(out.getNote());
+                    noteText.setText(currNote[0].getNote());
 
 
 
@@ -75,12 +76,11 @@ public class NoteActivity extends AppCompatActivity {
                     edit = true;
                 }
                 else{
-                    Notes editThisNote = (Notes) it;
                     noteText.setEnabled(false);
                     noteText.setClickable(false);
                     buttonEdit.setText("Edit");
                     edit = false;
-                    editThisNote.editNote(noteText.getEditableText().toString());
+                    currNote[0].editNote(noteText.getEditableText().toString());
                 }
             }
 
