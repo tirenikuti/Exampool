@@ -1,3 +1,4 @@
+//used to access the flashcards from the database - using services to get the persistence.
 package comp3350.exampool.business;
 
 import java.util.Collections;
@@ -5,7 +6,6 @@ import java.util.List;
 
 import comp3350.exampool.application.Services;
 import comp3350.exampool.objects.Flashcard;
-import comp3350.exampool.objects.User; //--to do Krupali
 import comp3350.exampool.persistence.FlashcardPersistence;
 
 public class AccessFlashcards {
@@ -56,9 +56,9 @@ public class AccessFlashcards {
         return flashcard;
     }
 
-    public Flashcard getFlashcardRandom(String flashcardID)
+    public Flashcard getFlashcard(String flashcardID)
     {
-        flashcards = flashcardPersistence.getFlashcardRandom(new Flashcard(flashcardID));
+        flashcards = flashcardPersistence.getFlashcard(flashcardID);
         currentFlashcard = 0;
         if (currentFlashcard < flashcards.size())
         {

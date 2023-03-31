@@ -8,11 +8,9 @@ import comp3350.exampool.objects.User;
 public interface NotesPersistence {
     List<Notes> getNotesSequential();
 
-    List<Notes> getNotesRandom(Notes currentNotes);
+    List<Notes> getNotes(String currentNote);
 
-    List<Notes> getNotes(Notes currentFlashcard); 
-
-    List<Notes> getNotesUsers(User currentUser);
+    List<Notes> getNotesOfUser(User currentUser);
 
     Notes insertNotes(Notes currentNotes);
 

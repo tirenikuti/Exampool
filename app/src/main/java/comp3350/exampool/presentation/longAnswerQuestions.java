@@ -12,7 +12,7 @@ import java.util.Iterator;
 
 import comp3350.exampool.R;
 import comp3350.exampool.objects.Flashcard;
-import comp3350.exampool.objects.QuestionType;
+import comp3350.exampool.objects.TypedAnswerQuestion;
 
 
 public class longAnswerQuestions extends AppCompatActivity {
@@ -24,8 +24,8 @@ public class longAnswerQuestions extends AppCompatActivity {
 
         //Placeholder data
         ArrayList<Flashcard> data = new ArrayList<Flashcard>();
-        data.add(new Flashcard("1", "1", QuestionType.LAQ, "Does this suck?", "Yes", 0));
-        data.add(new Flashcard("2", "1", QuestionType.LAQ, "Does this still suck?", "Yes", 0));
+        data.add(new TypedAnswerQuestion("1", "1", "Does this suck?", "Yes"));
+        data.add(new TypedAnswerQuestion("2", "1", "Does this still suck?", "Yes"));
 
         //Set display text
         TextView cardText = (TextView) findViewById(R.id.questionLAQ);
@@ -37,7 +37,7 @@ public class longAnswerQuestions extends AppCompatActivity {
         Flashcard currCard = data.get(0);
 
         //Get the next flashcard that is a long answer question
-        while ((it.hasNext()) && (currCard.getQuestionType() != QuestionType.LAQ)) {
+        while (it.hasNext()) {
             currCard = (Flashcard) it.next();
         }
         //Display text
@@ -56,13 +56,13 @@ public class longAnswerQuestions extends AppCompatActivity {
          */
         buttonNext.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Flashcard outCard = (Flashcard) it.next();
-                while ((it.hasNext()) && (outCard.getQuestionType() != QuestionType.LAQ)) {
-                    outCard = (Flashcard) it.next();
+                Flashcard outCard = (Flashcard) it;
+                while (it.hasNext()) {
+                    outCard = (Flashcard) it;
                 }
                 cardText.setText(outCard.getQuestion());
 
-                answerText.setVisibility(View.INVISIBLE);
+                //answerText.setVisibility(View.INVISIBLE);
                 answerText.setText(outCard.getAnswer());
             }
 

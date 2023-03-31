@@ -1,9 +1,9 @@
+//Executes the Command Line Interface (CLI) used to run programs, manage files and interact with the database
 package comp3350.exampool.application;
 //import java.util.Scanner;
 
-//Obj Imports
-import comp3350.exampool.objects.Flashcard;
-
+//Imports
+import comp3350.exampool.presentation.CLI;
 
 public class Main 
 {
@@ -11,8 +11,8 @@ public class Main
 
   public static void main(String[] args) 
   {
-
-
+    CLI.run();
+    System.out.println("Done");
   }
 
   public static void setDBPathName(final String name)

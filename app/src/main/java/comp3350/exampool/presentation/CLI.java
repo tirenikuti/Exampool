@@ -1,9 +1,9 @@
+//Command line interface to run programs, manage files and interact with the database
 package comp3350.exampool.presentation;
 
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Locale;
 
 import comp3350.exampool.business.AccessNotes;
 import comp3350.exampool.business.AccessFlashcards;
@@ -28,6 +28,9 @@ public class CLI
 
     public static String indent = " ";
 
+    /**
+     * Initiates the reader for the database file and starts the processing of it.
+     */
     public static void run()
     {
         try
@@ -43,6 +46,9 @@ public class CLI
         }
     }
 
+    /**
+     * Reads in and processes the database file line by line.
+     */
     public static void process()
     {
         readLine();
@@ -57,6 +63,9 @@ public class CLI
         }
     }
 
+    /**
+     * reads the line from the console to inputLine variable
+     */
     public static void readLine()
     {
         try
@@ -108,17 +117,97 @@ public class CLI
         AccessUsers accessUsers;
         accessUsers = new AccessUsers();
 
+        if(inputTokens.length > 2) {
+            if (inputTokens[2].equalsIgnoreCase("orphan"))
+            {
+                currentUser = accessUsers.getSequential();
+                while (currentUser != null)
+                {
+                    userNumber = currentUser.getUserID();
+                    currentUser = accessUsers.getSequential();
+                }
+            }
+            else
+            {
+                userNumber = inputTokens[2];
+                currentUser = accessUsers.getRandom(userNumber);
+                System.out.println(indent + currentUser);
+            }
+        }
+        else{
+            currentUser = accessUsers.getSequential();
+            while (currentUser != null)
+            {
+                userNumber = currentUser.getUserID();
+                System.out.println(indent + currentUser);
+                currentUser = accessUsers.getSequential();
+            }
+        }
     }
 
     public static void processGetNote()
     {
         AccessNotes accessNotes;
         accessNotes = new AccessNotes();
+
+        if(inputTokens.length > 2) {
+            if (inputTokens[2].equalsIgnoreCase("orphan"))
+            {
+                currentNote = accessNotes.getSequential();
+                while (currentNote != null)
+                {
+                    noteNumber = currentNote.getNoteID();
+                    currentNote = accessNotes.getSequential();
+                }
+            }
+            else
+            {
+                noteNumber = inputTokens[2];
+                currentNote = accessNotes.getRandom(noteNumber);
+                System.out.println(indent + currentUser);
+            }
+        }
+        else{
+            currentNote = accessNotes.getSequential();
+            while (currentNote != null)
+            {
+                noteNumber = currentNote.getNoteID();
+                System.out.println(indent + currentNote);
+                currentNote = accessNotes.getSequential();
+            }
+        }
     }
 
     public static void processGetFlashcard()
     {
         AccessFlashcards accessFlashcards;
         accessFlashcards = new AccessFlashcards();
+
+        if(inputTokens.length > 2) {
+            if (inputTokens[2].equalsIgnoreCase("orphan"))
+            {
+                currentFlashcard = accessFlashcards.getSequential();
+                while (currentFlashcard != null)
+                {
+                    flashcardNumber = currentFlashcard.getFlashcardID();
+                    currentFlashcard = accessFlashcards.getSequential();
+                }
+            }
+            else
+            {
+                flashcardNumber = inputTokens[2];
+                currentFlashcard = accessFlashcards.getFlashcard(flashcardNumber);
+                System.out.println(indent + currentFlashcard);
+            }
+        }
+        else{
+            currentFlashcard = accessFlashcards.getSequential();
+            while (currentFlashcard != null)
+            {
+                flashcardNumber = currentFlashcard.getFlashcardID();
+                System.out.println(indent + currentFlashcard);
+                currentFlashcard = accessFlashcards.getSequential();
+            }
+        }
     }
 }

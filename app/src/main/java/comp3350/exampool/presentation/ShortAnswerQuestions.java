@@ -12,7 +12,7 @@ import java.util.Iterator;
 
 import comp3350.exampool.R;
 import comp3350.exampool.objects.Flashcard;
-import comp3350.exampool.objects.QuestionType;
+import comp3350.exampool.objects.TypedAnswerQuestion;
 
 
 public class ShortAnswerQuestions extends AppCompatActivity {
@@ -24,8 +24,8 @@ public class ShortAnswerQuestions extends AppCompatActivity {
 
         //Place Holder Data
         ArrayList<Flashcard> data = new ArrayList<Flashcard>();
-        data.add(new Flashcard("1", "1", QuestionType.SAQ, "Does this suck?", "Yes", 0));
-        data.add(new Flashcard("2", "1", QuestionType.SAQ, "Does this still suck?", "Yes", 0));
+        data.add(new TypedAnswerQuestion("1", "1", "Does this suck?", "Yes"));
+        data.add(new TypedAnswerQuestion("2", "1", "Does this still suck?", "Yes"));
 
 
         //Output text objects
@@ -37,7 +37,7 @@ public class ShortAnswerQuestions extends AppCompatActivity {
         Flashcard currCard = data.get(0);
 
         //Get the next flashcard that is a short answer question
-        while (it.hasNext() && (currCard.getQuestionType() != QuestionType.SAQ)) {
+        while (it.hasNext()) {
             currCard = (Flashcard) it.next();
         }
         //Display text from current flashcard
@@ -56,7 +56,7 @@ public class ShortAnswerQuestions extends AppCompatActivity {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Flashcard outCard = (Flashcard) it.next();
-                while (it.hasNext() && (outCard.getQuestionType() != QuestionType.SAQ)) {
+                while (it.hasNext()) {
                     outCard = (Flashcard) it.next();
                 }
                 cardText.setText(outCard.getQuestion());

@@ -1,3 +1,4 @@
+//create initiate persistence variables and get Database path name set into the persistence variables to be used to access files.
 package comp3350.exampool.application;
 
 import comp3350.exampool.persistence.NotesPersistence;

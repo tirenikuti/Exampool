@@ -3,6 +3,7 @@ package comp3350.exampool.presentation;
 import androidx.appcompat.app.AppCompatActivity;
 
 import comp3350.exampool.objects.Flashcard;
+import comp3350.exampool.objects.MultipleChoiceQuestion;
 
 import android.os.Bundle;
 import android.view.View;
@@ -13,8 +14,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import comp3350.exampool.R;
-import comp3350.exampool.objects.Notes;
-import comp3350.exampool.objects.QuestionType;
 
 
 public class multipleChoiceQuestions extends AppCompatActivity {
@@ -25,8 +24,8 @@ public class multipleChoiceQuestions extends AppCompatActivity {
         setContentView(R.layout.activity_multiple_choice_questions);
         //Placeholder data
         ArrayList<Flashcard> data = new ArrayList<Flashcard>();
-        data.add(new Flashcard("1", "1", QuestionType.MCQ, "Does this suck?", "Yes", 3, "Maybe", "Yes", "No"));
-        data.add(new Flashcard("2", "1", QuestionType.MCQ, "Does this still suck?", "Yes", 3, "Maybe", "Yes", "No"));
+        data.add(new MultipleChoiceQuestion("1", "1", "Does this suck?", "Definitely Yes", "Maybe", "Yes", "No"));
+        data.add(new MultipleChoiceQuestion("2", "1", "Does this still suck?", "Definitely Yes", "Maybe", "Yes", "No"));
 
         //Set display text from data
         TextView cardText = (TextView) findViewById(R.id.questionMCQ);
@@ -39,7 +38,7 @@ public class multipleChoiceQuestions extends AppCompatActivity {
         Flashcard currCard = data.get(0);
 
         //Get the next flashcard that is a multiple choice question
-        while (it.hasNext() && (currCard.getQuestionType() != QuestionType.MCQ)) {
+        while (it.hasNext()) {
             currCard = (Flashcard) it.next();
         }
 
@@ -59,17 +58,17 @@ public class multipleChoiceQuestions extends AppCompatActivity {
         buttonNext.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 //curr flashcard
-                Flashcard outCard = (Flashcard) it.next();
+                Flashcard outCard = (Flashcard) it;
 
                 //Get the next flashcard that is a multiple choice question
-                while (it.hasNext() && (outCard.getQuestionType() != QuestionType.MCQ)) {
+                while (it.hasNext()) {
                     outCard = (Flashcard) it.next();
                 }
 
                 //Set the display text
                 cardText.setText(outCard.getQuestion());
                 McqOptionText.setText(outCard.getOptions());
-                answerText.setVisibility(View.INVISIBLE);
+                //answerText.setVisibility(View.INVISIBLE);
                 answerText.setText(outCard.getAnswer());
             }
 

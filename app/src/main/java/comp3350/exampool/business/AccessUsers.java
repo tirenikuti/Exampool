@@ -1,3 +1,4 @@
+////used to access the users from the database - using services to get the persistence.
 package comp3350.exampool.business;
 
 import java.util.Collections;
@@ -8,11 +9,15 @@ import comp3350.exampool.objects.User;
 import comp3350.exampool.persistence.UserPersistence;
 
 public class AccessUsers {
+    //Class Variables
     private UserPersistence userPersistence;
     private List<User> users;
     private User user;
     private int currentUser;
 
+    /**
+     * Blank constructor for AccessUsers
+     */
     public AccessUsers()
     {
         userPersistence = Services.getUserPersistence();
@@ -21,17 +26,29 @@ public class AccessUsers {
         currentUser = 0;
     }
 
+    /**
+     * Constructor for AccessUsers
+     * @param userPersistence userPersistence
+     */
     public AccessUsers(final UserPersistence userPersistence){
         this();
         this.userPersistence = userPersistence;
     }
 
+    /**
+     * Gets a List of the Users from the persistence variable.
+     * @return List of users
+     */
     public List<User> getUsers()
     {
         users = userPersistence.getUserSequential();
         return Collections.unmodifiableList(users);
     }
 
+    /**
+     *
+     * @return
+     */
     public User getSequential()
     {
         if (users == null){

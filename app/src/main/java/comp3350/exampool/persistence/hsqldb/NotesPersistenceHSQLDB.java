@@ -57,12 +57,12 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
     }
 
     @Override
-    public List<Notes> getNotesRandom(Notes currentNotes){
+    public List<Notes> getNotes(String currentNote){
         final List<Notes> notes = new ArrayList<>();
 
         try(final Connection c = connection()) {
             final PreparedStatement st = c.prepareStatement("SELECT * FROM notes WHERE notesID=?");
-            st.setString(1, currentNotes.getNoteID());
+            st.setString(1, currentNote);
 
             final ResultSet rs = st.executeQuery();
             while (rs.next())
@@ -82,31 +82,7 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
     }
 
     @Override
-    public List<Notes> getNotes(Notes currentNotes){
-        final List<Notes> notes = new ArrayList<>();
-
-        try(final Connection c = connection()) {
-            final PreparedStatement st = c.prepareStatement("SELECT * FROM notes WHERE flashCardID = ?");
-            st.setString (1, currentNotes.getNoteID());
-
-            final ResultSet rs = st.executeQuery();
-            while(rs.next())
-            {
-                final Notes note = fromResultSet(rs);
-                notes.add(note);
-            }
-            rs.close();
-            st.close();
-
-            return notes;
-        }
-        catch (final SQLException e){
-            throw new android.database.SQLException();
-        }
-    }
-
-    @Override
-    public List<Notes> getNotesUsers(User currentUser){
+    public List<Notes> getNotesOfUser(User currentUser){
         final List<Notes> notes = new ArrayList<>();
 
         try(final Connection c = connection()) {

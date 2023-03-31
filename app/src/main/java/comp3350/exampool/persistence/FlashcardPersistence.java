@@ -8,9 +8,9 @@ import comp3350.exampool.objects.User;
 public interface FlashcardPersistence {
     List<Flashcard> getFlashcardsSequential();
 
-    List<Flashcard> getFlashcardRandom(Flashcard currentFlashcard);
-
-    List<Flashcard> getFlashcardUsers(User currentUser);
+    List<Flashcard> getMultipleChoiceFlashcard(String currentFlashcard);
+    List<Flashcard> getFlashcard(String flashcardID);
+    List<Flashcard> getFlashcardOfUser(User currentUser);
 
     Flashcard insertFlashcard(Flashcard currentFlashcard);
 

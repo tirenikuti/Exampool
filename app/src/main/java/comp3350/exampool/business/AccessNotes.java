@@ -55,9 +55,9 @@ public class AccessNotes
         return note;
     }
 
-    public Notes getRandom(String notesID,String userID, String text)
+    public Notes getRandom(String notesID)
     {
-        notes = notesPersistence.getNotesRandom(new Notes(notesID, userID, text));
+        notes = notesPersistence.getNotes(notesID);
         currentNote = 0;
         if(currentNote < notes.size())
         {
