@@ -29,10 +29,7 @@ public class MultipleChoiceQuestion extends Flashcard{
 
         Collections.shuffle(theOptions);
 
-        String options = "";
-//        for (int i = 0; i < theOptions.size(); i++) {
-//            options = options + theOptions.get(i) + "\n";
-//        }
+        String options = question + "?\n";
         for (int i = 0; i < theOptions.size(); i++) {
             options = options + theOptions.get(i) + "      ";
         }
