@@ -14,12 +14,15 @@ import java.util.Iterator;
 import comp3350.exampool.R;
 import comp3350.exampool.objects.Notes;
 
+
 public class NoteActivity extends AppCompatActivity {
     //Buttons
     Button buttonNext, buttonEdit;
     boolean edit = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
 
@@ -33,11 +36,11 @@ public class NoteActivity extends AppCompatActivity {
         // Note text from object id
         TextView noteText = (TextView) findViewById(R.id.notesText);
         //Keep current place in data
-        Iterator it = data.iterator();
+        final Iterator[] it = {data.iterator()};
         //Current Note
         final Notes[] currNote = new Notes[1];
         //Display note text
-        currNote[0] = (Notes) it.next();
+        currNote[0] = (Notes) it[0].next();
         noteText.setText(currNote[0].getNote());
 
 
@@ -47,18 +50,18 @@ public class NoteActivity extends AppCompatActivity {
         buttonNext = findViewById(R.id.nextNote);
         buttonNext.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                if (it.hasNext()) {
-                    currNote[0] = (Notes) it.next();
-                    //Display Note text
-                    noteText.setText(currNote[0].getNote());
-
-
-
+                if (it[0].hasNext()) {
+                    //get next note
+                    currNote[0] = (Notes) it[0].next();
                 } else {
-                    //No more notes
-                    noteText.setText("No more Notes!");
+                    //No more notes, reset
+                    it[0] = data.iterator();
+                    currNote[0] = (Notes) it[0].next();
                 }
-                noteText.setEnabled(false);
+                //Display Note text
+                noteText.setText(currNote[0].getNote());
+                noteText.setFocusableInTouchMode(false);
+                noteText.clearFocus();
                 noteText.setClickable(false);
                 buttonEdit.setText("Edit");
                 edit = false;
@@ -70,13 +73,14 @@ public class NoteActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(!edit) {
 
-                    noteText.setEnabled(true);
+                    noteText.setFocusableInTouchMode(true);
                     noteText.setClickable(true);
                     buttonEdit.setText("Save");
                     edit = true;
                 }
                 else{
-                    noteText.setEnabled(false);
+                    noteText.setFocusableInTouchMode(false);
+                    noteText.clearFocus();
                     noteText.setClickable(false);
                     buttonEdit.setText("Edit");
                     edit = false;
