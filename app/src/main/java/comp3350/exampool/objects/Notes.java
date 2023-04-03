@@ -35,10 +35,6 @@ public class Notes{
         content = text;
     }
 
-
-    //In the App, getNote would display the note in an editable text box and editNote would update
-    //the note once the App says it has been "saved"
-
     /**
      * Setter for note Content
      * Replace the contents of the note with new text
