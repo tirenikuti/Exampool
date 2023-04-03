@@ -1,79 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:orientation="vertical"
     android:background="#98B8D0"
     android:saveEnabled="false"
-    tools:context=".presentation.NoteActivity">
+    tools:context=".presentation.NotesEditActivity">
 
-    <Button
-        android:id="@+id/editNote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="250dp"
-        android:layout_marginEnd="307dp"
-        android:background="#FF5722"
-        android:text="Edit"
-        app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notesText" />
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="386dp"
+        android:layout_height="689dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_anchor="@+id/linearLayout"
+        app:layout_anchorGravity="center"
+        tools:layout_editor_absoluteX="-2dp">
 
-    <Button
-        android:id="@+id/nextNote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="307dp"
-        android:layout_marginTop="250dp"
-        android:layout_marginEnd="16dp"
-        android:background="#FF5722"
-        android:text="@string/next"
-        app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notesText" />
+        <TextView
+            android:id="@+id/notesTitle"
+            android:layout_width="142dp"
+            android:layout_height="60dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:text="Title"
+            android:textColor="#000000"
+            android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/notesHeader"
-        android:layout_width="63dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="332dp"
-        android:layout_marginBottom="26dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/Notes"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/notesText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/notesText"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="380dp"
+            android:layout_height="524dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="15dp"
+            android:clickable="false"
+            android:enabled="true"
+            android:focusable="false"
+            android:selectAllOnFocus="false"
+            android:text="@string/text_content" />
 
-    <EditText
-        android:id="@+id/notesText"
-        style="@style/Widget.AppCompat.EditText"
-        android:layout_width="390dp"
-        android:layout_height="346dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="15dp"
-        android:clickable="false"
-        android:enabled="true"
-        android:fadeScrollbars="true"
-        android:fitsSystemWindows="true"
-        android:focusable="true"
-        android:focusableInTouchMode="false"
-        android:isScrollContainer="true"
-        android:scrollbars="vertical"
-        android:selectAllOnFocus="false"
-        android:text="@string/question"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notesHeader" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/editNote"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="-1dp"
+                android:background="#FF5722"
+                android:enabled="false"
+                android:onClick="buttonNotesEditOnClick"
+                android:text="Save Edit"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/BackToNotes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="297dp"
+                android:background="#FF5722"
+                android:enabled="false"
+                android:onClick="buttonNotesBackOnClick"
+                android:text="Back"
+                app:backgroundTint="@null" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

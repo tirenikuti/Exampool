@@ -1,6 +1,8 @@
 package comp3350.exampool.objects;
 
 
+import android.widget.TextView;
+
 /**
  * Summary: Notes holds a string of content
  * Parameters: 2 Constructors one with only noteID and one with all parameters defined
@@ -11,6 +13,7 @@ package comp3350.exampool.objects;
 public class Notes{
     //Class Variables
     private String noteID;
+    private String noteTitle;
     private String userID;
     private String content;
 
@@ -29,8 +32,9 @@ public class Notes{
      * @param nID noteID Type: String
      * @param text content Type: String
      */
-    public Notes(String nID, String uID, String text){
+    public Notes(String nID, String notesTitle, String uID, String text){
         noteID = nID;
+        noteTitle = notesTitle;
         userID = uID;
         content = text;
     }
@@ -68,4 +72,7 @@ public class Notes{
         return userID;
     }
 
+    public String getNoteTitle() {
+        return noteTitle;
+    }
 }

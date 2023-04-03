@@ -7,35 +7,36 @@
     android:background="#98B8D0">
 
     <Button
-        android:id="@+id/ShortAnswerQuestions"
-        android:layout_width="250dp"
-        android:layout_height="150dp"
+        android:id="@+id/TypedQuestions"
+        android:layout_width="252dp"
+        android:layout_height="145dp"
         android:background="@drawable/flashcardimage"
         android:clickable="true"
         android:foreground="@drawable/shortanswercard"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/MultipleChoiceQuestions"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.236"
+        app:layout_constraintHorizontal_bias="0.211"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flashcardSelect" />
+        app:layout_constraintTop_toBottomOf="@+id/flashcardSelect"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/MultipleChoiceQuestions"
         android:layout_width="250dp"
         android:layout_height="150dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/flashcardimage"
         android:clickable="true"
         android:foreground="@drawable/multiplechoicecard"
         app:backgroundTint="@null"
-        app:layout_constraintBottom_toTopOf="@+id/LongAnswerQuestions"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.801"
+        app:layout_constraintHorizontal_bias="0.962"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ShortAnswerQuestions" />
+        app:layout_constraintTop_toBottomOf="@+id/TypedQuestions" />
 
     <Button
-        android:id="@+id/LongAnswerQuestions"
+        android:id="@+id/TrueFalseQuestions"
         android:layout_width="250dp"
         android:layout_height="150dp"
         android:background="@drawable/flashcardimage"
@@ -50,13 +51,12 @@
 
     <TextView
         android:id="@+id/flashcardSelect"
-        android:layout_width="303dp"
-        android:layout_height="40dp"
+        android:layout_width="308dp"
+        android:layout_height="59dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/selectFlashCard"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/ShortAnswerQuestions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

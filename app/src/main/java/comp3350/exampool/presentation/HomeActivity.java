@@ -1,11 +1,16 @@
 package comp3350.exampool.presentation;
 
-import androidx.appcompat.app.AppCompatActivity;
+import comp3350.exampool.R;
+import comp3350.exampool.application.Main;
+
+import android.app.Activity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -14,10 +19,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import comp3350.exampool.R;
-import comp3350.exampool.application.Main;
-
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends Activity {
     //Navigation Buttons
     Button buttonFlashcards;
     Button buttonNotes;
@@ -27,33 +29,37 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         copyDatabaseToDevice();
-        //Assign button from ID
         buttonFlashcards = findViewById(R.id.flashcards);
         buttonNotes = findViewById(R.id.Notes);
+    }
 
+    @Override
+    protected void onDestroy(){ super.onDestroy(); }
 
-        /**
-         * Check if the button is clicked and navigate to flashcards
-         */
-        buttonFlashcards.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, flashCardHome.class);
-                startActivity(intent);
-            }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_home, menu);
+        return true;
+    }
 
-        });
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
+        return super.onOptionsItemSelected(item);
+    }
 
-        /**
-         * Check if the button is clicked and navigate to notes
-         */
-        buttonNotes.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this, NoteActivity.class);
-                startActivity(intent);
-            }
+    public void buttonFlashcardsOnClick(View v) {
+        Intent flashcardsIntent = new Intent(HomeActivity.this, FlashcardsActivity.class);
+        HomeActivity.this.startActivity(flashcardsIntent);
+    }
 
-        });
+    public void buttonNotesOnClick(View v) {
+        Intent notesIntent = new Intent(HomeActivity.this, NotesActivity.class);
+        HomeActivity.this.startActivity(notesIntent);
     }
 
     private void copyDatabaseToDevice(){

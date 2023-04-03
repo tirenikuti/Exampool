@@ -1,0 +1,110 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    tools:context="comp3350.exampool.presentation.NotesActivity">
+
+    <ListView
+        android:id="@+id/listNotes"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_gravity="top"
+        android:layout_weight="1"
+        android:choiceMode="singleChoice" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:id="@+id/separator"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:rowCount="2">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/notes_id"
+        android:id="@+id/textCourseID"
+        android:layout_marginBottom="60dp"
+        android:layout_marginRight="60dp" />
+
+        <EditText
+            android:id="@+id/editNotesID"
+            android:layout_width="233dp"
+            android:layout_height="wrap_content"
+            android:ems="12"
+            android:enabled="true"
+            android:inputType="textNoSuggestions" />
+
+    <Button
+        android:id="@+id/buttonNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:enabled="false"
+        android:text="@string/registrations" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/notesName"
+        android:id="@+id/textCourseName"
+        android:layout_marginBottom="64dp" />
+
+        <EditText
+            android:id="@+id/editNotesTitle"
+            android:layout_width="158dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill_horizontal"
+            android:inputType="text" />
+
+    </GridLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:id="@+id/buttonNotesDelete"
+            android:layout_alignParentRight="true"
+            android:enabled="false"
+            android:onClick="buttonNotesDeleteOnClick" />
+
+        <Button
+            android:id="@+id/buttonNotesUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="139dp"
+            android:onClick="buttonNotesUpdateOnClick"
+            android:enabled="false"
+            android:text="Update" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create"
+            android:id="@+id/buttonNotesCreate"
+            android:layout_alignParentLeft="true"
+            android:enabled="true"
+            android:onClick="buttonNotesCreateOnClick" />
+    </RelativeLayout>
+
+</LinearLayout>

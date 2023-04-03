@@ -12,16 +12,13 @@
         android:theme="@style/Theme.ExamPool"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.NoteActivity"
+            android:name=".presentation.NotesActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.flashCardHome"
+            android:name=".presentation.FlashcardsActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.longAnswerQuestions"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.ShortAnswerQuestions"
+            android:name=".presentation.TypedAnswerQuestions"
             android:exported="false" />
         <activity
             android:name=".presentation.multipleChoiceQuestions"

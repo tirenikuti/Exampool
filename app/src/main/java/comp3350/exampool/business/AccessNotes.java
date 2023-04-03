@@ -22,11 +22,6 @@ public class AccessNotes
         currentNote = 0;
     }
 
-    public AccessNotes(final NotesPersistence notesPersistence){
-        this();
-        this.notesPersistence = notesPersistence;
-    }
-
     public List<Notes> getNotes()
     {
         notes = notesPersistence.getNotesSequential();
@@ -57,7 +52,7 @@ public class AccessNotes
 
     public Notes getRandom(String notesID)
     {
-        notes = notesPersistence.getNotes(notesID);
+        notes = notesPersistence.getNotesRandom(new Notes(notesID));
         currentNote = 0;
         if(currentNote < notes.size())
         {
@@ -73,17 +68,17 @@ public class AccessNotes
         return note;
     }
 
-    public Notes insertNotes(Notes currentNote)
+    public Notes insertNote(Notes currentNote)
     {
         return notesPersistence.insertNotes(currentNote);
     }
 
-    public Notes updateNotes(Notes currentNote)
+    public Notes updateNote(Notes currentNote)
     {
         return  notesPersistence.updateNotes(currentNote);
     }
 
-    public void deleteNotes(Notes currentNote)
+    public void deleteNote(Notes currentNote)
     {
         notesPersistence.deleteNotes(currentNote);
     }

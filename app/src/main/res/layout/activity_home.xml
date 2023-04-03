@@ -28,26 +28,6 @@
         tools:ignore="VisualLintBounds"
         tools:visibility="visible" />
 
-    <Button
-        android:id="@+id/Notes"
-        android:layout_width="196dp"
-        android:layout_height="49dp"
-        android:background="#FF9800"
-        android:checkable="false"
-        android:clickable="true"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/Notes"
-        android:textColor="#030404"
-        android:textSize="16sp"
-        android:visibility="visible"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.931" />
-
     <TextView
         android:id="@+id/Appname"
         android:layout_width="317dp"
@@ -79,6 +59,7 @@
         android:textColor="#030404"
         android:textSize="16sp"
         android:visibility="visible"
+        android:onClick="buttonFlashcardsOnClick"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,5 +67,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.825" />
+
+    <Button
+        android:id="@+id/Notes"
+        android:layout_width="196dp"
+        android:layout_height="49dp"
+        android:background="#FF9800"
+        android:checkable="false"
+        android:clickable="true"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/Notes"
+        android:textColor="#030404"
+        android:textSize="16sp"
+        android:visibility="visible"
+        android:onClick="buttonNotesOnClick"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.931" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

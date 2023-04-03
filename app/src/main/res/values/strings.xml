@@ -14,5 +14,9 @@
     <string name="Options"></string>
     <string name="next">Next</string>
     <string name="optionsMCQ">Options: </string>
+    <string name="text_content" />
+    <string name="notes_id">Notes ID:</string>
+    <string name="registrations" />
+    <string name="notesName">Note Title: </string>
 
 </resources>

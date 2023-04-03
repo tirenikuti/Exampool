@@ -1,6 +1,5 @@
 //Executes the Command Line Interface (CLI) used to run programs, manage files and interact with the database
 package comp3350.exampool.application;
-//import java.util.Scanner;
 
 //Imports
 import comp3350.exampool.presentation.CLI;
