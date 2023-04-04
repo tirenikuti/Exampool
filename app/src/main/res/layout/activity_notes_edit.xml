@@ -15,7 +15,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="386dp"
-        android:layout_height="689dp"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_anchor="@+id/linearLayout"
@@ -25,47 +25,49 @@
         <TextView
             android:id="@+id/notesTitle"
             android:layout_width="142dp"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:fontFamily="sans-serif-black"
             android:gravity="center"
             android:text="Title"
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textSize="25sp" />
 
         <EditText
             android:id="@+id/notesText"
             style="@style/Widget.AppCompat.EditText"
-            android:layout_width="380dp"
-            android:layout_height="524dp"
+            android:layout_width="match_parent"
+            android:layout_height="550dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
             android:clickable="false"
+            android:text="placeholder"
+            android:gravity="top"
             android:enabled="true"
             android:focusable="false"
             android:selectAllOnFocus="false"
-            android:text="@string/text_content" />
+            />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginTop="10dp">
 
             <Button
                 android:id="@+id/buttonNotesCreate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Save"
                 android:layout_alignParentLeft="true"
                 android:enabled="true"
-                android:onClick="buttonNotesSaveOnClick" />
+                android:onClick="buttonNotesSaveOnClick"
+                android:text="Save" />
 
             <Button
                 android:id="@+id/buttonFlashcardQuiz"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="287dp"
+                android:layout_marginLeft="266dp"
                 android:enabled="true"
                 android:onClick="buttonNotesDeleteOnClick"
                 android:text="Delete" />
