@@ -1,44 +1,16 @@
 CREATE SCHEMA PUBLIC AUTHORIZATION DBA
 CREATE MEMORY TABLE PUBLIC.USERS(USERID INTEGER NOT NULL PRIMARY KEY, TYPE VARCHAR(8), NAME VARCHAR(20))
 CREATE MEMORY TABLE PUBLIC.MULTIPLECHOICEQUESTION(FLASHCARDID INTEGER NOT NULL PRIMARY KEY, USERID INTEGER NOT NULL, QUESTION VARCHAR(200), ANSWER VARCHAR(200), OPTION1 VARCHAR(20), OPTION2 VARCHAR(20), OPTION3 VARCHAR(20), CONSTRAINT CONSTRAINT2 FOREIGN KEY(USERID) REFERENCES USERS(USERID))
-CREATE MEMORY TABLE PUBLIC.FLASHCARDS(FLASHCARDID INTEGER NOT NULL PRIMARY KEY, USERID INTEGER NOT NULL, QUESTION VARCHAR(200), ANSWER VARCHAR(6), CONSTRAINT CONSTRAINT2 FOREIGN KEY(USERID) REFERENCES USERS(USERID))
-CREATE MEMORY TABLE PUBLIC.NOTES(NOTESID INTEGER NOT NULL PRIMARY KEY, USERID INTEGER NOT NULL, CONTENT VARCHAR(1000), CONSTRAINT CONSTRAINT2 FOREIGN KEY(USERID) REFERENCES USERS(USERID))
-CREATE USER STUDENTUSER PASSWORD DIGEST 's0merand0mnumbersandletters23'
-ALTER USER STUDENTUSER SET LOCAL TRUE
+CREATE MEMORY TABLE PUBLIC.TYPEDQUESTION(FLASHCARDID INTEGER NOT NULL PRIMARY KEY, USERID INTEGER NOT NULL, QUESTION VARCHAR(200), ANSWER VARCHAR(6), CONSTRAINT CONSTRAINT2 FOREIGN KEY(USERID) REFERENCES USERS(USERID))
+CREATE MEMORY TABLE PUBLIC.TRUEANDFALSEQUESTION(FLASHCARDID INTEGER NOT NULL PRIMARY KEY, USERID INTEGER NOT NULL, QUESTION VARCHAR(200), ANSWER VARCHAR(6), CONSTRAINT CONSTRAINT2 FOREIGN KEY(USERID) REFERENCES USERS(USERID))
+CREATE MEMORY TABLE PUBLIC.NOTES(NOTESID INTEGER NOT NULL PRIMARY KEY, NOTESTITLE VARCHAR(15), USERID INTEGER NOT NULL, CONTENT VARCHAR(1000), CONSTRAINT CONSTRAINT1 FOREIGN KEY(USERID) REFERENCES USERS(USERID))
+CREATE USER SA PASSWORD DIGEST 'd41d8cd98f00b204e9800998ecf8427e'
+ALTER USER SA SET LOCAL TRUE
 CREATE SCHEMA PUBLIC AUTHORIZATION DBA
 SET DATABASE DEFAULT INITIAL SCHEMA PUBLIC
-GRANT DBA TO STUDENTUSER
+GRANT DBA TO SA
 SET WRITE_DELAY 20
 SET FILES SCALE 32
-SET SCHEMA PUBLIC 
-INSERT INTO USERS VALUES( 100,'Ashley Fairchild', 'Student')
-INSERT INTO USERS VALUES( 200, 'Harry Potter', 'Student')
-INSERT INTO USERS VALUES( 300, 'Albus Dumbledore', 'Teacher')
-INSERT INTO USERS VALUES( 400, 'Magnus Chase', 'Teacher')
-INSERT INTO MULTIPLECHOICEQUESTION VALUES(1,100,'What year was Triniti born?','2000','2001','1999','2002')
-INSERT INTO MULTIPLECHOICEQUESTION VALUES(2,100,'What country has the highest life expectancy?','Hong Kong','China','USA','Canada')
-INSERT INTO FLASHCARDS VALUES(3,100,'There are _____ many minutes is a full week.','10080')
-INSERT INTO FLASHCARDS VALUES(4,100,'What is the definition of concatenation?','a series of interconnected things or events')
-INSERT INTO FLASHCARDS VALUES(5,100,'Comp 3350 is awesome.','TRUE','FALSE')
-INSERT INTO FLASHCARDS VALUES(6,200,'A dodecahedron has 12 sides.','TRUE','FALSE')
-INSERT INTO FLASHCARDS VALUES(7,200,'Aureolin is a shade of blue.','FALSE','TRUE')
-INSERT INTO MULTIPLECHOICEQUESTION VALUES(8,200,'What character did Robert Downey JR and Benedict Cumberbatch both play?','Sherlock Holmes','Iron Man','John Watson','Maya Anglou')
-INSERT INTO FLASHCARDS VALUES(9,200,'The hottest planet in the Milky Way is ______.','Venus')
-INSERT INTO FLASHCARDS VALUES(10,200,'The 4th letter in the Greek alphabet is ______.','Delta')
-INSERT INTO FLASHCARDS VALUES(11,300,'What does the colour red mean to you?','A Lady red – amid the Hill Her annual secret keeps! A Lady white, within the Field In placid Lily sleeps!')
-INSERT INTO FLASHCARDS VALUES(12,300,'Define the meaning of atherosclerosis','Atherosclerosis is the buildup of fats, cholesterol and other substances in and on the artery walls. This buildup is called plaque.')
-INSERT INTO FLASHCARDS VALUES(13,400,'Canada has won the most World Cups','FALSE','TRUE')
-INSERT INTO FLASHCARDS VALUES(14,400,'We have 7 bones in the ear','FALSE','TRUE')
-INSERT INTO FLASHCARDS VALUES(15,400,'The Chernobyl Nuclear plant is in Ukraine','TRUE','FALSE')
-INSERT INTO NOTES VALUES (2,100,'Here’S a funny sort of story of an Isle beyond the sun, Of a gleaming golden island seldom seen by anyone; So prick your ears and listen to my most eccentric lays Of the Island and the Zagabog from old pre-Cambrian days— The mild and humble Zagabog, The plain, good-hearted Zagabog With prehistoric ways.')
-INSERT INTO NOTES VALUES (4,100,'Upon his wondrous head he wore a rather ugly crown; His eyes were green and somewhat sad, his tail hung meekly down; But on a throne of early mud he comfortably sat And ruled his Golden Island in a way I marvel at. He was a peaceful Zagabog, A practical old Zagabog, And quite unique at that.')
-INSERT INTO NOTES VALUES (5,100,'For Nature only made but one, though we shall never know Why just a single Zagabog exhausted Nature so; His subjects rose from trilobites, the newest of the new, To other bygone beasts that leapt and swam and crawled and flew; But all obeyed the Zagabog, The good primeval Zagabog. Which they were right to do.')
-INSERT INTO NOTES VALUES (6,200,'From periods ante-Primary he dated, as we know, And with the greatest interest observed that wondrous show Of shells and fish, of monstrous newts, of dragons on the wing; Then chronicled the changes that the rolling ages bring,— That scientific Zagabog, That most observant Zagabog; And he loved everything.')
-INSERT INTO NOTES VALUES (10,300,'Some twenty million years passed by and all the Isle went well; Great palms grew on the mountain-tops; huge ferns adorned the dell; And everywhere vast reptiles took their Mesozoic ease, And ate each other frequently, with snap and snarl and sneeze; But their beloved Zagabog, Their wise and wakeful Zagabog, They always tried to please.')
-INSERT INTO NOTES VALUES (23,300,'For in those Secondary times, when monsters had their day, Triassic and Jurassic giants about his feet would play; And through the air there sometimes came the Archaeopteryx— A funny sort of feathered thing where bird and dragon mix. “Your fossil,” said the Zagabog, The humour-loving Zagabog, “Will put them in a fix.”')
-INSERT INTO NOTES VALUES(14,400,'He made no laws, he made no fuss; he just sat on his throne With a genial simplicity peculiarly his own. The Plesiosaur, the Teleosaur, the Early Crocodile, The weird Cretaceous ocean-folk, who never, never smile— All worshipped the old Zagabog, The quaint, benignant Zagabog Of that enchanted Isle.')
-INSERT INTO NOTES VALUES(45,400,'More ages passed, more monsters passed, and others took their place; The Zagabog he still endured from endless race to race; Till Toxodons and Mammoths came, with Sloths of stature grand, Whose small relations still exist in many a distant land. Of course an old-time Zagabog, A right down Early Zagabog, Such moderns could not stand.')
-INSERT INTO NOTES VALUES(23,400,'But still, with all the wisdom of a hundred million years, He tried to be more sanguine and resist his growing fears, Till Paleolithic ages brought Dame Nature’s latest joys And all that Golden Island rang and rippled with the noise. “Good gracious!” said the Zagabog; “God bless us!” cried the Zagabog, “They’re little girls and boys!”')
-INSERT INTO NOTES VALUES(12,400,'About his throne with laughter shrill the lads and lasses came, And put their little hands in his and bade him make a game; So still he rules and still he helps the children with their fun. Of course he’ll never die himself, there being only one— One calm, persistent Zagabog, One good pre-Cambrian Zagabog Beyond the setting sun.')
-
-
+SET SCHEMA PUBLIC
+INSERT INTO NOTES VALUES (2,'Title1',100, 'Heyy this is the content')
+INSERT INTO NOTES VALUES (4,'Title2',100, 'Is this the content?')

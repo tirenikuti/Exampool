@@ -23,46 +23,52 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
     }
 
     private Connection connection() throws SQLException {
-        return DriverManager.getConnection("jdbc:hsqldb:file:" + dbPath + ";shutdown=true", "USer", "");
+        return DriverManager.getConnection("jdbc:hsqldb:file:" + dbPath + ";shutdown=true", "SA", "");
     }
 
     private Notes fromResultSet(final ResultSet rs) throws SQLException {
         final String notesID = rs.getString("notesID");
+        final String notesTitle = rs.getString("notesTitle");
         final String userID = rs.getString("userID");
         final String content = rs.getString("content");
 
-        return new Notes(notesID, userID, content);
+        return new Notes(notesID, notesTitle, userID, content);
     }
 
     @Override
     public List<Notes> getNotesSequential(){
         final List<Notes> notes = new ArrayList<>();
 
-        try(final Connection c = connection()) {
-            final Statement st = c.createStatement();
-            final ResultSet rs = st.executeQuery("SELECT * FROM notes");
-            while(rs.next())
-            {
-                final Notes note = fromResultSet(rs);
-                notes.add(note);
-            }
-            rs.close();
-            st.close();
-
-            return notes;
-        }
-        catch (final SQLException e){
-            throw new android.database.SQLException();
-        }
+//        try(final Connection c = connection()) {
+//            final Statement st = c.createStatement();
+//            final ResultSet rs = st.executeQuery("SELECT * FROM notes");
+//            while(rs.next())
+//            {
+//                final Notes note = fromResultSet(rs);
+//                notes.add(note);
+//            }
+//            rs.close();
+//            st.close();
+//
+//            return notes;
+//        }
+//        catch (final SQLException e){
+//            throw new android.database.SQLException();
+//        }
+        Notes notes1 = new Notes("01", "Title", "012", "Hello World");
+        Notes notes2 = new Notes("02", "Title2", "012", "Hello World!!");
+        notes.add(notes1);
+        notes.add(notes2);
+        return notes;
     }
 
     @Override
-    public List<Notes> getNotes(String currentNote){
+    public List<Notes> getNotesRandom(Notes currentNote){
         final List<Notes> notes = new ArrayList<>();
 
         try(final Connection c = connection()) {
             final PreparedStatement st = c.prepareStatement("SELECT * FROM notes WHERE notesID=?");
-            st.setString(1, currentNote);
+            st.setString(1, currentNote.getNoteID());
 
             final ResultSet rs = st.executeQuery();
             while (rs.next())
@@ -109,10 +115,11 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
     public Notes insertNotes(Notes currentNotes)
     {
         try(final Connection c = connection()) {
-            final PreparedStatement st = c.prepareStatement("INSERT INTO courses VALUES(?, ?, ?)");
+            final PreparedStatement st = c.prepareStatement("INSERT INTO notes VALUES(?, ?, ?, ?)");
             st.setString(1, currentNotes.getNoteID());
-            st.setString(2, currentNotes.getUserID());
-            st.setString(3,currentNotes.getNote());
+            st.setString(2, currentNotes.getNoteID());
+            st.setString(3, currentNotes.getUserID());
+            st.setString(4,currentNotes.getNote());
 
             st.executeUpdate();
 

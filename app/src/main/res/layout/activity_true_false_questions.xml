@@ -23,7 +23,7 @@
             android:id="@+id/choice1_view"
             android:layout_width="300dp"
             android:layout_height="80dp"
-            android:text="Option1"
+            android:text="False"
             android:textAlignment="center"
             android:textSize="70px" />
 
@@ -31,23 +31,7 @@
             android:id="@+id/choice2_view"
             android:layout_width="300dp"
             android:layout_height="80dp"
-            android:text="Option2"
-            android:textAlignment="center"
-            android:textSize="70px" />
-
-        <Button
-            android:id="@+id/choice3_view"
-            android:layout_width="300dp"
-            android:layout_height="80dp"
-            android:text="Option3"
-            android:textAlignment="center"
-            android:textSize="70px" />
-
-        <Button
-            android:id="@+id/choice4_view"
-            android:layout_width="300dp"
-            android:layout_height="80dp"
-            android:text="Option4"
+            android:text="True"
             android:textAlignment="center"
             android:textSize="70px" />
 
@@ -63,5 +47,4 @@
             android:layout_height="64dp"
             android:text="Next" />
     </LinearLayout>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

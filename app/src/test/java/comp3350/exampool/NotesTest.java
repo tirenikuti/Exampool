@@ -15,13 +15,15 @@ public class NotesTest {
 
     private final static String CONTENT_1 = "Hello World";
     private final static String CONTENT_2 = "Buy Bread";
+    private final static String TITLE_1 = "Hello";
+    private final static String TITLE_2 = "Buy";
     private final static String U_ID = "1";
     private final static String N_ID_1 = "1";
     private final static String N_ID_2 = "2";
     @Before
     public void CreateNotes(){
-        note = new Notes(U_ID, N_ID_1, CONTENT_1);
-        note2 = new Notes(U_ID, N_ID_2, CONTENT_2);
+        note = new Notes(U_ID, TITLE_1, N_ID_1, CONTENT_1);
+        note2 = new Notes(U_ID, TITLE_2, N_ID_2, CONTENT_2);
     }
 
     @Test

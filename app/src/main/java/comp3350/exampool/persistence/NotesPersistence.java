@@ -8,7 +8,7 @@ import comp3350.exampool.objects.User;
 public interface NotesPersistence {
     List<Notes> getNotesSequential();
 
-    List<Notes> getNotes(String currentNote);
+    List<Notes> getNotesRandom(Notes currentNote);
 
     List<Notes> getNotesOfUser(User currentUser);
 
