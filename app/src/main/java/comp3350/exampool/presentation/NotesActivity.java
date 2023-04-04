@@ -6,7 +6,6 @@ import comp3350.exampool.R;
 import comp3350.exampool.objects.Notes;
 import comp3350.exampool.business.AccessNotes;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -128,13 +127,16 @@ public class NotesActivity extends Activity {
     public void buttonNotesCreateOnClick(View v) {
         Intent editNotesIntent = new Intent(NotesActivity.this, NotesEditActivity.class);
         NotesActivity.this.startActivity(editNotesIntent);
-//        Notes notes = createNotesFromEditText();
-//        String result;
-//
-//        result = validateNotesData(notes, true);
-//        if (result == null) {
+        Notes notes = createNotesFromEditText();
+        String result;
+
+        Intent notesEditIntent = new Intent(NotesActivity.this, NotesEditActivity.class);
+        NotesActivity.this.startActivity(notesEditIntent);
+
+        result = validateNotesData(notes, true);
+        if (result == null) {
 //            try {
-//                notes = accessNotes.insertNotes(notes);
+//                notes = accessNotes.insertNote(notes);
 //
 //                notesList = accessNotes.getNotes();
 //                notesArrayAdapter.notifyDataSetChanged();
@@ -146,9 +148,9 @@ public class NotesActivity extends Activity {
 //            } catch (final Exception e) {
 //                Messages.fatalError(this, e.getMessage());
 //            }
-//        } else {
-//            Messages.warning(this, result);
-//        }
+        } else {
+            Messages.warning(this, result);
+        }
     }
 
     private Notes createNotesFromEditText(){

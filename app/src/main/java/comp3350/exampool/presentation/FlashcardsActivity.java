@@ -13,6 +13,7 @@ import java.util.List;
 
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
+import comp3350.exampool.business.AccessNotes;
 import comp3350.exampool.objects.Flashcard;
 
 public class FlashcardsActivity extends Activity {
@@ -31,5 +32,9 @@ public class FlashcardsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcardhome);
+
+        accessFlashcards = new AccessFlashcards();
+
+
     }
 }

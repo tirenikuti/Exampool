@@ -7,6 +7,7 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     android:paddingBottom="16dp"
+    android:background="#98B8D0"
     tools:context="comp3350.exampool.presentation.NotesActivity">
 
     <ListView

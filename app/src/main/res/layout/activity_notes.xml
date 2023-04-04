@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:background="#98B8D0"
     android:saveEnabled="false"
-    tools:context=".presentation.NotesEditActivity">
+    tools:context="comp3350.exampool.presentation.NotesEditActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -58,19 +58,19 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="-1dp"
                 android:background="#FF5722"
-                android:enabled="false"
+                android:enabled="true"
                 android:onClick="buttonNotesEditOnClick"
                 android:text="Save Edit"
                 app:backgroundTint="@null" />
 
             <Button
-                android:id="@+id/BackToNotes"
+                android:id="@+id/nextNote"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="297dp"
                 android:background="#FF5722"
-                android:enabled="false"
+                android:enabled="true"
                 android:onClick="buttonNotesBackOnClick"
                 android:text="Back"
                 app:backgroundTint="@null" />

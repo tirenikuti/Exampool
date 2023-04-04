@@ -1,65 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#98B8D0">
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:background="#98B8D0"
+    android:gravity="center"
+    tools:context="comp3350.exampool.presentation.NotesActivity">
 
     <Button
-        android:id="@+id/TypedQuestions"
-        android:layout_width="252dp"
-        android:layout_height="145dp"
-        android:background="@drawable/flashcardimage"
-        android:clickable="true"
-        android:foreground="@drawable/shortanswercard"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/MultipleChoiceQuestions"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.211"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flashcardSelect"
-        app:layout_constraintVertical_bias="1.0" />
-
+        android:id="@+id/startQuiz"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#FF5722"
+        android:text="Start Quiz"
+        android:textSize="70dp"
+        android:layout_marginBottom="60dp"
+        >
+    </Button>
     <Button
-        android:id="@+id/MultipleChoiceQuestions"
-        android:layout_width="250dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/flashcardimage"
-        android:clickable="true"
-        android:foreground="@drawable/multiplechoicecard"
-        app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.962"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TypedQuestions" />
-
-    <Button
-        android:id="@+id/TrueFalseQuestions"
-        android:layout_width="250dp"
-        android:layout_height="150dp"
-        android:background="@drawable/flashcardimage"
-        android:clickable="true"
-        android:foreground="@drawable/lacard"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.161"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MultipleChoiceQuestions" />
-
-    <TextView
-        android:id="@+id/flashcardSelect"
-        android:layout_width="308dp"
-        android:layout_height="59dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/selectFlashCard"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.73" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:id="@+id/createFlashcard"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#4CAF50"
+        android:text="Create new flashcard"
+        android:textSize="20dp"
+        >
+    </Button>
+</LinearLayout>
