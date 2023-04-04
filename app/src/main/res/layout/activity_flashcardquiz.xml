@@ -7,7 +7,7 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     android:paddingBottom="16dp"
-    tools:context="comp3350.exampool.presentation.FlashcardsActivity">
+    tools:context="comp3350.exampool.presentation.FlashcardsQuizActivity">
 
     <ListView
         android:id="@+id/listFlashcards"
@@ -31,13 +31,10 @@
         android:layout_marginTop="10dp">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Create"
-            android:id="@+id/buttonNotesCreate"
-            android:layout_alignParentLeft="true"
-            android:enabled="true"
-            android:onClick="buttonFlashcardCreateOnClick" />
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="Statistics"
+            />
     </RelativeLayout>
 
 </LinearLayout>

@@ -18,16 +18,10 @@
             android:name=".presentation.FlashcardsActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.TypedAnswerQuestions"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.Testing"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.Testing2"
-            android:exported="false" />
-        <activity
             android:name=".presentation.NotesEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.FlashcardsQuizActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.HomeActivity"

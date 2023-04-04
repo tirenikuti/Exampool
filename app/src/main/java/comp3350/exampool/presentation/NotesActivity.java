@@ -43,7 +43,6 @@ public class NotesActivity extends Activity {
             notesList = new ArrayList<>();
             notesList.addAll(accessNotes.getNotes());
 
-
             notesArrayAdapter = new ArrayAdapter<Notes>(this, android.R.layout.simple_list_item_activated_2, android.R.id.text1, notesList){
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {

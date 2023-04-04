@@ -1,6 +1,11 @@
 package comp3350.exampool.objects;
 
-public class TypedAnswerQuestion extends Flashcard{
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+public class TypedAnswerQuestion extends Flashcard implements Parcelable {
     private String flashcardID;
     private String userID;
     private String question;
@@ -8,5 +13,38 @@ public class TypedAnswerQuestion extends Flashcard{
 
     public TypedAnswerQuestion(String flashCardID, String userID, String question, String answer) {
         super(flashCardID,userID,question,answer);
+    }
+
+    protected TypedAnswerQuestion(Parcel in) {
+        super();
+        flashcardID = in.readString();
+        userID = in.readString();
+        question = in.readString();
+        answer = in.readString();
+    }
+
+    public static final Creator<TypedAnswerQuestion> CREATOR = new Creator<TypedAnswerQuestion>() {
+        @Override
+        public TypedAnswerQuestion createFromParcel(Parcel in) {
+            return new TypedAnswerQuestion(in);
+        }
+
+        @Override
+        public TypedAnswerQuestion[] newArray(int size) {
+            return new TypedAnswerQuestion[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+        parcel.writeString(flashcardID);
+        parcel.writeString(userID);
+        parcel.writeString(question);
+        parcel.writeString(answer);
     }
 }

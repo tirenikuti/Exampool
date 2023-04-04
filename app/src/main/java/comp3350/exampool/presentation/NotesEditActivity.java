@@ -31,72 +31,6 @@ public class NotesEditActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
-
-        //Placeholder Data
-        ArrayList<Notes> data = new ArrayList<Notes>();
-        Notes dummy = new Notes("1", "title", "1", "Testing");
-        Notes dummy1 = new Notes("2", "title", "1", "Testing1");
-        data.add(dummy);
-        data.add(dummy1);
-
-        // Note text from object id
-        TextView noteText = (TextView) findViewById(R.id.notesText);
-        //Keep current place in data
-        final Iterator[] it = {data.iterator()};
-        //Current Note
-        final Notes[] currNote = new Notes[1];
-        //Display note text
-        currNote[0] = (Notes) it[0].next();
-        noteText.setText(currNote[0].getNote());
-
-
-        /**
-         * On click move to the next Note
-         */
-        buttonNext = findViewById(R.id.nextNote);
-        buttonNext.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                if (it[0].hasNext()) {
-                    //get next note
-                    currNote[0] = (Notes) it[0].next();
-                } else {
-                    //No more notes, reset
-                    it[0] = data.iterator();
-                    currNote[0] = (Notes) it[0].next();
-                }
-                //Display Note text
-                noteText.setText(currNote[0].getNote());
-                noteText.setFocusableInTouchMode(false);
-                noteText.clearFocus();
-                noteText.setClickable(false);
-                buttonEdit.setText("Edit");
-                edit = false;
-            }
-
-        });
-        buttonEdit = findViewById(R.id.editNote);
-        buttonEdit.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                if(!edit) {
-
-                    noteText.setFocusableInTouchMode(true);
-                    noteText.setClickable(true);
-                    buttonEdit.setText("Save");
-                    edit = true;
-                }
-                else{
-                    noteText.setFocusableInTouchMode(false);
-                    noteText.clearFocus();
-                    noteText.setClickable(false);
-                    buttonEdit.setText("Edit");
-                    edit = false;
-                    currNote[0].editNote(noteText.getEditableText().toString());
-                }
-            }
-
-        });
-
-
     }
 
     @Override
@@ -114,9 +48,10 @@ public class NotesEditActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void buttonNotesEditOnClick(View view) {
+    public void buttonNotesSaveOnClick(View view) {
+
     }
 
-    public void buttonNotesBackOnClick(View view) {
+    public void buttonNotesDeleteOnClick(View view) {
     }
 }
