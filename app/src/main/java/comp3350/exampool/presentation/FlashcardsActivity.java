@@ -54,7 +54,7 @@ public class FlashcardsActivity extends Activity {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                        //set to open to "create/edit flashcard page"
                     }
                 }
             );
@@ -65,9 +65,13 @@ public class FlashcardsActivity extends Activity {
         }
     }
 
-
-    public void buttonFlashcardCreateOnClick(View view) {
+    public void buttonFlashcardQuizOnClick(View v){
         Intent createIntent = new Intent(FlashcardsActivity.this, FlashcardsQuizActivity.class);
         FlashcardsActivity.this.startActivity(createIntent);
+    }
+
+
+    public void buttonFlashcardCreateOnClick(View view) {
+        //create/edit page
     }
 }
