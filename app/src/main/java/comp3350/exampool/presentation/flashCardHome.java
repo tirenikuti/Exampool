@@ -48,7 +48,7 @@ public class flashCardHome extends AppCompatActivity {
         buttonMultipleChoiceQuestions = findViewById(R.id.MultipleChoiceQuestions);
         buttonMultipleChoiceQuestions.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent intent = new Intent(flashCardHome.this, multipleChoiceQuestions.class);
+                Intent intent = new Intent(flashCardHome.this, Testing.class);
                 startActivity(intent);
             }
 

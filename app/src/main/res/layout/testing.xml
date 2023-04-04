@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#1B2730"
+    android:orientation="vertical"
+    tools:context=".presentation.Testing">
+
+    <com.wajahatkarim3.easyflipview.EasyFlipView
+        android:layout_width="match_parent"
+        android:layout_height="404dp"
+
+        app:flipDuration="400"
+        app:flipEnabled="true"
+        app:flipFrom="front"
+        app:flipOnTouch="true"
+        app:flipType="horizontal">
+
+        <TextView
+            android:id="@+id/answer"
+            android:layout_width="393dp"
+            android:layout_height="243dp"
+            android:layout_gravity="center"
+            android:background="#F5F5F5"
+            android:gravity="center"
+            android:text="BACK"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="22sp"></TextView>
+
+        <TextView
+            android:id="@+id/question"
+            android:layout_width="393dp"
+            android:layout_height="243dp"
+            android:layout_gravity="center"
+            android:background="#F5F5F5"
+            android:gravity="center"
+            android:text="Front"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="22sp"></TextView>
+
+    </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+    <RelativeLayout
+        android:id="@+id/relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginBottom="45dp"
+        android:padding="5dp">
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity=""
+        android:background="#1B2730">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom">
+
+            <ImageView
+                android:id="@+id/homeIcon"
+                android:layout_width="47dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="50dp"
+                android:layout_marginBottom="27dp"
+                android:src="@drawable/baseline_home_24"
+                app:tint="#FFFFFF"></ImageView>
+
+            <ImageView
+                android:id="@+id/userIcon"
+                android:layout_width="47dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="50dp"
+                android:src="@drawable/baseline_person_24"
+                app:tint="#FFFFFF"></ImageView>
+        </RelativeLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addResources"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:contentDescription="TODO"
+            android:onClick="showPopup"
+            app:backgroundTint="#8A00FF"
+            app:fabSize="mini"
+            app:maxImageSize="25dp"
+            app:srcCompat="@android:drawable/ic_input_add"
+            app:tint="#FBFCFA" />
+    </RelativeLayout>
+
+</LinearLayout>

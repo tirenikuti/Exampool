@@ -24,7 +24,10 @@
             android:name=".presentation.ShortAnswerQuestions"
             android:exported="false" />
         <activity
-            android:name=".presentation.multipleChoiceQuestions"
+            android:name=".presentation.Testing"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.Testing2"
             android:exported="false" />
         <activity
             android:name=".presentation.HomeActivity"
