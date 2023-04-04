@@ -6,11 +6,13 @@ import comp3350.exampool.R;
 import comp3350.exampool.objects.Notes;
 import comp3350.exampool.business.AccessNotes;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -18,14 +20,19 @@ public class NotesEditActivity extends Activity {
     private AccessNotes accessNotes;
     private List<Notes> notesList;
 
-    Button buttonNext, buttonEdit;
-    boolean edit = false;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_edit);
+
+        TextView titleView = (TextView) findViewById(R.id.notesTitle);
+        TextView noteView = (TextView) findViewById(R.id.notesText);
+
+        Intent intent = getIntent();
+        Notes note = intent.getParcelableExtra("theNote");
+
+        titleView.setText(note.getNoteTitle());
+        noteView.setText(note.getNote());
     }
 
     @Override
