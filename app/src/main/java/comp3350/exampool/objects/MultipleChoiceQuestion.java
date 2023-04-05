@@ -1,9 +1,14 @@
 package comp3350.exampool.objects;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MultipleChoiceQuestion extends Flashcard{
+public class MultipleChoiceQuestion extends Flashcard implements Parcelable {
     private String flashcardID;
     private String userID;
     private String question;
@@ -19,6 +24,29 @@ public class MultipleChoiceQuestion extends Flashcard{
         this.option2 = option2;
         this.option3 = option3;
     }
+
+    protected MultipleChoiceQuestion(Parcel in) {
+        super();
+        flashcardID = in.readString();
+        userID = in.readString();
+        question = in.readString();
+        answer = in.readString();
+        option1 = in.readString();
+        option2 = in.readString();
+        option3 = in.readString();
+    }
+
+    public static final Creator<MultipleChoiceQuestion> CREATOR = new Creator<MultipleChoiceQuestion>() {
+        @Override
+        public MultipleChoiceQuestion createFromParcel(Parcel in) {
+            return new MultipleChoiceQuestion(in);
+        }
+
+        @Override
+        public MultipleChoiceQuestion[] newArray(int size) {
+            return new MultipleChoiceQuestion[size];
+        }
+    };
 
     public String getOptions(){
         ArrayList<String> theOptions = new ArrayList<>();
@@ -47,5 +75,21 @@ public class MultipleChoiceQuestion extends Flashcard{
     }
     public String getOption3(){
         return option3;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+        parcel.writeString(flashcardID);
+        parcel.writeString(userID);
+        parcel.writeString(question);
+        parcel.writeString(answer);
+        parcel.writeString(option1);
+        parcel.writeString(option2);
+        parcel.writeString(option3);
     }
 }

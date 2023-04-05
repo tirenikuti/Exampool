@@ -1,7 +1,11 @@
 package comp3350.exampool.objects;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 /**
  * Summary: Notes holds a string of content
@@ -10,7 +14,7 @@ import android.widget.TextView;
  * Description: Notes has some Strings for content, ID of the user who made it and ID of the note itself
  */
 
-public class Notes{
+public class Notes implements Parcelable {
     //Class Variables
     private String noteID;
     private String noteTitle;
@@ -38,6 +42,25 @@ public class Notes{
         userID = uID;
         content = text;
     }
+
+    protected Notes(Parcel in) {
+        noteID = in.readString();
+        noteTitle = in.readString();
+        userID = in.readString();
+        content = in.readString();
+    }
+
+    public static final Creator<Notes> CREATOR = new Creator<Notes>() {
+        @Override
+        public Notes createFromParcel(Parcel in) {
+            return new Notes(in);
+        }
+
+        @Override
+        public Notes[] newArray(int size) {
+            return new Notes[size];
+        }
+    };
 
     /**
      * Setter for note Content
@@ -74,5 +97,18 @@ public class Notes{
 
     public String getNoteTitle() {
         return noteTitle;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+        parcel.writeString(noteID);
+        parcel.writeString(noteTitle);
+        parcel.writeString(userID);
+        parcel.writeString(content);
     }
 }

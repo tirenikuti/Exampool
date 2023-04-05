@@ -1,5 +1,6 @@
 package comp3350.exampool.persistence.hsqldb;
 
+import java.lang.reflect.Type;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,6 +13,7 @@ import java.util.List;
 
 import comp3350.exampool.objects.Flashcard;
 import comp3350.exampool.objects.MultipleChoiceQuestion;
+import comp3350.exampool.objects.Notes;
 import comp3350.exampool.objects.TypedAnswerQuestion;
 import comp3350.exampool.objects.TrueFalseQuestion;
 import comp3350.exampool.objects.User;
@@ -59,28 +61,35 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
     public List<Flashcard> getFlashcardsSequential(){
         final List<Flashcard> flashcards = new ArrayList<>();
 
-        try(final Connection c = connection()) {
-            final Statement st = c.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM flashcards");
-            while(rs.next())
-            {
-                final Flashcard flashcard = fromResultSet(rs);
-                flashcards.add(flashcard);
-            }
-            rs = st.executeQuery("SELECT * FROM multiplechoicequestion");
-            while(rs.next())
-            {
-                final Flashcard flashcard = fromResultSet(rs);
-                flashcards.add(flashcard);
-            }
-            rs.close();
-            st.close();
-
-            return flashcards;
-        }
-        catch (final SQLException e){
-            throw new android.database.SQLException();
-        }
+//        try(final Connection c = connection()) {
+//            final Statement st = c.createStatement();
+//            ResultSet rs = st.executeQuery("SELECT * FROM flashcards");
+//            while(rs.next())
+//            {
+//                final Flashcard flashcard = fromResultSet(rs);
+//                flashcards.add(flashcard);
+//            }
+//            rs = st.executeQuery("SELECT * FROM multiplechoicequestion");
+//            while(rs.next())
+//            {
+//                final Flashcard flashcard = fromResultSet(rs);
+//                flashcards.add(flashcard);
+//            }
+//            rs.close();
+//            st.close();
+//
+//            return flashcards;
+//        }
+//        catch (final SQLException e){
+//            throw new android.database.SQLException();
+//        }
+        MultipleChoiceQuestion question1 = new MultipleChoiceQuestion("01", "01", "Knock knock?", "Who is there", "Hi", "Hello", "sup");
+        TypedAnswerQuestion question2 = new TypedAnswerQuestion("02", "01", "What is life?", "Baby don't hurt me");
+        TrueFalseQuestion question3 = new TrueFalseQuestion("03", "01", "This sucks", "True", "False");
+        flashcards.add(question1);
+        flashcards.add(question2);
+        flashcards.add(question3);
+        return flashcards;
     }
 
     @Override

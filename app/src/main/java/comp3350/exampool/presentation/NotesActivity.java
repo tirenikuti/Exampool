@@ -43,7 +43,6 @@ public class NotesActivity extends Activity {
             notesList = new ArrayList<>();
             notesList.addAll(accessNotes.getNotes());
 
-
             notesArrayAdapter = new ArrayAdapter<Notes>(this, android.R.layout.simple_list_item_activated_2, android.R.id.text1, notesList){
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
@@ -85,17 +84,6 @@ public class NotesActivity extends Activity {
 
             final EditText editNotesID = (EditText)findViewById(R.id.editNotesID);
             final Button buttonNotes = (Button)findViewById(R.id.buttonNotes);
-
-            editNotesID.addTextChangedListener(new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-                @Override
-                public void onTextChanged(CharSequence s, int start, int count, int after) {}
-                @Override
-                public void afterTextChanged(Editable editable) {
-                    buttonNotes.setEnabled(editNotesID.getText().toString().length() > 0);
-                }
-            });
         }
         catch (final Exception e)
         {
@@ -117,6 +105,11 @@ public class NotesActivity extends Activity {
 
     public void selectedNotesAtPosition(int position){
         Notes selected = notesArrayAdapter.getItem(position);
+
+        Intent editNotesIntent = new Intent(NotesActivity.this, NotesEditActivity.class);
+        editNotesIntent.putExtra("theNote", selected);
+        NotesActivity.this.startActivity(editNotesIntent);
+
     }
 
     public void buttonNotesUpdateOnClick(View v){

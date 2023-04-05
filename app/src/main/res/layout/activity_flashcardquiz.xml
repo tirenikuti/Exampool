@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    tools:context="comp3350.exampool.presentation.FlashcardsQuizActivity">
+
+    <LinearLayout
+        android:id="@+id/LinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="720dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/typed_question"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:text="Question?"
+            android:textSize="25dp"
+            android:layout_marginBottom="15dp"
+            />
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <TextView
+                android:id="@+id/answerTag"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:text="Answer: "
+                android:textSize="25dp"
+                android:layout_marginBottom="15dp"
+                />
+
+            <EditText
+                android:id="@+id/editNotesID"
+                android:layout_width="286dp"
+                android:layout_height="wrap_content"
+                android:ems="12"
+                android:enabled="true"
+                android:inputType="textNoSuggestions" />
+        </GridLayout>
+
+
+        <Button
+            android:id="@+id/revealAnswer"
+            android:layout_width="209dp"
+            android:layout_height="64dp"
+            android:text="Reveal Answer" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="209dp"
+            android:layout_height="64dp"
+            android:text="Next" />
+    </LinearLayout>
+
+</LinearLayout>

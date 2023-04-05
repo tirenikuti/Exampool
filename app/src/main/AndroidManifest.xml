@@ -30,9 +30,6 @@
             android:name=".presentation.NotesEditActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.multipleChoiceQuestions"
-            android:exported="false" />
-        <activity
             android:name=".presentation.HomeActivity"
             android:exported="true">
             <intent-filter>
@@ -41,8 +38,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".presentation.Testing3" android:theme="@style/ListFont"/>
     </application>
 
 </manifest>
