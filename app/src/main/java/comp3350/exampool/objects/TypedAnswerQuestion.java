@@ -12,7 +12,11 @@ public class TypedAnswerQuestion extends Flashcard implements Parcelable {
     private String answer;
 
     public TypedAnswerQuestion(String flashCardID, String userID, String question, String answer) {
-        super(flashCardID,userID,question,answer);
+        super();
+        this.flashcardID = flashCardID;
+        this.userID = userID;
+        this.question = question;
+        this.answer = answer;
     }
 
     protected TypedAnswerQuestion(Parcel in) {
@@ -47,4 +51,10 @@ public class TypedAnswerQuestion extends Flashcard implements Parcelable {
         parcel.writeString(question);
         parcel.writeString(answer);
     }
+
+    public String getQuestion(){ return question;}
+
+    public String getAnswer(){return answer;}
+
+    public String getOptions(){return "";}
 }

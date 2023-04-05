@@ -109,7 +109,6 @@ public class NotesActivity extends Activity {
         Intent editNotesIntent = new Intent(NotesActivity.this, NotesEditActivity.class);
         editNotesIntent.putExtra("theNote", selected);
         NotesActivity.this.startActivity(editNotesIntent);
-
     }
 
     public void buttonNotesUpdateOnClick(View v){

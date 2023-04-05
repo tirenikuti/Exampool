@@ -15,7 +15,11 @@ public class TrueFalseQuestion extends Flashcard implements Parcelable {
     private String wrongAnswer;
 
     public TrueFalseQuestion(String flashCardID, String userID, String question, String answer, String wrongAnswer) {
-        super(flashCardID,userID,question,answer);
+        super();
+        this.flashcardID = flashCardID;
+        this.userID = userID;
+        this.question = question;
+        this.answer = answer;
         this.wrongAnswer = wrongAnswer;
     }
 
@@ -40,7 +44,13 @@ public class TrueFalseQuestion extends Flashcard implements Parcelable {
         }
     };
 
-    public String getOptions(){return "(A) TRUE \n (B) FALSE";}
+    public String getOptions(){return "\n True \n False";}
+
+    public String getQuestion(){
+        return question;
+    }
+
+    public String getAnswer(){ return answer;}
 
     @Override
     public int describeContents() {

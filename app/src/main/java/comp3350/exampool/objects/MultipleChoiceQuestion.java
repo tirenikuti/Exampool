@@ -18,8 +18,11 @@ public class MultipleChoiceQuestion extends Flashcard implements Parcelable {
     private String option3;
 
     public MultipleChoiceQuestion(String flashCardID, String userID, String question, String theAnswer, String option1, String option2, String option3) {
-        super(flashCardID,userID,question,theAnswer);
-        this.answer = "Sup";
+        super();
+        this.flashcardID = flashCardID;
+        this.userID = userID;
+        this.question = question;
+        this.answer = theAnswer;
         this.option1 = option1;
         this.option2 = option2;
         this.option3 = option3;
@@ -57,16 +60,20 @@ public class MultipleChoiceQuestion extends Flashcard implements Parcelable {
 
         Collections.shuffle(theOptions);
 
-        String options = question + "?\n";
+        String options = "\n";
         for (int i = 0; i < theOptions.size(); i++) {
-            options = options + theOptions.get(i) + "      ";
+            options = options + theOptions.get(i) + "\n";
         }
         return options;
     }
 
-//    public String getAnswer(){
-//        return "Hi";
-//    }
+    public String getAnswer(){
+        return answer;
+    }
+
+    public String getQuestion(){
+        return question;
+    }
     public String getOption1(){
         return option1;
     }

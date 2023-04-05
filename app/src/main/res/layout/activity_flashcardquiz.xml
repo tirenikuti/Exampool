@@ -9,6 +9,15 @@
     android:paddingBottom="16dp"
     tools:context="comp3350.exampool.presentation.FlashcardsQuizActivity">
 
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="Score"
+        android:gravity="right"
+        />
+
     <LinearLayout
         android:id="@+id/LinearLayout"
         android:layout_width="match_parent"
@@ -38,26 +47,33 @@
                 />
 
             <EditText
-                android:id="@+id/editNotesID"
+                android:id="@+id/editInputAnswer"
                 android:layout_width="286dp"
                 android:layout_height="wrap_content"
                 android:ems="12"
                 android:enabled="true"
                 android:inputType="textNoSuggestions" />
         </GridLayout>
-
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="209dp"
+            android:layout_height="64dp"
+            android:text="Submit answer"
+            android:onClick="buttonSubmitOnClick" />
 
         <Button
             android:id="@+id/revealAnswer"
             android:layout_width="209dp"
             android:layout_height="64dp"
-            android:text="Reveal Answer" />
+            android:text="Reveal Answer"
+            android:onClick="buttonRevealAnswerOnClick" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonNext"
             android:layout_width="209dp"
             android:layout_height="64dp"
-            android:text="Next" />
+            android:text="Next"
+            android:onClick="buttonNextOnClick" />
     </LinearLayout>
 
 </LinearLayout>

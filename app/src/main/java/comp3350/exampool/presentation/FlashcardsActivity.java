@@ -4,10 +4,12 @@ import android.app.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -17,12 +19,14 @@ import java.util.List;
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.Flashcard;
+import comp3350.exampool.objects.Notes;
 
 public class FlashcardsActivity extends Activity {
 
     private AccessFlashcards accessFlashcards;
     private List<Flashcard> flashcardList;
     private ArrayAdapter<Flashcard> flashcardArrayAdapter;
+    private int selectedFlashcardPosition = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,10 +58,17 @@ public class FlashcardsActivity extends Activity {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        //set to open to "create/edit flashcard page"
+
+                    if (position == selectedFlashcardPosition) {
+                        listView.setItemChecked(position, false);
+                        selectedFlashcardPosition = -1;
+                    } else {
+                        listView.setItemChecked(position, true);
+                        selectedFlashcardPosition = position;
+                        selectedFlashcardAtPosition(position);
                     }
                 }
-            );
+            });
         }
         catch (final Exception e)
         {
@@ -66,12 +77,24 @@ public class FlashcardsActivity extends Activity {
     }
 
     public void buttonFlashcardQuizOnClick(View v){
-        Intent createIntent = new Intent(FlashcardsActivity.this, FlashcardsQuizActivity.class);
-        FlashcardsActivity.this.startActivity(createIntent);
+
+        Flashcard theSelectedCard = flashcardList.get(0);
+
+        Intent quizIntent = new Intent(FlashcardsActivity.this, FlashcardsQuizActivity.class);
+
+        quizIntent.putExtra("card", theSelectedCard);
+
+        FlashcardsActivity.this.startActivity(quizIntent);
     }
 
-
     public void buttonFlashcardCreateOnClick(View view) {
-        //create/edit page
+        //FlashcardEditActivity
+    }
+
+    private void selectedFlashcardAtPosition(int position) {
+        Flashcard selected = flashcardArrayAdapter.getItem(position);
+//        Intent editFlashcardIntent = new Intent(FlashcardsActivity.this, //FlashcardEditActivity.class);
+//        editFlashcardIntent.putExtra("flashcard", selected);
+//        FlashcardsActivity.this.startActivity(editFlashcardIntent);
     }
 }
