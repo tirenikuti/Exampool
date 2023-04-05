@@ -77,13 +77,7 @@ public class FlashcardsActivity extends Activity {
     }
 
     public void buttonFlashcardQuizOnClick(View v){
-
-        Flashcard theSelectedCard = flashcardList.get(0);
-
         Intent quizIntent = new Intent(FlashcardsActivity.this, FlashcardsQuizActivity.class);
-
-        quizIntent.putExtra("card", theSelectedCard);
-
         FlashcardsActivity.this.startActivity(quizIntent);
     }
 

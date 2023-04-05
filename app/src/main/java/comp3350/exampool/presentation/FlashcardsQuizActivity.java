@@ -34,7 +34,7 @@ public class FlashcardsQuizActivity extends Activity {
         TextView questionView = (TextView) findViewById(R.id.typed_question);
 
         Intent intent = getIntent();
-        Flashcard flashcard = intent.getParcelableExtra("card");
+        Flashcard flashcard = flashcardList.get(position);
 
         questionView.setText(flashcard.getQuestion() + flashcard.getOptions());
     }

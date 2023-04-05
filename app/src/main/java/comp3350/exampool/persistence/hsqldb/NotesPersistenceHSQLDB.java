@@ -39,7 +39,7 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
     public List<Notes> getNotesSequential(){
         final List<Notes> notes = new ArrayList<>();
 
-//        try(final Connection c = connection()) {
+        try(final Connection c = connection()) {
 //            final Statement st = c.createStatement();
 //            final ResultSet rs = st.executeQuery("SELECT * FROM notes");
 //            while(rs.next())
@@ -49,12 +49,14 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
 //            }
 //            rs.close();
 //            st.close();
-//
-//            return notes;
-//        }
-//        catch (final SQLException e){
-//            throw new android.database.SQLException();
-//        }
+
+            //return notes;
+            Notes notes3 = new Notes("03", "Title3", "012", "Notes Trial");
+            notes.add(notes3);
+        }
+        catch (final SQLException e){
+            throw new PersistenceException(e);
+        }
         Notes notes1 = new Notes("01", "Title", "012", "Hello World");
         Notes notes2 = new Notes("02", "Title2", "012", "Hello World!!");
         notes.add(notes1);
