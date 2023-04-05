@@ -37,4 +37,9 @@ public class FlashcardsActivity extends Activity {
 
 
     }
+
+    public void buttonOnClick(View view) {
+        Intent flashcardsIntent = new Intent(FlashcardsActivity.this, multipleChoiceQuestions.class);
+        FlashcardsActivity.this.startActivity(flashcardsIntent);
+    }
 }
