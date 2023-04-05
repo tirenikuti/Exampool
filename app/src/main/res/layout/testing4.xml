@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#1B2730"
+    android:orientation="vertical"
+    tools:context="comp3350.exampool.presentation.NotesActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp">
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="575dp"
+        tools:context="comp3350.exampool.presentation.NotesActivity">
+
+
+        <ListView
+            android:id="@+id/listNotes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:choiceMode="singleChoice"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+    </RelativeLayout>
+
+
+    <include layout="@layout/testing3"></include>
+
+</LinearLayout>

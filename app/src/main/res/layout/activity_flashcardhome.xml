@@ -7,28 +7,9 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     android:paddingBottom="16dp"
-    tools:context="comp3350.exampool.presentation.FlashcardsActivity">
-
-    <ListView
-        android:id="@+id/listFlashcards"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_gravity="top"
-        android:layout_weight="1"
-        android:choiceMode="singleChoice" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#000000"
-        android:id="@+id/separator"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+    android:background="#98B8D0"
+    android:gravity="center"
+    tools:context="comp3350.exampool.presentation.NotesActivity">
 
         <Button
             android:id="@+id/buttonFlashcardCreate"
@@ -36,7 +17,8 @@
             android:layout_height="wrap_content"
             android:text="Create"
             android:layout_alignParentLeft="true"
-            android:enabled="true"
+            android:onClick="buttonOnClick"
+        android:enabled="true"
             android:onClick="buttonFlashcardCreateOnClick" />
 
         <Button
@@ -49,5 +31,4 @@
             android:onClick="buttonFlashcardQuizOnClick"
             android:text="Quiz" />
     </RelativeLayout>
-
 </LinearLayout>
