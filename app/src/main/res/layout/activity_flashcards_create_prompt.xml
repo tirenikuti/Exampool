@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:orientation="vertical"
+    android:background="#98B8D0"
+    android:saveEnabled="false"
+    android:gravity="center"
+    tools:context="comp3350.exampool.presentation.FlashcardsCreatePrompt">
+
+    <TextView
+        android:id="@+id/flashcardPrompt"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginBottom="30dp"
+        android:textSize="25dp"
+        android:text="What type of flashcard would you like to create?"
+        />
+
+    <Button
+        android:id="@+id/buttonMultipleChoice"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:enabled="true"
+        android:textSize="25dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="buttonMultipleChoiceOnClick"
+        android:text="Multiple Choice Question" />
+
+    <Button
+        android:id="@+id/buttonTrueFalse"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:enabled="true"
+        android:textSize="25dp"
+        android:layout_marginBottom="10dp"
+        android:onClick="buttonTrueFalseOnClick"
+        android:text="True or False Question" />
+
+    <Button
+        android:id="@+id/buttonTypedAnswer"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:enabled="true"
+        android:textSize="25dp"
+        android:onClick="buttonTypedAnswerOnClick"
+        android:text="Typed Answer Question" />
+
+</LinearLayout>

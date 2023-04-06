@@ -95,12 +95,6 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
             }
             rs.close();
             st.close();
-//            MultipleChoiceQuestion question1 = new MultipleChoiceQuestion("01", "01", "Knock knock?", "Who is there", "Hi", "Hello", "sup");
-//            TypedAnswerQuestion question2 = new TypedAnswerQuestion("02", "01", "What is life?", "Baby don't hurt me");
-//            TrueFalseQuestion question3 = new TrueFalseQuestion("03", "01", "This sucks", "True", "False");
-//            flashcards.add(question1);
-//            flashcards.add(question2);
-//            flashcards.add(question3);
 
             return flashcards;
         }

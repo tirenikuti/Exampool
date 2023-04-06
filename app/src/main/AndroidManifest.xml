@@ -16,9 +16,6 @@
             android:name=".presentation.FlashcardsActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.TypedAnswerQuestions"
-            android:exported="false" />
-        <activity
             android:name=".presentation.FlashcardsQuizActivity"
             android:exported="false" />
         <activity

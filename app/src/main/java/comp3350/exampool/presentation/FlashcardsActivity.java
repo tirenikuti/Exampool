@@ -84,7 +84,8 @@ public class FlashcardsActivity extends Activity {
     }
 
     public void buttonFlashcardCreateOnClick(View view) {
-        //FlashcardEditActivity
+        Intent createIntent = new Intent(FlashcardsActivity.this, FlashcardsCreatePrompt.class);
+        FlashcardsActivity.this.startActivity(createIntent);
     }
 
     private void selectedFlashcardAtPosition(int position) {

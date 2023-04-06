@@ -1,0 +1,87 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:gravity="center"
+    tools:context="comp3350.exampool.presentation.MultipleChoiceActivity">
+
+
+    <EditText
+        android:id="@+id/createQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="12"
+        android:enabled="true"
+        android:text="Question:"
+        android:layout_marginBottom="15dp"
+        android:inputType="textNoSuggestions" />
+
+
+    <EditText
+        android:id="@+id/createAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal"
+        android:text="Answer:"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/createChoice1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal"
+        android:text="Incorrect Option:"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/createChoice2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal"
+        android:text="Incorrect Option:"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/createChoice3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_columnSpan="2"
+        android:layout_gravity="fill_horizontal"
+        android:text="Incorrect Option:"
+        android:inputType="text" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create"
+            android:id="@+id/buttonNotesDelete"
+            android:layout_alignParentRight="true"
+            android:enabled="true"
+            android:onClick="buttonCreateOnClick" />
+
+        <Button
+            android:id="@+id/buttonNotesUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="294dp"
+            android:enabled="true"
+            android:onClick="buttonClearOnClick"
+            android:text="Clear" />
+
+    </RelativeLayout>
+
+</LinearLayout>

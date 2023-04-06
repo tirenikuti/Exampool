@@ -129,7 +129,7 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
     public Notes updateNotes(Notes currentNotes)
     {
         try(final Connection c = connection()) {
-            final PreparedStatement st = c.prepareStatement("UPDATE courses SET text = ? WHERE noteID = ?");
+            final PreparedStatement st = c.prepareStatement("UPDATE notes SET text = ? WHERE noteID = ?");
             st.setString(1, currentNotes.getNote());
             st.setString(2, currentNotes.getNoteID());
 
