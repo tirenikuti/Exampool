@@ -19,9 +19,10 @@ import java.util.List;
 public class NotesEditActivity extends Activity {
     private AccessNotes accessNotes;
     private List<Notes> notesList;
-
+    private Notes note;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        accessNotes = new AccessNotes();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_edit);
 
@@ -29,7 +30,7 @@ public class NotesEditActivity extends Activity {
         TextView noteView = (TextView) findViewById(R.id.notesText);
 
         Intent intent = getIntent();
-        Notes note = intent.getParcelableExtra("theNote");
+        note = intent.getParcelableExtra("theNote");
 
         titleView.setText(note.getNoteTitle());
         noteView.setText(note.getNote());
@@ -51,9 +52,17 @@ public class NotesEditActivity extends Activity {
     }
 
     public void buttonNotesSaveOnClick(View view) {
-
+        TextView noteView = (TextView) findViewById(R.id.notesText);
+        note.editNote(noteView.getEditableText().toString());
+        accessNotes.updateNote(note);
     }
 
     public void buttonNotesDeleteOnClick(View view) {
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent notesReturnIntent = new Intent(NotesEditActivity.this, NotesActivity.class);
+        NotesEditActivity.this.startActivity(notesReturnIntent);
     }
 }

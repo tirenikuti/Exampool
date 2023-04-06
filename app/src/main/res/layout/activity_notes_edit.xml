@@ -41,12 +41,11 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:clickable="false"
-            android:text="placeholder"
-            android:gravity="top"
             android:enabled="true"
-            android:focusable="false"
+            android:focusable="true"
+            android:gravity="top"
             android:selectAllOnFocus="false"
-            />
+            android:text="placeholder" />
 
         <RelativeLayout
             android:layout_width="match_parent"
