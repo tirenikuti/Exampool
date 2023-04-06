@@ -52,7 +52,7 @@ public class NotesActivity extends Activity {
                     TextView text2 = (TextView) view.findViewById(android.R.id.text2);
 
                     text1.setText(notesList.get(position).getNoteTitle());
-                    text2.setText(notesList.get(position).getNoteID());
+                    //text2.setText(notesList.get(position).getUserID());
 
                     return view;
                 }
@@ -88,6 +88,8 @@ public class NotesActivity extends Activity {
         catch (final Exception e)
         {
             Messages.fatalError(this, e.getMessage());
+            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -122,24 +124,21 @@ public class NotesActivity extends Activity {
         Notes notes = createNotesFromEditText();
         String result;
 
-        Intent notesEditIntent = new Intent(NotesActivity.this, NotesEditActivity.class);
-        NotesActivity.this.startActivity(notesEditIntent);
-
         result = validateNotesData(notes, true);
         if (result == null) {
-//            try {
-//                notes = accessNotes.insertNote(notes);
-//
-//                notesList = accessNotes.getNotes();
-//                notesArrayAdapter.notifyDataSetChanged();
-//                int pos = notesList.indexOf(notes);
-//                if (pos >= 0) {
-//                    ListView listView = (ListView)findViewById(R.id.listNotes);
-//                    listView.setSelection(pos);
-//                }
-//            } catch (final Exception e) {
-//                Messages.fatalError(this, e.getMessage());
-//            }
+            try {
+                notes = accessNotes.insertNote(notes);
+
+                notesList = accessNotes.getNotes();
+                notesArrayAdapter.notifyDataSetChanged();
+                int pos = notesList.indexOf(notes);
+                if (pos >= 0) {
+                    ListView listView = (ListView)findViewById(R.id.listNotes);
+                    listView.setSelection(pos);
+                }
+            } catch (final Exception e) {
+                Messages.fatalError(this, e.getMessage());
+            }
         } else {
             Messages.warning(this, result);
         }

@@ -23,6 +23,7 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
     }
 
     private Connection connection() throws SQLException {
+        System.out.println(dbPath);
         return DriverManager.getConnection("jdbc:hsqldb:file:" + dbPath + ";shutdown=true", "SA", "");
     }
 
@@ -40,28 +41,21 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
         final List<Notes> notes = new ArrayList<>();
 
         try(final Connection c = connection()) {
-//            final Statement st = c.createStatement();
-//            final ResultSet rs = st.executeQuery("SELECT * FROM notes");
-//            while(rs.next())
-//            {
-//                final Notes note = fromResultSet(rs);
-//                notes.add(note);
-//            }
-//            rs.close();
-//            st.close();
+            final Statement st = c.createStatement();
+            final ResultSet rs = st.executeQuery("SELECT * FROM NOTES");
+            while(rs.next())
+            {
+                final Notes note = fromResultSet(rs);
+                notes.add(note);
+            }
+            rs.close();
+            st.close();
 
-            //return notes;
-            Notes notes3 = new Notes("03", "Title3", "012", "Notes Trial");
-            notes.add(notes3);
+            return notes;
         }
         catch (final SQLException e){
             throw new PersistenceException(e);
         }
-        Notes notes1 = new Notes("01", "Title", "012", "Hello World");
-        Notes notes2 = new Notes("02", "Title2", "012", "Hello World!!");
-        notes.add(notes1);
-        notes.add(notes2);
-        return notes;
     }
 
     @Override
@@ -85,7 +79,7 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
         }
         catch (final SQLException e)
         {
-            throw new android.database.SQLException();
+            throw new PersistenceException(e);
         }
     }
 
@@ -109,7 +103,7 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
             return notes;
         }
         catch (final SQLException e){
-            throw new android.database.SQLException();
+            throw new PersistenceException(e);
         }
     }
 
@@ -128,7 +122,7 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
             return currentNotes;
         }
         catch (final SQLException e){
-            throw new android.database.SQLException();
+            throw new PersistenceException(e);
         }
     }
 
@@ -145,7 +139,7 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
             return currentNotes;
         }
         catch (final SQLException e){
-            throw new android.database.SQLException();
+            throw new PersistenceException(e);
         }
     }
 
@@ -157,7 +151,7 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
             st.executeUpdate();
         }
         catch (final SQLException e){
-            throw new android.database.SQLException();
+            throw new PersistenceException(e);
         }
     }
    
