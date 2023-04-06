@@ -4,12 +4,10 @@ import android.app.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,7 +17,6 @@ import java.util.List;
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.Flashcard;
-import comp3350.exampool.objects.Notes;
 
 public class FlashcardsActivity extends Activity {
 
@@ -84,7 +81,7 @@ public class FlashcardsActivity extends Activity {
     }
 
     public void buttonFlashcardCreateOnClick(View view) {
-        Intent createIntent = new Intent(FlashcardsActivity.this, FlashcardsCreatePrompt.class);
+        Intent createIntent = new Intent(FlashcardsActivity.this, FlashcardsCreatePromptActivity.class);
         FlashcardsActivity.this.startActivity(createIntent);
     }
 
