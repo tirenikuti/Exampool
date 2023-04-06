@@ -76,7 +76,7 @@ public class AccessFlashcards {
 
     public Flashcard insertFlashcard(Flashcard currentFlashcard)
     {
-        return flashcardPersistence.insertFlashcard(currentFlashcard);
+        return currentFlashcard;
     }
 
     public void deleteFlashcard(Flashcard currentFlashcard)

@@ -12,15 +12,13 @@ public class TrueFalseQuestion extends Flashcard implements Parcelable {
     private String userID;
     private String question;
     private String answer;
-    private String wrongAnswer;
 
-    public TrueFalseQuestion(String flashCardID, String userID, String question, String answer, String wrongAnswer) {
+    public TrueFalseQuestion(String flashCardID, String userID, String question, String answer) {
         super();
         this.flashcardID = flashCardID;
         this.userID = userID;
         this.question = question;
         this.answer = answer;
-        this.wrongAnswer = wrongAnswer;
     }
 
     protected TrueFalseQuestion(Parcel in) {
@@ -29,7 +27,6 @@ public class TrueFalseQuestion extends Flashcard implements Parcelable {
         userID = in.readString();
         question = in.readString();
         answer = in.readString();
-        wrongAnswer = in.readString();
     }
 
     public static final Creator<TrueFalseQuestion> CREATOR = new Creator<TrueFalseQuestion>() {
@@ -63,6 +60,5 @@ public class TrueFalseQuestion extends Flashcard implements Parcelable {
         parcel.writeString(userID);
         parcel.writeString(question);
         parcel.writeString(answer);
-        parcel.writeString(wrongAnswer);
     }
 }

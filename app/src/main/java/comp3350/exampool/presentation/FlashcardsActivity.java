@@ -73,6 +73,8 @@ public class FlashcardsActivity extends Activity {
         catch (final Exception e)
         {
             Messages.fatalError(this, e.getMessage());
+            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 

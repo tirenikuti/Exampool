@@ -52,7 +52,7 @@ public class NotesActivity extends Activity {
                     TextView text2 = (TextView) view.findViewById(android.R.id.text2);
 
                     text1.setText(notesList.get(position).getNoteTitle());
-                    //text2.setText(notesList.get(position).getUserID());
+                    text2.setText(notesList.get(position).getUserID());
 
                     return view;
                 }
@@ -88,8 +88,6 @@ public class NotesActivity extends Activity {
         catch (final Exception e)
         {
             Messages.fatalError(this, e.getMessage());
-            System.out.println(e.getMessage());
-            e.printStackTrace();
         }
     }
 
