@@ -13,24 +13,44 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class HomeActivity extends Activity {
+public class HomeActivity extends AppCompatActivity {
     //Navigation Buttons
     Button buttonFlashcards;
     Button buttonNotes;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.testing3);
         copyDatabaseToDevice();
+        ImageView homeIcon = findViewById(R.id.homepage);
+        ImageView userIcon = findViewById(R.id.userPage);
         buttonFlashcards = findViewById(R.id.flashcards);
         buttonNotes = findViewById(R.id.Notes);
+
+        homeIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(HomeActivity.this, "You clicked home",Toast.LENGTH_SHORT).show();
+            }
+        });
+        userIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(HomeActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

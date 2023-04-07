@@ -21,10 +21,17 @@
         <activity
             android:name=".presentation.NotesEditActivity"
             android:exported="false" />
-        <activity
-            android:name=".presentation.HomeActivity"
-            android:label="ExamPool"
-            android:exported="true">
+<!--        <activity-->
+<!--            android:name=".presentation.HomeActivity"-->
+<!--            android:exported="false"/>-->
+<!--        <activity-->
+<!--            android:name=".presentation.Testing"-->
+<!--            android:label="ExamPool"-->
+<!--            android:exported="true">-->
+            <activity
+                android:name=".presentation.HomeActivity"
+                android:label="ExamPool"
+                android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
