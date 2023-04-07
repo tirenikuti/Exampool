@@ -6,6 +6,9 @@ import java.util.List;
 
 import comp3350.exampool.application.Services;
 import comp3350.exampool.objects.Flashcard;
+import comp3350.exampool.objects.MultipleChoiceQuestion;
+import comp3350.exampool.objects.TrueFalseQuestion;
+import comp3350.exampool.objects.TypedAnswerQuestion;
 import comp3350.exampool.persistence.FlashcardPersistence;
 
 public class AccessFlashcards {
@@ -74,9 +77,31 @@ public class AccessFlashcards {
         return flashcard;
     }
 
-    public Flashcard insertFlashcard(Flashcard currentFlashcard)
+    public Flashcard insertMultipleChoiceFlashcard(MultipleChoiceQuestion currentFlashcard)
     {
-        return currentFlashcard;
+        return flashcardPersistence.insertMultipleChoiceFlashcard(currentFlashcard);
+    }
+
+    public Flashcard insertTrueFalseFlashcard(TrueFalseQuestion currentFlashcard)
+    {
+        return flashcardPersistence.insertTrueFalseFlashcard(currentFlashcard);
+    }
+
+    public Flashcard insertTypedAnswerFlashcard(TypedAnswerQuestion currentFlashcard)
+    {
+        return flashcardPersistence.insertTypedFlashcard(currentFlashcard);
+    }
+
+    public Flashcard updateMultipleChoiceFlashcard(MultipleChoiceQuestion currentFlashcard){
+        return flashcardPersistence.updateMCQFlashcard(currentFlashcard);
+    }
+
+    public Flashcard updateTrueFalseFlashcard(TrueFalseQuestion currentFlashcard){
+        return flashcardPersistence.updateTFQFlashcard(currentFlashcard);
+    }
+
+    public Flashcard updateTypedAnswerFlashcard(TypedAnswerQuestion currentFlashcard){
+        return flashcardPersistence.updateTypedFlashcard(currentFlashcard);
     }
 
     public void deleteFlashcard(Flashcard currentFlashcard)

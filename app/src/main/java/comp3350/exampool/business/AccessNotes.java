@@ -60,7 +60,7 @@ public class AccessNotes
         return note;
     }
 
-    public Notes getRandom(String notesID)
+    public Notes getNote(String notesID)
     {
         notes = notesPersistence.getNotesRandom(new Notes(notesID));
         currentNote = 0;

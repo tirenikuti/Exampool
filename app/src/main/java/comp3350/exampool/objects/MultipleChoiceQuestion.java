@@ -99,4 +99,12 @@ public class MultipleChoiceQuestion extends Flashcard implements Parcelable {
         parcel.writeString(option2);
         parcel.writeString(option3);
     }
+
+    public void editFlashcard(String question, String answer, String option1, String option2, String option3){
+        this.question = question;
+        this.answer = answer;
+        this.option1 = option1;
+        this.option2 = option2;
+        this.option3 = option3;
+    }
 }

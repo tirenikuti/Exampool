@@ -163,7 +163,7 @@ public class CLI
             else
             {
                 noteNumber = inputTokens[2];
-                currentNote = accessNotes.getRandom(noteNumber);
+                currentNote = accessNotes.getNote(noteNumber);
                 System.out.println(indent + currentUser);
             }
         }

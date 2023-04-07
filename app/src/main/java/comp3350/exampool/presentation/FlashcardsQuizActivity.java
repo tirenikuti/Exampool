@@ -93,4 +93,10 @@ public class FlashcardsQuizActivity extends Activity {
         int correct = submittedAnswer.compareToIgnoreCase(correctAnswer);
         return correct;
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent flashcardsReturnActivity = new Intent(FlashcardsQuizActivity.this, FlashcardsActivity.class);
+        FlashcardsQuizActivity.this.startActivity(flashcardsReturnActivity);
+    }
 }

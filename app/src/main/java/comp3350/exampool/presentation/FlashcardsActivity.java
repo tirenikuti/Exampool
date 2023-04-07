@@ -91,4 +91,10 @@ public class FlashcardsActivity extends Activity {
 //        editFlashcardIntent.putExtra("flashcard", selected);
 //        FlashcardsActivity.this.startActivity(editFlashcardIntent);
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent flashcardsReturnActivity = new Intent(FlashcardsActivity.this, HomeActivity.class);
+        FlashcardsActivity.this.startActivity(flashcardsReturnActivity);
+    }
 }

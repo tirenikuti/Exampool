@@ -49,6 +49,7 @@ public class TrueFalseQuestion extends Flashcard implements Parcelable {
 
     public String getAnswer(){ return answer;}
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -60,5 +61,10 @@ public class TrueFalseQuestion extends Flashcard implements Parcelable {
         parcel.writeString(userID);
         parcel.writeString(question);
         parcel.writeString(answer);
+    }
+
+    public void editFlashcard(String question, String answer){
+        this.question = question;
+        this.answer = answer;
     }
 }

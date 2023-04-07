@@ -28,4 +28,10 @@ public class FlashcardsCreatePromptActivity extends Activity {
         FlashcardsCreatePromptActivity.this.startActivity(typedAnswerIntent);
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent flashcardsReturnActivity = new Intent(FlashcardsCreatePromptActivity.this, FlashcardsActivity.class);
+        FlashcardsCreatePromptActivity.this.startActivity(flashcardsReturnActivity);
+    }
+
 }

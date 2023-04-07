@@ -8,7 +8,7 @@
     android:paddingTop="16dp"
     android:paddingBottom="16dp"
     android:gravity="center"
-    tools:context="comp3350.exampool.presentation.MultipleChoiceActivity">
+    tools:context="comp3350.exampool.presentation.TypedAnswerEditActivity">
 
     <GridLayout
         android:id="@+id/grid"
@@ -55,62 +55,8 @@
             android:layout_marginBottom="15dp"
             android:inputType="textNoSuggestions" />
 
-        <TextView
-            android:id="@+id/option1"
-            android:layout_width="90dp"
-            android:layout_height="wrap_content"
-            android:ems="12"
-            android:enabled="true"
-            android:text="Options:"
-            android:textSize="20dp"
-            android:layout_marginBottom="10dp"/>
-
-        <EditText
-            android:id="@+id/createChoice1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="12"
-            android:enabled="true"
-            android:layout_marginBottom="15dp"
-            android:inputType="textNoSuggestions" />
-
-        <TextView
-            android:id="@+id/option2"
-            android:layout_width="90dp"
-            android:layout_height="wrap_content"
-            android:ems="12"
-            android:enabled="true"
-            android:textSize="20dp"
-            android:layout_marginBottom="10dp"/>
-
-        <EditText
-            android:id="@+id/createChoice2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="12"
-            android:enabled="true"
-            android:layout_marginBottom="15dp"
-            android:inputType="textNoSuggestions" />
-
-        <TextView
-            android:id="@+id/option3"
-            android:layout_width="90dp"
-            android:layout_height="wrap_content"
-            android:ems="12"
-            android:enabled="true"
-            android:textSize="20dp"
-            android:layout_marginBottom="10dp"/>
-
-        <EditText
-            android:id="@+id/createChoice3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="12"
-            android:enabled="true"
-            android:layout_marginBottom="15dp"
-            android:inputType="textNoSuggestions" />
-
     </GridLayout>
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -118,22 +64,21 @@
         android:layout_marginTop="10dp">
 
         <Button
-            android:id="@+id/buttonNotesUpdate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:enabled="true"
-            android:onClick="buttonClearOnClick"
-            android:text="Clear" />
-
-        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Save"
-            android:id="@+id/buttonNotesSave"
+            android:id="@+id/buttonTypedSave"
             android:layout_alignParentRight="true"
             android:enabled="true"
-            android:onClick="buttonCreateOnClick" />
+            android:onClick="buttonSaveTypedOnClick" />
 
+        <Button
+            android:id="@+id/buttonTypedDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:onClick="buttonDeleteTypedOnClick"
+            android:text="Delete" />
 
     </RelativeLayout>
 

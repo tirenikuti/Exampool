@@ -1,7 +1,5 @@
 package comp3350.exampool.presentation;
 
-
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,9 +21,10 @@ public class NotesCreateActivity extends Activity {
     private Notes note;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        accessNotes = new AccessNotes();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_create);
+
+        accessNotes = new AccessNotes();
     }
 
     @Override
@@ -48,16 +47,19 @@ public class NotesCreateActivity extends Activity {
     public void buttonNotesCreateOnClick(View view) {
         TextView noteView = (TextView) findViewById(R.id.notesText);
         TextView noteViewTitle = (TextView) findViewById(R.id.notesTitleInput);
-        String newID = ""+(int)(Math.random() * 100 + 1);
-        List<String> ids = accessNotes.getNoteIDs();
-        while(ids.contains(newID) && ids.size() != 100){
-            newID = ""+(int)(Math.random() * 100 + 1);
-        }
-
+        String newID = "24";//getValidateNotesID();
         note = new Notes(newID, noteViewTitle.getEditableText().toString(), "100", noteView.getEditableText().toString());
         accessNotes.insertNote(note);
         onBackPressed();
     }
+
+//    private String getValidateNotesID(){
+//        String newID = ""+(int)(Math.random() * 100 + 1);
+//        while(accessNotes.getNote(newID) == null){
+//            newID = ""+(int)(Math.random() * 100 + 1);
+//        }
+//        return newID;
+//    }
 
     public void buttonNotesCancelOnClick(View view) {
         onBackPressed();

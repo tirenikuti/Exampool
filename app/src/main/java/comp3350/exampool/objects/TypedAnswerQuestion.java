@@ -57,4 +57,9 @@ public class TypedAnswerQuestion extends Flashcard implements Parcelable {
     public String getAnswer(){return answer;}
 
     public String getOptions(){return "";}
+
+    public void editFlashcard(String question, String answer){
+        this.question = question;
+        this.answer = answer;
+    }
 }

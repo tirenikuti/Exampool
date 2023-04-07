@@ -1,6 +1,5 @@
 package comp3350.exampool.persistence.hsqldb;
 
-import java.lang.reflect.Type;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,7 +12,6 @@ import java.util.List;
 
 import comp3350.exampool.objects.Flashcard;
 import comp3350.exampool.objects.MultipleChoiceQuestion;
-import comp3350.exampool.objects.Notes;
 import comp3350.exampool.objects.TypedAnswerQuestion;
 import comp3350.exampool.objects.TrueFalseQuestion;
 import comp3350.exampool.objects.User;
@@ -202,6 +200,57 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
             final PreparedStatement st = c.prepareStatement("DELETE FROM flashcards WHERE flashCardID = ?");
             st.setString (1, currentFlashcard.getFlashcardID());
             st.executeUpdate();
+        }
+        catch (final SQLException e){
+            throw new PersistenceException(e);
+        }
+    }
+
+    @Override
+    public Flashcard updateMCQFlashcard(MultipleChoiceQuestion currentFlashcard){
+        try(final Connection c = connection()) {
+            final PreparedStatement st = c.prepareStatement("Update MULTIPLECHOICEQUESTION set question = ?, answer = ?, option1 = ?, option2 = ?, option3 = ? WHERE flashCardID = ?");
+            st.setString (1, currentFlashcard.getQuestion());
+            st.setString(2, currentFlashcard.getAnswer());
+            st.setString(3, currentFlashcard.getOption1());
+            st.setString(4,currentFlashcard.getOption2());
+            st.setString(5,currentFlashcard.getOption3());
+            st.setString(6,currentFlashcard.getFlashcardID());
+            st.executeUpdate();
+
+            return currentFlashcard;
+        }
+        catch (final SQLException e){
+            throw new PersistenceException(e);
+        }
+    }
+
+    @Override
+    public Flashcard updateTFQFlashcard(TrueFalseQuestion currentFlashcard){
+        try(final Connection c = connection()) {
+            final PreparedStatement st = c.prepareStatement("Update TRUEANDFALSEQUESTION set question = ?, answer = ? WHERE flashCardID = ?");
+            st.setString (1, currentFlashcard.getQuestion());
+            st.setString(2, currentFlashcard.getAnswer());
+            st.setString(3,currentFlashcard.getFlashcardID());
+            st.executeUpdate();
+
+            return currentFlashcard;
+        }
+        catch (final SQLException e){
+            throw new PersistenceException(e);
+        }
+    }
+
+    @Override
+    public Flashcard updateTypedFlashcard(TypedAnswerQuestion currentFlashcard){
+        try(final Connection c = connection()) {
+            final PreparedStatement st = c.prepareStatement("Update TYPEDQUESTION set question = ?, answer = ? WHERE flashCardID = ?");
+            st.setString (1, currentFlashcard.getQuestion());
+            st.setString(2, currentFlashcard.getAnswer());
+            st.setString(3,currentFlashcard.getFlashcardID());
+            st.executeUpdate();
+
+            return currentFlashcard;
         }
         catch (final SQLException e){
             throw new PersistenceException(e);

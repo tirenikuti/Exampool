@@ -22,4 +22,10 @@ public interface FlashcardPersistence {
     Flashcard insertTypedFlashcard(TypedAnswerQuestion currentFlashcard);
 
     void deleteFlashcard(Flashcard currentFlashcard);
+
+    Flashcard updateMCQFlashcard(MultipleChoiceQuestion currentFlashcard);
+
+    Flashcard updateTFQFlashcard(TrueFalseQuestion currentFlashcard);
+
+    Flashcard updateTypedFlashcard(TypedAnswerQuestion currentFlashcard);
 }
