@@ -22,6 +22,9 @@
             android:name=".presentation.NotesEditActivity"
             android:exported="false" />
         <activity
+            android:name=".presentation.NotesCreateActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.HomeActivity"
             android:label="ExamPool"
             android:exported="true">
