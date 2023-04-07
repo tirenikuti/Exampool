@@ -98,13 +98,14 @@
             android:text="Update" />
 
         <Button
+            android:id="@+id/buttonNotesCreate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create"
-            android:id="@+id/buttonNotesCreate"
             android:layout_alignParentLeft="true"
+            android:layout_marginLeft="1dp"
             android:enabled="true"
-            android:onClick="buttonNotesCreateOnClick" />
+            android:onClick="buttonNotesCreateOnClick"
+            android:text="Create" />
     </RelativeLayout>
 
 </LinearLayout>
