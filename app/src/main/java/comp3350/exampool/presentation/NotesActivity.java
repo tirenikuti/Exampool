@@ -117,29 +117,29 @@ public class NotesActivity extends Activity {
     }
 
     public void buttonNotesCreateOnClick(View v) {
-        Intent editNotesIntent = new Intent(NotesActivity.this, NotesEditActivity.class);
+        Intent editNotesIntent = new Intent(NotesActivity.this, NotesCreateActivity.class);
         NotesActivity.this.startActivity(editNotesIntent);
-        Notes notes = createNotesFromEditText();
-        String result;
-
-        result = validateNotesData(notes, true);
-        if (result == null) {
-            try {
-                notes = accessNotes.insertNote(notes);
-
-                notesList = accessNotes.getNotes();
-                notesArrayAdapter.notifyDataSetChanged();
-                int pos = notesList.indexOf(notes);
-                if (pos >= 0) {
-                    ListView listView = (ListView)findViewById(R.id.listNotes);
-                    listView.setSelection(pos);
-                }
-            } catch (final Exception e) {
-                Messages.fatalError(this, e.getMessage());
-            }
-        } else {
-            Messages.warning(this, result);
-        }
+//        Notes notes = createNotesFromEditText();
+//        String result;
+//
+//        result = validateNotesData(notes, true);
+//        if (result == null) {
+//            try {
+//                notes = accessNotes.insertNote(notes);
+//
+//                notesList = accessNotes.getNotes();
+//                notesArrayAdapter.notifyDataSetChanged();
+//                int pos = notesList.indexOf(notes);
+//                if (pos >= 0) {
+//                    ListView listView = (ListView)findViewById(R.id.listNotes);
+//                    listView.setSelection(pos);
+//                }
+//            } catch (final Exception e) {
+//                Messages.fatalError(this, e.getMessage());
+//            }
+//        } else {
+//            Messages.warning(this, result);
+//        }
     }
 
     private Notes createNotesFromEditText(){

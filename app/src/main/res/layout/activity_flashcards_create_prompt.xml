@@ -11,7 +11,7 @@
     android:background="#98B8D0"
     android:saveEnabled="false"
     android:gravity="center"
-    tools:context="comp3350.exampool.presentation.FlashcardsCreatePrompt">
+    tools:context="comp3350.exampool.presentation.FlashcardsCreatePromptActivity">
 
     <TextView
         android:id="@+id/flashcardPrompt"
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:layout_marginBottom="30dp"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:text="What type of flashcard would you like to create?"
         />
 
@@ -28,7 +28,7 @@
         android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:enabled="true"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:layout_marginBottom="10dp"
         android:onClick="buttonMultipleChoiceOnClick"
         android:text="Multiple Choice Question" />
@@ -38,7 +38,7 @@
         android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:enabled="true"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:layout_marginBottom="10dp"
         android:onClick="buttonTrueFalseOnClick"
         android:text="True or False Question" />
@@ -48,7 +48,7 @@
         android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:enabled="true"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:onClick="buttonTypedAnswerOnClick"
         android:text="Typed Answer Question" />
 
