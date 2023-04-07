@@ -18,7 +18,7 @@ public class MultipleChoiceQuestion extends Flashcard implements Parcelable {
     private String option3;
 
     public MultipleChoiceQuestion(String flashCardID, String userID, String question, String theAnswer, String option1, String option2, String option3) {
-        super();
+        super(flashCardID,userID,question,theAnswer);
         this.flashcardID = flashCardID;
         this.userID = userID;
         this.question = question;
@@ -66,6 +66,10 @@ public class MultipleChoiceQuestion extends Flashcard implements Parcelable {
         }
         return options;
     }
+
+    public String getFlashcardID(){ return flashcardID;}
+
+    public String getUserID(){return userID;}
 
     public String getAnswer(){
         return answer;

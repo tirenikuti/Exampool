@@ -42,6 +42,8 @@ public class TrueFalseActivity extends Activity {
         TrueFalseQuestion flashcard = new TrueFalseQuestion(flashcardID, "100", question, answer);
         accessFlashcards.insertTrueFalseFlashcard(flashcard);
         onBackPressed();
+        Intent flashcardsReturnActivity = new Intent(TrueFalseActivity.this, FlashcardsActivity.class);
+        TrueFalseActivity.this.startActivity(flashcardsReturnActivity);
     }
 
     private String generateFlashcardID(){

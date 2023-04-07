@@ -44,10 +44,8 @@ public class FlashcardsActivity extends AppCompatActivity {
                     View view = super.getView(position, convertView, parent);
 
                     TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-                    TextView text2 = (TextView) view.findViewById(android.R.id.text2);
 
-                    text1.setText(flashcardList.get(position).getFlashcardID());
-                    text2.setText(flashcardList.get(position).getQuestion());
+                    text1.setText(flashcardList.get(position).getQuestion());
 
                     return view;
                 }

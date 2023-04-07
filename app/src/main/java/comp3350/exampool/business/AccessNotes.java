@@ -29,15 +29,6 @@ public class AccessNotes
         return Collections.unmodifiableList(notes);
     }
 
-    public List<String> getNoteIDs() {
-        notes = notesPersistence.getNotesSequential();
-        ArrayList<String> ids = new ArrayList<>();
-        for(Notes n:notes){
-            ids.add(n.getNoteID());
-        }
-        return Collections.unmodifiableList(ids);
-    }
-
     public Notes getSequential()
     {
         String result = null;

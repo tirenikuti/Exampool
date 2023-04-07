@@ -11,7 +11,7 @@ import comp3350.exampool.objects.User;
 public interface FlashcardPersistence {
     List<Flashcard> getFlashcardsSequential();
 
-    List<Flashcard> getFlashcard(String flashcardID);
+    List<Flashcard> getFlashcard(String currentFlashcardID);
 
     List<Flashcard> getFlashcardOfUser(User currentUser);
 

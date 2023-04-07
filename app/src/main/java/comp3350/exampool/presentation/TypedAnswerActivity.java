@@ -36,6 +36,8 @@ public class TypedAnswerActivity extends Activity {
         TypedAnswerQuestion flashcard = new TypedAnswerQuestion(flashcardID, "100", question, answer);
         accessFlashcards.insertTypedAnswerFlashcard(flashcard);
         onBackPressed();
+        Intent flashcardsReturnActivity = new Intent(TypedAnswerActivity.this, FlashcardsActivity.class);
+        TypedAnswerActivity.this.startActivity(flashcardsReturnActivity);
     }
 
     private String generateFlashcardID(){

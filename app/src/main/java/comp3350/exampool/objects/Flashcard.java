@@ -6,8 +6,9 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 
 public class Flashcard implements Parcelable {
-    private final String flashcardID;
-    private final String userID;
+
+    private String flashcardID;
+    private String userID;
     private String question;
     private String answer;
     private boolean answered;
@@ -20,15 +21,10 @@ public class Flashcard implements Parcelable {
     }
 
     public Flashcard() {
-        flashcardID = null;
-        userID = null;
+        this.answered = false;
     }
 
     protected Flashcard(Parcel in) {
-        flashcardID = in.readString();
-        userID = in.readString();
-        question = in.readString();
-        answer = in.readString();
         answered = in.readByte() != 0;
     }
 
@@ -44,21 +40,10 @@ public class Flashcard implements Parcelable {
         }
     };
 
-    public String getFlashcardID(){
-        return flashcardID;
-    }
-    public String getUserID(){
-        return userID;
-    }
-    public void setQuestion(String theQuestion){
-        question = theQuestion;
-    }
-    public String getAnswer(){
-        return answer;
-    }
-    public void setAnswer(String theAnswer){
-        answer = theAnswer;
-    }
+    public String getFlashcardID(){ return flashcardID;}
+
+    public String getUserID(){return userID;}
+
     public boolean getAnswered(){
         return answered;
     }
@@ -77,18 +62,14 @@ public class Flashcard implements Parcelable {
 
     @Override
     public void writeToParcel(@NonNull Parcel parcel, int i) {
-        parcel.writeString(flashcardID);
-        parcel.writeString(userID);
-        parcel.writeString(question);
-        parcel.writeString(answer);
         parcel.writeByte((byte) (answered ? 1 : 0));
-    }
-
-    public String getQuestion() {
-        return question;
     }
 
     public String getOptions() {
         return "";
     }
+
+    public String getQuestion() { return question;}
+
+    public String getAnswer() { return answer;    }
 }

@@ -42,31 +42,31 @@ public class MultipleChoiceActivity extends Activity {
 
     public void buttonCreateOnClick(View view) {
         EditText questionEdit = (EditText) findViewById(R.id.createQuestion);
-        String question = questionEdit.toString();
+        String question = questionEdit.getText().toString();
         EditText answerEdit = (EditText) findViewById(R.id.createAnswer);
-        String answer = answerEdit.toString();
+        String answer = answerEdit.getText().toString();
         EditText choice1Edit = (EditText) findViewById(R.id.createChoice1);
-        String choice1 = choice1Edit.toString();
+        String choice1 = choice1Edit.getText().toString();
         EditText choice2Edit = (EditText) findViewById(R.id.createChoice2);
-        String choice2 = choice2Edit.toString();
+        String choice2 = choice2Edit.getText().toString();
         EditText choice3Edit = (EditText) findViewById(R.id.createChoice3);
-        String choice3 = choice3Edit.toString();
-        String flashcardID = "16";
+        String choice3 = choice3Edit.getText().toString();
+        String flashcardID = generateFlashcardID();
 
         MultipleChoiceQuestion flashcard = new MultipleChoiceQuestion(flashcardID, "100", question, answer, choice1, choice2, choice3);
         accessFlashcards.insertMultipleChoiceFlashcard(flashcard);
         onBackPressed();
-//        Intent flashcardsReturnActivity = new Intent(MultipleChoiceActivity.this, FlashcardsActivity.class);
-//        MultipleChoiceActivity.this.startActivity(flashcardsReturnActivity);
+        Intent flashcardsReturnActivity = new Intent(MultipleChoiceActivity.this, FlashcardsActivity.class);
+        MultipleChoiceActivity.this.startActivity(flashcardsReturnActivity);
     }
 
-//    private String generateFlashcardID(){
-//        String newID = ""+(int)(Math.random() * 100 + 1);
-//        while(accessFlashcards.getFlashcard(newID) == null){
-//            newID = ""+(int)(Math.random() * 100 + 1);
-//        }
-//        return newID;
-//    }
+    private String generateFlashcardID(){
+        String newID = ""+(int)(Math.random() * 100 + 1);
+        while(accessFlashcards.getFlashcard(newID) == null){
+            newID = ""+(int)(Math.random() * 100 + 1);
+        }
+        return newID;
+    }
 
     @Override
     public void onBackPressed() {

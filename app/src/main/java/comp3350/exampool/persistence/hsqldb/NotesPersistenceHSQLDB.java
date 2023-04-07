@@ -23,7 +23,7 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
     }
 
     private Connection connection() throws SQLException {
-        return DriverManager.getConnection("jdbc:hsqldb:file:" + dbPath + ";shutdown=true", "SA", "");
+        return DriverManager.getConnection("jdbc:hsqldb:file:" + dbPath + ";shutdown=true;hsqldb.lock_file=false", "SA", "");
     }
 
     private Notes fromResultSet(final ResultSet rs) throws SQLException {
