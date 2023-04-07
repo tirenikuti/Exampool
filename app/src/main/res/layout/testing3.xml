@@ -89,8 +89,7 @@
             android:layout_marginRight="70dp"
             app:srcCompat="@drawable/baseline_home_24"
             android:visibility="visible"
-            android:clickable="true"
-            app:tint="#9457EB" />
+            app:tint="#808080" />
 
         <ImageView
             android:id="@+id/userPage"
@@ -103,12 +102,13 @@
             android:layout_marginRight="-140dp"
             android:visibility="visible"
             android:clickable="true"
+            android:onClick="userButttonOnClick"
             app:srcCompat="@drawable/baseline_person_24" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/relativeLayout2"
-        android:layout_width="305dp"
+        android:layout_width="match_parent"
         android:layout_height="83dp"
         android:gravity="top"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -119,12 +119,9 @@
         app:layout_constraintVertical_bias="0.007">
 
         <TextView
-            android:layout_width="315dp"
-            android:layout_height="88dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_marginLeft="96dp"
             android:layout_marginTop="14dp"
             android:layout_marginRight="0dp"
@@ -132,7 +129,7 @@
             android:fontFamily="@font/logo_font"
             android:gravity="center"
             android:text="EXAMPOOL"
-            android:textColor="#D3D3"
+            android:textColor="#9457eb"
             android:textSize="25sp"></TextView>
 
     </RelativeLayout>

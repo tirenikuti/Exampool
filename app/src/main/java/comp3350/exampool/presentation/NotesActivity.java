@@ -1,32 +1,28 @@
 package comp3350.exampool.presentation;
 
-import android.app.Activity;
-
 import comp3350.exampool.R;
 import comp3350.exampool.objects.Notes;
 import comp3350.exampool.business.AccessNotes;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import java.util.List;
-
-public class NotesActivity extends Activity {
+public class NotesActivity extends AppCompatActivity {
     private AccessNotes accessNotes;
     private List<Notes> notesList;
     private ArrayAdapter<Notes> notesArrayAdapter;
@@ -35,14 +31,23 @@ public class NotesActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notes_home);
-
+        setContentView(R.layout.testing4);
         accessNotes = new AccessNotes();
+        ImageView homeIcon = findViewById(R.id.homepage);
+        ImageView userIcon = findViewById(R.id.userPage);
+        ImageView back = findViewById(R.id.backButton);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goBack = new Intent(NotesActivity.this, HomeActivity.class);
+                NotesActivity.this.startActivity(goBack);
+            }
+        });
 
         try{
             notesList = new ArrayList<>();
             notesList.addAll(accessNotes.getNotes());
-
             notesArrayAdapter = new ArrayAdapter<Notes>(this, android.R.layout.simple_list_item_activated_2, android.R.id.text1, notesList){
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
@@ -64,31 +69,50 @@ public class NotesActivity extends Activity {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Button updateButton = (Button)findViewById(R.id.buttonNotesUpdate);
-                    Button deleteButton = (Button)findViewById(R.id.buttonNotesDelete);
+//                    Button updateButton = (Button)findViewById(R.id.buttonNotesUpdate);
+//                    Button deleteButton = (Button)findViewById(R.id.buttonNotesDelete);
 
                     if (position == selectedNotesPosition) {
                         listView.setItemChecked(position, false);
-                        updateButton.setEnabled(false);
-                        deleteButton.setEnabled(false);
+//                        updateButton.setEnabled(false);
+//                        deleteButton.setEnabled(false);
                         selectedNotesPosition = -1;
                     } else {
                         listView.setItemChecked(position, true);
-                        updateButton.setEnabled(true);
-                        deleteButton.setEnabled(true);
+//                        updateButton.setEnabled(true);
+//                        deleteButton.setEnabled(true);
                         selectedNotesPosition = position;
                         selectedNotesAtPosition(position);
                     }
                 }
             });
-
-            final EditText editNotesID = (EditText)findViewById(R.id.editNotesID);
-            final Button buttonNotes = (Button)findViewById(R.id.buttonNotes);
+//
+//            final EditText editNotesID = (EditText)findViewById(R.id.editNotesID);
+//            final Button buttonNotes = (Button)findViewById(R.id.buttonNotes);
         }
         catch (final Exception e)
         {
             Messages.fatalError(this, e.getMessage());
         }
+    }
+
+    public void homeButttonOnClick(View v){
+        Intent goBack = new Intent(NotesActivity.this, HomeActivity.class);
+        NotesActivity.this.startActivity(goBack);
+    }
+
+    public void userButttonOnClick(View v){
+        Toast.makeText(NotesActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
+    }
+
+    public void backButttonOnClick(View v){
+        Intent goBack = new Intent(NotesActivity.this, HomeActivity.class);
+        NotesActivity.this.startActivity(goBack);
+    }
+
+    public void CreateOnClick(View v) {
+        Intent editNotesIntent = new Intent(NotesActivity.this, NotesCreateActivity.class);
+        NotesActivity.this.startActivity(editNotesIntent);
     }
 
     @Override
@@ -111,45 +135,20 @@ public class NotesActivity extends Activity {
         NotesActivity.this.startActivity(editNotesIntent);
     }
 
-    public void buttonNotesUpdateOnClick(View v){
-        Intent notesEditIntent = new Intent(NotesActivity.this, NotesEditActivity.class);
-        NotesActivity.this.startActivity(notesEditIntent);
-    }
+//    public void buttonNotesUpdateOnClick(View v){
+//        Intent notesEditIntent = new Intent(NotesActivity.this, NotesEditActivity.class);
+//        NotesActivity.this.startActivity(notesEditIntent);
+//    }
 
-    public void buttonNotesCreateOnClick(View v) {
-        Intent editNotesIntent = new Intent(NotesActivity.this, NotesCreateActivity.class);
-        NotesActivity.this.startActivity(editNotesIntent);
-//        Notes notes = createNotesFromEditText();
-//        String result;
+
+//    private Notes createNotesFromEditText(){
+//        EditText editID = (EditText) findViewById(R.id.editNotesID);
+//        EditText editName = (EditText) findViewById(R.id.editNotesTitle);
 //
-//        result = validateNotesData(notes, true);
-//        if (result == null) {
-//            try {
-//                notes = accessNotes.insertNote(notes);
+//        Notes note = new Notes(editID.getText().toString());
 //
-//                notesList = accessNotes.getNotes();
-//                notesArrayAdapter.notifyDataSetChanged();
-//                int pos = notesList.indexOf(notes);
-//                if (pos >= 0) {
-//                    ListView listView = (ListView)findViewById(R.id.listNotes);
-//                    listView.setSelection(pos);
-//                }
-//            } catch (final Exception e) {
-//                Messages.fatalError(this, e.getMessage());
-//            }
-//        } else {
-//            Messages.warning(this, result);
-//        }
-    }
-
-    private Notes createNotesFromEditText(){
-        EditText editID = (EditText) findViewById(R.id.editNotesID);
-        EditText editName = (EditText) findViewById(R.id.editNotesTitle);
-
-        Notes note = new Notes(editID.getText().toString());
-
-        return note;
-    }
+//        return note;
+//    }
 
     private String validateNotesData(Notes note, boolean isNewCourse){
         if (note.getNoteID().length() == 0){

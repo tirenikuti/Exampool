@@ -4,13 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import comp3350.exampool.R;
 
-public class FlashcardsCreatePromptActivity extends Activity {
+public class FlashcardsCreatePromptActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flashcards_create_prompt);
+        setContentView(R.layout.testing6);
     }
 
     public void buttonMultipleChoiceOnClick(View view) {
@@ -26,6 +29,19 @@ public class FlashcardsCreatePromptActivity extends Activity {
     public void buttonTypedAnswerOnClick(View view) {
         Intent typedAnswerIntent = new Intent(FlashcardsCreatePromptActivity.this, TypedAnswerActivity.class);
         FlashcardsCreatePromptActivity.this.startActivity(typedAnswerIntent);
+    }
+    public void homeButttonOnClick(View v){
+        Intent goBack = new Intent(FlashcardsCreatePromptActivity.this, HomeActivity.class);
+        FlashcardsCreatePromptActivity.this.startActivity(goBack);
+    }
+
+    public void userButttonOnClick(View v){
+        Toast.makeText(FlashcardsCreatePromptActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
+    }
+
+    public void backButttonOnClick(View v){
+        Intent goBack = new Intent(FlashcardsCreatePromptActivity.this, HomeActivity.class);
+        FlashcardsCreatePromptActivity.this.startActivity(goBack);
     }
 
 }

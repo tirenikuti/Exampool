@@ -3,8 +3,6 @@ package comp3350.exampool.presentation;
 import comp3350.exampool.R;
 import comp3350.exampool.application.Main;
 
-import android.app.Activity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
@@ -13,7 +11,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,23 +31,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.testing3);
         copyDatabaseToDevice();
-        ImageView homeIcon = findViewById(R.id.homepage);
-        ImageView userIcon = findViewById(R.id.userPage);
         buttonFlashcards = findViewById(R.id.flashcards);
         buttonNotes = findViewById(R.id.Notes);
-
-        homeIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(HomeActivity.this, "You clicked home",Toast.LENGTH_SHORT).show();
-            }
-        });
-        userIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(HomeActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override
@@ -71,7 +53,9 @@ public class HomeActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+    public void userButttonOnClick(View v){
+        Toast.makeText(HomeActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
+    }
     public void buttonFlashcardsOnClick(View v) {
         Intent flashcardsIntent = new Intent(HomeActivity.this, FlashcardsActivity.class);
         HomeActivity.this.startActivity(flashcardsIntent);

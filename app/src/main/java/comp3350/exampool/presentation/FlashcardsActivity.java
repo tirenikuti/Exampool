@@ -10,6 +10,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +21,7 @@ import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.Flashcard;
 
-public class FlashcardsActivity extends Activity {
+public class FlashcardsActivity extends AppCompatActivity {
 
     private AccessFlashcards accessFlashcards;
     private List<Flashcard> flashcardList;
@@ -28,7 +31,7 @@ public class FlashcardsActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flashcardhome);
+        setContentView(R.layout.testing5);
         accessFlashcards = new AccessFlashcards();
 
         try{
@@ -75,12 +78,26 @@ public class FlashcardsActivity extends Activity {
         }
     }
 
+    public void homeButttonOnClick(View v){
+        Intent goBack = new Intent(FlashcardsActivity.this, HomeActivity.class);
+        FlashcardsActivity.this.startActivity(goBack);
+    }
+
+    public void userButttonOnClick(View v){
+        Toast.makeText(FlashcardsActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
+    }
+
+    public void backButttonOnClick(View v){
+        Intent goBack = new Intent(FlashcardsActivity.this, HomeActivity.class);
+        FlashcardsActivity.this.startActivity(goBack);
+    }
+
     public void buttonFlashcardQuizOnClick(View v){
         Intent quizIntent = new Intent(FlashcardsActivity.this, FlashcardsQuizActivity.class);
         FlashcardsActivity.this.startActivity(quizIntent);
     }
 
-    public void buttonFlashcardCreateOnClick(View view) {
+    public void CreateOnClick(View view) {
         Intent createIntent = new Intent(FlashcardsActivity.this, FlashcardsCreatePromptActivity.class);
         FlashcardsActivity.this.startActivity(createIntent);
     }
