@@ -20,7 +20,6 @@ import static org.hamcrest.CoreMatchers.anything;
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.filters.LargeTest;
-import androidx.test.core.app.ActivityScenario;
 import androidx.test.runner.AndroidJUnit4;
 
 @RunWith(AndroidJUnit4.class)

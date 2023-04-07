@@ -16,17 +16,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import java.util.List;
-
-public class NotesActivity extends Activity {
+public class NotesActivity extends AppCompatActivity {
     private AccessNotes accessNotes;
     private List<Notes> notesList;
     private ArrayAdapter<Notes> notesArrayAdapter;
@@ -80,6 +80,25 @@ public class NotesActivity extends Activity {
         {
             Messages.fatalError(this, e.getMessage());
         }
+    }
+
+    public void homeButttonOnClick(View v){
+        Intent goBack = new Intent(NotesActivity.this, HomeActivity.class);
+        NotesActivity.this.startActivity(goBack);
+    }
+
+    public void userButttonOnClick(View v){
+        Toast.makeText(NotesActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
+    }
+
+    public void backButttonOnClick(View v){
+        Intent goBack = new Intent(NotesActivity.this, HomeActivity.class);
+        NotesActivity.this.startActivity(goBack);
+    }
+
+    public void CreateOnClick(View v) {
+        Intent editNotesIntent = new Intent(NotesActivity.this, NotesCreateActivity.class);
+        NotesActivity.this.startActivity(editNotesIntent);
     }
 
     @Override

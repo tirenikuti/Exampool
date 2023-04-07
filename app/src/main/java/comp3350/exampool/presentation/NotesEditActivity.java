@@ -11,10 +11,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-
-import java.util.List;
 
 public class NotesEditActivity extends Activity {
     private AccessNotes accessNotes;
