@@ -13,13 +13,28 @@
             android:name=".presentation.NotesActivity"
             android:exported="false" />
         <activity
+            android:name=".presentation.NotesEditActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.FlashcardsActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.FlashcardsQuizActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.NotesEditActivity"
+            android:name=".presentation.FlashcardsCreatePromptActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.MultipleChoiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.TrueFalseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.TypedAnswerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.NotesCreateActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.HomeActivity"

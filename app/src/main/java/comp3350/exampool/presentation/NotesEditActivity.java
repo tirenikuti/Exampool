@@ -18,7 +18,7 @@ import java.util.List;
 
 public class NotesEditActivity extends Activity {
     private AccessNotes accessNotes;
-    private List<Notes> notesList;
+
     private Notes note;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,8 @@ public class NotesEditActivity extends Activity {
     }
 
     public void buttonNotesDeleteOnClick(View view) {
+        accessNotes.deleteNote(note);
+        onBackPressed();
     }
 
     @Override
