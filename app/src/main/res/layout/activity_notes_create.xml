@@ -40,7 +40,9 @@
             <EditText
                 android:id="@+id/notesTitleInput"
                 android:layout_width="269dp"
-                android:layout_height="wrap_content" />
+                android:layout_height="61dp"
+                android:maxLength="50"
+                android:textSize="14sp" />
 
         </LinearLayout>
 
