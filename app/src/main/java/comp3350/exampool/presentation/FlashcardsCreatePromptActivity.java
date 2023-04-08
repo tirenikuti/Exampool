@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import comp3350.exampool.R;
 
-public class FlashcardsCreatePromptActivity extends Activity {
+public class FlashcardsCreatePromptActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcards_create_prompt);
@@ -29,16 +29,16 @@ public class FlashcardsCreatePromptActivity extends Activity {
         Intent typedAnswerIntent = new Intent(FlashcardsCreatePromptActivity.this, TypedAnswerActivity.class);
         FlashcardsCreatePromptActivity.this.startActivity(typedAnswerIntent);
     }
-    public void homeButttonOnClick(View v){
+    public void homeButtonOnClick(View v){
         Intent goBack = new Intent(FlashcardsCreatePromptActivity.this, HomeActivity.class);
         FlashcardsCreatePromptActivity.this.startActivity(goBack);
     }
 
-    public void userButttonOnClick(View v){
+    public void userButtonOnClick(View v){
         Toast.makeText(FlashcardsCreatePromptActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
 
-    public void backButttonOnClick(View v){
+    public void backButtonOnClick(View v){
         Intent goBack = new Intent(FlashcardsCreatePromptActivity.this, HomeActivity.class);
         FlashcardsCreatePromptActivity.this.startActivity(goBack);
     }

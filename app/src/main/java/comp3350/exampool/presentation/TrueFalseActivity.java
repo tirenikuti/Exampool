@@ -7,11 +7,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.TrueFalseQuestion;
 
-public class TrueFalseActivity extends Activity {
+public class TrueFalseActivity extends AppCompatActivity {
 
     private AccessFlashcards accessFlashcards;
     String answer;
@@ -80,16 +82,16 @@ public class TrueFalseActivity extends Activity {
         return newID;
     }
 
-    public void homeButttonOnClick(View v) {
+    public void homeButtonOnClick(View v) {
         Intent goBack = new Intent(TrueFalseActivity.this, HomeActivity.class);
         TrueFalseActivity.this.startActivity(goBack);
     }
 
-    public void userButttonOnClick(View v) {
+    public void userButtonOnClick(View v) {
         Toast.makeText(TrueFalseActivity.this, "You clicked user", Toast.LENGTH_SHORT).show();
     }
 
-    public void backButttonOnClick(View v) {
+    public void backButtonOnClick(View v) {
         Intent goBack = new Intent(TrueFalseActivity.this, FlashcardsActivity.class);
         TrueFalseActivity.this.startActivity(goBack);
     }

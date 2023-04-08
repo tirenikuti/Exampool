@@ -10,13 +10,15 @@ import android.widget.Toast;
 
 import android.app.Activity;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.lang.Math;
 
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessNotes;
 import comp3350.exampool.objects.Notes;
 
-public class NotesCreateActivity extends Activity {
+public class NotesCreateActivity extends AppCompatActivity {
     private AccessNotes accessNotes;
     private Notes note;
     @Override
@@ -63,17 +65,17 @@ public class NotesCreateActivity extends Activity {
         return newID;
     }
 
-    public void homeButttonOnClick(View v){
+    public void homeButtonOnClick(View v){
         Intent goBack = new Intent(NotesCreateActivity.this, HomeActivity.class);
         NotesCreateActivity.this.startActivity(goBack);
     }
 
-    public void userButttonOnClick(View v){
+    public void userButtonOnClick(View v){
         Toast.makeText(NotesCreateActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
 
-    public void backButttonOnClick(View v){
-        Intent goBack = new Intent(NotesCreateActivity.this, NotesActivity.class);
+    public void backButtonOnClick(View v){
+        Intent goBack = new Intent(NotesCreateActivity.this, HomeActivity.class);
         NotesCreateActivity.this.startActivity(goBack);
     }
 

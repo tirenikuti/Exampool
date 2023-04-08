@@ -1,0 +1,177 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="#031E33"
+    android:gravity="center"
+    android:visibility="visible"
+    tools:context="comp3350.exampool.presentation.TypedAnswerEditActivity"
+    tools:visibility="visible">
+    <include layout="@layout/invalid_add"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="625dp"
+        android:background="#031E33"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:saveEnabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+            android:id="@+id/flashcardPrompt"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginBottom="368dp"
+            android:text="What is the answer of this Flashcard?"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/createAnswer"
+            android:layout_width="355dp"
+            android:layout_height="72dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="281dp"
+            android:layout_marginEnd="17dp"
+            android:layout_marginBottom="286dp"
+            android:backgroundTint="@color/white"
+            android:ems="12"
+            android:enabled="true"
+            android:inputType="textNoSuggestions"
+            android:shadowColor="#FFFFFF"
+            android:textAllCaps="false"
+            android:hint="Edit Answer"
+            android:textSize="25dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/white"
+            android:textColorHint="#5ED3D3D3" />
+
+        <EditText
+            android:id="@+id/createQuestion"
+            android:layout_width="277dp"
+            android:layout_height="90dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="67dp"
+            android:layout_marginTop="79dp"
+            android:layout_marginEnd="66dp"
+            android:backgroundTint="@color/white"
+            android:hint="Edit Question?"
+            android:textAlignment="center"
+            android:textColor="#EDE7E7"
+            android:textColorHint="#5ED3D3D3"
+            android:textSize="30sp" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Save"
+                    android:id="@+id/buttonTypedSave"
+                    android:layout_alignParentRight="true"
+                    android:enabled="true"
+                    android:onClick="buttonSaveTypedOnClick"
+                    android:background="@drawable/custom_button"
+                    android:textColor="@color/white"/>
+
+                <Button
+                    android:id="@+id/buttonTypedDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:onClick="buttonDeleteTypedOnClick"
+                    android:text="Delete"
+                    android:background="@drawable/custom_button"
+                    android:textColor="@color/white"/>
+
+    </RelativeLayout>
+
+
+<!--    <GridLayout-->
+<!--        android:id="@+id/grid"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:columnCount="2"-->
+<!--        >-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/question"-->
+<!--            android:layout_width="90dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:ems="12"-->
+<!--            android:enabled="true"-->
+<!--            android:text="Question:"-->
+<!--            android:textSize="20dp"-->
+<!--            android:layout_marginBottom="10dp"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/editQuestion"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:ems="12"-->
+<!--            android:enabled="true"-->
+<!--            android:layout_marginBottom="15dp"-->
+<!--            android:inputType="textNoSuggestions" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/answer"-->
+<!--            android:layout_width="90dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:ems="12"-->
+<!--            android:enabled="true"-->
+<!--            android:text="Answer:"-->
+<!--            android:textSize="20dp"-->
+<!--            android:layout_marginBottom="10dp"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/editAnswer"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:ems="12"-->
+<!--            android:enabled="true"-->
+<!--            android:layout_marginBottom="15dp"-->
+<!--            android:inputType="textNoSuggestions" />-->
+
+<!--    </GridLayout>-->
+
+
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="10dp">-->
+
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Save"-->
+<!--            android:id="@+id/buttonTypedSave"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:enabled="true"-->
+<!--            android:onClick="buttonSaveTypedOnClick" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/buttonTypedDelete"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:enabled="true"-->
+<!--            android:onClick="buttonDeleteTypedOnClick"-->
+<!--            android:text="Delete" />-->
+
+<!--    </RelativeLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

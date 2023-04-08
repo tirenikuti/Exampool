@@ -7,12 +7,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.Flashcard;
 import comp3350.exampool.objects.MultipleChoiceQuestion;
 
-public class MultipleChoiceActivity extends Activity {
+public class MultipleChoiceActivity extends AppCompatActivity {
 
     private AccessFlashcards accessFlashcards;
 
@@ -91,16 +93,16 @@ public class MultipleChoiceActivity extends Activity {
         return newID;
     }
 
-    public void homeButttonOnClick(View v){
+    public void homeButtonOnClick(View v){
         Intent goBack = new Intent(MultipleChoiceActivity.this, HomeActivity.class);
         MultipleChoiceActivity.this.startActivity(goBack);
     }
 
-    public void userButttonOnClick(View v){
+    public void userButtonOnClick(View v){
         Toast.makeText(MultipleChoiceActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
 
-    public void backButttonOnClick(View v){
+    public void backButtonOnClick(View v){
         Intent goBack = new Intent(MultipleChoiceActivity.this, FlashcardsActivity.class);
         MultipleChoiceActivity.this.startActivity(goBack);
     }

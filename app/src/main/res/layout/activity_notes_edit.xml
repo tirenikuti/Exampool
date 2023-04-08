@@ -69,19 +69,6 @@
             app:layout_constraintVertical_bias="0.153" />
     </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/floatingActionButton2"
-        android:layout_width="29dp"
-        android:layout_height="33dp"
-        android:clickable="true"
-        android:onClick="buttonNotesSaveOnClick"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.923"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.032"
-        app:srcCompat="@drawable/custom_button4" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

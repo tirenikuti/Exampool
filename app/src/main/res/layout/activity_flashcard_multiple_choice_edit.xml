@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +7,7 @@
     android:background="#031E33"
     android:gravity="center"
     android:visibility="visible"
-    tools:context="comp3350.exampool.presentation.MultipleChoiceActivity"
+    tools:context="comp3350.exampool.presentation.MultipleChoiceEditActivity"
     tools:visibility="visible">
 
     <include layout="@layout/invalid_add" />
@@ -53,14 +52,14 @@
                 android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/createAnswer"
+                android:id="@+id/editAnswer"
                 android:layout_width="274dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:backgroundTint="@color/white"
                 android:ems="12"
                 android:enabled="true"
-                android:hint="Type Answer"
+                android:hint="Edit Answer"
                 android:textColorHint="#5ED3D3D3"
                 android:inputType="textNoSuggestions" />
 
@@ -79,14 +78,14 @@
 
 
             <EditText
-                android:id="@+id/createChoice1"
+                android:id="@+id/editChoice1"
                 android:layout_width="274dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:backgroundTint="@color/white"
                 android:ems="12"
                 android:enabled="true"
-                android:hint="Type Choice (incorrect answer)"
+                android:hint="Edit Choice (incorrect answer)"
                 android:textColorHint="#5ED3D3D3"
                 android:inputType="textNoSuggestions" />
 
@@ -101,14 +100,14 @@
                 android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/createChoice2"
+                android:id="@+id/editChoice2"
                 android:layout_width="274dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:backgroundTint="@color/white"
                 android:ems="12"
                 android:enabled="true"
-                android:hint="Type Choice (incorrect answer)"
+                android:hint="Edit Choice (incorrect answer)"
                 android:textColorHint="#5ED3D3D3"
                 android:inputType="textNoSuggestions"
                 android:textColor="@color/white" />
@@ -124,7 +123,7 @@
                 android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/createChoice3"
+                android:id="@+id/editChoice3"
                 android:layout_width="274dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -132,14 +131,15 @@
                 android:textColorHint="#5ED3D3D3"
                 android:ems="12"
                 android:enabled="true"
-                android:hint="Type Choice (incorrect answer)"
+                android:hint="Edit Choice (incorrect answer)"
                 android:inputType="textNoSuggestions"
                 android:textColor="@color/white" />
 
         </GridLayout>
 
+
         <EditText
-            android:id="@+id/createQuestion"
+            android:id="@+id/question"
             android:layout_width="277dp"
             android:layout_height="90dp"
             android:layout_alignParentStart="true"
@@ -149,7 +149,7 @@
             android:layout_marginTop="77dp"
             android:layout_marginEnd="66dp"
             android:backgroundTint="@color/white"
-            android:hint="Question?"
+            android:hint="Edit Question?"
             android:textAlignment="center"
             android:textColor="#EDE7E7"
             android:textColorHint="#5ED3D3D3"
@@ -163,30 +163,29 @@
             android:layout_marginTop="-1dp"
             android:layout_marginBottom="509dp">
 
-            <Button
-                android:id="@+id/buttonClear"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:enabled="true"
-                android:onClick="buttonClearOnClick"
-                android:text="Clear"
-                android:background="@drawable/custom_button"
-                android:textColor="@color/white"
-                />
+                    <Button
+                        android:id="@+id/buttonNotesUpdate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:enabled="true"
+                        android:onClick="buttonDeleteMCQOnClick"
+                        android:text="Delete"
+                        android:background="@drawable/custom_button"
+                        android:textColor="@color/white"/>
 
-            <Button
-                android:id="@+id/buttonCreate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:enabled="true"
-                android:onClick="buttonCreateOnClick"
-                android:text="Create"
-                android:background="@drawable/custom_button"
-                android:textColor="@color/white"/>
-
-
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Save"
+                        android:id="@+id/buttonNotesDelete"
+                        android:layout_alignParentRight="true"
+                        android:enabled="true"
+                        android:onClick="buttonSaveMCQOnClick"
+                        android:background="@drawable/custom_button"
+                        android:textColor="@color/white"/>
         </RelativeLayout>
 
     </RelativeLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -81,11 +81,11 @@ public class FlashcardsActivity extends Activity {
         FlashcardsActivity.this.startActivity(goBack);
     }
 
-    public void userButttonOnClick(View v){
+    public void userButtonOnClick(View v){
         Toast.makeText(FlashcardsActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
 
-    public void backButttonOnClick(View v){
+    public void backButtonOnClick(View v){
         Intent goBack = new Intent(FlashcardsActivity.this, HomeActivity.class);
         FlashcardsActivity.this.startActivity(goBack);
     }

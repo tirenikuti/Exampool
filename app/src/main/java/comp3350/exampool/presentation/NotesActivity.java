@@ -19,10 +19,12 @@ import android.widget.Toast;
 
 import android.app.Activity;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class NotesActivity extends Activity {
+public class NotesActivity extends AppCompatActivity {
     private List<Notes> notesList;
     private ArrayAdapter<Notes> notesArrayAdapter;
     private int selectedNotesPosition = -1;
@@ -77,16 +79,16 @@ public class NotesActivity extends Activity {
         }
     }
 
-    public void homeButttonOnClick(View v){
+    public void homeButtonOnClick(View v){
         Intent goBack = new Intent(NotesActivity.this, HomeActivity.class);
         NotesActivity.this.startActivity(goBack);
     }
 
-    public void userButttonOnClick(View v){
+    public void userButtonOnClick(View v){
         Toast.makeText(NotesActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
 
-    public void backButttonOnClick(View v){
+    public void backButtonOnClick(View v){
         Intent goBack = new Intent(NotesActivity.this, HomeActivity.class);
         NotesActivity.this.startActivity(goBack);
     }

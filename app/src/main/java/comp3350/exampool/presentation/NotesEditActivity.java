@@ -14,7 +14,9 @@ import android.widget.Toast;
 
 import android.app.Activity;
 
-public class NotesEditActivity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class NotesEditActivity extends AppCompatActivity {
     private AccessNotes accessNotes;
 
     private Notes note;
@@ -60,16 +62,16 @@ public class NotesEditActivity extends Activity {
         onBackPressed();
     }
 
-    public void homeButttonOnClick(View v){
+    public void homeButtonOnClick(View v){
         Intent goBack = new Intent(NotesEditActivity.this, HomeActivity.class);
         NotesEditActivity.this.startActivity(goBack);
     }
 
-    public void userButttonOnClick(View v){
+    public void userButtonOnClick(View v){
         Toast.makeText(NotesEditActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
 
-    public void backButttonOnClick(View v){
+    public void backButtonOnClick(View v){
         Intent goBack = new Intent(NotesEditActivity.this, NotesActivity.class);
         NotesEditActivity.this.startActivity(goBack);
     }

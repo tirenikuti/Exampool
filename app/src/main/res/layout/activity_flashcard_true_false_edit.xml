@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +7,7 @@
     android:background="#031E33"
     android:gravity="center"
     android:visibility="visible"
-    tools:context=".presentation.TrueFalseActivity"
+    tools:context="comp3350.exampool.presentation.TrueFalseEditActivity"
     tools:visibility="visible">
     <include layout="@layout/invalid_add"/>
 
@@ -40,8 +39,8 @@
             android:textSize="20dp" />
 
         <EditText
-            android:id="@+id/createQuestion"
-            android:layout_width="277dp"
+            android:id="@+id/editQuestion"
+            android:layout_width="wrap_content"
             android:layout_height="90dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
@@ -50,11 +49,11 @@
             android:layout_marginTop="77dp"
             android:layout_marginEnd="66dp"
             android:backgroundTint="@color/white"
-            android:hint="Question?"
+            android:hint="Edit Question?"
             android:textAlignment="center"
             android:textColor="#EDE7E7"
             android:textColorHint="#5ED3D3D3"
-            android:textSize="40sp" />
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/button2"
@@ -82,27 +81,26 @@
             android:text="FALSE"
             android:textColor="#FFFEFE" />
 
-        <Button
-            android:id="@+id/buttonClear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:enabled="true"
-            android:onClick="buttonClearOnClick"
-            android:text="Clear"
-            android:background="@drawable/custom_button"
-            android:textColor="@color/white"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Save"
+                    android:id="@+id/buttonSaveTFQ"
+                    android:layout_alignParentRight="true"
+                    android:enabled="true"
+                    android:onClick="buttonSaveTFQOnClick"
+                    android:background="@drawable/custom_button"
+                    android:textColor="@color/white"/>
 
-        <Button
-            android:id="@+id/buttonCreate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:enabled="true"
-            android:onClick="buttonCreateOnClick"
-            android:text="Create"
-            android:background="@drawable/custom_button"
-            android:textColor="@color/white"/>
+                <Button
+                    android:id="@+id/buttonDeleteTFQ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:onClick="buttonDeleteTFQOnClick"
+                    android:text="Delete"
+                    android:background="@drawable/custom_button"
+                    android:textColor="@color/white"/>
 
     </RelativeLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,13 +8,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.List;
 
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.Flashcard;
 
-public class FlashcardsQuizActivity extends Activity {
+public class FlashcardsQuizActivity extends AppCompatActivity {
     private List<Flashcard> flashcardList;
     private int score = 0;
     private int position = 0;

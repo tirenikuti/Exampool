@@ -4,7 +4,12 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".presentation.TypedAnswerActivity">
+    android:orientation="vertical"
+    android:background="#031E33"
+    android:gravity="center"
+    android:visibility="visible"
+    tools:context=".presentation.TypedAnswerActivity"
+    tools:visibility="visible">
     <include layout="@layout/invalid_add"/>
 
     <RelativeLayout
@@ -23,10 +28,12 @@
             android:id="@+id/flashcardPrompt"
             android:layout_width="370dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="4dp"
             android:layout_marginEnd="18dp"
-            android:layout_marginBottom="395dp"
+            android:layout_marginBottom="368dp"
             android:text="What is the answer of this Flashcard?"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -53,31 +60,7 @@
             android:textSize="25dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="@color/white"
-            android:textColorHint="#FFFFFF" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="44dp"
-            android:layout_height="48dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="310dp"
-            android:layout_marginTop="543dp"
-            android:layout_marginEnd="39dp"
-            android:onClick="buttonCreateOnClick"
-            app:srcCompat="@drawable/custom_button4" />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="61dp"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="26dp"
-            android:layout_marginTop="542dp"
-            app:srcCompat="@drawable/baseline_cancel_24"
-            app:tint="#FF605C" />
+            android:textColorHint="#5ED3D3D3" />
 
         <EditText
             android:id="@+id/createQuestion"
@@ -86,12 +69,14 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="68dp"
-            android:layout_marginTop="38dp"
-            android:layout_marginEnd="65dp"
+            android:layout_marginStart="67dp"
+            android:layout_marginTop="79dp"
+            android:layout_marginEnd="66dp"
+            android:backgroundTint="@color/white"
             android:hint="Question?"
             android:textAlignment="center"
             android:textColor="#EDE7E7"
+            android:textColorHint="#5ED3D3D3"
             android:textSize="40sp" />
 
         <Button
@@ -100,7 +85,9 @@
             android:layout_height="wrap_content"
             android:enabled="true"
             android:onClick="buttonClearOnClick"
-            android:text="Clear" />
+            android:text="Clear"
+            android:background="@drawable/custom_button"
+            android:textColor="@color/white"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -109,7 +96,9 @@
             android:id="@+id/buttonCreate"
             android:layout_alignParentRight="true"
             android:enabled="true"
-            android:onClick="buttonCreateOnClick" />
+            android:onClick="buttonCreateOnClick"
+            android:background="@drawable/custom_button"
+            android:textColor="@color/white"/>
 
     </RelativeLayout>
 

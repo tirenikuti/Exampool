@@ -1,17 +1,18 @@
 package comp3350.exampool.presentation;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.MultipleChoiceQuestion;
 
-public class MultipleChoiceEditActivity extends Activity {
+public class MultipleChoiceEditActivity extends AppCompatActivity {
 
     private AccessFlashcards accessFlashcards;
 
@@ -19,7 +20,7 @@ public class MultipleChoiceEditActivity extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flashcard_multiple_choice_edit0);
+        setContentView(R.layout.activity_flashcard_multiple_choice_edit);
         accessFlashcards = new AccessFlashcards();
 
         TextView questionView = (TextView) findViewById(R.id.editQuestion);

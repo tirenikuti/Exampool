@@ -93,7 +93,7 @@
             android:layout_toStartOf="@+id/floatingActionButton"
             app:srcCompat="@drawable/baseline_home_24"
             android:clickable="true"
-            android:onClick="homeButttonOnClick"
+            android:onClick="homeButtonOnClick"
             app:tint="#FFFFFF" />
 
         <ImageView
@@ -106,7 +106,7 @@
             android:layout_marginEnd="53dp"
             android:layout_marginBottom="17dp"
             android:layout_toEndOf="@+id/floatingActionButton"
-            android:onClick="userButttonOnClick"
+            android:onClick="userButtonOnClick"
             app:srcCompat="@drawable/baseline_person_24" />
     </RelativeLayout>
 
