@@ -10,6 +10,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,7 +93,7 @@ public class FlashcardsActivity extends AppCompatActivity {
     }
 
     public void buttonFlashcardQuizOnClick(View v){
-        Intent quizIntent = new Intent(FlashcardsActivity.this, FlashcardsQuizActivity.class);
+        Intent quizIntent = new Intent(FlashcardsActivity.this, testing.class);
         FlashcardsActivity.this.startActivity(quizIntent);
     }
 

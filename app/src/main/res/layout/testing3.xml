@@ -7,58 +7,113 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#031E33"
-    tools:context="comp3350.exampool.presentation.FlashcardsActivity">
+    tools:context="comp3350.exampool.presentation.testing">
 
     <include
         android:id="@+id/include3"
-        layout="@layout/home_template"></include>
+        layout="@layout/home_template"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="326dp"></include>
+
+
+    <TextView
+        android:id="@+id/revealed_answer"
+        android:layout_width="375dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="BACK"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/include3"></TextView>
+
+    <TextView
+        android:id="@+id/typed_question"
+        android:layout_width="375dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="FRONT"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/include3"></TextView>
+
+
+    <GridLayout
+        android:id="@+id/gridLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/include3"
+        app:layout_constraintVertical_bias="0.571"
+        tools:layout_editor_absoluteX="16dp">
+
+        <TextView
+            android:id="@+id/answerTag"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginBottom="15dp"
+            android:text="Answer: "
+            android:textColor="@color/white"
+            android:textSize="25dp" />
+
+        <EditText
+            android:id="@+id/editInputAnswer"
+            android:layout_width="286dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:ems="12"
+            android:enabled="true"
+            android:hint="input your answer"
+            android:inputType="textNoSuggestions"
+            android:textAlignment="center"
+            android:textColor="#EDE7E7"
+            android:textColorHint="#5ED3D3D3"
+            android:textSize="20sp" />
+    </GridLayout>
 
     <LinearLayout
+        android:id="@+id/LinearLayout"
         android:layout_width="match_parent"
-        android:layout_height="625dp"
-        android:background="#031E33"
+        android:layout_height="166dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/include3">
+        app:layout_constraintTop_toTopOf="@+id/include3"
+        app:layout_constraintVertical_bias="0.795"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="209dp"
+            android:layout_height="64dp"
+            android:onClick="buttonSubmitOnClick"
+            android:text="Submit answer"
+            android:backgroundTint="#9457eb"
+            android:textColor="@color/white"/>
 
 
-        <com.wajahatkarim3.easyflipview.EasyFlipView
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_gravity="top"
-            app:flipDuration="400"
-            app:flipEnabled="true"
-            app:flipFrom="front"
-            app:flipOnTouch="true"
-            app:flipType="horizontal">
-
-            <TextView
-                android:layout_width="375dp"
-                android:layout_height="250dp"
-                android:layout_gravity="center"
-                android:background="#FFFFFF"
-                android:gravity="center"
-                android:text="BACK"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="50sp"></TextView>
-
-            <TextView
-                android:layout_width="375dp"
-                android:layout_height="250dp"
-                android:layout_gravity="center"
-                android:background="#FFFFFF"
-                android:gravity="center"
-                android:text="FRONT"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="50sp"></TextView>
-        </com.wajahatkarim3.easyflipview.EasyFlipView>
-
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="67dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="145dp"
+            android:layout_marginTop="20dp"
+            android:clickable="true"
+            android:onClick="buttonNextOnClick"
+            app:srcCompat="@drawable/custom_button3" />
 
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

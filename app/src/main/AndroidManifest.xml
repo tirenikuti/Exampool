@@ -28,7 +28,7 @@
             android:name=".presentation.FlashcardsCreatePromptActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.FlashcardsViewActivity"
+            android:name=".presentation.testing"
             android:exported="false" />
         <activity
             android:name=".presentation.MultipleChoiceActivity"
