@@ -1,23 +1,23 @@
 package comp3350.exampool.presentation;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.util.List;
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.lang.Math;
 
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessNotes;
 import comp3350.exampool.objects.Notes;
 
-public class NotesCreateActivity extends Activity {
+public class NotesCreateActivity extends AppCompatActivity {
     private AccessNotes accessNotes;
-
     private Notes note;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +61,17 @@ public class NotesCreateActivity extends Activity {
         return newID;
     }
 
-    public void buttonNotesCancelOnClick(View view) {
-        onBackPressed();
+    public void homeButttonOnClick(View v){
+        Intent goBack = new Intent(NotesCreateActivity.this, HomeActivity.class);
+        NotesCreateActivity.this.startActivity(goBack);
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent notesReturnIntent = new Intent(NotesCreateActivity.this, NotesActivity.class);
-        NotesCreateActivity.this.startActivity(notesReturnIntent);
+    public void userButttonOnClick(View v){
+        Toast.makeText(NotesCreateActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
+    }
+
+    public void backButttonOnClick(View v){
+        Intent goBack = new Intent(NotesCreateActivity.this, NotesActivity.class);
+        NotesCreateActivity.this.startActivity(goBack);
     }
 }

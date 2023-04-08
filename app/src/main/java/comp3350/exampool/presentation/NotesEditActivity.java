@@ -1,7 +1,5 @@
 package comp3350.exampool.presentation;
 
-import android.app.Activity;
-
 import comp3350.exampool.R;
 import comp3350.exampool.objects.Notes;
 import comp3350.exampool.business.AccessNotes;
@@ -12,8 +10,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class NotesEditActivity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class NotesEditActivity extends AppCompatActivity {
     private AccessNotes accessNotes;
 
     private Notes note;
@@ -21,7 +22,7 @@ public class NotesEditActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         accessNotes = new AccessNotes();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notes_edit);
+        setContentView(R.layout.activity_notes_create);
 
         TextView titleView = (TextView) findViewById(R.id.notesTitle);
         TextView noteView = (TextView) findViewById(R.id.notesText);
@@ -57,6 +58,25 @@ public class NotesEditActivity extends Activity {
     public void buttonNotesDeleteOnClick(View view) {
         accessNotes.deleteNote(note);
         onBackPressed();
+    }
+
+    public void homeButttonOnClick(View v){
+        Intent goBack = new Intent(NotesEditActivity.this, HomeActivity.class);
+        NotesEditActivity.this.startActivity(goBack);
+    }
+
+    public void userButttonOnClick(View v){
+        Toast.makeText(NotesEditActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
+    }
+
+    public void backButttonOnClick(View v){
+        Intent goBack = new Intent(NotesEditActivity.this, NotesActivity.class);
+        NotesEditActivity.this.startActivity(goBack);
+    }
+
+    public void nextButtonOnCLick(View view) {
+        Intent goBack2 = new Intent(NotesEditActivity.this, MultipleChoiceOptions.class);
+        NotesEditActivity.this.startActivity(goBack2);
     }
 
     @Override

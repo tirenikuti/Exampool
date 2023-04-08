@@ -18,17 +18,17 @@ import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.Flashcard;
 import comp3350.exampool.objects.MultipleChoiceQuestion;
 
-public class MultipleChoiceActivity extends AppCompatActivity {
+public class TrueFalseAnswer extends AppCompatActivity {
 
     private AccessFlashcards accessFlashcards;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flashcard_question_input);
+        setContentView(R.layout.activity_flashcard_true_false);
         accessFlashcards = new AccessFlashcards();
     }
 
-    public void buttonClearOnClick(View view) {
+/*    public void buttonClearOnClick(View view) {
         String blank = "";
         EditText questionEdit = (EditText) findViewById(R.id.createQuestion);
         questionEdit.setText(blank);
@@ -61,7 +61,7 @@ public class MultipleChoiceActivity extends AppCompatActivity {
         Intent flashcardsReturnActivity = new Intent(MultipleChoiceActivity.this, FlashcardsActivity.class);
         MultipleChoiceActivity.this.startActivity(flashcardsReturnActivity);
     }
-
+*/
     private String generateFlashcardID(){
         String newID = ""+(int)(Math.random() * 100 + 1);
         while(accessFlashcards.getFlashcard(newID) == null){
@@ -71,21 +71,21 @@ public class MultipleChoiceActivity extends AppCompatActivity {
     }
 
     public void homeButttonOnClick(View v){
-        Intent goBack = new Intent(MultipleChoiceActivity.this, HomeActivity.class);
-        MultipleChoiceActivity.this.startActivity(goBack);
+        Intent goBack = new Intent(TrueFalseAnswer.this, HomeActivity.class);
+        TrueFalseAnswer.this.startActivity(goBack);
     }
 
     public void userButttonOnClick(View v){
-        Toast.makeText(MultipleChoiceActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
+        Toast.makeText(TrueFalseAnswer.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
 
     public void backButttonOnClick(View v){
-        Intent goBack = new Intent(MultipleChoiceActivity.this, FlashcardsCreatePromptActivity.class);
-        MultipleChoiceActivity.this.startActivity(goBack);
+        Intent goBack = new Intent(TrueFalseAnswer.this, FlashcardsCreatePromptActivity.class);
+        TrueFalseAnswer.this.startActivity(goBack);
     }
 
     public void nextButtonOnCLick(View view) {
-        Intent goBack2 = new Intent(MultipleChoiceActivity.this, MultipleChoiceOptions.class);
-        MultipleChoiceActivity.this.startActivity(goBack2);
+        Intent goBack2 = new Intent(TrueFalseAnswer.this, TrueFalseActivity.class);
+        TrueFalseAnswer.this.startActivity(goBack2);
     }
 }

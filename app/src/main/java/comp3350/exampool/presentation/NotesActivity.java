@@ -141,21 +141,21 @@ public class NotesActivity extends AppCompatActivity {
 //        return note;
 //    }
 
-    private String validateNotesData(Notes note, boolean isNewCourse){
-        if (note.getNoteID().length() == 0){
-            return "Notes ID required";
-        }
-
-        if (note.getNoteTitle().length() == 0){
-            return "Note Title required";
-        }
-
-        if(isNewCourse && accessNotes.getRandom(note.getNoteID()) != null){
-            return "Note ID " + note.getNoteID() + " already exists.";
-        }
-
-        return null;
-    }
+//    private String validateNotesData(Notes note, boolean isNewCourse){
+//        if (note.getNoteID().length() == 0){
+//            return "Notes ID required";
+//        }
+//
+//        if (note.getNoteTitle().length() == 0){
+//            return "Note Title required";
+//        }
+//
+//        if(isNewCourse && accessNotes.getRandom(note.getNoteID()) != null){
+//            return "Note ID " + note.getNoteID() + " already exists.";
+//        }
+//
+//        return null;
+//    }
 
     public void buttonNotesDeleteOnClick(View view) {
     }

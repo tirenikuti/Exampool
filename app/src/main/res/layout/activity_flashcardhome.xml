@@ -32,17 +32,17 @@
 
     <ImageView
         android:id="@+id/floatingActionButton2"
-        android:layout_width="57dp"
-        android:layout_height="56dp"
+        android:layout_width="33dp"
+        android:layout_height="33dp"
         android:background="@drawable/custom_button2"
         android:clickable="true"
+        android:onClick="buttonFlashcardQuizOnClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintHorizontal_bias="0.881"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.021"
-        android:onClick="buttonFlashcardQuizOnClick"
+        app:layout_constraintVertical_bias="0.033"
         app:srcCompat="@android:drawable/ic_media_play" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

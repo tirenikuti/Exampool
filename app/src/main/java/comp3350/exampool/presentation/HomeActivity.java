@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +21,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
     //Navigation Buttons
     Button buttonFlashcards;
     Button buttonNotes;
@@ -29,7 +30,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.testing3);
+        setContentView(R.layout.activity_home);
         copyDatabaseToDevice();
         buttonFlashcards = findViewById(R.id.flashcards);
         buttonNotes = findViewById(R.id.Notes);
@@ -37,6 +38,28 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy(){ super.onDestroy(); }
+
+    public void showPopup(View v){
+        PopupMenu popup = new PopupMenu(this, v);
+        popup.setOnMenuItemClickListener(this);
+        popup.inflate(R.menu.notes_or_flash);
+        popup.show();
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.notesCreate:
+                Intent createNotes = new Intent(HomeActivity.this, NotesCreateActivity.class);
+                HomeActivity.this.startActivity(createNotes);
+                return true;
+            case R.id.flashcardCreate:
+                Intent createFlashCards = new Intent(HomeActivity.this, FlashcardsCreatePromptActivity.class);
+                HomeActivity.this.startActivity(createFlashCards);
+                return true;
+        }
+        return false;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

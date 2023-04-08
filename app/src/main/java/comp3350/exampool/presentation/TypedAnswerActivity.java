@@ -5,17 +5,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.TypedAnswerQuestion;
 
-public class TypedAnswerActivity extends Activity {
+public class TypedAnswerActivity extends AppCompatActivity {
 
     private AccessFlashcards accessFlashcards;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flashcard_typed_answer);
+        setContentView(R.layout.activity_flashcard_question_input);
     }
 
     public void buttonClearOnClick(View view) {
@@ -48,9 +51,22 @@ public class TypedAnswerActivity extends Activity {
         return newID;
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent flashcardsReturnActivity = new Intent(TypedAnswerActivity.this, FlashcardsActivity.class);
-        TypedAnswerActivity.this.startActivity(flashcardsReturnActivity);
+    public void homeButttonOnClick(View v){
+        Intent goBack = new Intent(TypedAnswerActivity.this, HomeActivity.class);
+        TypedAnswerActivity.this.startActivity(goBack);
+    }
+
+    public void userButttonOnClick(View v){
+        Toast.makeText(TypedAnswerActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
+    }
+
+    public void backButttonOnClick(View v){
+        Intent goBack = new Intent(TypedAnswerActivity.this, FlashcardsCreatePromptActivity.class);
+        TypedAnswerActivity.this.startActivity(goBack);
+    }
+
+    public void nextButtonOnCLick(View view) {
+        Intent goBack2 = new Intent(TypedAnswerActivity.this, TypedAnswer.class);
+        TypedAnswerActivity.this.startActivity(goBack2);
     }
 }

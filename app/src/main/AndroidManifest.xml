@@ -28,6 +28,12 @@
             android:name=".presentation.MultipleChoiceOptions"
             android:exported="false" />
         <activity
+            android:name=".presentation.TypedAnswer"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.TrueFalseAnswer"
+            android:exported="false" />
+        <activity
             android:name=".presentation.MultipleChoiceActivity"
             android:exported="false" />
         <activity
