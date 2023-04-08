@@ -64,7 +64,6 @@
             android:layout_marginStart="283dp"
             android:layout_marginBottom="129dp"
             android:clickable="true"
-            android:onClick="nextButtonOnCLick"
             app:srcCompat="@drawable/custom_button3" />
 
     </RelativeLayout>

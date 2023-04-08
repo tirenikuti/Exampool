@@ -23,7 +23,7 @@ public class TrueFalseActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flashcard_question_input);
+        setContentView(R.layout.activity_flashcard_true_false_create);
         accessFlashcards = new AccessFlashcards();
     }
 
@@ -37,9 +37,9 @@ public class TrueFalseActivity extends AppCompatActivity {
 
     public void buttonCreateOnClick(View view) {
         EditText questionEdit = (EditText) findViewById(R.id.createQuestion);
-        String question = questionEdit.toString();
+        String question = questionEdit.getText().toString();
         EditText answerEdit = (EditText) findViewById(R.id.createAnswer);
-        String answer = answerEdit.toString();
+        String answer = answerEdit.getText().toString();
         String flashcardID = generateFlashcardID();
 
         TrueFalseQuestion flashcard = new TrueFalseQuestion(flashcardID, "100", question, answer);
@@ -51,9 +51,10 @@ public class TrueFalseActivity extends AppCompatActivity {
 
     private String generateFlashcardID() {
         String newID = "" + (int) (Math.random() * 100 + 1);
-        while (accessFlashcards.getFlashcard(newID) == null) {
+        while (accessFlashcards.getFlashcard(newID) != null) {
             newID = "" + (int) (Math.random() * 100 + 1);
         }
+        System.out.println(newID);
         return newID;
     }
 
@@ -67,12 +68,7 @@ public class TrueFalseActivity extends AppCompatActivity {
     }
 
     public void backButttonOnClick(View v) {
-        Intent goBack = new Intent(TrueFalseActivity.this, FlashcardsCreatePromptActivity.class);
+        Intent goBack = new Intent(TrueFalseActivity.this, FlashcardsActivity.class);
         TrueFalseActivity.this.startActivity(goBack);
-    }
-
-    public void nextButtonOnCLick(View view) {
-        Intent goBack2 = new Intent(TrueFalseActivity.this, TrueFalseAnswer.class);
-        TrueFalseActivity.this.startActivity(goBack2);
     }
 }

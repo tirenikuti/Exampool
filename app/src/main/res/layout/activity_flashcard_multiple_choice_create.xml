@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context="comp3350.exampool.presentation.MultipleChoiceActivity"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <include
         layout="@layout/invalid_add" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="625dp"
+        android:layout_height="600dp"
         android:background="#031E33"
         android:gravity="center"
         android:orientation="vertical"
@@ -49,6 +51,7 @@
                 android:backgroundTint="@color/white"
                 android:ems="12"
                 android:enabled="true"
+                android:hint="Type Answer"
                 android:inputType="textNoSuggestions" />
 
             <TextView
@@ -70,6 +73,7 @@
                 android:backgroundTint="@color/white"
                 android:ems="12"
                 android:enabled="true"
+                android:hint="Type Choice (incorrect answer)"
                 android:inputType="textNoSuggestions" />
 
             <TextView
@@ -90,6 +94,7 @@
                 android:backgroundTint="@color/white"
                 android:ems="12"
                 android:enabled="true"
+                android:hint="Type Choice (incorrect answer)"
                 android:inputType="textNoSuggestions"
                 android:textColor="@color/white" />
 
@@ -111,6 +116,7 @@
                 android:backgroundTint="@color/white"
                 android:ems="12"
                 android:enabled="true"
+                android:hint="Type Choice (incorrect answer)"
                 android:inputType="textNoSuggestions"
                 android:textColor="@color/white" />
 
@@ -126,6 +132,7 @@
             android:layout_marginStart="310dp"
             android:layout_marginTop="543dp"
             android:layout_marginEnd="39dp"
+            android:onClick="buttonCreateOnClick"
             app:srcCompat="@drawable/custom_button4" />
 
         <ImageView
@@ -136,19 +143,20 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="26dp"
             android:layout_marginTop="542dp"
+            android:onClick="buttonClearOnClick"
             app:srcCompat="@drawable/baseline_cancel_24"
             app:tint="#FF605C" />
 
-        <TextView
+        <EditText
             android:id="@+id/prevQuestion"
             android:layout_width="277dp"
-            android:layout_height="66dp"
+            android:layout_height="90dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="66dp"
             android:layout_marginEnd="66dp"
-            android:text="yo"
-            android:textSize="50sp"
+            android:hint="Question?"
+            android:textSize="40sp"
             android:textAlignment="center"
             android:textColor="#EDE7E7" />
 

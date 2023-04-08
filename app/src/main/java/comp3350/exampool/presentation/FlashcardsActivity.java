@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +18,10 @@ import java.util.List;
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.Flashcard;
+import comp3350.exampool.objects.MultipleChoiceQuestion;
+import comp3350.exampool.objects.TrueFalseQuestion;
 
-public class FlashcardsActivity extends AppCompatActivity {
+public class FlashcardsActivity extends Activity {
 
     private AccessFlashcards accessFlashcards;
     private List<Flashcard> flashcardList;
@@ -93,16 +95,23 @@ public class FlashcardsActivity extends AppCompatActivity {
         FlashcardsActivity.this.startActivity(quizIntent);
     }
 
-    public void CreateOnClick(View view) {
-        Intent createIntent = new Intent(FlashcardsActivity.this, FlashcardsCreatePromptActivity.class);
-        FlashcardsActivity.this.startActivity(createIntent);
-    }
-
     private void selectedFlashcardAtPosition(int position) {
         Flashcard selected = flashcardArrayAdapter.getItem(position);
-//        Intent editFlashcardIntent = new Intent(FlashcardsActivity.this, //FlashcardEditActivity.class);
-//        editFlashcardIntent.putExtra("flashcard", selected);
-//        FlashcardsActivity.this.startActivity(editFlashcardIntent);
+        if(selected instanceof MultipleChoiceQuestion) {
+            Intent editFlashcardIntent = new Intent(FlashcardsActivity.this, MultipleChoiceEditActivity.class);
+            editFlashcardIntent.putExtra("theCard", selected);
+            FlashcardsActivity.this.startActivity(editFlashcardIntent);
+        }
+        else if(selected instanceof TrueFalseQuestion) {
+            Intent editFlashcardIntent = new Intent(FlashcardsActivity.this, TrueFalseEditActivity.class);
+            editFlashcardIntent.putExtra("theCard", selected);
+            FlashcardsActivity.this.startActivity(editFlashcardIntent);
+        }
+        else{
+            Intent editFlashcardIntent = new Intent(FlashcardsActivity.this, TypedAnswerEditActivity.class);
+            editFlashcardIntent.putExtra("theCard", selected);
+            FlashcardsActivity.this.startActivity(editFlashcardIntent);
+        }
     }
 
     @Override

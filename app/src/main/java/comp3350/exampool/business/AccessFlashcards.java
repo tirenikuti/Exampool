@@ -104,8 +104,18 @@ public class AccessFlashcards {
         return flashcardPersistence.updateTypedFlashcard(currentFlashcard);
     }
 
-    public void deleteFlashcard(Flashcard currentFlashcard)
+    public void deleteMCQFlashcard(Flashcard currentFlashcard)
     {
-        flashcardPersistence.deleteFlashcard(currentFlashcard);
+        flashcardPersistence.deleteMCQFlashcard(currentFlashcard);
+    }
+
+    public void deleteTFQFlashcard(Flashcard currentFlashcard)
+    {
+        flashcardPersistence.deleteTFQFlashcard(currentFlashcard);
+    }
+
+    public void deleteTypedFlashcard(Flashcard currentFlashcard)
+    {
+        flashcardPersistence.deleteTypedFlashcard(currentFlashcard);
     }
 }

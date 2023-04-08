@@ -14,7 +14,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="625dp"
+        android:layout_height="595dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/include2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,7 @@
             android:id="@+id/notesText"
             style="@style/Widget.AppCompat.EditText"
             android:layout_width="374dp"
-            android:layout_height="550dp"
+            android:layout_height="530dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
@@ -37,6 +37,7 @@
             android:enabled="true"
             android:focusable="true"
             android:gravity="top"
+            android:hint="Text?"
             android:selectAllOnFocus="false"
             android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
@@ -51,9 +52,9 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="62dp"
-            android:layout_marginEnd="63dp"
-            android:layout_marginBottom="570dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginEnd="61dp"
+            android:layout_marginBottom="546dp"
             android:background="#FFFFFF"
             android:hint="Title?"
             android:maxLength="50"
@@ -66,6 +67,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.153" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create"
+            android:id="@+id/buttonCreateNotes"
+            android:layout_alignParentRight="true"
+            android:enabled="true"
+            android:onClick="buttonNotesCreateOnClick" />
+
+        <Button
+            android:id="@+id/buttonClearNotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="true"
+            android:onClick="buttonNotesClearOnClick"
+            android:text="Delete" />
+
     </RelativeLayout>
 
     <ImageView
@@ -73,7 +92,6 @@
         android:layout_width="29dp"
         android:layout_height="33dp"
         android:clickable="true"
-        android:onClick="buttonNotesCreateOnClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.923"

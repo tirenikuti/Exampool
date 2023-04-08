@@ -7,24 +7,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
-import comp3350.exampool.objects.Flashcard;
 import comp3350.exampool.objects.MultipleChoiceQuestion;
 
-public class MultipleChoiceActivity extends AppCompatActivity {
+public class MultipleChoiceActivity extends Activity {
 
     private AccessFlashcards accessFlashcards;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flashcard_question_input);
+        setContentView(R.layout.activity_flashcard_multiple_choice_create);
         accessFlashcards = new AccessFlashcards();
     }
 
@@ -64,9 +57,10 @@ public class MultipleChoiceActivity extends AppCompatActivity {
 
     private String generateFlashcardID(){
         String newID = ""+(int)(Math.random() * 100 + 1);
-        while(accessFlashcards.getFlashcard(newID) == null){
+        while(accessFlashcards.getFlashcard(newID) != null){
             newID = ""+(int)(Math.random() * 100 + 1);
         }
+        System.out.println(newID);
         return newID;
     }
 
@@ -82,10 +76,5 @@ public class MultipleChoiceActivity extends AppCompatActivity {
     public void backButttonOnClick(View v){
         Intent goBack = new Intent(MultipleChoiceActivity.this, FlashcardsCreatePromptActivity.class);
         MultipleChoiceActivity.this.startActivity(goBack);
-    }
-
-    public void nextButtonOnCLick(View view) {
-        Intent goBack2 = new Intent(MultipleChoiceActivity.this, MultipleChoiceOptions.class);
-        MultipleChoiceActivity.this.startActivity(goBack2);
     }
 }

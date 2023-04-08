@@ -32,8 +32,6 @@ public class FlashcardsQuizActivity extends Activity {
         resetAllFlashcards();
 
         TextView questionView = (TextView) findViewById(R.id.typed_question);
-
-        Intent intent = getIntent();
         Flashcard flashcard = flashcardList.get(position);
 
         questionView.setText(flashcard.getQuestion() + flashcard.getOptions());
@@ -68,11 +66,9 @@ public class FlashcardsQuizActivity extends Activity {
             answerEdit.setText("");
         }
         else{
-            TextView questionView = (TextView) findViewById(R.id.typed_question);
-            TextView answerView = (TextView) findViewById(R.id.editInputAnswer);
-
-            questionView.setText("Completed All Flashcards");
-            answerView.setText("Tata");
+            Intent completeIntent = new Intent(FlashcardsQuizActivity.this, QuizComplete.class);
+            completeIntent.putExtra("Score", score);
+            FlashcardsQuizActivity.this.startActivity(completeIntent);
         }
     }
 

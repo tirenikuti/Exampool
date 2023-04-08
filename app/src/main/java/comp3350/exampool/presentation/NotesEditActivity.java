@@ -12,9 +12,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
 
-public class NotesEditActivity extends AppCompatActivity {
+public class NotesEditActivity extends Activity {
     private AccessNotes accessNotes;
 
     private Notes note;
@@ -22,7 +22,7 @@ public class NotesEditActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         accessNotes = new AccessNotes();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notes_create);
+        setContentView(R.layout.activity_notes_edit);
 
         TextView titleView = (TextView) findViewById(R.id.notesTitle);
         TextView noteView = (TextView) findViewById(R.id.notesText);
@@ -32,6 +32,7 @@ public class NotesEditActivity extends AppCompatActivity {
 
         titleView.setText(note.getNoteTitle());
         noteView.setText(note.getNote());
+        onBackPressed();
     }
 
     @Override
@@ -72,11 +73,6 @@ public class NotesEditActivity extends AppCompatActivity {
     public void backButttonOnClick(View v){
         Intent goBack = new Intent(NotesEditActivity.this, NotesActivity.class);
         NotesEditActivity.this.startActivity(goBack);
-    }
-
-    public void nextButtonOnCLick(View view) {
-        Intent goBack2 = new Intent(NotesEditActivity.this, MultipleChoiceOptions.class);
-        NotesEditActivity.this.startActivity(goBack2);
     }
 
     @Override

@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
 
 import java.lang.Math;
 
@@ -16,7 +16,7 @@ import comp3350.exampool.R;
 import comp3350.exampool.business.AccessNotes;
 import comp3350.exampool.objects.Notes;
 
-public class NotesCreateActivity extends AppCompatActivity {
+public class NotesCreateActivity extends Activity {
     private AccessNotes accessNotes;
     private Notes note;
     @Override
@@ -51,11 +51,13 @@ public class NotesCreateActivity extends AppCompatActivity {
         note = new Notes(newID, noteViewTitle.getEditableText().toString(), "100", noteView.getEditableText().toString());
         accessNotes.insertNote(note);
         onBackPressed();
+        Intent goBack = new Intent(NotesCreateActivity.this, NotesActivity.class);
+        NotesCreateActivity.this.startActivity(goBack);
     }
 
     private String getValidateNotesID(){
         String newID = ""+(int)(Math.random() * 100 + 1);
-        while(accessNotes.getNote(newID) == null){
+        while(accessNotes.getNote(newID) != null){
             newID = ""+(int)(Math.random() * 100 + 1);
         }
         return newID;
@@ -73,5 +75,12 @@ public class NotesCreateActivity extends AppCompatActivity {
     public void backButttonOnClick(View v){
         Intent goBack = new Intent(NotesCreateActivity.this, NotesActivity.class);
         NotesCreateActivity.this.startActivity(goBack);
+    }
+
+    public void buttonNotesClearOnClick(View view) {
+        TextView noteView = (TextView) findViewById(R.id.notesText);
+        TextView noteViewTitle = (TextView) findViewById(R.id.notesTitleInput);
+        noteView.setText("");
+        noteViewTitle.setText("");
     }
 }

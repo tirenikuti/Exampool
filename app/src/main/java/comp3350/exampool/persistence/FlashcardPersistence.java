@@ -21,7 +21,11 @@ public interface FlashcardPersistence {
 
     Flashcard insertTypedFlashcard(TypedAnswerQuestion currentFlashcard);
 
-    void deleteFlashcard(Flashcard currentFlashcard);
+    void deleteMCQFlashcard(Flashcard currentFlashcard);
+
+    void deleteTFQFlashcard(Flashcard currentFlashcard);
+
+    void deleteTypedFlashcard(Flashcard currentFlashcard);
 
     Flashcard updateMCQFlashcard(MultipleChoiceQuestion currentFlashcard);
 

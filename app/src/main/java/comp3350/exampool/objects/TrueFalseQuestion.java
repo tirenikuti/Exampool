@@ -5,8 +5,6 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import comp3350.exampool.objects.Flashcard;
-
 public class TrueFalseQuestion extends Flashcard implements Parcelable {
     private String flashcardID;
     private String userID;
@@ -67,7 +65,8 @@ public class TrueFalseQuestion extends Flashcard implements Parcelable {
         parcel.writeString(answer);
     }
 
-    public void editFlashcard(String question, String answer){
+    @Override
+    public void editFlashcard(String question, String answer, String option1, String option2, String option3){
         this.question = question;
         this.answer = answer;
     }

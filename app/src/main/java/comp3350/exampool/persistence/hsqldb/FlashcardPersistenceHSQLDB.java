@@ -184,7 +184,7 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
     @Override
     public Flashcard insertTrueFalseFlashcard(TrueFalseQuestion currentFlashcard){
         try (final Connection c = connection()) {
-            final PreparedStatement st = c.prepareStatement("INSERT INTO flashcards VALUES(?, ?, ?, ?)");
+            final PreparedStatement st = c.prepareStatement("INSERT INTO TRUEANDFALSEQUESTION VALUES(?, ?, ?, ?)");
             st.setString(1, currentFlashcard.getFlashcardID());
             st.setString(2, currentFlashcard.getUserID());
             st.setString(3, currentFlashcard.getQuestion());
@@ -201,7 +201,7 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
     @Override
     public Flashcard insertTypedFlashcard(TypedAnswerQuestion currentFlashcard){
         try (final Connection c = connection()) {
-            final PreparedStatement st = c.prepareStatement("INSERT INTO flashcards VALUES( ?, ?, ?, ?)");
+            final PreparedStatement st = c.prepareStatement("INSERT INTO TYPEDQUESTION VALUES( ?, ?, ?, ?)");
             st.setString(1, currentFlashcard.getFlashcardID());
             st.setString(2, currentFlashcard.getUserID());
             st.setString(3, currentFlashcard.getQuestion());
@@ -216,8 +216,39 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
     }
 
     @Override
-    public void deleteFlashcard(Flashcard currentFlashcard){
+    public void deleteMCQFlashcard(Flashcard currentFlashcard){
+        try(final Connection c = connection()) {
+            final PreparedStatement st = c.prepareStatement("DELETE FROM MULTIPLECHOICEQUESTION WHERE flashcardID = ?");
+            st.setString(1,currentFlashcard.getFlashcardID());
+            st.executeUpdate();
+        }
+        catch (final SQLException e){
+            throw new PersistenceException(e);
+        }
+    }
 
+    @Override
+    public void deleteTFQFlashcard(Flashcard currentFlashcard){
+        try(final Connection c = connection()) {
+            final PreparedStatement st = c.prepareStatement("DELETE FROM TRUEANDFALSEQUESTION WHERE flashcardID = ?");
+            st.setString(1,currentFlashcard.getFlashcardID());
+            st.executeUpdate();
+        }
+        catch (final SQLException e){
+            throw new PersistenceException(e);
+        }
+    }
+
+    @Override
+    public void deleteTypedFlashcard(Flashcard currentFlashcard){
+        try(final Connection c = connection()) {
+            final PreparedStatement st = c.prepareStatement("DELETE FROM TYPEDQUESTION WHERE flashcardID = ?");
+            st.setString(1,currentFlashcard.getFlashcardID());
+            st.executeUpdate();
+        }
+        catch (final SQLException e){
+            throw new PersistenceException(e);
+        }
     }
 
     @Override

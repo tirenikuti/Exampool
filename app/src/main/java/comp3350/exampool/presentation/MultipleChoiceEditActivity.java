@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
@@ -22,11 +23,27 @@ public class MultipleChoiceEditActivity extends Activity {
         setContentView(R.layout.activity_flashcard_multiple_choice_edit);
         accessFlashcards = new AccessFlashcards();
 
+        TextView questionView = (TextView) findViewById(R.id.editQuestion);
+        TextView answerView = (TextView) findViewById(R.id.editAnswer);
+        TextView option1View = (TextView) findViewById(R.id.editChoice1);
+        TextView option2View = (TextView) findViewById(R.id.editChoice2);
+        TextView option3View = (TextView) findViewById(R.id.editChoice3);
 
+        Intent intent = getIntent();
+        flashcard = intent.getParcelableExtra("theCard");
+
+        questionView.setText(flashcard.getQuestion());
+        answerView.setText(flashcard.getAnswer());
+        option1View.setText(flashcard.getOption1());
+        option2View.setText(flashcard.getOption2());
+        option3View.setText(flashcard.getOption3());
     }
 
     public void buttonDeleteMCQOnClick(View view) {
-        accessFlashcards.deleteFlashcard(flashcard);
+        accessFlashcards.deleteMCQFlashcard(flashcard);
+        onBackPressed();
+        Intent flashcardsReturnActivity = new Intent(MultipleChoiceEditActivity.this, FlashcardsActivity.class);
+        MultipleChoiceEditActivity.this.startActivity(flashcardsReturnActivity);
     }
 
     public void buttonSaveMCQOnClick(View view) {
@@ -38,6 +55,9 @@ public class MultipleChoiceEditActivity extends Activity {
 
         flashcard.editFlashcard(editQuestion.getText().toString(),editAnswer.getText().toString(), editOption1.getText().toString(), editOption2.getText().toString(), editOption3.getText().toString());
         accessFlashcards.updateMultipleChoiceFlashcard(flashcard);
+        onBackPressed();
+        Intent flashcardsReturnActivity = new Intent(MultipleChoiceEditActivity.this, FlashcardsActivity.class);
+        MultipleChoiceEditActivity.this.startActivity(flashcardsReturnActivity);
     }
 
     @Override

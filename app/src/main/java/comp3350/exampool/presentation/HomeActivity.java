@@ -14,26 +14,20 @@ import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
-    //Navigation Buttons
-    Button buttonFlashcards;
-    Button buttonNotes;
-
+public class HomeActivity extends Activity implements PopupMenu.OnMenuItemClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         copyDatabaseToDevice();
-        buttonFlashcards = findViewById(R.id.flashcards);
-        buttonNotes = findViewById(R.id.Notes);
     }
 
     @Override

@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-public class Flashcard implements Parcelable {
+public abstract class Flashcard implements Parcelable {
 
     private String flashcardID;
     private String userID;
@@ -31,7 +31,12 @@ public class Flashcard implements Parcelable {
     public static final Creator<Flashcard> CREATOR = new Creator<Flashcard>() {
         @Override
         public Flashcard createFromParcel(Parcel in) {
-            return new Flashcard(in);
+            return new Flashcard(in) {
+                @Override
+                public void editFlashcard(String question, String answer, String option1, String option2, String option3) {
+
+                }
+            };
         }
 
         @Override
@@ -72,4 +77,7 @@ public class Flashcard implements Parcelable {
     public String getQuestion() { return question;}
 
     public String getAnswer() { return answer;    }
+
+    public abstract void editFlashcard(String question, String answer, String option1, String option2, String option3);
+
 }

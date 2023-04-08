@@ -1,6 +1,5 @@
 package comp3350.exampool.presentation;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +17,7 @@ public class TypedAnswerActivity extends AppCompatActivity {
     private AccessFlashcards accessFlashcards;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flashcard_question_input);
+        setContentView(R.layout.activity_flashcard_typed_answer_create);
     }
 
     public void buttonClearOnClick(View view) {
@@ -31,9 +30,9 @@ public class TypedAnswerActivity extends AppCompatActivity {
 
     public void buttonCreateOnClick(View view) {
         EditText questionEdit = (EditText) findViewById(R.id.createQuestion);
-        String question = questionEdit.toString();
+        String question = questionEdit.getText().toString();
         EditText answerEdit = (EditText) findViewById(R.id.createAnswer);
-        String answer = answerEdit.toString();
+        String answer = answerEdit.getText().toString();
         String flashcardID = generateFlashcardID();
 
         TypedAnswerQuestion flashcard = new TypedAnswerQuestion(flashcardID, "100", question, answer);
@@ -45,9 +44,10 @@ public class TypedAnswerActivity extends AppCompatActivity {
 
     private String generateFlashcardID(){
         String newID = ""+(int)(Math.random() * 100 + 1);
-        while(accessFlashcards.getFlashcard(newID) == null){
+        while(accessFlashcards.getFlashcard(newID) != null){
             newID = ""+(int)(Math.random() * 100 + 1);
         }
+        System.out.println(newID);
         return newID;
     }
 
@@ -61,12 +61,7 @@ public class TypedAnswerActivity extends AppCompatActivity {
     }
 
     public void backButttonOnClick(View v){
-        Intent goBack = new Intent(TypedAnswerActivity.this, FlashcardsCreatePromptActivity.class);
+        Intent goBack = new Intent(TypedAnswerActivity.this, FlashcardsActivity.class);
         TypedAnswerActivity.this.startActivity(goBack);
-    }
-
-    public void nextButtonOnCLick(View view) {
-        Intent goBack2 = new Intent(TypedAnswerActivity.this, TypedAnswer.class);
-        TypedAnswerActivity.this.startActivity(goBack2);
     }
 }
