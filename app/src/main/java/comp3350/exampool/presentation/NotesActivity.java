@@ -17,8 +17,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import android.app.Activity;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;

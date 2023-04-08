@@ -10,8 +10,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import android.app.Activity;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +19,9 @@ import comp3350.exampool.objects.Flashcard;
 import comp3350.exampool.objects.MultipleChoiceQuestion;
 import comp3350.exampool.objects.TrueFalseQuestion;
 
-public class FlashcardsActivity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class FlashcardsActivity extends AppCompatActivity {
 
     private AccessFlashcards accessFlashcards;
     private List<Flashcard> flashcardList;

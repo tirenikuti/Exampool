@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import comp3350.exampool.R;
 
-
 public class QuizComplete extends Activity {
     int score = 0;
     @Override

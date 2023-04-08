@@ -12,8 +12,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import android.app.Activity;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class NotesEditActivity extends AppCompatActivity {

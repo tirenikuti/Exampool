@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import android.app.Activity;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.lang.Math;
