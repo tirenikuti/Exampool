@@ -18,7 +18,7 @@ public class TypedAnswerEditActivity extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flashcard_typed_answer_edit);
+        setContentView(R.layout.activity_flashcard_typed_answer_edit0);
 
         accessFlashcards = new AccessFlashcards();
         TextView questionView = (TextView) findViewById(R.id.editQuestion);

@@ -22,7 +22,7 @@ public class FlashcardsQuizActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flashcardquiz);
+        setContentView(R.layout.activity_flashcardquiz0);
 
         AccessFlashcards accessFlashcards = new AccessFlashcards();
         flashcardList = accessFlashcards.getFlashcards();

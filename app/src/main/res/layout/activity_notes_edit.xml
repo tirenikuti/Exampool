@@ -1,77 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
-    android:orientation="vertical"
-    android:background="#98B8D0"
-    android:saveEnabled="false"
-    tools:context="comp3350.exampool.presentation.NotesEditActivity">
+    android:layout_height="match_parent"
+    android:background="#031E33"
+    tools:context=".presentation.NotesEditActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="386dp"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_anchor="@+id/linearLayout"
-        app:layout_anchorGravity="center"
-        tools:layout_editor_absoluteX="-2dp">
+    <include
+        android:id="@+id/include2"
+        layout="@layout/back_cancel" />
 
-        <TextView
-            android:id="@+id/notesTitle"
-            android:layout_width="360dp"
-            android:layout_height="50dp"
-            android:fontFamily="sans-serif-black"
-            android:gravity="center"
-            android:text="Title"
-            android:textColor="#000000"
-            android:textSize="25sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="625dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/include2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/notesText"
             style="@style/Widget.AppCompat.EditText"
-            android:layout_width="match_parent"
+            android:layout_width="374dp"
             android:layout_height="550dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="11dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/edittext_shadow"
             android:clickable="false"
             android:enabled="true"
             android:focusable="true"
             android:gravity="top"
             android:selectAllOnFocus="false"
-            android:text="placeholder" />
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.61" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp">
 
-            <Button
-                android:id="@+id/buttonNotesCreate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:enabled="true"
-                android:onClick="buttonNotesSaveOnClick"
-                android:text="Save" />
+        <EditText
+            android:id="@+id/notesTitle"
+            android:layout_width="269dp"
+            android:layout_height="61dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="62dp"
+            android:layout_marginEnd="63dp"
+            android:layout_marginBottom="570dp"
+            android:background="#FFFFFF"
+            android:hint="Title?"
+            android:maxLength="50"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textColorHint="#D0D0D0"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="@+id/notesText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.153" />
+    </RelativeLayout>
 
-            <Button
-                android:id="@+id/buttonFlashcardQuiz"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="266dp"
-                android:enabled="true"
-                android:onClick="buttonNotesDeleteOnClick"
-                android:text="Delete" />
-        </RelativeLayout>
+    <ImageView
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="29dp"
+        android:layout_height="33dp"
+        android:clickable="true"
+        android:onClick="buttonNotesSaveOnClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.032"
+        app:srcCompat="@drawable/custom_button4" />
 
-    </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

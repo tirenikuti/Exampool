@@ -19,7 +19,7 @@ public class MultipleChoiceEditActivity extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flashcard_multiple_choice_edit);
+        setContentView(R.layout.activity_flashcard_multiple_choice_edit0);
         accessFlashcards = new AccessFlashcards();
 
         TextView questionView = (TextView) findViewById(R.id.editQuestion);
