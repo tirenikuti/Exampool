@@ -1,137 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="#031E33"
-    android:gravity="center"
-    android:visibility="visible"
-    tools:context=".presentation.HomeActivity"
-    tools:visibility="visible">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#031E33">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="556dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.571"
-        tools:layout_editor_absoluteX="2dp">
+    <include
+        android:id="@+id/include2"
+        layout="@layout/invalid_add" />
 
-        <Button
-            android:id="@+id/Notes"
-            android:layout_width="236dp"
-            android:layout_height="71dp"
-            android:layout_alignParentTop="false"
-            android:layout_alignParentBottom="false"
-            android:layout_centerVertical="true"
-            android:layout_marginBottom="300dp"
-            android:background="@drawable/custom_button"
-            android:checkable="false"
-            android:clickable="true"
-            android:onClick="buttonNotesOnClick"
-            android:text="View Notes"
-            android:textAllCaps="false"
-            android:textColor="#D3D3D3"
-            android:textSize="25sp" />
 
-        <Button
-            android:id="@+id/flashcards"
-            android:layout_width="248dp"
-            android:layout_height="66dp"
-            android:layout_alignBottom="@id/Notes"
-            android:layout_marginBottom="-138dp"
-            android:background="@drawable/custom_button"
-            android:checkable="false"
-            android:clickable="true"
-            android:onClick="buttonFlashcardsOnClick"
-            android:text="View Flashcards"
-            android:textAllCaps="false"
-            android:textColor="#D3D3D3"
-            android:textSize="25sp" />
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        android:background="#031E33"
-        android:gravity="bottom"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="176dp"
-            android:layout_marginBottom="10dp"
-            android:clickable="true"
-            app:backgroundTint="#9457eb"
-            app:srcCompat="@drawable/baseline_add_24" />
-
-        <ImageView
-            android:id="@+id/homepage"
-            android:layout_width="48dp"
-            android:layout_height="45dp"
-            android:layout_alignLeft="@id/floatingActionButton"
-            android:layout_marginLeft="-140dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="70dp"
-            app:srcCompat="@drawable/baseline_home_24"
-            android:visibility="visible"
-            app:tint="#808080" />
-
-        <ImageView
-            android:id="@+id/userPage"
-            android:layout_width="38dp"
-            android:layout_height="39dp"
-            android:layout_alignRight="@id/floatingActionButton"
-            android:layout_alignParentRight="false"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="-140dp"
-            android:visibility="visible"
-            android:clickable="true"
-            android:onClick="userButttonOnClick"
-            app:srcCompat="@drawable/baseline_person_24" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="83dp"
+    <EditText
+        android:id="@+id/notesText"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="353dp"
+        android:layout_height="512dp"
+        android:clickable="false"
+        android:enabled="true"
+        android:focusable="true"
         android:gravity="top"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:selectAllOnFocus="false"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/include2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.007">
+        app:layout_constraintVertical_bias="0.61" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="96dp"
-            android:layout_marginTop="14dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginBottom="-2dp"
-            android:fontFamily="@font/logo_font"
-            android:gravity="center"
-            android:text="EXAMPOOL"
-            android:textColor="#9457eb"
-            android:textSize="25sp"></TextView>
+    <EditText
+        android:id="@+id/notesTitleInput"
+        android:layout_width="269dp"
+        android:layout_height="61dp"
+        android:maxLength="50"
+        android:textSize="14sp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/notesText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.153" />
 
-    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

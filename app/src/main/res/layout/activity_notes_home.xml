@@ -1,29 +1,33 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
+    android:background="#031E33"
     tools:context="comp3350.exampool.presentation.NotesActivity">
 
-    <ListView
-        android:id="@+id/listNotes"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_gravity="top"
-        android:layout_weight="1"
-        android:choiceMode="singleChoice" />
+    <include layout="@layout/home_template"></include>
 
+    <RelativeLayout
+        android:layout_width="375dp"
+        android:layout_height="625dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="10dp"
+        android:paddingRight="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/buttonNotesCreate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:enabled="true"
-        android:onClick="buttonNotesCreateOnClick"
-        android:text="Create" />
+        <ListView
+            android:id="@+id/listNotes"
+            android:layout_width="344dp"
+            android:layout_height="604dp"
+            android:layout_gravity="top"
+            android:layout_weight="1"
+            android:choiceMode="singleChoice" />
+    </RelativeLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+

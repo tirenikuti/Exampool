@@ -1,54 +1,49 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
-    android:background="#98B8D0"
-    android:gravity="center"
+    android:background="#031E33"
     tools:context="comp3350.exampool.presentation.FlashcardsActivity">
 
-    <ListView
-        android:id="@+id/listFlashcards"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:layout_gravity="top"
-        android:layout_weight="1"
-        android:choiceMode="singleChoice" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#000000"
-        android:id="@+id/separator"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp" />
-
+    <include
+        android:id="@+id/include"
+        layout="@layout/home_template" />
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_width="375dp"
+        android:layout_height="625dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="10dp"
+        android:paddingRight="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-            android:id="@+id/buttonFlashcardCreate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Create"
-            android:layout_alignParentLeft="true"
-            android:enabled="true"
-            android:onClick="buttonFlashcardCreateOnClick" />
-
-        <Button
-            android:id="@+id/buttonFlashcardQuiz"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="287dp"
-            android:enabled="true"
-            android:onClick="buttonFlashcardQuizOnClick"
-            android:text="Quiz" />
+        <ListView
+            android:id="@+id/listFlashcards"
+            android:layout_width="344dp"
+            android:layout_height="604dp"
+            android:layout_gravity="top"
+            android:layout_weight="1"
+            android:choiceMode="singleChoice" />
     </RelativeLayout>
-</LinearLayout>
+
+    <ImageView
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="57dp"
+        android:layout_height="56dp"
+        android:background="@drawable/custom_button2"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.021"
+        android:onClick="buttonFlashcardQuizOnClick"
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

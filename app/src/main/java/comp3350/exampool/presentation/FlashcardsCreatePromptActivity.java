@@ -1,6 +1,5 @@
 package comp3350.exampool.presentation;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +12,7 @@ import comp3350.exampool.R;
 public class FlashcardsCreatePromptActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.testing6);
+        setContentView(R.layout.activity_flashcards_create_prompt);
     }
 
     public void buttonMultipleChoiceOnClick(View view) {

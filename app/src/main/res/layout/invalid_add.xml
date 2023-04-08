@@ -54,6 +54,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/relativeLayout3"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,13 +69,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+
             android:layout_centerInParent="true"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="176dp"
+            android:layout_marginEnd="168dp"
             android:layout_marginBottom="10dp"
-            android:clickable="true"
-            app:backgroundTint="#9457eb"
-            android:onClick="CreateOnClick"
+            app:backgroundTint="#838383"
             app:srcCompat="@drawable/baseline_add_24" />
 
         <ImageView

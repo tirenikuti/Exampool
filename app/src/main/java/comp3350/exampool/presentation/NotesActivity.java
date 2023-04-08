@@ -1,15 +1,11 @@
 package comp3350.exampool.presentation;
 
-import android.app.Activity;
-
 import comp3350.exampool.R;
 import comp3350.exampool.objects.Notes;
 import comp3350.exampool.business.AccessNotes;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,13 +32,13 @@ public class NotesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_home);
-
         accessNotes = new AccessNotes();
-
+        ImageView homeIcon = findViewById(R.id.homepage);
+        ImageView userIcon = findViewById(R.id.userPage);
+        ImageView back = findViewById(R.id.backButton);
         try{
             notesList = new ArrayList<>();
             notesList.addAll(accessNotes.getNotes());
-
             notesArrayAdapter = new ArrayAdapter<Notes>(this, android.R.layout.simple_list_item_activated_2, android.R.id.text1, notesList){
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
@@ -63,18 +59,27 @@ public class NotesActivity extends AppCompatActivity {
 
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {;
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                    Button updateButton = (Button)findViewById(R.id.buttonNotesUpdate);
+//                    Button deleteButton = (Button)findViewById(R.id.buttonNotesDelete);
 
                     if (position == selectedNotesPosition) {
                         listView.setItemChecked(position, false);
+//                        updateButton.setEnabled(false);
+//                        deleteButton.setEnabled(false);
                         selectedNotesPosition = -1;
                     } else {
                         listView.setItemChecked(position, true);
+//                        updateButton.setEnabled(true);
+//                        deleteButton.setEnabled(true);
                         selectedNotesPosition = position;
                         selectedNotesAtPosition(position);
                     }
                 }
             });
+//
+//            final EditText editNotesID = (EditText)findViewById(R.id.editNotesID);
+//            final Button buttonNotes = (Button)findViewById(R.id.buttonNotes);
         }
         catch (final Exception e)
         {
@@ -121,14 +126,37 @@ public class NotesActivity extends AppCompatActivity {
         NotesActivity.this.startActivity(editNotesIntent);
     }
 
-    public void buttonNotesCreateOnClick(View v) {
-        Intent editNotesIntent = new Intent(NotesActivity.this, NotesCreateActivity.class);
-        NotesActivity.this.startActivity(editNotesIntent);
+//    public void buttonNotesUpdateOnClick(View v){
+//        Intent notesEditIntent = new Intent(NotesActivity.this, NotesEditActivity.class);
+//        NotesActivity.this.startActivity(notesEditIntent);
+//    }
+
+
+//    private Notes createNotesFromEditText(){
+//        EditText editID = (EditText) findViewById(R.id.editNotesID);
+//        EditText editName = (EditText) findViewById(R.id.editNotesTitle);
+//
+//        Notes note = new Notes(editID.getText().toString());
+//
+//        return note;
+//    }
+
+    private String validateNotesData(Notes note, boolean isNewCourse){
+        if (note.getNoteID().length() == 0){
+            return "Notes ID required";
+        }
+
+        if (note.getNoteTitle().length() == 0){
+            return "Note Title required";
+        }
+
+        if(isNewCourse && accessNotes.getRandom(note.getNoteID()) != null){
+            return "Note ID " + note.getNoteID() + " already exists.";
+        }
+
+        return null;
     }
 
-    @Override
-    public void onBackPressed() {
-        Intent flashcardsReturnActivity = new Intent(NotesActivity.this, HomeActivity.class);
-        NotesActivity.this.startActivity(flashcardsReturnActivity);
+    public void buttonNotesDeleteOnClick(View view) {
     }
 }
