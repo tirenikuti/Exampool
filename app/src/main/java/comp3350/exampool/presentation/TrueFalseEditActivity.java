@@ -10,7 +10,6 @@ import android.widget.TextView;
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.TrueFalseQuestion;
-import comp3350.exampool.objects.TypedAnswerQuestion;
 
 public class TrueFalseEditActivity extends Activity {
 
@@ -35,8 +34,6 @@ public class TrueFalseEditActivity extends Activity {
     public void buttonDeleteTFQOnClick(View view) {
         accessFlashcards.deleteTFQFlashcard(flashcard);
         onBackPressed();
-        Intent flashcardsReturnActivity = new Intent(TrueFalseEditActivity.this, FlashcardsActivity.class);
-        TrueFalseEditActivity.this.startActivity(flashcardsReturnActivity);
     }
 
     public void buttonSaveTFQOnClick(View view) {

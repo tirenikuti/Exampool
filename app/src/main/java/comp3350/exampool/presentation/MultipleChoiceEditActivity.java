@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
-import comp3350.exampool.objects.Flashcard;
 import comp3350.exampool.objects.MultipleChoiceQuestion;
 
 public class MultipleChoiceEditActivity extends Activity {
@@ -56,8 +55,6 @@ public class MultipleChoiceEditActivity extends Activity {
         flashcard.editFlashcard(editQuestion.getText().toString(),editAnswer.getText().toString(), editOption1.getText().toString(), editOption2.getText().toString(), editOption3.getText().toString());
         accessFlashcards.updateMultipleChoiceFlashcard(flashcard);
         onBackPressed();
-        Intent flashcardsReturnActivity = new Intent(MultipleChoiceEditActivity.this, FlashcardsActivity.class);
-        MultipleChoiceEditActivity.this.startActivity(flashcardsReturnActivity);
     }
 
     @Override

@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
-import comp3350.exampool.objects.TrueFalseQuestion;
 import comp3350.exampool.objects.TypedAnswerQuestion;
 
 public class TypedAnswerEditActivity extends Activity {
@@ -35,8 +34,6 @@ public class TypedAnswerEditActivity extends Activity {
     public void buttonDeleteTypedOnClick(View view) {
         accessFlashcards.deleteTypedFlashcard(flashcard);
         onBackPressed();
-        Intent flashcardsReturnActivity = new Intent(TypedAnswerEditActivity.this, FlashcardsActivity.class);
-        TypedAnswerEditActivity.this.startActivity(flashcardsReturnActivity);
     }
 
     public void buttonSaveTypedOnClick(View view) {

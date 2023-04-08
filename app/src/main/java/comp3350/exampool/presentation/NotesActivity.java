@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NotesActivity extends Activity {
-    private AccessNotes accessNotes;
     private List<Notes> notesList;
     private ArrayAdapter<Notes> notesArrayAdapter;
     private int selectedNotesPosition = -1;
@@ -32,7 +31,7 @@ public class NotesActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_home);
-        accessNotes = new AccessNotes();
+        AccessNotes accessNotes = new AccessNotes();
         ImageView homeIcon = findViewById(R.id.homepage);
         ImageView userIcon = findViewById(R.id.userPage);
         ImageView back = findViewById(R.id.backButton);

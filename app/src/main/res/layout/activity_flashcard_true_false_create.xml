@@ -81,6 +81,7 @@
             android:layout_marginBottom="231dp"
             android:backgroundTint="#9457eb"
             android:text="TRUE"
+            android:onClick="onTrueClick"
             android:textColor="#FFFFFF" />
 
         <Button
@@ -93,6 +94,7 @@
             android:layout_marginBottom="232dp"
             android:backgroundTint="#9457EB"
             android:text="FALSE"
+            android:onClick="onFalseClick"
             android:textColor="#FFFEFE" />
 
         <Button

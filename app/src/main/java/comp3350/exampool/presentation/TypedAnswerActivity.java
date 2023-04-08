@@ -18,6 +18,7 @@ public class TypedAnswerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcard_typed_answer_create);
+        accessFlashcards = new AccessFlashcards();
     }
 
     public void buttonClearOnClick(View view) {
@@ -29,17 +30,37 @@ public class TypedAnswerActivity extends AppCompatActivity {
     }
 
     public void buttonCreateOnClick(View view) {
+        TypedAnswerQuestion flashcard = createFlashcardFromEditText();
+        String result = validateFlashcardData(flashcard);
+
+        if(result == null){
+            accessFlashcards.insertTypedAnswerFlashcard(flashcard);
+            onBackPressed();
+        }
+        else{
+            Messages.warning(this, result);
+        }
+    }
+
+    private TypedAnswerQuestion createFlashcardFromEditText(){
         EditText questionEdit = (EditText) findViewById(R.id.createQuestion);
         String question = questionEdit.getText().toString();
         EditText answerEdit = (EditText) findViewById(R.id.createAnswer);
         String answer = answerEdit.getText().toString();
         String flashcardID = generateFlashcardID();
 
-        TypedAnswerQuestion flashcard = new TypedAnswerQuestion(flashcardID, "100", question, answer);
-        accessFlashcards.insertTypedAnswerFlashcard(flashcard);
-        onBackPressed();
-        Intent flashcardsReturnActivity = new Intent(TypedAnswerActivity.this, FlashcardsActivity.class);
-        TypedAnswerActivity.this.startActivity(flashcardsReturnActivity);
+        return new TypedAnswerQuestion(flashcardID, "100", question, answer);
+    }
+
+    private String validateFlashcardData(TypedAnswerQuestion flashcard){
+        if(flashcard.getQuestion().length() == 0){
+            return "Question cannot be blank";
+        }
+
+        if(flashcard.getAnswer().length() == 0){
+            return "Please pick an answer first";
+        }
+        return null;
     }
 
     private String generateFlashcardID(){

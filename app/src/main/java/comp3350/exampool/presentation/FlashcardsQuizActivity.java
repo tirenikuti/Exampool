@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,9 +15,7 @@ import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.Flashcard;
 
 public class FlashcardsQuizActivity extends Activity {
-    private AccessFlashcards accessFlashcards;
     private List<Flashcard> flashcardList;
-    private ArrayAdapter<Flashcard> flashcardArrayAdapter;
     private int score = 0;
     private int position = 0;
 
@@ -27,7 +24,7 @@ public class FlashcardsQuizActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcardquiz);
 
-        accessFlashcards = new AccessFlashcards();
+        AccessFlashcards accessFlashcards = new AccessFlashcards();
         flashcardList = accessFlashcards.getFlashcards();
 
         resetAllFlashcards();
@@ -92,8 +89,7 @@ public class FlashcardsQuizActivity extends Activity {
     }
 
     public int mark(String submittedAnswer, String correctAnswer){
-        int correct = submittedAnswer.compareToIgnoreCase(correctAnswer);
-        return correct;
+        return submittedAnswer.compareToIgnoreCase(correctAnswer);
     }
 
     @Override

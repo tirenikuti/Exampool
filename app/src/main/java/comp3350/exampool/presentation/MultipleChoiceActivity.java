@@ -64,8 +64,7 @@ public class MultipleChoiceActivity extends Activity {
         String choice3 = choice3Edit.getText().toString();
         String flashcardID = generateFlashcardID();
 
-        MultipleChoiceQuestion flashcard = new MultipleChoiceQuestion(flashcardID, "100", question, answer, choice1, choice2, choice3);
-        return flashcard;
+        return new MultipleChoiceQuestion(flashcardID, "100", question, answer, choice1, choice2, choice3);
     }
 
     private String validateFlashcard(MultipleChoiceQuestion flashcard){
