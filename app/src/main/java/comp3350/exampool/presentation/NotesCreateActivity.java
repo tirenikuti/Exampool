@@ -83,4 +83,10 @@ public class NotesCreateActivity extends Activity {
         noteView.setText("");
         noteViewTitle.setText("");
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent notesReturnIntent = new Intent(NotesCreateActivity.this, NotesActivity.class);
+        NotesCreateActivity.this.startActivity(notesReturnIntent);
+    }
 }

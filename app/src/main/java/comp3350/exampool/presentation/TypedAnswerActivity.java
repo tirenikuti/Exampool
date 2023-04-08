@@ -64,4 +64,10 @@ public class TypedAnswerActivity extends AppCompatActivity {
         Intent goBack = new Intent(TypedAnswerActivity.this, FlashcardsActivity.class);
         TypedAnswerActivity.this.startActivity(goBack);
     }
+
+    @Override
+    public void onBackPressed(){
+        Intent goBack = new Intent(TypedAnswerActivity.this, FlashcardsActivity.class);
+        TypedAnswerActivity.this.startActivity(goBack);
+    }
 }

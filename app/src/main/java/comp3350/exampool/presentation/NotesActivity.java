@@ -116,7 +116,4 @@ public class NotesActivity extends Activity {
         editNotesIntent.putExtra("theNote", selected);
         NotesActivity.this.startActivity(editNotesIntent);
     }
-
-    public void buttonNotesDeleteOnClick(View view) {
-    }
 }

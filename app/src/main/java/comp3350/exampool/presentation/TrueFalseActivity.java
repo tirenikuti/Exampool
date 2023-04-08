@@ -71,4 +71,10 @@ public class TrueFalseActivity extends AppCompatActivity {
         Intent goBack = new Intent(TrueFalseActivity.this, FlashcardsActivity.class);
         TrueFalseActivity.this.startActivity(goBack);
     }
+
+    @Override
+    public void onBackPressed(){
+        Intent goBack = new Intent(TrueFalseActivity.this, FlashcardsActivity.class);
+        TrueFalseActivity.this.startActivity(goBack);
+    }
 }

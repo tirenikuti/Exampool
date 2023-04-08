@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
+import comp3350.exampool.objects.Flashcard;
 import comp3350.exampool.objects.MultipleChoiceQuestion;
 
 public class MultipleChoiceActivity extends Activity {
@@ -36,6 +37,21 @@ public class MultipleChoiceActivity extends Activity {
     }
 
     public void buttonCreateOnClick(View view) {
+        MultipleChoiceQuestion mcqFlashcard = createFlashcardFromEditText();
+        String result = validateFlashcard(mcqFlashcard);
+
+        if(result == null) {
+            Flashcard flashcard = accessFlashcards.insertMultipleChoiceFlashcard(mcqFlashcard);
+            onBackPressed();
+            Intent goBack = new Intent(MultipleChoiceActivity.this, FlashcardsActivity.class);
+            MultipleChoiceActivity.this.startActivity(goBack);
+        }
+        else{
+            Messages.warning(this,result);
+        }
+    }
+
+    private MultipleChoiceQuestion createFlashcardFromEditText(){
         EditText questionEdit = (EditText) findViewById(R.id.createQuestion);
         String question = questionEdit.getText().toString();
         EditText answerEdit = (EditText) findViewById(R.id.createAnswer);
@@ -49,10 +65,22 @@ public class MultipleChoiceActivity extends Activity {
         String flashcardID = generateFlashcardID();
 
         MultipleChoiceQuestion flashcard = new MultipleChoiceQuestion(flashcardID, "100", question, answer, choice1, choice2, choice3);
-        accessFlashcards.insertMultipleChoiceFlashcard(flashcard);
-        onBackPressed();
-        Intent flashcardsReturnActivity = new Intent(MultipleChoiceActivity.this, FlashcardsActivity.class);
-        MultipleChoiceActivity.this.startActivity(flashcardsReturnActivity);
+        return flashcard;
+    }
+
+    private String validateFlashcard(MultipleChoiceQuestion flashcard){
+        if(flashcard.getQuestion().length() == 0){
+           return "Question cannot be blank";
+        }
+
+        if(flashcard.getAnswer().length() == 0){
+            return "Answer cannot be blank";
+        }
+
+        if((flashcard.getOption1().length() == 0) || (flashcard.getOption2().length() == 0) || (flashcard.getOption3().length() == 0)){
+            return "All 3 options must be filled in";
+        }
+        return null;
     }
 
     private String generateFlashcardID(){
@@ -74,7 +102,13 @@ public class MultipleChoiceActivity extends Activity {
     }
 
     public void backButttonOnClick(View v){
-        Intent goBack = new Intent(MultipleChoiceActivity.this, FlashcardsCreatePromptActivity.class);
+        Intent goBack = new Intent(MultipleChoiceActivity.this, FlashcardsActivity.class);
+        MultipleChoiceActivity.this.startActivity(goBack);
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent goBack = new Intent(MultipleChoiceActivity.this, FlashcardsActivity.class);
         MultipleChoiceActivity.this.startActivity(goBack);
     }
 }
