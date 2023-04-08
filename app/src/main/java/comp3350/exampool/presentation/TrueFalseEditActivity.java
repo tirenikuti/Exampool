@@ -37,14 +37,12 @@ public class TrueFalseEditActivity extends Activity {
     }
 
     public void buttonSaveTFQOnClick(View view) {
-        EditText editQuestion = (EditText)findViewById(R.id.createQuestion);
-        EditText editAnswer = (EditText)findViewById(R.id.createAnswer);
+        EditText editQuestion = (EditText)findViewById(R.id.editQuestion);
+        EditText editAnswer = (EditText)findViewById(R.id.editAnswer);
 
         flashcard.editFlashcard(editQuestion.getText().toString(),editAnswer.getText().toString(), "", "", "");
         accessFlashcards.updateTrueFalseFlashcard(flashcard);
         onBackPressed();
-        Intent flashcardsReturnActivity = new Intent(TrueFalseEditActivity.this, FlashcardsActivity.class);
-        TrueFalseEditActivity.this.startActivity(flashcardsReturnActivity);
     }
 
     @Override

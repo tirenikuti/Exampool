@@ -37,14 +37,12 @@ public class TypedAnswerEditActivity extends Activity {
     }
 
     public void buttonSaveTypedOnClick(View view) {
-        EditText editQuestion = (EditText)findViewById(R.id.createQuestion);
-        EditText editAnswer = (EditText)findViewById(R.id.createAnswer);
+        EditText editQuestion = (EditText)findViewById(R.id.editQuestion);
+        EditText editAnswer = (EditText)findViewById(R.id.editAnswer);
 
         flashcard.editFlashcard(editQuestion.getText().toString(),editAnswer.getText().toString(), "", "", "");
         accessFlashcards.updateTypedAnswerFlashcard(flashcard);
         onBackPressed();
-        Intent flashcardsReturnActivity = new Intent(TypedAnswerEditActivity.this, FlashcardsActivity.class);
-        TypedAnswerEditActivity.this.startActivity(flashcardsReturnActivity);
     }
 
     @Override

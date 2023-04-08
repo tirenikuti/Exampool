@@ -41,16 +41,14 @@ public class MultipleChoiceEditActivity extends Activity {
     public void buttonDeleteMCQOnClick(View view) {
         accessFlashcards.deleteMCQFlashcard(flashcard);
         onBackPressed();
-        Intent flashcardsReturnActivity = new Intent(MultipleChoiceEditActivity.this, FlashcardsActivity.class);
-        MultipleChoiceEditActivity.this.startActivity(flashcardsReturnActivity);
     }
 
     public void buttonSaveMCQOnClick(View view) {
-        EditText editQuestion = (EditText)findViewById(R.id.createQuestion);
-        EditText editAnswer = (EditText)findViewById(R.id.createAnswer);
-        EditText editOption1 = (EditText)findViewById(R.id.createChoice1);
-        EditText editOption2 = (EditText)findViewById(R.id.createChoice2);
-        EditText editOption3 = (EditText)findViewById(R.id.createChoice3);
+        EditText editQuestion = (EditText)findViewById(R.id.editQuestion);
+        EditText editAnswer = (EditText)findViewById(R.id.editAnswer);
+        EditText editOption1 = (EditText)findViewById(R.id.editChoice1);
+        EditText editOption2 = (EditText)findViewById(R.id.editChoice2);
+        EditText editOption3 = (EditText)findViewById(R.id.editChoice3);
 
         flashcard.editFlashcard(editQuestion.getText().toString(),editAnswer.getText().toString(), editOption1.getText().toString(), editOption2.getText().toString(), editOption3.getText().toString());
         accessFlashcards.updateMultipleChoiceFlashcard(flashcard);

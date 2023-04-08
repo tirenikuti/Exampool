@@ -60,6 +60,9 @@ public class FlashcardsQuizActivity extends Activity {
             TextView questionView = (TextView) findViewById(R.id.typed_question);
             TextView answerEdit = (TextView) findViewById(R.id.editInputAnswer);
 
+            String submission = answerEdit.getText().toString();
+            scored(flashcard, submission);
+
             questionView.setText(flashcard.getQuestion() + flashcard.getOptions());
             answerEdit.setText("");
             Button submitButton = findViewById(R.id.submitButton);
@@ -75,21 +78,21 @@ public class FlashcardsQuizActivity extends Activity {
     public void buttonSubmitOnClick(View view) {
         EditText answerEdit = (EditText) findViewById(R.id.editInputAnswer);
         Flashcard flashcard = flashcardList.get(position);
-        if ((mark(answerEdit.getText().toString(), flashcard.getAnswer()) == 0)
-            && (!flashcard.getAnswered()))
+        String submission = answerEdit.getText().toString();
+        scored(flashcard, submission);
+        revealAnswer();
+        Button submitButton = findViewById(R.id.submitButton);
+        submitButton.setEnabled(false);
+    }
+
+    private void scored(Flashcard flashcard, String answer){
+        if ( (answer.compareToIgnoreCase(flashcard.getAnswer()) == 0) && (!flashcard.getAnswered()))
         {
             flashcard.answered();
             score++;
         }
-        revealAnswer();
-        Button submitButton = findViewById(R.id.submitButton);
-        submitButton.setEnabled(false);
         TextView scoreView = (TextView) findViewById(R.id.score);
         scoreView.setText("score = "  + score);
-    }
-
-    public int mark(String submittedAnswer, String correctAnswer){
-        return submittedAnswer.compareToIgnoreCase(correctAnswer);
     }
 
     @Override
