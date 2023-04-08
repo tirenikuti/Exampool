@@ -115,4 +115,10 @@ public class NotesActivity extends Activity {
         editNotesIntent.putExtra("theNote", selected);
         NotesActivity.this.startActivity(editNotesIntent);
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent flashcardsReturnActivity = new Intent(NotesActivity.this, HomeActivity.class);
+        NotesActivity.this.startActivity(flashcardsReturnActivity);
+    }
 }
