@@ -16,12 +16,14 @@ import android.widget.Toast;
 
 import android.app.Activity;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class HomeActivity extends Activity implements PopupMenu.OnMenuItemClickListener{
+public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
