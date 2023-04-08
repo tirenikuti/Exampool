@@ -53,18 +53,19 @@ public class FlashcardsQuizActivity extends Activity {
     }
 
     public void buttonNextOnClick(View view) {
+        EditText answerEdit = (EditText) findViewById(R.id.editInputAnswer);
+        Flashcard flashcard = flashcardList.get(position);
+        String submission = answerEdit.getText().toString();
+        scored(flashcard, submission);
         if(position < flashcardList.size() - 1){
             position++;
-            Flashcard flashcard = flashcardList.get(position);
+            flashcard = flashcardList.get(position);
 
             TextView questionView = (TextView) findViewById(R.id.typed_question);
-            TextView answerEdit = (TextView) findViewById(R.id.editInputAnswer);
-
-            String submission = answerEdit.getText().toString();
-            scored(flashcard, submission);
+            TextView answer = (TextView) findViewById(R.id.editInputAnswer);
 
             questionView.setText(flashcard.getQuestion() + flashcard.getOptions());
-            answerEdit.setText("");
+            answer.setText("");
             Button submitButton = findViewById(R.id.submitButton);
             submitButton.setEnabled(true);
         }
@@ -86,7 +87,7 @@ public class FlashcardsQuizActivity extends Activity {
     }
 
     private void scored(Flashcard flashcard, String answer){
-        if ( (answer.compareToIgnoreCase(flashcard.getAnswer()) == 0) && (!flashcard.getAnswered()))
+        if ((answer.compareToIgnoreCase(flashcard.getAnswer()) == 0) && (!flashcard.getAnswered()))
         {
             flashcard.answered();
             score++;
