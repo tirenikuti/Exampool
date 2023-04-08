@@ -33,29 +33,6 @@
             android:textColor="@color/white"
             android:textSize="20dp" />
 
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="44dp"
-            android:layout_height="48dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="310dp"
-            android:layout_marginTop="543dp"
-            android:layout_marginEnd="39dp"
-            app:srcCompat="@drawable/custom_button4" />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="61dp"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="26dp"
-            android:layout_marginTop="542dp"
-            app:srcCompat="@drawable/baseline_cancel_24"
-            app:tint="#FF605C" />
-
         <EditText
             android:id="@+id/createQuestion"
             android:layout_width="277dp"
@@ -63,10 +40,12 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginStart="68dp"
-            android:layout_marginTop="38dp"
-            android:layout_marginEnd="65dp"
-            android:hint="Question"
+            android:layout_marginStart="67dp"
+            android:layout_marginTop="77dp"
+            android:layout_marginEnd="66dp"
+            android:hint="Question?"
+            android:backgroundTint="@color/white"
+            android:textColorHint="#D3D3D3"
             android:textAlignment="center"
             android:textColor="#EDE7E7"
             android:textSize="40sp" />
