@@ -28,6 +28,23 @@
             android:layout_gravity="top"
             android:layout_weight="1"
             android:choiceMode="singleChoice" />
+
+        <Button
+            android:id="@+id/createButton"
+            android:layout_width="344dp"
+            android:layout_height="50dp"
+            android:text="Create Flashcard"
+            android:onClick="buttonCreateOnClick"
+            android:layout_alignBottom="@id/listFlashcards"
+            />
+
+        <Button
+            android:layout_width="344dp"
+            android:layout_height="50dp"
+            android:text="Go Home"
+            android:onClick="homeButtonOnClick"
+            android:layout_above="@id/createButton"
+            />
     </RelativeLayout>
 
     <ImageView

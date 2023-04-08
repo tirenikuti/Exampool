@@ -32,7 +32,6 @@ public class NotesEditActivity extends Activity {
 
         titleView.setText(note.getNoteTitle());
         noteView.setText(note.getNote());
-        onBackPressed();
     }
 
     @Override

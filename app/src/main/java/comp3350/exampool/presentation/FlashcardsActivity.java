@@ -76,7 +76,7 @@ public class FlashcardsActivity extends Activity {
         }
     }
 
-    public void homeButttonOnClick(View v){
+    public void homeButtonOnClick(View v){
         Intent goBack = new Intent(FlashcardsActivity.this, HomeActivity.class);
         FlashcardsActivity.this.startActivity(goBack);
     }
@@ -93,6 +93,11 @@ public class FlashcardsActivity extends Activity {
     public void buttonFlashcardQuizOnClick(View v){
         Intent quizIntent = new Intent(FlashcardsActivity.this, FlashcardsQuizActivity.class);
         FlashcardsActivity.this.startActivity(quizIntent);
+    }
+
+    public void buttonCreateOnClick(View v){
+        Intent createIntent = new Intent(FlashcardsActivity.this, FlashcardsCreatePromptActivity.class);
+        FlashcardsActivity.this.startActivity(createIntent);
     }
 
     private void selectedFlashcardAtPosition(int position) {

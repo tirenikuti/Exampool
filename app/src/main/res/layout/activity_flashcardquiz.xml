@@ -62,13 +62,6 @@
             android:onClick="buttonSubmitOnClick" />
 
         <Button
-            android:id="@+id/revealAnswer"
-            android:layout_width="209dp"
-            android:layout_height="64dp"
-            android:text="Reveal Answer"
-            android:onClick="buttonRevealAnswerOnClick" />
-
-        <Button
             android:id="@+id/buttonNext"
             android:layout_width="209dp"
             android:layout_height="64dp"

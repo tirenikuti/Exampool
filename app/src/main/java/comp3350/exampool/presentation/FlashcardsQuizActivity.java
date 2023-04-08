@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -46,7 +47,7 @@ public class FlashcardsQuizActivity extends Activity {
         position = 0;
     }
 
-    public void buttonRevealAnswerOnClick(View view) {
+    public void revealAnswer() {
         //flip animation with reveal: use flashcard.getAnswer()
         Flashcard flashcard = flashcardList.get(position);
         TextView questionView = (TextView) findViewById(R.id.typed_question);
@@ -64,6 +65,8 @@ public class FlashcardsQuizActivity extends Activity {
 
             questionView.setText(flashcard.getQuestion() + flashcard.getOptions());
             answerEdit.setText("");
+            Button submitButton = findViewById(R.id.submitButton);
+            submitButton.setEnabled(true);
         }
         else{
             Intent completeIntent = new Intent(FlashcardsQuizActivity.this, QuizComplete.class);
@@ -81,6 +84,9 @@ public class FlashcardsQuizActivity extends Activity {
             flashcard.answered();
             score++;
         }
+        revealAnswer();
+        Button submitButton = findViewById(R.id.submitButton);
+        submitButton.setEnabled(false);
         TextView scoreView = (TextView) findViewById(R.id.score);
         scoreView.setText("score = "  + score);
     }

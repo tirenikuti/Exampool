@@ -45,6 +45,9 @@
         <activity
             android:name=".presentation.TypedAnswerEditActivity"
             android:exported="false" />
+        <activity
+            android:name=".presentation.FlashcardsQuizActivity"
+            android:exported="false" />
 
         <activity
                 android:name=".presentation.HomeActivity"
