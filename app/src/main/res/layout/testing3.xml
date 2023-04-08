@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#031E33"
+    tools:context="comp3350.exampool.presentation.FlashcardsActivity">
+
+    <include
+        android:id="@+id/include3"
+        layout="@layout/home_template"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="625dp"
+        android:background="#031E33"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/include3">
+
+
+        <com.wajahatkarim3.easyflipview.EasyFlipView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_gravity="top"
+            app:flipDuration="400"
+            app:flipEnabled="true"
+            app:flipFrom="front"
+            app:flipOnTouch="true"
+            app:flipType="horizontal">
+
+            <TextView
+                android:layout_width="375dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="BACK"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="50sp"></TextView>
+
+            <TextView
+                android:layout_width="375dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="FRONT"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="50sp"></TextView>
+        </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

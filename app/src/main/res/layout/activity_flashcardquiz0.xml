@@ -29,10 +29,10 @@
             android:id="@+id/typed_question"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:text="Question?"
-            android:textSize="25dp"
             android:layout_marginBottom="15dp"
-            />
+            android:text="Question?"
+            android:textSize="25dp" />
+
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="100dp">
@@ -41,10 +41,9 @@
                 android:id="@+id/answerTag"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
-                android:text="Answer: "
-                android:textSize="25dp"
                 android:layout_marginBottom="15dp"
-                />
+                android:text="Answer: "
+                android:textSize="25dp" />
 
             <EditText
                 android:id="@+id/editInputAnswer"
@@ -54,19 +53,20 @@
                 android:enabled="true"
                 android:inputType="textNoSuggestions" />
         </GridLayout>
+
         <Button
             android:id="@+id/submitButton"
             android:layout_width="209dp"
             android:layout_height="64dp"
-            android:text="Submit answer"
-            android:onClick="buttonSubmitOnClick" />
+            android:onClick="buttonSubmitOnClick"
+            android:text="Submit answer" />
 
         <Button
             android:id="@+id/buttonNext"
             android:layout_width="209dp"
             android:layout_height="64dp"
-            android:text="Next"
-            android:onClick="buttonNextOnClick" />
+            android:onClick="buttonNextOnClick"
+            android:text="Next" />
     </LinearLayout>
 
 </LinearLayout>
