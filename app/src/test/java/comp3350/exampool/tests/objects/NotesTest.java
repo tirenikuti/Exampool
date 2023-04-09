@@ -26,8 +26,10 @@ public class NotesTest {
     public void getEditTest(){
         Notes note = new Notes("2", "Hello World", "100", "A basic learning program");
         String newText = "I've been replaced";
-        note.editNote(newText);
+        String newTitle = "better title";
+        note.editNote(newText, newTitle);
         assertEquals("Note should contain newText", newText, note.getNote());
+        assertEquals("Note Title should be newTitle", newTitle, note.getNoteTitle());
     }
 
 }

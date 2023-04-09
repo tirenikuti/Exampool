@@ -51,7 +51,8 @@ public class NotesEditActivity extends AppCompatActivity {
 
     public void buttonSaveOnClick(View view) {
         TextView noteView = (TextView) findViewById(R.id.notesText);
-        note.editNote(noteView.getEditableText().toString());
+        TextView noteViewTitle = (TextView) findViewById(R.id.notesTitle);
+        note.editNote(noteView.getEditableText().toString(), noteViewTitle.getEditableText().toString());
         accessNotes.updateNote(note);
         onBackPressed();
     }

@@ -66,9 +66,11 @@ public class Notes implements Parcelable {
      * Setter for note Content
      * Replace the contents of the note with new text
      * @param newText Text to replace content with, Type: String
+     * @param newTitle Text to replace the title with, Type: String
      */
-    public void editNote(String newText){
+    public void editNote(String newText, String newTitle){
         content = newText;
+        noteTitle = newTitle;
     }
 
     /**
