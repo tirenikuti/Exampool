@@ -26,7 +26,9 @@ dependencies {
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation group: 'org.hsqldb', name: 'hsqldb', version: '2.4.1'
-    testImplementation 'junit:junit:4.13.2'
+    implementation 'junit:junit:4.13.2'
+    testImplementation group: 'com.google.guava', name: 'guava', version: '25.1-jre'
+    // https://mvnrepository.com/artifact/org.hsqldb/hsqldb
     testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.+'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

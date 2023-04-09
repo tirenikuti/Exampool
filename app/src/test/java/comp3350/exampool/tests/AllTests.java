@@ -1,4 +1,4 @@
-package comp3350.exampool;
+package comp3350.exampool.tests;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
