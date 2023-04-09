@@ -1,4 +1,4 @@
-package comp3350.exampool.utils;
+package comp3350.exampool.tests.utils;
 
 import com.google.common.io.Files;
 
@@ -8,7 +8,7 @@ import java.io.IOException;
 import comp3350.exampool.application.Main;
 
 public class TestUtils{
-    private static final FILE DB_SRC = new File("src/main/assets/db/DB.script");
+    private static final File DB_SRC = new File("src/main/assets/db/DB.script");
 
     public static File copyDB() throws IOException {
         final File target = File.createTempFile("temp-dp", ".script");
