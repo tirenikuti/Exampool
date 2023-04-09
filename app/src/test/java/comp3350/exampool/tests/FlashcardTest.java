@@ -1,10 +1,6 @@
-package comp3350.exampool;
+package comp3350.exampool.tests;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
-import comp3350.exampool.application.Main;
-import comp3350.exampool.objects.Flashcard;
 
 public class FlashcardTest {
 
