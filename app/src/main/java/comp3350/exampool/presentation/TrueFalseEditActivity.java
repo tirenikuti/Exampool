@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -34,12 +35,12 @@ public class TrueFalseEditActivity extends AppCompatActivity {
         answer = null;
     }
 
-    public void buttonDeleteTFQOnClick(View view) {
+    public void buttonDeleteOnClick(View view) {
         accessFlashcards.deleteTFQFlashcard(flashcard);
         onBackPressed();
     }
 
-    public void buttonSaveTFQOnClick(View view) {
+    public void buttonSaveOnClick(View view) {
         EditText editQuestion = (EditText)findViewById(R.id.editQuestion);
         EditText editAnswer = (EditText)findViewById(R.id.editAnswer);
 
@@ -60,5 +61,19 @@ public class TrueFalseEditActivity extends AppCompatActivity {
     public void onBackPressed() {
         Intent flashcardsReturnActivity = new Intent(TrueFalseEditActivity.this, FlashcardsActivity.class);
         TrueFalseEditActivity.this.startActivity(flashcardsReturnActivity);
+    }
+
+    public void homeButtonOnClick(View v){
+        Intent goBack = new Intent(TrueFalseEditActivity.this, HomeActivity.class);
+        TrueFalseEditActivity.this.startActivity(goBack);
+    }
+
+    public void userButtonOnClick(View v){
+        Toast.makeText(TrueFalseEditActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
+    }
+
+    public void backButtonOnClick(View v) {
+        Intent notesReturnIntent = new Intent(TrueFalseEditActivity.this, FlashcardsActivity.class);
+        TrueFalseEditActivity.this.startActivity(notesReturnIntent);
     }
 }

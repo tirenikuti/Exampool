@@ -69,7 +69,7 @@ public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
         return super.onOptionsItemSelected(item);
     }
-    public void userButttonOnClick(View v){
+    public void userButtonOnClick(View v){
         Toast.makeText(HomeActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
     public void buttonFlashcardsOnClick(View v) {

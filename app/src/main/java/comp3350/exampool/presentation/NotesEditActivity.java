@@ -49,13 +49,14 @@ public class NotesEditActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void buttonNotesSaveOnClick(View view) {
+    public void buttonSaveOnClick(View view) {
         TextView noteView = (TextView) findViewById(R.id.notesText);
         note.editNote(noteView.getEditableText().toString());
         accessNotes.updateNote(note);
+        onBackPressed();
     }
 
-    public void buttonNotesDeleteOnClick(View view) {
+    public void buttonDeleteOnClick(View view) {
         accessNotes.deleteNote(note);
         onBackPressed();
     }
@@ -67,11 +68,6 @@ public class NotesEditActivity extends AppCompatActivity {
 
     public void userButtonOnClick(View v){
         Toast.makeText(NotesEditActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
-    }
-
-    public void backButtonOnClick(View v){
-        Intent goBack = new Intent(NotesEditActivity.this, NotesActivity.class);
-        NotesEditActivity.this.startActivity(goBack);
     }
 
     @Override

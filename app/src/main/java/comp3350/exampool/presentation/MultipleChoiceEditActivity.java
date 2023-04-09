@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,12 +40,12 @@ public class MultipleChoiceEditActivity extends AppCompatActivity {
         option3View.setText(flashcard.getOption3());
     }
 
-    public void buttonDeleteMCQOnClick(View view) {
+    public void buttonDeleteOnClick(View view) {
         accessFlashcards.deleteMCQFlashcard(flashcard);
         onBackPressed();
     }
 
-    public void buttonSaveMCQOnClick(View view) {
+    public void buttonSaveOnClick(View view) {
         EditText editQuestion = (EditText)findViewById(R.id.editQuestion);
         EditText editAnswer = (EditText)findViewById(R.id.editAnswer);
         EditText editOption1 = (EditText)findViewById(R.id.editChoice1);
@@ -54,6 +55,20 @@ public class MultipleChoiceEditActivity extends AppCompatActivity {
         flashcard.editFlashcard(editQuestion.getText().toString(),editAnswer.getText().toString(), editOption1.getText().toString(), editOption2.getText().toString(), editOption3.getText().toString());
         accessFlashcards.updateMultipleChoiceFlashcard(flashcard);
         onBackPressed();
+    }
+
+    public void homeButtonOnClick(View v){
+        Intent goBack = new Intent(MultipleChoiceEditActivity.this, HomeActivity.class);
+        MultipleChoiceEditActivity.this.startActivity(goBack);
+    }
+
+    public void userButtonOnClick(View v){
+        Toast.makeText(MultipleChoiceEditActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
+    }
+
+    public void backButtonOnClick(View v) {
+        Intent notesReturnIntent = new Intent(MultipleChoiceEditActivity.this, FlashcardsActivity.class);
+        MultipleChoiceEditActivity.this.startActivity(notesReturnIntent);
     }
 
     @Override

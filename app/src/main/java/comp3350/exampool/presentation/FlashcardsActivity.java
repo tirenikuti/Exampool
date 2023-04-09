@@ -18,10 +18,6 @@ import java.util.List;
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.Flashcard;
-import comp3350.exampool.objects.MultipleChoiceQuestion;
-import comp3350.exampool.objects.TrueFalseQuestion;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class FlashcardsActivity extends AppCompatActivity {
 
@@ -44,11 +40,8 @@ public class FlashcardsActivity extends AppCompatActivity {
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
                     View view = super.getView(position, convertView, parent);
-
                     TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-
                     text1.setText(flashcardList.get(position).getQuestion());
-
                     return view;
                 }
             };
@@ -58,7 +51,6 @@ public class FlashcardsActivity extends AppCompatActivity {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                     if (position == selectedFlashcardPosition) {
                         listView.setItemChecked(position, false);
                         selectedFlashcardPosition = -1;
@@ -93,7 +85,7 @@ public class FlashcardsActivity extends AppCompatActivity {
     }
 
     public void buttonFlashcardQuizOnClick(View v){
-        Intent quizIntent = new Intent(FlashcardsActivity.this, testing.class);
+        Intent quizIntent = new Intent(FlashcardsActivity.this, FlashcardsQuizActivity.class);
         FlashcardsActivity.this.startActivity(quizIntent);
     }
 
@@ -104,26 +96,8 @@ public class FlashcardsActivity extends AppCompatActivity {
 
     private void selectedFlashcardAtPosition(int position) {
         Flashcard selected = flashcardArrayAdapter.getItem(position);
-        if(selected instanceof MultipleChoiceQuestion) {
-            Intent editFlashcardIntent = new Intent(FlashcardsActivity.this, MultipleChoiceEditActivity.class);
-            editFlashcardIntent.putExtra("theCard", selected);
-            FlashcardsActivity.this.startActivity(editFlashcardIntent);
-        }
-        else if(selected instanceof TrueFalseQuestion) {
-            Intent editFlashcardIntent = new Intent(FlashcardsActivity.this, TrueFalseEditActivity.class);
-            editFlashcardIntent.putExtra("theCard", selected);
-            FlashcardsActivity.this.startActivity(editFlashcardIntent);
-        }
-        else{
-            Intent editFlashcardIntent = new Intent(FlashcardsActivity.this, TypedAnswerEditActivity.class);
-            editFlashcardIntent.putExtra("theCard", selected);
-            FlashcardsActivity.this.startActivity(editFlashcardIntent);
-        }
-    }
-
-    @Override
-    public void onBackPressed() {
-        Intent flashcardsReturnActivity = new Intent(FlashcardsActivity.this, HomeActivity.class);
-        FlashcardsActivity.this.startActivity(flashcardsReturnActivity);
+        Intent editFlashcardIntent = new Intent(FlashcardsActivity.this, FlashcardsViewActivity.class);
+        editFlashcardIntent.putExtra("theCard", selected);
+        FlashcardsActivity.this.startActivity(editFlashcardIntent);
     }
 }

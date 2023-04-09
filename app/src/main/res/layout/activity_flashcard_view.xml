@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#031E33"
+    tools:context="comp3350.exampool.presentation.FlashcardsViewActivity">
+
+    <include
+        android:id="@+id/include3"
+        layout="@layout/home_template"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="326dp"></include>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="300dp"
+        android:background="#031E33"
+        android:gravity="top"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/include3"
+        app:layout_constraintStart_toStartOf="@+id/include3"
+        app:layout_constraintTop_toTopOf="@+id/include3">
+
+
+        <com.wajahatkarim3.easyflipview.EasyFlipView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_gravity="top"
+            app:flipDuration="400"
+            app:flipEnabled="true"
+            app:flipFrom="front"
+            app:flipOnTouch="true"
+            app:flipType="horizontal">
+
+            <TextView
+                android:id="@+id/revealed_answer"
+                android:layout_width="375dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="FRONT"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="25sp"></TextView>
+
+            <TextView
+                android:id="@+id/typed_question"
+                android:layout_width="375dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:text="BACK"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="25sp"></TextView>
+
+        </com.wajahatkarim3.easyflipview.EasyFlipView>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/LinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/include3"
+        app:layout_constraintVertical_bias="0.673"
+        tools:layout_editor_absoluteX="0dp">
+
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="66dp"
+            android:layout_height="56dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="right"
+            android:layout_marginStart="276dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="120dp"
+            android:clickable="true"
+            android:onClick="buttonNextOnClick"
+            app:srcCompat="@drawable/custom_button3" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="67dp"
+            android:layout_height="56dp"
+
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="left"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="262dp"
+            android:layout_marginBottom="120dp"
+            android:clickable="true"
+            android:onClick="buttonPreviousOnClick"
+            app:srcCompat="@drawable/custom_button5" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="19dp"
+            android:layout_marginBottom="14dp"
+            android:text="edit"
+            android:background="#9457eb"
+            android:textColor="@color/white"
+            android:clickable="true"
+            android:onClick="editOnCLick"/>
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

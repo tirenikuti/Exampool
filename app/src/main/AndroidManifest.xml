@@ -22,13 +22,16 @@
             android:name=".presentation.FlashcardsActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.FlashcardsQuizActivity"
+            android:name=".presentation.FlashcardsQuizActivity0"
             android:exported="false" />
         <activity
             android:name=".presentation.FlashcardsCreatePromptActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.testing"
+            android:name=".presentation.FlashcardsViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.FlashcardsQuizActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.MultipleChoiceActivity"

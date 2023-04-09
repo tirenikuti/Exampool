@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#031E33"
-    tools:context="comp3350.exampool.presentation.testing">
+    tools:context="comp3350.exampool.presentation.FlashcardsQuizActivity">
 
     <include
         android:id="@+id/include3"
@@ -15,6 +15,20 @@
         tools:layout_editor_absoluteX="-16dp"
         tools:layout_editor_absoluteY="326dp"></include>
 
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="265dp"
+        android:layout_height="39dp"
+        android:text="Score"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/include3"
+        app:layout_constraintVertical_bias="0.111" />
 
     <TextView
         android:id="@+id/revealed_answer"
@@ -30,7 +44,8 @@
         app:layout_constraintBottom_toTopOf="@+id/gridLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/include3"></TextView>
+        app:layout_constraintTop_toTopOf="@+id/include3"
+        app:layout_constraintVertical_bias="0.701"></TextView>
 
     <TextView
         android:id="@+id/typed_question"
@@ -46,8 +61,8 @@
         app:layout_constraintBottom_toTopOf="@+id/gridLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/include3"></TextView>
-
+        app:layout_constraintTop_toTopOf="@+id/include3"
+        app:layout_constraintVertical_bias="0.701"></TextView>
 
     <GridLayout
         android:id="@+id/gridLayout2"
@@ -55,8 +70,8 @@
         android:layout_height="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="@+id/include3"
-        app:layout_constraintVertical_bias="0.571"
-        tools:layout_editor_absoluteX="16dp">
+        app:layout_constraintVertical_bias="0.633"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:id="@+id/answerTag"
@@ -90,17 +105,17 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="@+id/include3"
-        app:layout_constraintVertical_bias="0.795"
+        app:layout_constraintVertical_bias="0.854"
         tools:layout_editor_absoluteX="0dp">
 
         <Button
             android:id="@+id/submitButton"
             android:layout_width="209dp"
             android:layout_height="64dp"
+            android:backgroundTint="#9457eb"
             android:onClick="buttonSubmitOnClick"
             android:text="Submit answer"
-            android:backgroundTint="#9457eb"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white" />
 
 
         <ImageView

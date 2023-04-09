@@ -32,9 +32,6 @@ public class NotesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes_home);
         AccessNotes accessNotes = new AccessNotes();
-        ImageView homeIcon = findViewById(R.id.homepage);
-        ImageView userIcon = findViewById(R.id.userPage);
-        ImageView back = findViewById(R.id.backButton);
         try{
             notesList = new ArrayList<>();
             notesList.addAll(accessNotes.getNotes());
@@ -114,11 +111,5 @@ public class NotesActivity extends AppCompatActivity {
         Intent editNotesIntent = new Intent(NotesActivity.this, NotesEditActivity.class);
         editNotesIntent.putExtra("theNote", selected);
         NotesActivity.this.startActivity(editNotesIntent);
-    }
-
-    @Override
-    public void onBackPressed() {
-        Intent flashcardsReturnActivity = new Intent(NotesActivity.this, HomeActivity.class);
-        NotesActivity.this.startActivity(flashcardsReturnActivity);
     }
 }

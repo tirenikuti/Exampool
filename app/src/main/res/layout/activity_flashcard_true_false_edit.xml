@@ -12,6 +12,7 @@
     <include layout="@layout/invalid_add"/>
 
     <RelativeLayout
+        android:id="@+id/relativeLayout3"
         android:layout_width="match_parent"
         android:layout_height="625dp"
         android:background="#031E33"
@@ -53,7 +54,7 @@
             android:textAlignment="center"
             android:textColor="#EDE7E7"
             android:textColorHint="#5ED3D3D3"
-            android:textSize="30sp" />
+            android:textSize="25sp" />
 
         <Button
             android:id="@+id/button2"
@@ -81,26 +82,35 @@
             android:text="FALSE"
             android:textColor="#FFFEFE" />
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Save"
-                    android:id="@+id/buttonSaveTFQ"
-                    android:layout_alignParentRight="true"
-                    android:enabled="true"
-                    android:onClick="buttonSaveTFQOnClick"
-                    android:background="@drawable/custom_button"
-                    android:textColor="@color/white"/>
+    </RelativeLayout>
 
-                <Button
-                    android:id="@+id/buttonDeleteTFQ"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:enabled="true"
-                    android:onClick="buttonDeleteTFQOnClick"
-                    android:text="Delete"
-                    android:background="@drawable/custom_button"
-                    android:textColor="@color/white"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toBottomOf="@+id/relativeLayout3">
 
+        <Button
+            android:id="@+id/buttonNotesUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button"
+            android:enabled="true"
+            android:onClick="buttonDeleteOnClick"
+            android:text="Delete"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/buttonNotesDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/custom_button"
+            android:enabled="true"
+            android:onClick="buttonSaveOnClick"
+            android:text="Save"
+            android:textColor="@color/white" />
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
