@@ -43,24 +43,24 @@ public class AccessUsersIT {
     @Test
     public void testGetUsers(){
         final List<User> users = accessUsers.getUsers();
-        assertEquals(6, users.size());
+        assertEquals(4, users.size());
     }
 
     @Test
     public void testDeleteNote(){
         final User user = accessUsers.getSequential();
         List<User> users = accessUsers.getUsers();
-        assertEquals(6, users.size());
+        assertEquals(4, users.size());
         accessUsers.deleteUser(user);
         users = accessUsers.getUsers();
-        assertEquals(5, users.size());
+        assertEquals(3, users.size());
     }
 
     @Test
     public void testInsertUsers(){
-        final User user = new User("400", "Student", "Jerry Smitch");
+        final User user = new User("500", "Student", "Jerry Smitch");
         accessUsers.insertUser(user);
-        assertEquals(7, accessUsers.getUsers().size());
+        assertEquals(5, accessUsers.getUsers().size());
     }
 
     @Test
@@ -68,7 +68,7 @@ public class AccessUsersIT {
         final User user = accessUsers.getSequential();
         final User userUpdate = new User(user.getUserID(), "teacher", "Hank Smith");
         accessUsers.updateUser(userUpdate);
-        assertEquals(6, accessUsers.getUsers().size());
+        assertEquals(4, accessUsers.getUsers().size());
     }
 
     @After

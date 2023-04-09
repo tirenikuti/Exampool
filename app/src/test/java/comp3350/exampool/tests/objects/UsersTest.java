@@ -16,9 +16,9 @@ public class UsersTest {
 
         user = new User("100", "Teacher", "Harry Potter");
         assertNotNull(user);
-        assertTrue("2".equals(user.getUserID()));
-        assertTrue("HelloWorld".equals(user.getAccountType()));
-        assertTrue("HelloWorld".equals(user.getUserName()));
+        assertTrue("100".equals(user.getUserID()));
+        assertTrue("Teacher".equals(user.getAccountType()));
+        assertTrue("Harry Potter".equals(user.getUserName()));
 
         System.out.println("Finished Create Notes Test");
     }

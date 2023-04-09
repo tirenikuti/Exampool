@@ -129,10 +129,10 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
 
         try(final Connection c = connection()) {
             final Statement st = c.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM MULTIPLECHOICEQUESTION");
+            ResultSet rs = st.executeQuery("SELECT * FROM TRUEANDFALSEQUESTION");
             while(rs.next())
             {
-                final Flashcard flashcard = fromResultSetMultipleChoice(rs);
+                final Flashcard flashcard = fromResultSetTrueFalse(rs);
                 flashcards.add(flashcard);
             }
             rs.close();
@@ -151,10 +151,10 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
 
         try(final Connection c = connection()) {
             final Statement st = c.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM MULTIPLECHOICEQUESTION");
+            ResultSet rs = st.executeQuery("SELECT * FROM TYPEDQUESTION");
             while(rs.next())
             {
-                final Flashcard flashcard = fromResultSetMultipleChoice(rs);
+                final Flashcard flashcard = fromResultSetTyped(rs);
                 flashcards.add(flashcard);
             }
             rs.close();

@@ -68,9 +68,7 @@ public class MultipleChoiceQuestion extends Flashcard implements Parcelable {
     }
 
     public String getFlashcardID(){ return flashcardID;}
-
     public String getUserID(){return userID;}
-
     public String getAnswer(){
         return answer;
     }

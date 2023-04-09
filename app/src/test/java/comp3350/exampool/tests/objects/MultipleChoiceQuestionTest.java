@@ -8,12 +8,11 @@ import static org.junit.Assert.*;
 
 public class MultipleChoiceQuestionTest
 {
-    private MultipleChoiceQuestion flashcard;
     @Test
     public void CreateMCQTest(){
         System.out.println("\nStarting Create MCQ Flashcards Test");
 
-        flashcard = new MultipleChoiceQuestion("2", "100", "What is love?", "Baby don't love me", "Ow", "Oof", "Wow");
+        MultipleChoiceQuestion flashcard = new MultipleChoiceQuestion("2", "100", "What is love?", "Baby don't love me", "Ow", "Oof", "Wow");
         assertNotNull(flashcard);
         assertTrue("2".equals(flashcard.getFlashcardID()));
         assertTrue("100".equals(flashcard.getUserID()));
@@ -28,6 +27,7 @@ public class MultipleChoiceQuestionTest
 
     @Test
     public void getEditMCQ(){
+        MultipleChoiceQuestion flashcard = new MultipleChoiceQuestion("2", "100", "What is love?", "Baby don't love me", "Ow", "Oof", "Wow");
         System.out.println("\nStarting Editing MCQ Flashcards Test");
 
         flashcard.editFlashcard("Hey?", "Hello", "Hi", "Sup", "Noo");

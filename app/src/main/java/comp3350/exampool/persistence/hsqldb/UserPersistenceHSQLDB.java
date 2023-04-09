@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import comp3350.exampool.objects.Notes;
 import comp3350.exampool.objects.User;
 import comp3350.exampool.persistence.UserPersistence;
 
@@ -21,13 +22,13 @@ public class UserPersistenceHSQLDB implements UserPersistence {
     }
 
     private Connection connection() throws SQLException {
-        return DriverManager.getConnection("jdbc:hsqldb:file" + dbPath + "; shutdown=true", "User", "");
+        return DriverManager.getConnection("jdbc:hsqldb:file:" + dbPath + ";shutdown=true;hsqldb.lock_file=false", "SA", "");
     }
 
     private User fromResultSet(final ResultSet rs) throws SQLException {
         final String userID = rs.getString("userID");
         final String userName = rs.getString("name");
-        final String type = rs.getString("accountType");
+        final String type = rs.getString("type");
         
         return new User(userID, type, userName);
     }
@@ -37,7 +38,7 @@ public class UserPersistenceHSQLDB implements UserPersistence {
         final List<User> users = new ArrayList<>();
         try (final Connection c = connection()){
             final Statement st = c.createStatement();
-            final ResultSet rs = st.executeQuery("Select * from users");
+            final ResultSet rs = st.executeQuery("SELECT * FROM USERS");
             while (rs.next()) {
                 final User user = fromResultSet(rs);
                 users.add(user);
@@ -46,9 +47,11 @@ public class UserPersistenceHSQLDB implements UserPersistence {
             st.close();
 
             return users;
-        } catch (final SQLException e){
-            throw new android.database.SQLException();
+        } catch (final SQLException e) {
+            throw new PersistenceException(e);
         }
+//        users.add(new User("200", "teacher", "Harry"));
+//        return users;
     }
 
     @Override
@@ -68,29 +71,29 @@ public class UserPersistenceHSQLDB implements UserPersistence {
 
             return users;
         } catch (final SQLException e){
-            throw new android.database.SQLException();
+            throw new PersistenceException(e);
         }
     }
 
     @Override
     public User insertUser(User currentUser){
         try (final Connection c = connection()) {
-            final PreparedStatement st = c.prepareStatement("INSERT INTO users VALUES(?, ?, ?)");
+            final PreparedStatement st = c.prepareStatement("INSERT INTO USERS VALUES(?, ?, ?)");
             st.setString(1, currentUser.getUserID());
-            st.setString(2, currentUser.getAccountType());
-            st.setString(3, currentUser.getUserName());
+            st.setString(2, currentUser.getUserName());
+            st.setString(3, currentUser.getAccountType());
             st.executeUpdate();
 
             return currentUser;
         } catch (final SQLException e) {
-            throw new android.database.SQLException();
+            throw new PersistenceException(e);
         }
     }
 
     @Override
     public User updateUser(User currentUser) {
         try (final Connection c = connection()) {
-            final PreparedStatement st = c.prepareStatement("UPDATE users SET accountType = ?, userName = ? WHERE userID = ?)");
+            final PreparedStatement st = c.prepareStatement("UPDATE USERS SET type = ?, name = ? WHERE userID = ?");
             st.setString(1, currentUser.getAccountType());
             st.setString(2, currentUser.getUserName());
             st.setString(3, currentUser.getUserID());
@@ -98,27 +101,28 @@ public class UserPersistenceHSQLDB implements UserPersistence {
 
             return currentUser;
         } catch (final SQLException e) {
-            throw new android.database.SQLException();
+            throw new PersistenceException(e);
         }
     }
 
     @Override
     public void deleteUser(User currentUser) {
         try (final Connection c = connection()) {
-            final PreparedStatement sc = c.prepareStatement("DELETE FROM flashcards WHERE userID = ?");
-            sc.setString(1, currentUser.getUserID());
-            sc.executeUpdate();
-
-            final PreparedStatement st = c.prepareStatement("DELETE FROM notes WHERE userID = ?");
-            st.setString(1, currentUser.getUserID());
-            st.executeUpdate();
+//Since currently userID is not a constraint in the DATABASE, if the user gets deleted, their materials can stay
+//            final PreparedStatement sc = c.prepareStatement("DELETE FROM flashcards WHERE userID = ?");
+//            sc.setString(1, currentUser.getUserID());
+//            sc.executeUpdate();
+//
+//            final PreparedStatement st = c.prepareStatement("DELETE FROM notes WHERE userID = ?");
+//            st.setString(1, currentUser.getUserID());
+//            st.executeUpdate();
 
             final PreparedStatement sp = c.prepareStatement("DELETE FROM users WHERE userID = ?");
-            st.setString(1, currentUser.getUserID());
-            st.executeUpdate();
+            sp.setString(1, currentUser.getUserID());
+            sp.executeUpdate();
             
         } catch (final SQLException e) {
-            throw new android.database.SQLException();
+            throw new PersistenceException(e);
         }
 
     }

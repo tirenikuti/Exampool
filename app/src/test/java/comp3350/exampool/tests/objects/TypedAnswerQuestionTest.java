@@ -8,12 +8,11 @@ import org.junit.Test;
 import comp3350.exampool.objects.TypedAnswerQuestion;
 
 public class TypedAnswerQuestionTest {
-    private TypedAnswerQuestion flashcard;
     @Test
     public void CreateMCQTest(){
         System.out.println("\nStarting Create Typed Flashcards Test");
 
-        flashcard = new TypedAnswerQuestion("2", "100", "What is love?", "No");
+        TypedAnswerQuestion flashcard = new TypedAnswerQuestion("2", "100", "What is love?", "No");
         assertNotNull(flashcard);
         assertTrue("2".equals(flashcard.getFlashcardID()));
         assertTrue("100".equals(flashcard.getUserID()));
@@ -25,6 +24,7 @@ public class TypedAnswerQuestionTest {
 
     @Test
     public void getEditMCQ(){
+        TypedAnswerQuestion flashcard = new TypedAnswerQuestion("2", "100", "What is love?", "No");
         System.out.println("\nStarting Editing Typed Flashcards Test");
 
         flashcard.editFlashcard("Hey?", "Hello", "Hi", "Sup", "Noo");

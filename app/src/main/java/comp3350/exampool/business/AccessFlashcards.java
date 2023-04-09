@@ -143,7 +143,7 @@ public class AccessFlashcards {
         String result = null;
         if (flashcards == null)
         {
-            flashcards = flashcardPersistence.getMCQFlashcardsSequential();
+            flashcards = flashcardPersistence.getTFQFlashcardsSequential();
             currentFlashcard = 0;
         }
         if (currentFlashcard < flashcards.size())
@@ -163,7 +163,7 @@ public class AccessFlashcards {
         String result = null;
         if (flashcards == null)
         {
-            flashcards = flashcardPersistence.getMCQFlashcardsSequential();
+            flashcards = flashcardPersistence.getTypedFlashcardsSequential();
             currentFlashcard = 0;
         }
         if (currentFlashcard < flashcards.size())

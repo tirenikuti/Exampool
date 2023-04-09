@@ -27,7 +27,7 @@ import androidx.test.runner.AndroidJUnit4;
 
 public class NotesTest {
     @Rule
-public ActivityScenarioRule<NotesActivity> activityRule = new ActivityScenarioRule<>(NotesActivity.class);
+    public ActivityScenarioRule<NotesActivity> activityRule = new ActivityScenarioRule<>(NotesActivity.class);
 
     @Test
     public void createNote() {
