@@ -102,6 +102,72 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
     }
 
     @Override
+    public List<Flashcard> getMCQFlashcardsSequential(){
+        final List<Flashcard> flashcards = new ArrayList<>();
+
+        try(final Connection c = connection()) {
+            final Statement st = c.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM MULTIPLECHOICEQUESTION");
+            while(rs.next())
+            {
+                final Flashcard flashcard = fromResultSetMultipleChoice(rs);
+                flashcards.add(flashcard);
+            }
+            rs.close();
+            st.close();
+
+            return flashcards;
+        }
+        catch (final SQLException e){
+            throw new PersistenceException(e);
+        }
+    }
+
+    @Override
+    public List<Flashcard> getTFQFlashcardsSequential(){
+        final List<Flashcard> flashcards = new ArrayList<>();
+
+        try(final Connection c = connection()) {
+            final Statement st = c.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM MULTIPLECHOICEQUESTION");
+            while(rs.next())
+            {
+                final Flashcard flashcard = fromResultSetMultipleChoice(rs);
+                flashcards.add(flashcard);
+            }
+            rs.close();
+            st.close();
+
+            return flashcards;
+        }
+        catch (final SQLException e){
+            throw new PersistenceException(e);
+        }
+    }
+
+    @Override
+    public List<Flashcard> getTypedFlashcardsSequential(){
+        final List<Flashcard> flashcards = new ArrayList<>();
+
+        try(final Connection c = connection()) {
+            final Statement st = c.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM MULTIPLECHOICEQUESTION");
+            while(rs.next())
+            {
+                final Flashcard flashcard = fromResultSetMultipleChoice(rs);
+                flashcards.add(flashcard);
+            }
+            rs.close();
+            st.close();
+
+            return flashcards;
+        }
+        catch (final SQLException e){
+            throw new PersistenceException(e);
+        }
+    }
+
+    @Override
     public List<Flashcard> getFlashcard(String currentFlashcardID){
         final List<Flashcard> flashcards = new ArrayList<>();
 

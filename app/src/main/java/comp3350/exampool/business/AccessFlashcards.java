@@ -118,4 +118,65 @@ public class AccessFlashcards {
     {
         flashcardPersistence.deleteTypedFlashcard(currentFlashcard);
     }
+
+    public Flashcard getFirstMCQFlashcard() {
+        String result = null;
+        if (flashcards == null)
+        {
+            flashcards = flashcardPersistence.getMCQFlashcardsSequential();
+            currentFlashcard = 0;
+        }
+        if (currentFlashcard < flashcards.size())
+        {
+            flashcard = (Flashcard) flashcards.get(currentFlashcard);
+            currentFlashcard++;
+        }
+        else
+        {
+            flashcards = null;
+            flashcard = null;
+            currentFlashcard = 0;
+        }
+        return flashcard;
+    }
+    public Flashcard getFirstTFQFlashcard() {
+        String result = null;
+        if (flashcards == null)
+        {
+            flashcards = flashcardPersistence.getMCQFlashcardsSequential();
+            currentFlashcard = 0;
+        }
+        if (currentFlashcard < flashcards.size())
+        {
+            flashcard = (Flashcard) flashcards.get(currentFlashcard);
+            currentFlashcard++;
+        }
+        else
+        {
+            flashcards = null;
+            flashcard = null;
+            currentFlashcard = 0;
+        }
+        return flashcard;
+    }
+    public Flashcard getFirstTypedFlashcard() {
+        String result = null;
+        if (flashcards == null)
+        {
+            flashcards = flashcardPersistence.getMCQFlashcardsSequential();
+            currentFlashcard = 0;
+        }
+        if (currentFlashcard < flashcards.size())
+        {
+            flashcard = (Flashcard) flashcards.get(currentFlashcard);
+            currentFlashcard++;
+        }
+        else
+        {
+            flashcards = null;
+            flashcard = null;
+            currentFlashcard = 0;
+        }
+        return flashcard;
+    }
 }
