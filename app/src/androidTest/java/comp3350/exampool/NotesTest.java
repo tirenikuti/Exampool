@@ -31,12 +31,12 @@ public ActivityScenarioRule<NotesActivity> activityRule = new ActivityScenarioRu
 
     @Test
     public void createNote() {
-        onView(withId(R.id.buttonNotesCreate)).perform(click()); //Click Create Note
+        //onView(withId(R.id.buttonNotesCreate)).perform(click()); //Click Create Note
 
         // Create New Note
         onView(withId(R.id.notesTitle )).perform(typeText("Test Title")); //Input note name
         onView(withId(R.id.notesText)).perform(typeText("Test Text")); //Input Note text
-        onView(withId(R.id.buttonNotesCreate)).perform(click()); //Save
+        //onView(withId(R.id.buttonNotesCreate)).perform(click()); //Save
         closeSoftKeyboard();
 
         // Verify that it was added

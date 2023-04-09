@@ -23,6 +23,11 @@ public class AccessNotes
         currentNote = 0;
     }
 
+    public AccessNotes(final NotesPersistence notesPersistence){
+        this();
+        this.notesPersistence = notesPersistence;
+    }
+
     public List<Notes> getNotes()
     {
         notes = notesPersistence.getNotesSequential();
