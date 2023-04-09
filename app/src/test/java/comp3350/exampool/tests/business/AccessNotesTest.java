@@ -9,7 +9,6 @@ import java.util.List;
 import comp3350.exampool.business.AccessNotes;
 import comp3350.exampool.objects.Notes;
 import comp3350.exampool.persistence.NotesPersistence;
-import comp3350.exampool.tests.persistence.NotesPersistenceStub;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -31,7 +30,7 @@ public class AccessNotesTest {
     public void test(){
         final Notes note;
 
-        System.out.println("\nStarting test AccessCourses");
+        System.out.println("\nStarting test AccessNotes");
         final List<Notes> notes = new ArrayList<>();
         notes.add(new Notes("2","Short Story","100","Here is a funny sort of story"));
         when(notesPersistence.getNotesSequential()).thenReturn(notes);

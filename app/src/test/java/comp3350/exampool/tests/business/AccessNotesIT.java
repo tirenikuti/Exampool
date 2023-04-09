@@ -12,7 +12,7 @@ import comp3350.exampool.business.AccessNotes;
 import comp3350.exampool.objects.Notes;
 import comp3350.exampool.persistence.NotesPersistence;
 import comp3350.exampool.persistence.hsqldb.NotesPersistenceHSQLDB;
-import comp3350.exampool.utils.TestUtils;
+import comp3350.exampool.tests.utils.TestUtils;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -35,7 +35,7 @@ public class AccessNotesIT {
 
         note = accessNotes.getSequential();
         assertNotNull("first sequential note should not be null", note);
-        assertTrue("2".equals(note.getNote()));
+        assertTrue("2".equals(note.getNoteID()));
 
         System.out.println("Finished test AccessNotes");
     }
