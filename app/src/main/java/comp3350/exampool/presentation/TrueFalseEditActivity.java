@@ -22,6 +22,7 @@ public class TrueFalseEditActivity extends AppCompatActivity {
     private AccessFlashcards accessFlashcards;
     TrueFalseQuestion flashcard;
     String answer;
+
     /**
      * onCreate()
      * This is the initial creation of the  layout page to be displayed
