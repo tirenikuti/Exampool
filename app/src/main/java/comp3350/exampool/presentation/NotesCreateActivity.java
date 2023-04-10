@@ -71,12 +71,6 @@ public class NotesCreateActivity extends AppCompatActivity {
     public void userButtonOnClick(View v){
         Toast.makeText(NotesCreateActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
-
-    public void backButtonOnClick(View v){
-        Intent goBack = new Intent(NotesCreateActivity.this, HomeActivity.class);
-        NotesCreateActivity.this.startActivity(goBack);
-    }
-
     public void buttonNotesClearOnClick(View view) {
         TextView noteView = (TextView) findViewById(R.id.notesText);
         TextView noteViewTitle = (TextView) findViewById(R.id.notesTitleInput);

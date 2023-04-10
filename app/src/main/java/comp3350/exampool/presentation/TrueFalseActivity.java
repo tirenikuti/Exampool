@@ -90,11 +90,6 @@ public class TrueFalseActivity extends AppCompatActivity {
         Toast.makeText(TrueFalseActivity.this, "You clicked user", Toast.LENGTH_SHORT).show();
     }
 
-    public void backButtonOnClick(View v) {
-        Intent goBack = new Intent(TrueFalseActivity.this, FlashcardsActivity.class);
-        TrueFalseActivity.this.startActivity(goBack);
-    }
-
     @Override
     public void onBackPressed(){
         Intent goBack = new Intent(TrueFalseActivity.this, FlashcardsActivity.class);

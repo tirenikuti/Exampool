@@ -81,7 +81,8 @@ public class FlashcardsActivity extends AppCompatActivity {
         Toast.makeText(FlashcardsActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
 
-    public void backButtonOnClick(View v){
+    @Override
+    public void onBackPressed() {
         Intent goBack = new Intent(FlashcardsActivity.this, HomeActivity.class);
         FlashcardsActivity.this.startActivity(goBack);
     }

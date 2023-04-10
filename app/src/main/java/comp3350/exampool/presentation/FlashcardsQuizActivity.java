@@ -145,7 +145,8 @@ public class FlashcardsQuizActivity extends AppCompatActivity {
         Toast.makeText(FlashcardsQuizActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
 
-    public void backButtonOnClick(View v) {
+    @Override
+    public void onBackPressed() {
         Intent notesReturnIntent = new Intent(FlashcardsQuizActivity.this, FlashcardsActivity.class);
         FlashcardsQuizActivity.this.startActivity(notesReturnIntent);
     }

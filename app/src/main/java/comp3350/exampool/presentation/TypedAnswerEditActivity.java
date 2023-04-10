@@ -56,11 +56,6 @@ public class TypedAnswerEditActivity extends AppCompatActivity {
         Toast.makeText(TypedAnswerEditActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
 
-    public void backButtonOnClick(View v) {
-        Intent notesReturnIntent = new Intent(TypedAnswerEditActivity.this, FlashcardsActivity.class);
-        TypedAnswerEditActivity.this.startActivity(notesReturnIntent);
-    }
-
     @Override
     public void onBackPressed() {
         Intent flashcardsReturnActivity = new Intent(TypedAnswerEditActivity.this, FlashcardsActivity.class);
