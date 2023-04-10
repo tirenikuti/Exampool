@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/include2"
-        layout="@layout/invalid_add" />
+        layout="@layout/back_cancel" />
 
 
     <RelativeLayout
