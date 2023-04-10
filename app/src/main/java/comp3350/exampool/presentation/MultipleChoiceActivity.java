@@ -91,8 +91,8 @@ public class MultipleChoiceActivity extends AppCompatActivity {
     /**
      * validateFlashcard()
      * Helper function to ensure appropriate fields of Flashcard edit have been filled
-     * * @param flashcard this is the flashcard to be validated
-     * * @return validateFlashcard Type: String
+     * @param flashcard this is the flashcard to be validated
+     * @return validateFlashcard Type: String
      */
     private String validateFlashcard(MultipleChoiceQuestion flashcard){
         if(flashcard.getQuestion().length() == 0){
@@ -112,7 +112,7 @@ public class MultipleChoiceActivity extends AppCompatActivity {
     /**
      * generateFlashcardID()
      * This generates a new ID for the created flashcard
-     * * @return generateFlashcardID Type: String
+     * @return generateFlashcardID Type: String
      */
     private String generateFlashcardID(){
         String newID = ""+(int)(Math.random() * 100 + 1);

@@ -22,6 +22,11 @@ import java.io.InputStreamReader;
 
 public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
 
+    /**
+     * onCreate()
+     * This is the initial creation of the  layout page to be displayed
+     * @param savedInstanceState default value
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +34,18 @@ public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         copyDatabaseToDevice();
     }
 
+    /**
+     * onDestroy()
+     * This is a deconstructor for the activity classes
+     */
     @Override
     protected void onDestroy(){ super.onDestroy(); }
 
+    /**
+     * showPopup()
+     * This creates a popup menu when the + button is clicked
+     * @param v default value
+     */
     public void showPopup(View v){
         PopupMenu popup = new PopupMenu(this, v);
         popup.setOnMenuItemClickListener(this);
@@ -39,6 +53,12 @@ public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         popup.show();
     }
 
+    /**
+     * onMenuItemClick()
+     * This allows action to be implemented on the popup menu items
+     * @param item default value
+     * @return generateFlashcardID Type: boolean
+     */
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()){
@@ -54,29 +74,55 @@ public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         return false;
     }
 
+    /**
+     * onCreateOptionsMenu()
+     * Contains the menu inflater
+     * @param menu default value
+     * @return generateFlashcardID Type: boolean
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_home, menu);
         return true;
     }
 
+    /**
+     * onOptionsItemSelected()
+     * This handles action bar item clicks
+     * @param item default value
+     * @return generateFlashcardID Type: boolean
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
     }
+
+    /**
+     * userButtonOnClick()
+     * This implements the user button which just displays a message as the user button was never used
+     * @param v default value
+     */
     public void userButtonOnClick(View v){
         Toast.makeText(HomeActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
+
+    /**
+     * buttonFlashcardsOnClick()
+     * This open the page displaying already created flashcards
+     * @param v default value
+     */
     public void buttonFlashcardsOnClick(View v) {
         Intent flashcardsIntent = new Intent(HomeActivity.this, FlashcardsActivity.class);
         HomeActivity.this.startActivity(flashcardsIntent);
     }
 
+    /**
+     * buttonNotesOnClick()
+     * This open the page displaying already created notes
+     * @param v default value
+     */
     public void buttonNotesOnClick(View v) {
         Intent notesIntent = new Intent(HomeActivity.this, NotesActivity.class);
         HomeActivity.this.startActivity(notesIntent);
@@ -105,6 +151,7 @@ public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         }
     }
 
+    //
     private void copyAssetsToDirectory(String[] assets, File directory) throws IOException{
         AssetManager assetManager=getAssets();
 
