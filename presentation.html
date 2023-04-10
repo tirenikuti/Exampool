@@ -84,7 +84,53 @@
 
     <section id="postmortem">
       <h1>Postmortem</h1>
-      <p>This is the postmortem section.</p>
+      <h4>What went right in the development process?</h4>
+      <p>The major functionality was implemented as well as the database. The app runs with no major issues and does what it says it will do: provide a method for students to keep notes and iterate through flashcards without the need to carry them around with them.
+      </p>
+
+      <h4>What went wrong in the development process?</h4>
+      <p>The user functionality was unable to be processed: The persistence and logic layers exist to execute it but it is not implemented in the presentation layer which is very disappointing.
+      </p>
+      <p>Additionally, some features had to be removed entirely from the application such as tags: originally, the user would have been able to tag a note or a flashcard according to a subject or so and they should have been able to filter through all their content by applying the tags.
+      </p>
+
+      <h4>What would you do differently if you had the chance to start over?</h4>
+      <p>We would implement the architecture from the get-go: separate folders for the different layers. It is much simpler to have one layer do one thing and do it well rather than all classes doing everything. 
+      </p>
+      <p>We would also have prioritized tasks differently. Things that needed to be implemented first, such as key features such as connecting the actual database would take a higher priority as compared to search through all flashcards. 
+      </p>
+
+      <h4>How large is the project (number of methods, classes, etc.)? How much of this is (roughly) devoted to each major system component? And any other quantifiable measures.</h4>
+      <p>The major components are notes and flashcards.</p>
+      <p>The number of classes in the project in total are: 30 (including presentation) </p>
+      <p>The number of classes dedicated to notes are: 6 </p>
+      <p>The number of classes dedicated to flashcards are: 16 </p>
+      <p>The rest of the classes (8) are dedicated to assisting the major components and to part of users. </p>
+      <p>This means that the rough percentage of classes dedicated to the major components is: 73.33% </p>
+
+      <h4>What took the most time? The least? Any surprises?</h4>
+      <p>The basic functionalities took the most time to implement. Additionally actually connecting the database rather than using dummy object to the presentation layer took longer than expected. 
+      </p>
+      <p>The lease amount of time was taken by the logic layer work for the notes object implementation.
+      </p>
+
+      <h4>Are there any particular design smells, or brilliant design decisions?</h4>
+      <p>The best design idea was to have the implementation of the flipping flashcard to make the app seem more intuitive and close to reality. 
+      </p>
+      <h4>Are there any outstanding bugs?</h4>
+      <p>The DB sometimes gets caches making it difficult to access notes or flashcards from their respective home pages. This requires the user to remove the app from its recent apps on their phone and then reopen the app.</p>
+      <h4>Did any features work better than expected?</h4>
+      <p>No</p>
+      <h4>Are you using any technologies other than what was required?</h4>
+      <p>No</p>
+      <h4>Are you using any specific techniques covered in the course (TDD, pair programming, scrums, etc.)?</h4>
+      <p>The</p>
+      <h4>How did the project change from your initial (iteration 0) vision or stories, or did it work out as predicted?</h4>
+      <p>The</p>
+      <h4>What did you learn about team or large project development? What will you start doing, keep doing, or stop doing next time?</h4>
+      <p>The</p>
+      <h4>Can you draw any conclusions from what you’ve done?</h4>
+      <p>The</p>
     </section>
 
   </main>
