@@ -97,6 +97,10 @@ public class Notes implements Parcelable {
         return userID;
     }
 
+    /**
+     * Getter for the Title of the Note
+     * @return noteTitle Type String
+     */
     public String getNoteTitle() {
         return noteTitle;
     }

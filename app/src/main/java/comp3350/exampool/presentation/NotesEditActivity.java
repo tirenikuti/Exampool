@@ -6,9 +6,13 @@ import comp3350.exampool.business.AccessNotes;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +22,12 @@ public class NotesEditActivity extends AppCompatActivity {
     private AccessNotes accessNotes;
 
     private Notes note;
+
+    /**
+     * initializes the activity with all of the stored content for the selected note for the user
+     * to view and/or make changes to
+     * @param savedInstanceState (default android param)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         accessNotes = new AccessNotes();
@@ -49,14 +59,29 @@ public class NotesEditActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * saves the current Note overwriting the contents with the new contents of the Note the User changed
+     * also verifies that the user Still has a Title otherwise gives them a Warning
+     * @param view (default android param)
+     */
     public void buttonSaveOnClick(View view) {
         TextView noteView = (TextView) findViewById(R.id.notesText);
         TextView noteViewTitle = (TextView) findViewById(R.id.notesTitle);
-        note.editNote(noteView.getEditableText().toString(), noteViewTitle.getEditableText().toString());
-        accessNotes.updateNote(note);
-        onBackPressed();
+
+        if(noteViewTitle.getEditableText().toString().trim().equals("")){
+            Messages.warning(this, "Please Input a new Title");
+        }
+        else {
+            note.editNote(noteView.getEditableText().toString(), noteViewTitle.getEditableText().toString().trim());
+            accessNotes.updateNote(note);
+            onBackPressed();
+        }
     }
 
+    /**
+     * deletes the current note from the database and returns to the Notes homepage
+     * @param view (default android param)
+     */
     public void buttonDeleteOnClick(View view) {
         accessNotes.deleteNote(note);
         onBackPressed();
