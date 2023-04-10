@@ -89,8 +89,9 @@ public class NotesActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent goBack = new Intent(NotesActivity.this, HomeActivity.class);
-        NotesActivity.this.startActivity(goBack);
+//        Intent goBack = new Intent(NotesActivity.this, HomeActivity.class);
+//        NotesActivity.this.startActivity(goBack);
+        finish();
     }
 
     public void CreateOnClick(View v) {
