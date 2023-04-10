@@ -32,8 +32,7 @@ public class AccessFlashcards {
      * constructor for the UI
      * @param flashcardPersistence - the persistence
      */
-    public AccessFlashcards(final FlashcardPersistence flashcardPersistence)
-    {
+    public AccessFlashcards(final FlashcardPersistence flashcardPersistence) {
         this();
         this.flashcardPersistence = flashcardPersistence;
     }
