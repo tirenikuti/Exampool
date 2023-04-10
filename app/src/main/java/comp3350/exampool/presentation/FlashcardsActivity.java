@@ -93,8 +93,7 @@ public class FlashcardsActivity extends AppCompatActivity {
      * @param v default value
      */
     public void homeButtonOnClick(View v){
-        Intent goBack = new Intent(FlashcardsActivity.this, HomeActivity.class);
-        FlashcardsActivity.this.startActivity(goBack);
+        finish();
     }
 
     /**
