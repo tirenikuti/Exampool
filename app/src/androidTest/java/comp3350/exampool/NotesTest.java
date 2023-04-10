@@ -10,6 +10,8 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
+import static junit.framework.TestCase.assertNull;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -27,9 +29,12 @@ import comp3350.exampool.presentation.NotesCreateActivity;
 import static org.hamcrest.CoreMatchers.anything;
 import static org.junit.Assert.assertEquals;
 
+import android.content.Context;
+
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.filters.LargeTest;
+import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.runner.AndroidJUnit4;
 
 
@@ -40,11 +45,17 @@ import androidx.test.runner.AndroidJUnit4;
 public class NotesTest {
     @Rule
     public ActivityScenarioRule<NotesActivity> activityRule = new ActivityScenarioRule<>(NotesActivity.class);
-
+    @Test
+    public void useAppContext() {
+        // Context of the app under test.
+        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        assertEquals("comp3350.exampool", appContext.getPackageName());
+    }
 
 
     @Test
     public void createNote() {
+        useAppContext();
         ActivityScenario<NotesActivity> scenario = activityRule.getScenario();
         onView(withId(R.id.buttonCreateNotes)).perform(click()); //Click Create Note
         System.out.println("Adding a Note");
@@ -62,6 +73,7 @@ public class NotesTest {
     }
     @Test
     public void deleteNote(){
+        useAppContext();
         ActivityScenario<NotesActivity> scenario = activityRule.getScenario();
         createNote(); //Add a note
         pressBack();
@@ -78,13 +90,14 @@ public class NotesTest {
 
         //Verify Delete
         System.out.println("Verifying Note was deleted");
-        assertEquals(onData(withText("Test Title")).inAdapterView(withId(R.id.listNotes)),null);
+        assertNull(onData(withText("Test Title")).inAdapterView(withId(R.id.listNotes)));
         System.out.println("Note was deleted");
 
     }
 
     @Test
     public void updateNote(){
+        useAppContext();
         ActivityScenario<NotesActivity> scenario = activityRule.getScenario();
         createNote(); //Add a note
         pressBack();

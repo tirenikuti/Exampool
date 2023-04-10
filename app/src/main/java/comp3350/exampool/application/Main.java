@@ -12,6 +12,10 @@ public class Main
     System.out.println("Done");
   }
 
+  /**
+   * Setting up Database
+   * @param name database path name
+   */
   public static void setDBPathName(final String name)
   {
     try {
@@ -26,6 +30,10 @@ public class Main
     dbName = name;
   }
 
+  /**
+   * Getter
+   * @return path name
+   */
   public static String getDBPathName() {
     return dbName; 
   }
