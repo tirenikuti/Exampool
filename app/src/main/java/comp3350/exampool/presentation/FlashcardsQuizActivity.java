@@ -82,6 +82,25 @@ public class FlashcardsQuizActivity extends AppCompatActivity {
         });
 
     }
+
+
+    public void flip(Boolean flipToFront){
+        TextView front = findViewById(R.id.typed_question);
+        TextView back = findViewById(R.id.revealed_answer);
+            if(flipToFront) {
+                front_animation.setTarget(front);
+                back_animation.setTarget(back);
+                front_animation.start();
+                back_animation.start();
+                isFront = false;
+            } else {
+                front_animation.setTarget(back);
+                back_animation.setTarget(front);
+                back_animation.start();
+                front_animation.start();
+                isFront = true;
+            }
+        }
     public void resetAllFlashcards(){
         for(int i = 0; i < flashcardList.size(); i++){
             Flashcard flashcard = flashcardList.get(i);
@@ -104,6 +123,7 @@ public class FlashcardsQuizActivity extends AppCompatActivity {
         Flashcard flashcard = flashcardList.get(position);
         String submission = answerEdit.getText().toString();
         scored(flashcard, submission);
+        flip(isFront);
         if(position < flashcardList.size() - 1){
             position++;
             flashcard = flashcardList.get(position);
@@ -112,7 +132,7 @@ public class FlashcardsQuizActivity extends AppCompatActivity {
             TextView answerView = (TextView) findViewById(R.id.revealed_answer);
 
             questionView.setText(flashcard.getQuestion() + flashcard.getOptions());
-            answerView.setText(flashcard.getAnswer());
+
             answer.setText("");
             Button submitButton = findViewById(R.id.submitButton);
             submitButton.setEnabled(true);

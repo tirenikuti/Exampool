@@ -50,7 +50,7 @@ public class TrueFalseActivity extends AppCompatActivity {
     }
 
     public void onFalseClick(View v){
-        answer = "false";
+        answer = "False";
     }
 
     private TrueFalseQuestion createFlashcardFromEditText(){
