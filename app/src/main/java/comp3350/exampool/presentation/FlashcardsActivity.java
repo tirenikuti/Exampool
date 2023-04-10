@@ -21,6 +21,13 @@ import comp3350.exampool.objects.Flashcard;
 import comp3350.exampool.objects.MultipleChoiceQuestion;
 import comp3350.exampool.objects.TrueFalseQuestion;
 
+/**
+ * Summary: The presentation layer containing the Flashcard view home
+ * Description: This controls the layout file that displays the flashcard view home
+ * containing the list of flash cards in our database. On clicking a flashcard, you
+ * gain the ability to edit the flashcard
+ */
+
 public class FlashcardsActivity extends AppCompatActivity {
 
     private AccessFlashcards accessFlashcards;
@@ -28,16 +35,23 @@ public class FlashcardsActivity extends AppCompatActivity {
     private ArrayAdapter<Flashcard> flashcardArrayAdapter;
     private int selectedFlashcardPosition = -1;
 
+    /**
+     * onCreate()
+     * This is the initial creation of the  layout page to be displayed
+     * @param savedInstanceState default value
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcardhome);
         accessFlashcards = new AccessFlashcards();
 
+        //this block retrieves the Flashcards currently stored in our database
         try{
             flashcardList = new ArrayList<>();
             flashcardList.addAll(accessFlashcards.getFlashcards());
 
+            //the listview adapter showing all the flashcards in our database
             flashcardArrayAdapter = new ArrayAdapter<Flashcard>(this, android.R.layout.simple_list_item_activated_2, android.R.id.text1, flashcardList){
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
@@ -72,31 +86,63 @@ public class FlashcardsActivity extends AppCompatActivity {
         }
     }
 
+
+    /**
+     * homeButtonOnClick()
+     * This implements the home button returning the user to the homepage
+     * @param v default value
+     */
     public void homeButtonOnClick(View v){
         Intent goBack = new Intent(FlashcardsActivity.this, HomeActivity.class);
         FlashcardsActivity.this.startActivity(goBack);
     }
 
+    /**
+     * userButtonOnClick()
+     * This implements the user button which just displays a message as the
+     * user feature was never implemented
+     * @param v default value
+     */
     public void userButtonOnClick(View v){
         Toast.makeText(FlashcardsActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * onBackPressed()
+     * super defined function for returning tot he previously opened page
+     */
     @Override
     public void onBackPressed() {
         Intent goBack = new Intent(FlashcardsActivity.this, HomeActivity.class);
         FlashcardsActivity.this.startActivity(goBack);
     }
 
+    /**
+     * buttonFlashcardQuizOnClick()
+     * This is the intial creation of the  layout page to be displayed
+     * @param v default value
+     */
+
     public void buttonFlashcardQuizOnClick(View v){
         Intent quizIntent = new Intent(FlashcardsActivity.this, FlashcardsQuizActivity.class);
         FlashcardsActivity.this.startActivity(quizIntent);
     }
 
+    /**
+     * CreateOnClick()
+     * This is the intial creation of the  layout page to be displayed
+     * @param v default value
+     */
     public void CreateOnClick(View v){
         Intent createIntent = new Intent(FlashcardsActivity.this, FlashcardsCreatePromptActivity.class);
         FlashcardsActivity.this.startActivity(createIntent);
     }
 
+    /**
+     * selectedFlashcardAtPosition()
+     * This returns the falshcad from the database at the specified position
+     * @param  position the position in the database that the flashacrd resides
+     */
     private void selectedFlashcardAtPosition(int position) {
         Flashcard selected = flashcardArrayAdapter.getItem(position);
         if (selected instanceof MultipleChoiceQuestion) {

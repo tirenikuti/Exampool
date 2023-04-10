@@ -43,6 +43,10 @@ public class Notes implements Parcelable {
         content = text;
     }
 
+    /**
+     * Parcel constructor
+     * @param in parcel to be written to
+     */
     protected Notes(Parcel in) {
         noteID = in.readString();
         noteTitle = in.readString();
@@ -50,6 +54,9 @@ public class Notes implements Parcelable {
         content = in.readString();
     }
 
+    /**
+     * create method to make parcel
+     */
     public static final Creator<Notes> CREATOR = new Creator<Notes>() {
         @Override
         public Notes createFromParcel(Parcel in) {
@@ -105,11 +112,20 @@ public class Notes implements Parcelable {
         return noteTitle;
     }
 
+    /**
+     * Default method for parcel
+     * @return 0
+     */
     @Override
     public int describeContents() {
         return 0;
     }
 
+    /**
+     * Method to write to parcel
+     * @param parcel parcel being written to
+     * @param i boolean value of answered
+     */
     @Override
     public void writeToParcel(@NonNull Parcel parcel, int i) {
         parcel.writeString(noteID);

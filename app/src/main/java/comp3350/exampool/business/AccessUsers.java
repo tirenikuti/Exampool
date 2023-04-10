@@ -17,6 +17,7 @@ public class AccessUsers {
 
     /**
      * Blank constructor for AccessUsers
+     * initializes the persistence through services
      */
     public AccessUsers()
     {
@@ -46,8 +47,8 @@ public class AccessUsers {
     }
 
     /**
-     *
-     * @return
+     * Method to get the first user in the database
+     * @return the first user
      */
     public User getSequential()
     {
@@ -69,6 +70,11 @@ public class AccessUsers {
         return user;
     }
 
+    /**
+     * Method to get a user from the database based on the userID
+     * @param userID userId of user needed
+     * @return user with id UserID
+     */
     public User getRandom(String userID)
     {
         user = null;
@@ -87,16 +93,30 @@ public class AccessUsers {
         return user;
     }
 
+    /**
+     * Method to insert a new user into the persistence-database
+     * @param currentUser user to be entered
+     * @return user entered if it was successful
+     */
     public User insertUser(User currentUser)
     {
         return userPersistence.insertUser(currentUser);
     }
 
+    /**
+     * Method to update a user in the persistence layer
+     * @param currentUser user to be updated
+     * @return user updated if successful
+     */
     public User updateUser(User currentUser)
     {
         return userPersistence.updateUser(currentUser);
     }
 
+    /**
+     * Method to delete a user from the database
+     * @param currentUser user to be deleted
+     */
     public void deleteUser(User currentUser)
     {
         userPersistence.deleteUser(currentUser);

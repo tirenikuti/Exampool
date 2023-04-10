@@ -1,7 +1,7 @@
 package comp3350.exampool.presentation;
 
 import comp3350.exampool.R;
-import comp3350.exampool.application.Main;
+import comp3350.exampool.application.Services;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,8 +20,19 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Summary: The presentation layer containing the home page
+ * Description: This controls the layout file that displays the home page.
+ * Two options to view flashcards or notes appear also with a + simple
+ * at the bottom to create a new flashcard or note.
+ */
 public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
 
+    /**
+     * onCreate()
+     * This is the initial creation of the  layout page to be displayed
+     * @param savedInstanceState default value
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +40,18 @@ public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         copyDatabaseToDevice();
     }
 
+    /**
+     * onDestroy()
+     * This is a deconstructor for the activity classes
+     */
     @Override
     protected void onDestroy(){ super.onDestroy(); }
 
+    /**
+     * showPopup()
+     * This creates a popup menu when the + button is clicked
+     * @param v default value
+     */
     public void showPopup(View v){
         PopupMenu popup = new PopupMenu(this, v);
         popup.setOnMenuItemClickListener(this);
@@ -39,6 +59,12 @@ public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         popup.show();
     }
 
+    /**
+     * onMenuItemClick()
+     * This allows action to be implemented on the popup menu items
+     * @param item default value
+     * @return generateFlashcardID Type: boolean
+     */
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         switch (item.getItemId()){
@@ -54,34 +80,64 @@ public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         return false;
     }
 
+    /**
+     * onCreateOptionsMenu()
+     * Contains the menu inflater
+     * @param menu default value
+     * @return generateFlashcardID Type: boolean
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_home, menu);
         return true;
     }
 
+    /**
+     * onOptionsItemSelected()
+     * This handles action bar item clicks
+     * @param item default value
+     * @return generateFlashcardID Type: boolean
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         return super.onOptionsItemSelected(item);
     }
+
+    /**
+     * userButtonOnClick()
+     * This implements the user button which just displays a message as the user button was never used
+     * @param v default value
+     */
     public void userButtonOnClick(View v){
         Toast.makeText(HomeActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
+
+    /**
+     * buttonFlashcardsOnClick()
+     * This open the page displaying already created flashcards
+     * @param v default value
+     */
     public void buttonFlashcardsOnClick(View v) {
         Intent flashcardsIntent = new Intent(HomeActivity.this, FlashcardsActivity.class);
         HomeActivity.this.startActivity(flashcardsIntent);
     }
 
+    /**
+     * buttonNotesOnClick()
+     * This open the page displaying already created notes
+     * @param v default value
+     */
     public void buttonNotesOnClick(View v) {
         Intent notesIntent = new Intent(HomeActivity.this, NotesActivity.class);
         HomeActivity.this.startActivity(notesIntent);
     }
 
+    /**
+     * copyDatabaseToDevice()
+     * This copies the contents of the database to the file
+     */
     private void copyDatabaseToDevice(){
         final String DB_PATH = "db";
 
@@ -98,13 +154,19 @@ public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
             copyAssetsToDirectory(assetNames, dataDirectory);
 
-            Main.setDBPathName(dataDirectory.toString() + "/" + Main.getDBPathName());
+            Services.setDBPathName(dataDirectory.toString() + "/" + Services.getDBPathName());
 
         } catch(final IOException ioe){
             Messages.warning(this, "Unable to access application data: " + ioe.getMessage());
         }
     }
 
+    /**
+     * copyAssetsToDirectory()
+     * This gets and copies the database to the directory in our device
+     * @param assets the assets to be copied
+     * @param directory the directory to copied into
+     */
     private void copyAssetsToDirectory(String[] assets, File directory) throws IOException{
         AssetManager assetManager=getAssets();
 
