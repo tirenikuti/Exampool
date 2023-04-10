@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +26,11 @@ public class NotesActivity extends AppCompatActivity {
     private ArrayAdapter<Notes> notesArrayAdapter;
     private int selectedNotesPosition = -1;
 
+    /**
+     * Initial setup of the activity which loads in all stored Notes objects in the database and lists
+     * them out for the user to interact with
+     * @param savedInstanceState (default android param)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,7 +86,6 @@ public class NotesActivity extends AppCompatActivity {
     public void userButtonOnClick(View v){
         Toast.makeText(NotesActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
-
 
     @Override
     public void onBackPressed() {
