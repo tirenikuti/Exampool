@@ -1,3 +1,4 @@
+//Used to create and execute queries regarding creation, deletion and editing of flashcards in the Database
 package comp3350.exampool.persistence.hsqldb;
 
 import java.sql.Connection;
@@ -18,18 +19,31 @@ import comp3350.exampool.objects.User;
 import comp3350.exampool.persistence.FlashcardPersistence;
 
 public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
-
     private final String dbPath;
 
+    /**
+     * Constructor for the class
+     * @param dbPath path to Database
+     */
     public FlashcardPersistenceHSQLDB(final String dbPath) {
         this.dbPath = dbPath;
     }
 
+    /**
+     * Method to establish connection to the databse
+     * @return the connection
+     * @throws SQLException if the connection was unsuccessful
+     */
     private Connection connection() throws SQLException {
-        System.out.println(dbPath);
         return DriverManager.getConnection("jdbc:hsqldb:file:" + dbPath + ";shutdown=true;hsqldb.lock_file=false", "SA", "");
     }
 
+    /**
+     * Method to create multiple choice from a result set from a query in SQL
+     * @param rs result set
+     * @return flashcard from database
+     * @throws SQLException if creation from database was unsuccessful
+     */
     private Flashcard fromResultSetMultipleChoice(final ResultSet rs) throws SQLException {
         final String flashcardID = rs.getString("flashcardID");
         final String userID = rs.getString("userID");
@@ -45,6 +59,12 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         return flashcard;
     }
 
+    /**
+     * Method to create true or false question from a result set from a query in SQL
+     * @param rs result set
+     * @return flashcard from database
+     * @throws SQLException if creation from database was unsuccessful
+     */
     private Flashcard fromResultSetTrueFalse(final ResultSet rs) throws SQLException {
         final String flashcardID = rs.getString("flashcardID");
         final String userID = rs.getString("userID");
@@ -56,6 +76,12 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         return flashcard;
     }
 
+    /**
+     * Method to create typed question from a result set from a query in SQL
+     * @param rs result set
+     * @return flashcard from database
+     * @throws SQLException if creation from database was unsuccessful
+     */
     private Flashcard fromResultSetTyped(final ResultSet rs) throws SQLException {
         final String flashcardID = rs.getString("flashcardID");
         final String userID = rs.getString("userID");
@@ -67,6 +93,10 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
          return flashcard;
     }
 
+    /**
+     * Gets all the flashcards in the database
+     * @return list of flashcards
+     */
     @Override
     public List<Flashcard> getFlashcardsSequential(){
         final List<Flashcard> flashcards = new ArrayList<>();
@@ -101,6 +131,10 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         }
     }
 
+    /**
+     * Gets all the multiple choice questions in the database
+     * @return list of all multiple choice questions
+     */
     @Override
     public List<Flashcard> getMCQFlashcardsSequential(){
         final List<Flashcard> flashcards = new ArrayList<>();
@@ -123,6 +157,10 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         }
     }
 
+    /**
+     * Gets all the true or false questions in the database
+     * @return list of all true and false questions
+     */
     @Override
     public List<Flashcard> getTFQFlashcardsSequential(){
         final List<Flashcard> flashcards = new ArrayList<>();
@@ -145,6 +183,10 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         }
     }
 
+    /**
+     * Gets all the typed questions in the database
+     * @return list of all typed questions
+     */
     @Override
     public List<Flashcard> getTypedFlashcardsSequential(){
         final List<Flashcard> flashcards = new ArrayList<>();
@@ -167,6 +209,12 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         }
     }
 
+
+    /**
+     * Gets a specific flashcard from the database
+     * @param currentFlashcardID flashcard needed from DB
+     * @return flashcard if it exists
+     */
     @Override
     public List<Flashcard> getFlashcard(String currentFlashcardID){
         final List<Flashcard> flashcards = new ArrayList<>();
@@ -207,6 +255,11 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         }
     }
 
+    /**
+     * Gets a list of all flashcards of a specific user
+     * @param currentUser user whose flashcards are being accessed
+     * @return list of flashcards
+     */
     @Override
     public List<Flashcard> getFlashcardOfUser(User currentUser) {
         final List<Flashcard> flashcards = new ArrayList<>();
@@ -226,6 +279,11 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         }
     }
 
+    /**
+     * Method to insert a new MCQ flashcard to the database
+     * @param currentFlashcard flashcard to be inserted
+     * @return flashcard if it is inserted successfully
+     */
     public Flashcard insertMultipleChoiceFlashcard(MultipleChoiceQuestion currentFlashcard)
     {
         try (final Connection c = connection()) {
@@ -247,6 +305,11 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         }
     }
 
+    /**
+     * Method to insert a new TFQ flashcard to the database
+     * @param currentFlashcard flashcard to be inserted
+     * @return flashcard if it is inserted successfully
+     */
     @Override
     public Flashcard insertTrueFalseFlashcard(TrueFalseQuestion currentFlashcard){
         try (final Connection c = connection()) {
@@ -264,6 +327,11 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         }
     }
 
+    /**
+     * Method to insert a new Typed Answer flashcard to the database
+     * @param currentFlashcard flashcard to be inserted
+     * @return flashcard if it is inserted successfully
+     */
     @Override
     public Flashcard insertTypedFlashcard(TypedAnswerQuestion currentFlashcard){
         try (final Connection c = connection()) {
@@ -281,6 +349,10 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         }
     }
 
+    /**
+     * Method to delete a MCQ flashcard from the database
+     * @param currentFlashcard flashcard to be deleted
+     */
     @Override
     public void deleteMCQFlashcard(Flashcard currentFlashcard){
         try(final Connection c = connection()) {
@@ -293,6 +365,10 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         }
     }
 
+    /**
+     * Method to delete a TFQ flashcard from the database
+     * @param currentFlashcard flashcard to be deleted
+     */
     @Override
     public void deleteTFQFlashcard(Flashcard currentFlashcard){
         try(final Connection c = connection()) {
@@ -305,6 +381,10 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         }
     }
 
+    /**
+     * Method to delete a Typed Answer flashcard from the database
+     * @param currentFlashcard flashcard to be deleted
+     */
     @Override
     public void deleteTypedFlashcard(Flashcard currentFlashcard){
         try(final Connection c = connection()) {
@@ -317,6 +397,11 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         }
     }
 
+    /**
+     * Method to update a MCQ flashcard in the database
+     * @param currentFlashcard flashcard to be updated
+     * @return flashcard if it is updated successfully
+     */
     @Override
     public Flashcard updateMCQFlashcard(MultipleChoiceQuestion currentFlashcard){
         try(final Connection c = connection()) {
@@ -336,6 +421,11 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         }
     }
 
+    /**
+     * Method to update a TFQ flashcard in the database
+     * @param currentFlashcard flashcard to be updated
+     * @return flashcard if it is updated successfully
+     */
     @Override
     public Flashcard updateTFQFlashcard(TrueFalseQuestion currentFlashcard){
         try(final Connection c = connection()) {
@@ -352,6 +442,11 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         }
     }
 
+    /**
+     * Method to update a Typed flashcard in the database
+     * @param currentFlashcard flashcard to be updated
+     * @return flashcard if it is updated successfully
+     */
     @Override
     public Flashcard updateTypedFlashcard(TypedAnswerQuestion currentFlashcard){
         try(final Connection c = connection()) {

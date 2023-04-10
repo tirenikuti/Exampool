@@ -1,3 +1,4 @@
+//Used to create and execute queries regarding creation, deletion and editing of notes in the Database
 package comp3350.exampool.persistence.hsqldb;
 
 import java.sql.Connection;
@@ -17,15 +18,30 @@ import comp3350.exampool.persistence.NotesPersistence;
 public class NotesPersistenceHSQLDB implements NotesPersistence {
 
     private final String dbPath;
-    
+
+    /**
+     * Constructor for the class
+     * @param dbPath path to Database
+     */
     public NotesPersistenceHSQLDB(final String dbPath) {
         this.dbPath = dbPath;
     }
 
+    /**
+     * Method to establish connection to the databse
+     * @return the connection
+     * @throws SQLException if the connection was unsuccessful
+     */
     private Connection connection() throws SQLException {
         return DriverManager.getConnection("jdbc:hsqldb:file:" + dbPath + ";shutdown=true;hsqldb.lock_file=false", "SA", "");
     }
 
+    /**
+     * Method to create note from a result set from a query in SQL
+     * @param rs result set
+     * @return note from database
+     * @throws SQLException if creation from database was unsuccessful
+     */
     private Notes fromResultSet(final ResultSet rs) throws SQLException {
         final String notesID = rs.getString("notesID");
         final String notesTitle = rs.getString("notesTitle");
@@ -35,6 +51,10 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
         return new Notes(notesID, notesTitle, userID, content);
     }
 
+    /**
+     * Gets all the notes in the database
+     * @return list of notes
+     */
     @Override
     public List<Notes> getNotesSequential(){
         final List<Notes> notes = new ArrayList<>();
@@ -57,6 +77,11 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
         }
     }
 
+    /**
+     * Gets a specific note from the database
+     * @param currentNote note needed from DB
+     * @return note if it exists
+     */
     @Override
     public List<Notes> getNotesRandom(Notes currentNote){
         final List<Notes> notes = new ArrayList<>();
@@ -82,6 +107,11 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
         }
     }
 
+    /**
+     * Gets a list of all notes of a specific user
+     * @param currentUser user whose notes are being accessed
+     * @return list of notes
+     */
     @Override
     public List<Notes> getNotesOfUser(User currentUser){
         final List<Notes> notes = new ArrayList<>();
@@ -106,6 +136,11 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
         }
     }
 
+    /**
+     * Method to insert a new note to the database
+     * @param currentNotes note to be inserted
+     * @return note if it is inserted successfully
+     */
     @Override
     public Notes insertNotes(Notes currentNotes)
     {
@@ -125,6 +160,11 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
         }
     }
 
+    /**
+     * Method to update a note in the database
+     * @param currentNotes note to be updated
+     * @return note if it is updated successfully
+     */
     @Override
     public Notes updateNotes(Notes currentNotes)
     {
@@ -143,6 +183,10 @@ public class NotesPersistenceHSQLDB implements NotesPersistence {
         }
     }
 
+    /**
+     * Method to delete note from the database
+     * @param currentNotes note to be deleted
+     */
     @Override
     public void deleteNotes(Notes currentNotes){
         try(final Connection c = connection()) {
