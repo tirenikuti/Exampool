@@ -66,19 +66,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButton"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_centerInParent="true"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="286dp"
-            android:layout_marginBottom="27dp"
-            app:backgroundTint="#838383"
+            android:layout_marginBottom="23dp"
+            android:clickable="true"
+            android:onClick="CreateOnClick"
+            app:backgroundTint="#9457eb"
             app:backgroundTintMode="src_over"
             app:fabCustomSize="25dp"
             app:fabSize="mini"
@@ -86,28 +88,29 @@
 
         <ImageView
             android:id="@+id/homepage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/floatingActionButton"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="-120dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="70dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginEnd="96dp"
+            android:layout_marginBottom="17dp"
+            android:layout_toStartOf="@+id/floatingActionButton"
+            app:srcCompat="@drawable/baseline_home_24"
+            android:clickable="true"
             android:onClick="homeButtonOnClick"
-            app:srcCompat="@drawable/baseline_home_24" />
+            app:tint="#FFFFFF" />
 
         <ImageView
             android:id="@+id/userPage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@id/floatingActionButton"
-            android:layout_alignParentRight="false"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="-120dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginStart="96dp"
+            android:layout_marginEnd="53dp"
+            android:layout_marginBottom="17dp"
+            android:layout_toEndOf="@+id/floatingActionButton"
             android:onClick="userButtonOnClick"
             app:srcCompat="@drawable/baseline_person_24" />
     </RelativeLayout>

@@ -21,21 +21,24 @@
         android:saveEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.415">
+
 
         <GridLayout
             android:id="@+id/grid"
-            android:layout_width="362dp"
-            android:layout_height="wrap_content"
+            android:layout_width="373dp"
+            android:layout_height="232dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="204dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="112dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="194dp"
+            android:layout_marginEnd="37dp"
+            android:layout_marginBottom="130dp"
             android:columnCount="2">
 
             <TextView
@@ -60,8 +63,8 @@
                 android:ems="12"
                 android:enabled="true"
                 android:hint="Edit Answer"
-                android:textColorHint="#5ED3D3D3"
-                android:inputType="textNoSuggestions" />
+                android:inputType="textNoSuggestions"
+                android:textColorHint="#5ED3D3D3" />
 
 
             <TextView
@@ -76,7 +79,6 @@
                 android:textSize="20dp" />
 
 
-
             <EditText
                 android:id="@+id/editChoice1"
                 android:layout_width="274dp"
@@ -86,8 +88,8 @@
                 android:ems="12"
                 android:enabled="true"
                 android:hint="Edit Choice (incorrect answer)"
-                android:textColorHint="#5ED3D3D3"
-                android:inputType="textNoSuggestions" />
+                android:inputType="textNoSuggestions"
+                android:textColorHint="#5ED3D3D3" />
 
             <TextView
                 android:id="@+id/option2"
@@ -108,9 +110,9 @@
                 android:ems="12"
                 android:enabled="true"
                 android:hint="Edit Choice (incorrect answer)"
-                android:textColorHint="#5ED3D3D3"
                 android:inputType="textNoSuggestions"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textColorHint="#5ED3D3D3" />
 
             <TextView
                 android:id="@+id/option3"
@@ -128,15 +130,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:backgroundTint="@color/white"
-                android:textColorHint="#5ED3D3D3"
                 android:ems="12"
                 android:enabled="true"
                 android:hint="Edit Choice (incorrect answer)"
                 android:inputType="textNoSuggestions"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textColorHint="#5ED3D3D3" />
 
         </GridLayout>
-
 
         <EditText
             android:id="@+id/editQuestion"

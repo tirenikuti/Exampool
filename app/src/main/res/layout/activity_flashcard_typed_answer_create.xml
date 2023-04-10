@@ -47,20 +47,20 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_centerVertical="true"
-            android:layout_marginTop="281dp"
-            android:layout_marginEnd="17dp"
-            android:layout_marginBottom="286dp"
+            android:layout_marginTop="284dp"
+            android:layout_marginEnd="131dp"
+            android:layout_marginBottom="283dp"
             android:backgroundTint="@color/white"
             android:ems="12"
             android:enabled="true"
+            android:hint="Answer"
             android:inputType="textNoSuggestions"
             android:shadowColor="#FFFFFF"
             android:textAllCaps="false"
-            android:hint="Answer"
-            android:textSize="25dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="@color/white"
-            android:textColorHint="#5ED3D3D3" />
+            android:textColorHint="#5ED3D3D3"
+            android:textSize="25dp" />
 
         <EditText
             android:id="@+id/createQuestion"
