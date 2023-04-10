@@ -22,6 +22,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import comp3350.exampool.presentation.FlashcardsActivity;
 import comp3350.exampool.presentation.FlashcardsCreatePromptActivity;
 
 
@@ -31,7 +32,7 @@ import comp3350.exampool.presentation.FlashcardsCreatePromptActivity;
 public class FlashCardTest {
     @Rule
     public ActivityScenarioRule<FlashcardsCreatePromptActivity> CreateFlashcardRule = new ActivityScenarioRule<>(FlashcardsCreatePromptActivity.class);
-    public ActivityScenarioRule<FlashcardsViewActivity> ViewFlashcardRule = new ActivityScenarioRule<>(FlashcardsViewActivity.class);
+    public ActivityScenarioRule<FlashcardsActivity> ViewFlashcardRule = new ActivityScenarioRule<>(FlashcardsActivity.class);
 
     @Test
     public void createMCQFlashCard() {
@@ -87,13 +88,13 @@ public class FlashCardTest {
     }
     @Test
     public void editMCQFlashCard() {
-        ActivityScenario<FlashcardsViewActivity> scenario = ViewFlashcardRule.getScenario();
+        ActivityScenario<FlashcardsActivity> scenario = ViewFlashcardRule.getScenario();
         createMCQFlashCard();
 
         //Find the MCQ
         System.out.println("Editing the MCQ that was added");
         onData(withText("Dummy Question?")).inAdapterView(withId(R.id.listNotes)).perform(click());
-        onView(withId(R.id.button)).perform(click()); //click edit
+
 
         onView(withId(R.id.createQuestion)).perform(typeText(" Edit?")); //Input Question
         onView(withId(R.id.createAnswer)).perform(clearText());
@@ -114,12 +115,12 @@ public class FlashCardTest {
     }
     @Test
     public void editTFFlashCard() {
-        ActivityScenario<FlashcardsViewActivity> scenario = ViewFlashcardRule.getScenario();
+        ActivityScenario<FlashcardsActivity> scenario = ViewFlashcardRule.getScenario();
         createTFFlashCard();
         //Find the T of F
         System.out.println("Editing the True or false that was added");
         onData(withText("This should be true")).inAdapterView(withId(R.id.listNotes)).perform(click());
-        onView(withId(R.id.button)).perform(click()); //click edit
+
 
         onView(withId(R.id.createQuestion)).perform(clearText());
         onView(withId(R.id.createQuestion)).perform(typeText("This will be false"));
@@ -135,11 +136,11 @@ public class FlashCardTest {
     }
     @Test
     public void editTAFlashCard() {
-        ActivityScenario<FlashcardsViewActivity> scenario = ViewFlashcardRule.getScenario();
+        ActivityScenario<FlashcardsActivity> scenario = ViewFlashcardRule.getScenario();
         createTAFlashCard();
         System.out.println("Editing the Typed answer that was added");
         onData(withText("Will this test succeed?")).inAdapterView(withId(R.id.listNotes)).perform(click());
-        onView(withId(R.id.button)).perform(click()); //click edit
+
 
         onView(withId(R.id.createQuestion)).perform(clearText());
         onView(withId(R.id.createQuestion)).perform(typeText("Will this fail?"));
@@ -158,11 +159,11 @@ public class FlashCardTest {
     }
     @Test
     public void deleteMCQFlashCard() {
-        ActivityScenario<FlashcardsViewActivity> scenario = ViewFlashcardRule.getScenario();
+        ActivityScenario<FlashcardsActivity> scenario = ViewFlashcardRule.getScenario();
         createMCQFlashCard();
         System.out.println("Deleting the Multiple choice that was added");
         onData(withText("Dummy Question?")).inAdapterView(withId(R.id.listNotes)).perform(click());
-        onView(withId(R.id.button)).perform(click()); //click edit
+
         onView(withId(R.id.buttonNotesUpdate)).perform(click()); //click delete
 
         //Check if deleted
@@ -173,11 +174,11 @@ public class FlashCardTest {
     }
     @Test
     public void deleteTFFlashCard() {
-        ActivityScenario<FlashcardsViewActivity> scenario = ViewFlashcardRule.getScenario();
+        ActivityScenario<FlashcardsActivity> scenario = ViewFlashcardRule.getScenario();
         createTFFlashCard();
         System.out.println("Deleting the Typed answer that was added");
         onData(withText("This should be true")).inAdapterView(withId(R.id.listNotes)).perform(click());
-        onView(withId(R.id.button)).perform(click()); //click edit
+
         onView(withId(R.id.buttonNotesUpdate)).perform(click()); //click delete
 
         //Check if deleted
@@ -188,11 +189,11 @@ public class FlashCardTest {
     }
     @Test
     public void deleteTAFlashCard() {
-        ActivityScenario<FlashcardsViewActivity> scenario = ViewFlashcardRule.getScenario();
+        ActivityScenario<FlashcardsActivity> scenario = ViewFlashcardRule.getScenario();
         createTAFlashCard();
         System.out.println("Deleting the Typed answer that was added");
         onData(withText("Will this test succeed?")).inAdapterView(withId(R.id.listNotes)).perform(click());
-        onView(withId(R.id.button)).perform(click()); //click edit
+
         onView(withId(R.id.buttonNotesUpdate)).perform(click()); //click delete
 
         //Check if deleted
