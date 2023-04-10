@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My Page</title>
+    <style>
+      /* Style the tab content */
+      .tab-content {
+        display: none;
+        padding: 20px;
+      }
+
+      /* Style the active tab */
+      .tab.active {
+        background-color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Page</h1>
+    
+    <!-- Create the tab navigation -->
+    <div class="tab-nav">
+      <button class="tab" onclick="openTab(event, 'overview')">Overview</button>
+      <button class="tab" onclick="openTab(event, 'screen-recording')">Screen Recording</button>
+      <button class="tab" onclick="openTab(event, 'postmortem')">Postmortem</button>
+    </div>
+
+    <!-- Create the tab content -->
+    <div class="tab-content" id="overview">
+      <h2>Overview</h2>
+      <p>This is the overview tab content.</p>
+    </div>
+    
+    <div class="tab-content" id="screen-recording">
+      <h2>Screen Recording</h2>
+      <p>This is the screen recording tab content.</p>
+    </div>
+    
+    <div class="tab-content" id="postmortem">
+      <h2>Postmortem</h2>
+      <p>This is the postmortem tab content.</p>
+    </div>
+
+    <script>
+      // Open the default tab
+      document.getElementById("overview").style.display = "block";
+
+      // Function to open a tab
+      function openTab(event, tabName) {
+        var i, tabContent, tabLinks;
+        tabContent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabContent.length; i++) {
+          tabContent[i].style.display = "none";
+        }
+        tabLinks = document.getElementsByClassName("tab");
+        for (i = 0; i < tabLinks.length; i++) {
+          tabLinks[i].classList.remove("active");
+        }
+        document.getElementById(tabName).style.display = "block";
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </body>
+</html>
