@@ -79,8 +79,7 @@ public class NotesActivity extends AppCompatActivity {
     }
 
     public void homeButtonOnClick(View v){
-        Intent goBack = new Intent(NotesActivity.this, HomeActivity.class);
-        NotesActivity.this.startActivity(goBack);
+        finish();
     }
 
     public void userButtonOnClick(View v){
@@ -89,8 +88,6 @@ public class NotesActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-//        Intent goBack = new Intent(NotesActivity.this, HomeActivity.class);
-//        NotesActivity.this.startActivity(goBack);
         finish();
     }
 
