@@ -83,7 +83,9 @@ public class NotesActivity extends AppCompatActivity {
         Toast.makeText(NotesActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
 
-    public void backButtonOnClick(View v){
+
+    @Override
+    public void onBackPressed() {
         Intent goBack = new Intent(NotesActivity.this, HomeActivity.class);
         NotesActivity.this.startActivity(goBack);
     }

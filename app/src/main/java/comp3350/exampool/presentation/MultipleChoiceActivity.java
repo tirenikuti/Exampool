@@ -101,11 +101,6 @@ public class MultipleChoiceActivity extends AppCompatActivity {
         Toast.makeText(MultipleChoiceActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
 
-    public void backButtonOnClick(View v){
-        Intent goBack = new Intent(MultipleChoiceActivity.this, FlashcardsActivity.class);
-        MultipleChoiceActivity.this.startActivity(goBack);
-    }
-
     @Override
     public void onBackPressed(){
         Intent goBack = new Intent(MultipleChoiceActivity.this, FlashcardsActivity.class);

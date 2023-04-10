@@ -38,11 +38,6 @@ public class FlashcardsCreatePromptActivity extends AppCompatActivity {
         Toast.makeText(FlashcardsCreatePromptActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
 
-    public void backButtonOnClick(View v){
-        Intent goBack = new Intent(FlashcardsCreatePromptActivity.this, HomeActivity.class);
-        FlashcardsCreatePromptActivity.this.startActivity(goBack);
-    }
-
     @Override
     public void onBackPressed() {
         Intent flashcardsReturnActivity = new Intent(FlashcardsCreatePromptActivity.this, FlashcardsActivity.class);

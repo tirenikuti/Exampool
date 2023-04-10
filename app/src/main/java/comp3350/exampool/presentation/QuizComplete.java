@@ -38,7 +38,9 @@ public class QuizComplete extends Activity {
         Toast.makeText(QuizComplete.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
 
-    public void backButtonOnClick(View v) {
+
+    @Override
+    public void onBackPressed() {
         Intent notesReturnIntent = new Intent(QuizComplete.this, FlashcardsQuizActivity.class);
         QuizComplete.this.startActivity(notesReturnIntent);
     }

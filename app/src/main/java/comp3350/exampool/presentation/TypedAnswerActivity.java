@@ -72,18 +72,13 @@ public class TypedAnswerActivity extends AppCompatActivity {
         return newID;
     }
 
-    public void homeButttonOnClick(View v){
+    public void homeButtonOnClick(View v){
         Intent goBack = new Intent(TypedAnswerActivity.this, HomeActivity.class);
         TypedAnswerActivity.this.startActivity(goBack);
     }
 
-    public void userButttonOnClick(View v){
+    public void userButtonOnClick(View v){
         Toast.makeText(TypedAnswerActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
-    }
-
-    public void backButttonOnClick(View v){
-        Intent goBack = new Intent(TypedAnswerActivity.this, FlashcardsActivity.class);
-        TypedAnswerActivity.this.startActivity(goBack);
     }
 
     @Override

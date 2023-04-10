@@ -66,11 +66,6 @@ public class MultipleChoiceEditActivity extends AppCompatActivity {
         Toast.makeText(MultipleChoiceEditActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
 
-    public void backButtonOnClick(View v) {
-        Intent notesReturnIntent = new Intent(MultipleChoiceEditActivity.this, FlashcardsActivity.class);
-        MultipleChoiceEditActivity.this.startActivity(notesReturnIntent);
-    }
-
     @Override
     public void onBackPressed() {
         Intent flashcardsReturnActivity = new Intent(MultipleChoiceEditActivity.this, FlashcardsActivity.class);

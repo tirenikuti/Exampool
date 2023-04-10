@@ -71,9 +71,4 @@ public class TrueFalseEditActivity extends AppCompatActivity {
     public void userButtonOnClick(View v){
         Toast.makeText(TrueFalseEditActivity.this, "You clicked user",Toast.LENGTH_SHORT).show();
     }
-
-    public void backButtonOnClick(View v) {
-        Intent notesReturnIntent = new Intent(TrueFalseEditActivity.this, FlashcardsActivity.class);
-        TrueFalseEditActivity.this.startActivity(notesReturnIntent);
-    }
 }
