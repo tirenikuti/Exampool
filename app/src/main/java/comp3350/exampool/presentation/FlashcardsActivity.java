@@ -89,7 +89,7 @@ public class FlashcardsActivity extends AppCompatActivity {
         FlashcardsActivity.this.startActivity(quizIntent);
     }
 
-    public void buttonCreateOnClick(View v){
+    public void CreateOnClick(View v){
         Intent createIntent = new Intent(FlashcardsActivity.this, FlashcardsCreatePromptActivity.class);
         FlashcardsActivity.this.startActivity(createIntent);
     }

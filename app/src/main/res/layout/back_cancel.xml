@@ -38,13 +38,9 @@
             android:id="@+id/backButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="303dp"
-            android:layout_marginBottom="16dp"
             android:background="@drawable/custom_button"
             android:clickable="true"
-            android:onClick="cancelButtonOnClick"
+            android:onClick="buttonDeleteOnClick"
             android:text="Delete"
             android:textColor="@color/white"
             android:visibility="visible" />
@@ -53,16 +49,13 @@
             android:id="@+id/backButton2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="16dp"
+            android:background="@drawable/custom_button"
             android:clickable="true"
             android:onClick="buttonSaveOnClick"
+            android:layout_alignParentRight="true"
             android:text="Save"
-            android:visibility="visible"
-            android:background="@drawable/custom_button"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:visibility="visible" />
 
     </RelativeLayout>
 
