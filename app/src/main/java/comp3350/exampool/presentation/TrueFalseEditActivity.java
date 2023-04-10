@@ -25,14 +25,12 @@ public class TrueFalseEditActivity extends AppCompatActivity {
         accessFlashcards = new AccessFlashcards();
 
         TextView questionView = (TextView) findViewById(R.id.editQuestion);
-        TextView answerView = (TextView) findViewById(R.id.editAnswer);
 
         Intent intent = getIntent();
         flashcard = intent.getParcelableExtra("theCard");
 
         questionView.setText(flashcard.getQuestion());
-        answerView.setText(flashcard.getAnswer());
-        answer = null;
+        answer = flashcard.getAnswer();
     }
 
     public void buttonDeleteOnClick(View view) {
@@ -42,9 +40,8 @@ public class TrueFalseEditActivity extends AppCompatActivity {
 
     public void buttonSaveOnClick(View view) {
         EditText editQuestion = (EditText)findViewById(R.id.editQuestion);
-        EditText editAnswer = (EditText)findViewById(R.id.editAnswer);
 
-        flashcard.editFlashcard(editQuestion.getText().toString(),editAnswer.getText().toString(), "", "", "");
+        flashcard.editFlashcard(editQuestion.getText().toString(),answer, "", "", "");
         accessFlashcards.updateTrueFalseFlashcard(flashcard);
         onBackPressed();
     }
