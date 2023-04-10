@@ -10,7 +10,6 @@ public class User {
 
     //User Object Variables
     final String userID;
-    private String accountType;
     private String userName;
 
     /**
@@ -20,19 +19,16 @@ public class User {
     public User(String newID)
     {
         userID = newID;
-        accountType = null;
         userName = null;
     }
 
     /**
      * Constructors for User Object
      * @param userID Type: String Primary key
-     * @param accountType Type: String
      * @param userName Type: String
      */
-    public User(String userID, String accountType, String userName) {
+    public User(String userID , String userName) {
         this.userID = userID;
-        this.accountType = accountType;
         this.userName = userName;
     }
 
@@ -44,21 +40,6 @@ public class User {
         return userID;
     }
 
-    /**
-     * Getter for account type
-     * @return accountType Type: String
-     */
-    public String getAccountType() {
-        return accountType;
-    }
-
-    /**
-     * Setter for account Type
-     * @param accountType Type: String
-     */
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
-    }
 
     /**
      * Getter for userName
