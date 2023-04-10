@@ -1,7 +1,7 @@
 package comp3350.exampool.presentation;
 
 import comp3350.exampool.R;
-import comp3350.exampool.application.Main;
+import comp3350.exampool.application.Services;
 
 import android.content.Context;
 import android.content.Intent;
@@ -144,7 +144,7 @@ public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
             copyAssetsToDirectory(assetNames, dataDirectory);
 
-            Main.setDBPathName(dataDirectory.toString() + "/" + Main.getDBPathName());
+            Services.setDBPathName(dataDirectory.toString() + "/" + Services.getDBPathName());
 
         } catch(final IOException ioe){
             Messages.warning(this, "Unable to access application data: " + ioe.getMessage());
