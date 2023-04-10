@@ -113,8 +113,7 @@ public class FlashcardsActivity extends AppCompatActivity {
      */
     @Override
     public void onBackPressed() {
-        Intent goBack = new Intent(FlashcardsActivity.this, HomeActivity.class);
-        FlashcardsActivity.this.startActivity(goBack);
+        finish();
     }
 
     /**
