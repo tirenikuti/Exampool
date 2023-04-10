@@ -11,7 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.TypedAnswerQuestion;
-
+/**
+ * Summary: The presentation layer containing the Typed Flashcard create page
+ * Description: This controls the layout file that allows users to input typed  questions
+ * as well as their correct answer
+ */
 public class TypedAnswerActivity extends AppCompatActivity {
 
     private AccessFlashcards accessFlashcards;

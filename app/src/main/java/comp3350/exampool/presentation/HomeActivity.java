@@ -1,7 +1,7 @@
 package comp3350.exampool.presentation;
 
 import comp3350.exampool.R;
-import comp3350.exampool.application.Main;
+import comp3350.exampool.application.Services;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +20,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Summary: The presentation layer containing the home page
+ * Description: This controls the layout file that displays the home page.
+ * Two options to view flashcards or notes appear also with a + simple
+ * at the bottom to create a new flashcard or note.
+ */
 public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
 
     /**
@@ -128,6 +134,10 @@ public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         HomeActivity.this.startActivity(notesIntent);
     }
 
+    /**
+     * copyDatabaseToDevice()
+     * This copies the contents of the database to the file
+     */
     private void copyDatabaseToDevice(){
         final String DB_PATH = "db";
 
@@ -144,14 +154,19 @@ public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
             copyAssetsToDirectory(assetNames, dataDirectory);
 
-            Main.setDBPathName(dataDirectory.toString() + "/" + Main.getDBPathName());
+            Services.setDBPathName(dataDirectory.toString() + "/" + Services.getDBPathName());
 
         } catch(final IOException ioe){
             Messages.warning(this, "Unable to access application data: " + ioe.getMessage());
         }
     }
 
-    //
+    /**
+     * copyAssetsToDirectory()
+     * This gets and copies the database to the directory in our device
+     * @param assets the assets to be copied
+     * @param directory the directory to copied into
+     */
     private void copyAssetsToDirectory(String[] assets, File directory) throws IOException{
         AssetManager assetManager=getAssets();
 
