@@ -92,7 +92,7 @@ public class FlashcardsQuizActivity extends AppCompatActivity {
     }
 
     public void revealAnswer() {
-        //flip animation with reveal: use flashcard.getAnswer()
+        isFront = true;
         Flashcard flashcard = flashcardList.get(position);
         TextView questionView = (TextView) findViewById(R.id.typed_question);
         questionView.setText(flashcard.getAnswer());
@@ -107,11 +107,9 @@ public class FlashcardsQuizActivity extends AppCompatActivity {
         if(position < flashcardList.size() - 1){
             position++;
             flashcard = flashcardList.get(position);
-
             TextView questionView = (TextView) findViewById(R.id.typed_question);
             TextView answer = (TextView) findViewById(R.id.editInputAnswer);
             TextView answerView = (TextView) findViewById(R.id.revealed_answer);
-
 
             questionView.setText(flashcard.getQuestion() + flashcard.getOptions());
             answerView.setText(flashcard.getAnswer());

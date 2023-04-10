@@ -9,7 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import comp3350.exampool.objects.Notes;
 import comp3350.exampool.objects.User;
 import comp3350.exampool.persistence.UserPersistence;
 
@@ -28,9 +27,8 @@ public class UserPersistenceHSQLDB implements UserPersistence {
     private User fromResultSet(final ResultSet rs) throws SQLException {
         final String userID = rs.getString("userID");
         final String userName = rs.getString("name");
-        final String type = rs.getString("type");
         
-        return new User(userID, type, userName);
+        return new User(userID, userName);
     }
 
     @Override
@@ -50,8 +48,6 @@ public class UserPersistenceHSQLDB implements UserPersistence {
         } catch (final SQLException e) {
             throw new PersistenceException(e);
         }
-//        users.add(new User("200", "teacher", "Harry"));
-//        return users;
     }
 
     @Override
@@ -81,7 +77,6 @@ public class UserPersistenceHSQLDB implements UserPersistence {
             final PreparedStatement st = c.prepareStatement("INSERT INTO USERS VALUES(?, ?, ?)");
             st.setString(1, currentUser.getUserID());
             st.setString(2, currentUser.getUserName());
-            st.setString(3, currentUser.getAccountType());
             st.executeUpdate();
 
             return currentUser;
@@ -93,10 +88,9 @@ public class UserPersistenceHSQLDB implements UserPersistence {
     @Override
     public User updateUser(User currentUser) {
         try (final Connection c = connection()) {
-            final PreparedStatement st = c.prepareStatement("UPDATE USERS SET type = ?, name = ? WHERE userID = ?");
-            st.setString(1, currentUser.getAccountType());
-            st.setString(2, currentUser.getUserName());
-            st.setString(3, currentUser.getUserID());
+            final PreparedStatement st = c.prepareStatement("UPDATE USERS SET  name = ? WHERE userID = ?");
+            st.setString(1, currentUser.getUserName());
+            st.setString(2, currentUser.getUserID());
             st.executeUpdate();
 
             return currentUser;
@@ -108,7 +102,6 @@ public class UserPersistenceHSQLDB implements UserPersistence {
     @Override
     public void deleteUser(User currentUser) {
         try (final Connection c = connection()) {
-//Since currently userID is not a constraint in the DATABASE, if the user gets deleted, their materials can stay
 //            final PreparedStatement sc = c.prepareStatement("DELETE FROM flashcards WHERE userID = ?");
 //            sc.setString(1, currentUser.getUserID());
 //            sc.executeUpdate();

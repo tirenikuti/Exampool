@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Exampool</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li>Exampool</li>
+        <li><a href="#overview">Overview</a>
+          <ul>
+            <li><a href="#vision-statement">Vision Statement</a></li>
+            <li><a href="#users">Intended Users</a></li>
+            <li><a href="#major-functionality">Major Functionality</a></li>
+            <li><a href="#contributors">Contributors</a></li>
+          </ul>
+        </li>
+        <li><a href="#screenrecording">Screen Recording</a></li>
+        <li><a href="#postmortem">Postmortem</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="overview">
+      <h1>Overview</h1>
+      <h2 id="vision-statement">Vision Statement</h2>
+      <p>ExamPOOL is an android application for students that facilitates the creation, sharing and studying of course notes and practice quizzes all in one convenient platform. Gone are the days of hauling around packets of index cards and begging classmates for a copy of their course notes. ExamPOOL consolidates the very best features from the most popular student study aid platforms, allowing students to focus on the material instead of where to find it.
+      </p>
+      <p>
+        ExamPOOL is primarily designed for student use. Students will be able to find, upload, edit and share lecture notes from their courses. Students who upload their notes will have the choice of sharing it with students in their class, students in their school, and students interested in the subject matter, or they may choose who may have access to the notes. Students may also allow some of their material to be accessed globally – meaning, anyone with an account can view that specific material.
+      </p>
+      <p>
+        Students will be able to find, create, share, and attempt practice quizzes for their courses. Students who want to share their practice quizzes will have the same control over who can view them as they do when uploading notes. Students who attempt practice quizzes will be given feedback on their attempts and will be able to compare their scores against all previous attempts. Moreover, these quizzes give the students a chance to focus on their weak points. The newly generated quizzes would contain previous questions that the students may have gotten wrong, allowing them to improve upon their foundational knowledge.
+      </p>
+      <p>
+        ExamPOOL is envisioned primarily as a mobile application with the opportunity of developing an extended web-based platform in the future.
+      </p>
+      <p>
+        ExamPOOL is an improvement over the current architecture, which forces students to use multiple apps and other platforms to keep track of their schoolwork. Additionally, the current framework requires the students to refer to a different set of channels for different subjects whereas ExamPOOL would allow students to contain all their needs in one platform. As a result, the clutter of study materials required will be simplified – allowing students to concentrate solely on the materials they need. Furthermore, the new system would allow students to study the same amount of content in a shorter time period, giving them a stronger chance to balance their time.
+      </p>
+      <p>
+        The project will be considered successful if at least 40% of users prefer our system compared to using multiple applications, as determined by a user survey, and if the performance of students will improve by at least 15% from their current level, as determines by grades and overall performance on their quizzes in ExamPOOL.
+      </p>
+
+      <h2 id="users">Intended Users</h2>
+      <p> The application is intended primarily for students.</p>
+      <p> Teachers or professors are also able to use it to build their class material.</p>
+
+      <h2 id="major-functionality">Major Functionality</h2>
+      <h3 id="flashcards">Flashcards</h3>
+      <p>
+        The student can create, edit, and delete flashcards which contain different types of questions. The types of questions currently implemented are:  
+      </p>
+      <ul>
+        <li>Multiple Choice Questions</li>
+        <li>True or False Questions</li>
+        <li>Typed Answer Questions</li>
+      </ul>
+      <p>The student is also able to view all of the flashcards in an organized menu</p>
+      <h3 id="quiz">Quizing</h3>
+      <p>
+        The student can iterate through the flashcards, answering questions as they go. The flashcards are implemented as flashcards are used in real life. The question is at the front of the flashcard and the answer is at the back. The student would click on "Sublit answer" to see the flashcard flip to reveal the answer. They can opt to move to the next question directly without flipping the flashcard and the score will still increase if they typed the right answer. 
+      </p>
+      <p>
+        At the end of the iteration, the student will get a simple page indicating the end of the flashcards along with the result of their iteration. They will also have the option to restart the quiz or go back to the flashcards page. 
+      </p>
+      <h3 id="notes">Notes</h3>
+      <p>
+        The student can create, edit, and delete notes. They can also view all of the notes. 
+      </p>
+    
+      <h2 id="contributors">Contributors</h2>
+      <p>Some contributors content goes here.</p>
+      </section>
+
+    <section id="screenrecording">
+      <h1>Screen Recording</h1>
+      <p>This is the screen recording section.</p>
+    </section>
+
+    <section id="postmortem">
+      <h1>Postmortem</h1>
+      <h4>What went right in the development process?</h4>
+      <p>The major functionality was implemented as well as the database. The app runs with no major issues and does what it says it will do: provide a method for students to keep notes and iterate through flashcards without the need to carry them around with them.
+      </p>
+
+      <h4>What went wrong in the development process?</h4>
+      <p>The user functionality was unable to be processed: The persistence and logic layers exist to execute it but it is not implemented in the presentation layer which is very disappointing.
+      </p>
+      <p>Additionally, some features had to be removed entirely from the application such as tags: originally, the user would have been able to tag a note or a flashcard according to a subject or so and they should have been able to filter through all their content by applying the tags.
+      </p>
+
+      <h4>What would you do differently if you had the chance to start over?</h4>
+      <p>We would implement the architecture from the get-go: separate folders for the different layers. It is much simpler to have one layer do one thing and do it well rather than all classes doing everything. 
+      </p>
+      <p>We would also have prioritized tasks differently. Things that needed to be implemented first, such as key features such as connecting the actual database would take a higher priority as compared to search through all flashcards. 
+      </p>
+
+      <h4>How large is the project (number of methods, classes, etc.)? How much of this is (roughly) devoted to each major system component? And any other quantifiable measures.</h4>
+      <p>The major components are notes and flashcards.</p>
+      <p>The number of classes in the project in total are: 30 (including presentation) </p>
+      <p>The number of classes dedicated to notes are: 6 </p>
+      <p>The number of classes dedicated to flashcards are: 16 </p>
+      <p>The rest of the classes (8) are dedicated to assisting the major components and to part of users. </p>
+      <p>This means that the rough percentage of classes dedicated to the major components is: 73.33% </p>
+
+      <h4>What took the most time? The least? Any surprises?</h4>
+      <p>The basic functionalities took the most time to implement. Additionally actually connecting the database rather than using dummy object to the presentation layer took longer than expected. 
+      </p>
+      <p>The lease amount of time was taken by the logic layer work for the notes object implementation.
+      </p>
+
+      <h4>Are there any particular design smells, or brilliant design decisions?</h4>
+      <p>The best design idea was to have the implementation of the flipping flashcard to make the app seem more intuitive and close to reality. 
+      </p>
+      <h4>Are there any outstanding bugs?</h4>
+      <p>The DB sometimes gets caches making it difficult to access notes or flashcards from their respective home pages. This requires the user to remove the app from its recent apps on their phone and then reopen the app.</p>
+      <h4>Did any features work better than expected?</h4>
+      <p>No</p>
+      <h4>Are you using any technologies other than what was required?</h4>
+      <p>No</p>
+      <h4>Are you using any specific techniques covered in the course (TDD, pair programming, scrums, etc.)?</h4>
+      <p>The</p>
+      <h4>How did the project change from your initial (iteration 0) vision or stories, or did it work out as predicted?</h4>
+      <p>The</p>
+      <h4>What did you learn about team or large project development? What will you start doing, keep doing, or stop doing next time?</h4>
+      <p>The</p>
+      <h4>Can you draw any conclusions from what you’ve done?</h4>
+      <p>The</p>
+    </section>
+
+  </main>
+</body>
+</html>
+
