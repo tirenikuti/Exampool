@@ -19,7 +19,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
-
+/**
+ * Summary: The presentation layer containing the Flashcard quiz home
+ * Description: This controls the layout file that allows the user to cycle through
+ * their created flashcards and then answer questions on these flashcard to get a score
+ */
 public class FlashcardsQuizActivity extends AppCompatActivity {
     private List<Flashcard> flashcardList;
     private int score;
@@ -107,7 +111,6 @@ public class FlashcardsQuizActivity extends AppCompatActivity {
 
         back_animation.setTarget(front);
         back_animation.start();
-
 
         //Delay 1 second so animation can run
         new Handler().postDelayed(new Runnable() {

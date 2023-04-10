@@ -20,6 +20,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Summary: The presentation layer containing the home page
+ * Description: This controls the layout file that displays the home page.
+ * Two options to view flashcards or notes appear also with a + simple
+ * at the bottom to create a new flashcard or note.
+ */
 public class HomeActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener{
 
     /**

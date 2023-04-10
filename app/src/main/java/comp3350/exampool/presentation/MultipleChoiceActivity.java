@@ -13,6 +13,11 @@ import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.Flashcard;
 import comp3350.exampool.objects.MultipleChoiceQuestion;
 
+/**
+ * Summary: The presentation layer containing the Multiple choice Flashcard create page
+ * Description: This controls the layout file that allows users to input multiple choice questions
+ * as well as their possible options and correct answer
+ */
 public class MultipleChoiceActivity extends AppCompatActivity {
 
     private AccessFlashcards accessFlashcards;
