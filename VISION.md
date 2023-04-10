@@ -1,9 +1,5 @@
----
-title: "VISION"
-author: "Krupali, Ryley, Tireni, Chris"
-date: "09/04/2023"
-output: pdf_document
----
+### VISION STATEMENT
+#### EXAMPOOL
 
 ExamPOOL is an android application for students that facilitates the creation, sharing and studying of course notes and practice quizzes all in one convenient platform. Gone are the days of hauling around packets of index cards and begging classmates for a copy of their course notes. ExamPOOL consolidates the very best features from the most popular student study aid platforms, allowing students to focus on the material instead of where to find it.  
 
