@@ -22,9 +22,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import comp3350.exampool.presentation.FlashcardsActivity;
 import comp3350.exampool.presentation.FlashcardsCreatePromptActivity;
-import comp3350.exampool.presentation.FlashcardsViewActivity;
 
 
 @RunWith(AndroidJUnit4.class)

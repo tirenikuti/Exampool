@@ -21,8 +21,8 @@ import java.util.List;
 
 public class FlashcardsQuizActivity extends AppCompatActivity {
     private List<Flashcard> flashcardList;
-    private int score = 0;
-    private int position = 0;
+    private int score;
+    private int position;
     private AnimatorSet front_animation;
     private AnimatorSet back_animation;
     private boolean isFront = true;

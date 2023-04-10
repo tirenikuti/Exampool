@@ -18,6 +18,8 @@ import java.util.List;
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.Flashcard;
+import comp3350.exampool.objects.MultipleChoiceQuestion;
+import comp3350.exampool.objects.TrueFalseQuestion;
 
 public class FlashcardsActivity extends AppCompatActivity {
 
@@ -96,8 +98,18 @@ public class FlashcardsActivity extends AppCompatActivity {
 
     private void selectedFlashcardAtPosition(int position) {
         Flashcard selected = flashcardArrayAdapter.getItem(position);
-        Intent editFlashcardIntent = new Intent(FlashcardsActivity.this, FlashcardsViewActivity.class);
-        editFlashcardIntent.putExtra("theCard", selected);
-        FlashcardsActivity.this.startActivity(editFlashcardIntent);
+        if (selected instanceof MultipleChoiceQuestion) {
+            Intent editFlashcardIntent = new Intent(FlashcardsActivity.this, MultipleChoiceEditActivity.class);
+            editFlashcardIntent.putExtra("theCard", selected);
+            FlashcardsActivity.this.startActivity(editFlashcardIntent);
+        } else if (selected instanceof TrueFalseQuestion) {
+            Intent editFlashcardIntent = new Intent(FlashcardsActivity.this, TrueFalseEditActivity.class);
+            editFlashcardIntent.putExtra("theCard", selected);
+            FlashcardsActivity.this.startActivity(editFlashcardIntent);
+        } else {
+            Intent editFlashcardIntent = new Intent(FlashcardsActivity.this, TypedAnswerEditActivity.class);
+            editFlashcardIntent.putExtra("theCard", selected);
+            FlashcardsActivity.this.startActivity(editFlashcardIntent);
+        }
     }
 }
