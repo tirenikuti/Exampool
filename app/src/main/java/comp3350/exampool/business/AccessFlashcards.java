@@ -18,7 +18,7 @@ public class AccessFlashcards {
     private int currentFlashcard;
 
     /**
-     * COnstructor fo the class - initiates the persistence and the lists to access flashcards
+     * Constructor for the class - initiates the persistence and the lists to access flashcards
      */
     public AccessFlashcards()
     {
@@ -29,7 +29,7 @@ public class AccessFlashcards {
     }
 
     /**
-     * constructor for the UI
+     * constructor for testing
      * @param flashcardPersistence - the persistence
      */
     public AccessFlashcards(final FlashcardPersistence flashcardPersistence)
@@ -128,7 +128,7 @@ public class AccessFlashcards {
     }
 
     /**
-     * Method to update a multiple choice question in the persistence
+     * Method to update a multiple choice flashcards in the persistence
      * @param currentFlashcard flashcard to be updated
      * @return Flashcard if updated successfully
      */
@@ -137,33 +137,54 @@ public class AccessFlashcards {
     }
 
     /**
-     * Method to update a true or false question in the persistence
-     * @param currentFlashcard
-     * @return
+     * Method to update a true or false flashcards in the persistence
+     * @param currentFlashcard flashcard to be updated
+     * @return Flashcard if updated successfully
      */
     public Flashcard updateTrueFalseFlashcard(TrueFalseQuestion currentFlashcard){
         return flashcardPersistence.updateTFQFlashcard(currentFlashcard);
     }
 
+    /**
+     * Method to update a typed answer flashcard in the persistence
+     * @param currentFlashcard flashcard to be updated
+     * @return Flashcard if updated successfully
+     */
     public Flashcard updateTypedAnswerFlashcard(TypedAnswerQuestion currentFlashcard){
         return flashcardPersistence.updateTypedFlashcard(currentFlashcard);
     }
 
+    /**
+     * Method to delete multiple choice flashcard from the persistence
+     * @param currentFlashcard flashcard to be deleted
+     */
     public void deleteMCQFlashcard(Flashcard currentFlashcard)
     {
         flashcardPersistence.deleteMCQFlashcard(currentFlashcard);
     }
 
+    /**
+     * Method to delete true or false flashcard from the persistence
+     * @param currentFlashcard flashcard to be deleted
+     */
     public void deleteTFQFlashcard(Flashcard currentFlashcard)
     {
         flashcardPersistence.deleteTFQFlashcard(currentFlashcard);
     }
 
+    /**
+     * Method to delete typed answer flashcard from the persistence
+     * @param currentFlashcard flashcard to be deleted
+     */
     public void deleteTypedFlashcard(Flashcard currentFlashcard)
     {
         flashcardPersistence.deleteTypedFlashcard(currentFlashcard);
     }
 
+    /**
+     * Method to get the first Multiple choice question in the database
+     * @return the flashcard with the first MCQ
+     */
     public Flashcard getFirstMCQFlashcard() {
         String result = null;
         if (flashcards == null)
@@ -184,6 +205,11 @@ public class AccessFlashcards {
         }
         return flashcard;
     }
+
+    /**
+     * Method to get the first True or false question in the database
+     * @return the flashcard with the first TFQ
+     */
     public Flashcard getFirstTFQFlashcard() {
         String result = null;
         if (flashcards == null)
@@ -204,6 +230,11 @@ public class AccessFlashcards {
         }
         return flashcard;
     }
+
+    /**
+     * Method to get the first Typed ansert question in the database
+     * @return the flashcard with the first Typed Answer Question
+     */
     public Flashcard getFirstTypedFlashcard() {
         String result = null;
         if (flashcards == null)
