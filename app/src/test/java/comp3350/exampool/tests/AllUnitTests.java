@@ -24,6 +24,6 @@ import comp3350.exampool.tests.objects.NotesTest;
         AccessUsersTest.class
 })
 
-public class AllTests {
+public class AllUnitTests {
 
 }

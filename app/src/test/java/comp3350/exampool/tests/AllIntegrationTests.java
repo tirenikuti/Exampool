@@ -13,5 +13,5 @@ import comp3350.exampool.tests.business.AccessNotesIT;
         AccessUsersIT.class,
         AccessNotesIT.class
 })
-public class IntegrationTests {
+public class AllIntegrationTests {
 }
