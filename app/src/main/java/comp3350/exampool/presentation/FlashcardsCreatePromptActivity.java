@@ -9,6 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import comp3350.exampool.R;
 
+/**
+ * Summary: The presentation layer containing the create prompt
+ * Description: This controls the layout file that displays the flashcard create
+ * prompt giving the option between Multiple Choice, Typed and True or False flashcards to create.
+ */
+
 public class FlashcardsCreatePromptActivity extends AppCompatActivity {
     /**
      * onCreate()

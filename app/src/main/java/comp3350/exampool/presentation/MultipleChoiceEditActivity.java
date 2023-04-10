@@ -13,6 +13,12 @@ import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.MultipleChoiceQuestion;
 
+/**
+ * Summary: The presentation layer containing the Multiple choice Flashcard edit page
+ * Description: This controls the layout file that allows users to edit multiple choice questions
+ * as well as their new options and correct answer
+ */
+
 public class MultipleChoiceEditActivity extends AppCompatActivity {
 
     private AccessFlashcards accessFlashcards;

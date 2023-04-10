@@ -9,7 +9,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import comp3350.exampool.R;
-
+/**
+ * Summary: The presentation layer containing the Flashcard quiz complete home
+ * Description: This controls the layout file that allows the user to see a score
+ * on their completed flashcard
+ */
 public class QuizComplete extends Activity {
     int score = 0;
 

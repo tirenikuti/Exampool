@@ -12,12 +12,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.TrueFalseQuestion;
-
+/**
+ * Summary: The presentation layer containing the True/False choice Flashcard edit page
+ * Description: This controls the layout file that allows users to edit true/false questions
+ * as well as change the correct answer
+ */
 public class TrueFalseEditActivity extends AppCompatActivity {
 
     private AccessFlashcards accessFlashcards;
     TrueFalseQuestion flashcard;
     String answer;
+
     /**
      * onCreate()
      * This is the initial creation of the  layout page to be displayed

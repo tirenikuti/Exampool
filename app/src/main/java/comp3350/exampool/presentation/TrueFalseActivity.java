@@ -11,7 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import comp3350.exampool.R;
 import comp3350.exampool.business.AccessFlashcards;
 import comp3350.exampool.objects.TrueFalseQuestion;
-
+/**
+ * Summary: The presentation layer containing the True/False Flashcard create page
+ * Description: This controls the layout file that allows users to input true/false questions
+ * as well as their correct answer
+ */
 public class TrueFalseActivity extends AppCompatActivity {
 
     private AccessFlashcards accessFlashcards;
